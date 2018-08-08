@@ -1,0 +1,103 @@
+/* pages/orderOwner/orderOwner.wxss */
+page{
+  width:100%;
+}
+.searchbox{
+  width:80%;
+  font-size: 30rpx;
+  margin:20rpx auto;
+  border-radius:10rpx;
+  padding:15rpx 30rpx;
+  background-color: #ededed;
+}
+.container_order{
+  /* height:930rpx; */
+  overflow: hidden;
+  background-color: #f5f5f5;
+  padding-top:20rpx;
+}
+.order{
+  padding: 20rpx;
+  margin:0rpx 25rpx 20rpx 25rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+.order .order_top{
+  text-align: left;
+  font-size: 25rpx;
+  overflow: hidden;
+  border-bottom: 1rpx solid #cccccc;
+  padding-bottom: 10rpx;
+  color:#757575;
+}
+.order .order_top .float_l{
+  float: left;
+  padding-left: 30rpx;
+}
+.order .order_top .float_r{
+  float: right;
+  padding-right: 10rpx;
+}
+.order .order_top .float_r .space_order{
+  font-size:25rpx;
+  color:red;
+  padding: 0 10rpx;
+}
+.order .order_top .float_r .status_order{
+  color:#30bc8f;
+}
+.order .order_container{
+  height:310rpx;
+}
+.order .order_container .headeimg{
+  width:150rpx;
+  height:150rpx;
+  border-radius: 50%;
+  background-color: #ededed;
+  float: left;
+  margin-top: 70rpx;
+  margin-left:20rpx;
+}
+.order .order_container .headeimg image{
+  width:150rpx;
+  height:150rpx;
+}
+.order .order_container .content{
+  width:460rpx;
+  float: left;
+  margin-top:20rpx;
+  margin-left:30rpx;
+}
+.order .order_container .content .msg{
+  color:#30bc8f;
+}
+.order .order_container .content .name{
+  font-size: 35rpx;
+  letter-spacing: 20rpx;
+}
+.order .order_container .content .phone{
+  font-size: 26rpx;
+}
+.order .order_container .content .tips{
+  color:#757575;
+  font-size: 30rpx;
+}
+.order .order_container .content .tips .iconfont{
+  font-size: 30rpx;
+}
+.order .order_container .content .tips .icon-fangwuxinxi{
+  font-size: 36rpx;
+  margin-left: -2rpx;
+}
+.order .order_container .content .tips .icon-mianji{
+  font-size: 35rpx;
+}
+.order .order_container .content .tips .words{
+  font-size: 25rpx;
+}
+.order .order_container .content .tips .cont{
+  width:90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

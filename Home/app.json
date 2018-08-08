@@ -1,0 +1,96 @@
+{
+  "pages": [
+    
+    "pages/view/userLogin/login/login",
+    "pages/view/userLogin/setInfo/setInfo",
+    "pages/view/userLogin/userInfo/userInfo",
+    "pages/view/userLogin/perfectUser/perfectUser",
+    
+    "pages/view/userLogin/quickLogon/quickLogon",
+    "pages/view/userLogin/missCipher/missCipher",
+    
+   
+    "pages/view/userLogin/setpass/setpass",
+    
+    "pages/view/orderHose/orderHose",
+    "pages/view/orderbasic/orderbasic",
+    "pages/view/orderother/orderother",
+    "pages/view/ordercontract/ordercontract",
+    "pages/view/orderconstruction/orderconstruction",
+    "pages/view/materialScience/materialScience",
+    "pages/view/wantAddEidt/wantAddEidt",
+    "pages/view/decorate/decorate", 
+    "pages/view/addDesigner/addDesigner",
+    "pages/view/orderWait/list/list",
+    "pages/view/orderWait/details/details",
+    "pages/view/orderWait/reportAccept/reportAccept",
+    "pages/view/orderWait/disclosureStart/disclosureStart",
+    "pages/view/orderOwner/details/details",
+    "pages/view/orderOwner/list/list",
+    "pages/view/orderOwner/followSubproject/followSubproject",
+    "pages/view/orderOwner/subprojScan/subprojScan",
+    "pages/view/orderOwner/addBasicinfo/addBasicinfo",
+    "pages/view/orderOwner/addConstruinfo/addConstruinfo",
+    "pages/view/orderOwner/disclosureStart/disclosureStart",
+    "pages/view/orderOwner/preview/preview",
+    "pages/view/orderOwner/reportAccept/reportAccept",
+    "pages/view/demandinformaction/demandinformaction",
+    
+    
+    
+    "pages/view/infoBox/comment/comment",
+    "pages/view/infoBox/orderDeil/orderDeil",
+    "pages/view/infoBox/info/info",
+    "pages/view/presentationBox/wantAdd/wantAdd",
+    "pages/view/presentationBox/newLook/newLook",
+    "pages/view/presentationBox/supervisor/supervisor",
+    "pages/view/presentationBox/accompany/accompany",
+    "pages/view/presentationBox/associationReport/associationReport",
+    "pages/view/presentationBox/disclose/disclose",
+    "pages/view/presentationBox/presentation/presentation"
+   
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#11b786",
+    "navigationBarTitleText": "净润家",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "color": "#6e6e6e",
+    "selectedColor": "#30bc8f",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/view/orderWait/list/list",
+        "text": "待结单",
+        "iconPath": "pages/images/icon/order1_common.png",
+        "selectedIconPath": "pages/images/icon/order1_selected.png"
+      },
+      {
+        "pagePath": "pages/view/orderOwner/list/list",
+        "text": "已接单",
+        "iconPath": "pages/images/icon/order2_common.png",
+        "selectedIconPath": "pages/images/icon/order2_selected.png"
+      },
+      {
+        "pagePath": "pages/view/presentationBox/presentation/presentation",
+        "text": "报告",
+        "iconPath": "pages/images/icon/order3_common.png",
+        "selectedIconPath": "pages/images/icon/order3_selected.png"
+      },
+      {
+        "pagePath": "pages/view/infoBox/info/info",
+        "text": "消息",
+        "iconPath": "pages/images/icon/order4_common.png",
+        "selectedIconPath": "pages/images/icon/order4_selected.png"
+      },
+      {
+        "pagePath": "pages/view/userLogin/userInfo/userInfo",
+        "text": "我的",
+        "iconPath": "pages/images/icon/order5_common.png",
+        "selectedIconPath": "pages/images/icon/order5_selected.png"
+      }
+    ]
+  }
+}

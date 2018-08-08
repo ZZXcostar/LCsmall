@@ -1,0 +1,26 @@
+
+.buttonStyle{
+  width: 80%;
+  margin: auto;
+}
+.marginTop{
+  margin-top: 20px;
+}
+.weui-cell{
+  padding: 6px 20px;
+}
+.iconfont{
+  font-size: 20px;
+  padding: 0px 10px;
+  color:#666;
+  margin-top: 6px;
+}
+.getcode {
+  border: none;
+  color:#fff;
+  background: #11b786;
+}
+.buttonStyle button{
+  background: #11b786;
+  color:#fff;
+}

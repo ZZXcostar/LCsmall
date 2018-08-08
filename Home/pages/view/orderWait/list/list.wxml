@@ -1,0 +1,75 @@
+<view class='page__owner'>
+  <view class='page_top'>
+      <input class='searchbox' placeholder='姓名、电话、楼盘名称'         placeholder-style='text-align:center' confirm-type='Search'>
+      </input>
+  </view>
+  <scroll-view class='container_order' scroll-y='true'>
+    <view class='order' wx:for='{{contentlist}}' bindtap='toDetails' data-workLists="{{item.workLists}}" data-info="{{item}}" data-id='item.id'>
+      <view class='order_top'>
+        <text class='float_l'>订单编号：{{item.orderInfo.number}}</text>
+        <text class='float_r'>
+          <text class='status_order'>{{
+          item.orderDetail?(item.orderDetail.serviceState==1?"未服务":item.orderDetail.serviceState==2?"服务中":item.orderDetail.serviceState==3?"已完成":""):""
+          }}</text>
+          <text class='space_order'>|</text>
+          <text class='service_order'>{{item.orderDetail?item.orderDetail.categoryName:""}}</text>
+        </text>
+      </view>
+      <view class='order_container'>
+        <view class='headeimg'><image></image></view>
+        <view class='content'>
+          <view class='msg'>
+            <text class='name'>{{item.name}}</text>
+            <text class='phone'>{{item.orderInfo.phone}}</text>
+          </view>
+          <view class='tips'>
+            <view class='cont'>
+              <view class='iconfont icon-fangwuxinxi'>
+                <text class='words'>房屋类型：{{item.commodityCategory?item.commodityCategory.name:""}}</text>
+              </view>
+            </view>
+            <view class='cont'>
+              <view class='iconfont .icon-fangwumianji'>
+                <text class='words'>房屋面积：{{item.acreage}}㎡</text>
+              </view>
+            </view>
+            <view class='cont'>
+              <view class='iconfont icon-fuwujiedian'>
+                <text class='words'>当前节点：{{item.conditon3}}</text>
+              </view>
+            </view>
+            <view class='cont'>
+              <view class='iconfont icon-fuwujiedian'>
+                <text class='words'>下个节点：{{item.conditon4}}</text>
+              </view>
+            </view>
+            <view class='cont'>
+              <text class='iconfont icon-location2'>
+                <text class='words'>{{item.orderDetail.detailAddress}}</text>
+              </text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='btngroup'>
+          <button class='prime'>立即接单</button>
+          <button class='warn' data-ids="{{item.id}}" data-workLists="{{item.workLists}}" catchtap='changeshows'>放弃接单</button>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="overback" hidden='{{showcancle}}' catchtap='changeshow' id='overback'>
+    <view class='dialog'>
+      <form bindsubmit="formSubmit">
+        <view class='header'>确认拒绝订单？</view>
+        <view class='dialog-content'>
+            <textarea name='text' class="weui-textarea" value="{{inputVal}}" placeholder="请输入放弃原因" />
+        </view>
+        <view class='btngroup'>
+            <button class="cancle" formType="submit">确认</button>
+            <view id='cancle' class="cancle" catchtap='changeshow'>取消</view>
+        </view>
+        </form>
+    </view>
+     
+  </view>
+</view>

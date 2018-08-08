@@ -1,0 +1,22 @@
+<view class='mtop'>
+<view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_access"  bindtap='goPerfect' >
+        <view class="weui-cell__bd">个人信息</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">
+        <!-- <image class='imageSzie' src='{{productInfo.bannerInfo[0].url}}'></image> -->
+        </view>
+    </view>
+    <navigator url="../setpass/setpass" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">修改密码</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator>
+    <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">当前版本</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">1.01</view>
+    </navigator>
+     
+</view>
+    <view class='buttonWidth'>
+      <button class="weui-btn" bindtap='loginOut'>退出账号</button>
+    </view>
+</view>

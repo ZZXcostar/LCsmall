@@ -1,0 +1,125 @@
+<view class='orderdetail'>
+    <view style='padding:10rpx 20rpx;margin-top:10rpx;'>
+          <text class='number'><text class='flag'>订单编号：</text><text class='red'>{{orderdetail.number}}</text>
+          </text>
+          <text class='servicename'>{{orderdetail.servicename}}</text>
+    </view>
+    <view>
+        <view class='titles'><text class='flag'>业主信息</text></view>
+        <view class='content_detail'>
+           <view>
+              <view class='half'>业主姓名：{{orderdetail.uesrname}}</view>
+              <view class='half'>联系方式：{{orderdetail.phone}}</view>
+           </view>
+           <view>
+              <view>业主地址：{{orderdetail.address}}</view>
+           </view>
+        </view>
+    </view> 
+    <!--陪签服务房屋信息  -->
+    <view wx:if='{{ispq}}'>
+        <view class='titles'><text class='flag'>房屋信息</text></view>
+        <view class='content_detail'>
+            <view style='border-bottom:1rpx #f5f5f5 solid;'>
+                <view class='half'>房屋类型：{{orderdetail.type_house}}</view>
+                <view class='half'>房屋面积：{{orderdetail.area_house}}㎡</view>
+            </view>
+            <view>
+                <view class='half'>预约时间：{{orderdetail.date_service}}</view>
+                <view class='half'>
+                  <picker style='position:relative;' bindchange="bindPickerChange" value="{{renovationIndex}}" range="{{typelist_renovation}}">
+                    <view class="picker">
+                      装修类型：{{typelist_renovation[renovationIndex]}}
+                    </view>
+                    <view class='borderstyle'></view>
+                  </picker>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!--监理服务房屋信息  -->
+    <view wx:if='{{isjl}}'>
+        <view class='titles'><text class='flag'>房屋信息</text></view>
+        <view class='content_detail'>
+            <view style='border-bottom:1rpx #cccccc solid;'>
+                <view class='half'>房屋类型：{{orderdetail.type_house}}</view>
+                <view class='half'>房屋面积：{{orderdetail.area_house}}㎡</view>
+            </view>
+            <view style='border-bottom:1rpx #cccccc solid;'>
+                <view class='half'>
+                  <picker style='position:relative;' bindchange="bindPickerChange_currentnode" value="{{nodescurrentIndex}}" range="{{nodes_current}}">
+                    <view class="picker">
+                      当前节点：{{nodes_current[nodescurrentIndex]}}
+                    </view>
+                    <view class='borderstyle'></view>
+                  </picker>
+                </view>
+                <view class='half'>
+                  <picker style='position:relative;'  mode="date" bindchange="bindDatechange_currentnode" value="{{date_currentnode}}" >
+                    <view class="picker">
+                      <text class='iconfont icon-rili'></text>：{{date_currentnode}}
+                    </view>
+                    <view class='borderstyle' style='left:50rpx;width:70%'></view>
+                  </picker>
+                </view>
+            </view>
+            <view style='border-bottom:1rpx #cccccc solid;'>
+                <view class='half'>
+                  <picker style='position:relative;' bindchange="bindPickerChange_nextnode" value="{{nodesnextIndex}}" range="{{nodes_next}}">
+                    <view class="picker">
+                      下个节点：{{nodes_next[nodesnextIndex]}}
+                    </view>
+                    <view class='borderstyle'></view>
+                  </picker>
+                </view>
+                <view class='half'>
+                  <picker style='position:relative;'  mode="date" bindchange="bindDatechange_nextnode" value="{{date_nextnode}}" >
+                    <view class="picker">
+                      <text class='iconfont icon-rili'></text>：{{date_nextnode}}
+                    </view>
+                    <view class='borderstyle' style='left:50rpx;width:70%'></view>
+                  </picker>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view>
+        <view class='titles'>
+            <text class='flag'>客服备注</text>
+        </view>
+        <view class='content_detail'>
+            <text>{{orderdetail.remark}}</text>
+        </view>
+    </view>
+    <view style='position:relative;'>
+        <view class="weui-navbar">
+            <block wx:for="{{tabs}}" wx:key="*this">
+                <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                    <view class="weui-navbar__title">{{item.name}}</view>
+                </view>
+            </block>
+            <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+        </view>
+        <view class="weui-tab__panel">
+            <view wx:for="{{tabs}}" wx:key="*this" class="weui-tab__content" hidden="{{activeIndex != index}}">
+                <view bindtap='toDetail' wx:for="{{item.list}}" wx:key='this' class='switchlist'>{{item}} <text class='iconfont icon-jiantou flag_jt'></text></view>
+            </view>
+        </view>
+    </view>
+    <view class='btns weui-flex'>
+        <button class="weui-btn weui-flex__item" type="warn" bindtap='changeshow'>申请放弃派单</button>
+        <button class="weui-btn weui-flex__item" type="primary">立即派单</button>
+    </view>
+    <view class="overback" hidden='{{showcancle}}' catchtap='changeshow' id='overback'>
+      <view class='dialog'>
+          <view class='header'>确认拒绝订单？</view>
+          <view class='dialog-content'>
+              <textarea class="weui-textarea" placeholder="请输入放弃原因" />
+          </view>
+          <view class='btngroup'>
+              <view  class="certain" catchtap='giveupOrder'>确认</view>
+              <view id='cancle' class="cancle" catchtap='changeshow'>取消</view>
+          </view>
+      </view>
+    </view>
+</view>
