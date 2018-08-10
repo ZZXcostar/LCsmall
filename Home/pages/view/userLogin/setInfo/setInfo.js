@@ -85,8 +85,9 @@ Page({
   loginOut:function(){
     network.requestLoading(
       utilBox.urlheader + "public/logout", {},
-      "登录中请稍等...",
+      "正在退出...",
       function(res){
+        console.log(res)
         if(res.status==200){
           wx.navigateTo({
             url: '../login/login',
@@ -94,7 +95,7 @@ Page({
           wx.clearStorageSync("userInfo");
         }else{
           wx.showToast({
-            title: 'res.info',
+            title: res.info,
           })
         }
       },

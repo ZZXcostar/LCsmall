@@ -59,19 +59,19 @@
               <view class='listBoxTop'>
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
-                    <view class="weui-cell__bd">订单编号:{{item.orderNumber}}</view>
+                    <view class="weui-cell__bd">订单编号:{{item.orderNum}}</view>
                     <view class="weui-cell__ft">{{item.types}}
                       <view class='linebox'></view>{{item.typedata}}</view>
                   </view>
                 </view>
               </view>
-              <view class='listBoxmiddle' bindtap='gopresent' data-type="{{item.typedata}}">
+              <view class='listBoxmiddle' bindtap='gopresent' data-type="{{item.typedata}}" data-reportId="{{item.reportId}}">
                 <view class='imgBox'>
                   <image src="../../../images/logo.png"></image>
                 </view>
                 <view class='userInfoBox'>
                   <view class='textinfo'>{{item.name}}
-                    <text>13111111111</text>
+                    <text>{{item.phone}}</text>
                   </view>
                   <view class='textOver'>
                     <view class="iconfont icon-add"></view>
@@ -91,14 +91,14 @@
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
                     <view class="weui-cell__bd"></view>
-                    <button class="weui-btn buttonSize" bindtap='goassociationReport' type="primary">关联报告</button>
+                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.reportId}}" type="primary">关联报告</button>
                   </view>
                 </view>
               </view>
             </view>
           </view>
         </view>
-        <view class="weui-tab__content" hidden="{{activeIndex != 1}}"><view class='rightBox'>
+        <!-- <view class="weui-tab__content" hidden="{{activeIndex != 1}}"><view class='rightBox'>
             <view class='listBox' wx:for="{{orderdataeList}}">
               <view class='listBoxTop'>
                 <view class=" weui-cells_after-title">
@@ -135,7 +135,7 @@
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
                     <view class="weui-cell__bd"></view>
-                    <button class="weui-btn buttonSize" bindtap='goassociationReport' type="primary">关联报告</button>
+                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{reportId}}" type="primary">关联报告</button>
                   </view>
                 </view>
               </view>
@@ -178,7 +178,7 @@
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
                     <view class="weui-cell__bd"></view>
-                    <button class="weui-btn buttonSize" bindtap='goassociationReport' type="primary">关联报告</button>
+                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{reportId}}" type="primary">关联报告</button>
                   </view>
                 </view>
               </view>
@@ -221,15 +221,15 @@
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
                     <view class="weui-cell__bd"></view>
-                    <button class="weui-btn buttonSize" bindtap='goassociationReport' type="primary">关联报告</button>
+                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{reportId}}" type="primary">关联报告</button>
                   </view>
                 </view>
               </view>
             </view>
-          </view></view>
+          </view></view> -->
       </view>
       <view class='leftBox leftSize'>
-        <view class="{{currentTab==index?'sizeActive':''}}" data-current="{{index}}" bindtap="clickTab" wx:for="{{listInfo}}">{{item.name}}</view>
+        <view class="{{currentTab==index?'sizeActive':''}}" data-current="{{index}}" bindtap="clickTab" wx:for="{{listInfo}}" data-currentTabId="{{item.id}}">{{item.serName}}</view>
         <!-- <view>精装</view>
         <view>毛培</view>
         <view>决算</view>

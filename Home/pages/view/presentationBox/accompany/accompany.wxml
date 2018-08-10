@@ -2,7 +2,7 @@
   <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell">
       <view class="weui-cell__bd">
-        <view class="lineGreen"></view>订单编号：2935995059505</view>
+        <view class="lineGreen"></view>订单编号：{{orderInfo.orderInfo.number}}</view>
       <view class="weui-cell__ft">监理服务</view>
     </view>
     <view class='viewBox userInfo'>
@@ -12,19 +12,19 @@
         <view class="weui-flex">
           <view class="weui-flex__item">
             <view class="placeholder">业主姓名：
-              <text>汪升维</text>
+              <text>{{orderInfo.orderInfo.name}}</text>
             </view>
           </view>
           <view class="weui-flex__item">
             <view class="placeholder">联系方式：
-              <text>13568981234</text>
+              <text>{{orderInfo.orderInfo.phone}}</text>
             </view>
           </view>
         </view>
         <view class="weui-flex">
           <view class="weui-flex__item">
             <view class="placeholder">业主地址：
-              <text>杭州市西湖区科技园南区R2-B三楼步步高duyB</text>
+              <text>{{orderInfo.orderInfo.detailAddress}}</text>
             </view>
           </view>
         </view>
