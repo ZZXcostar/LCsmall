@@ -29,7 +29,9 @@ Page({
       },
       method: 'post',
       success: function (res) {
-        console.log(res.data.info)
+        console.log(res.data.info[0])
+        console.log(res)
+        res.data.info[0].acreage=parseInt(res.data.info[0].acreage)
         that.setData({
           orderInfo: res.data.info[0]
         })

@@ -77,21 +77,18 @@
                     <view class="iconfont icon-add"></view>
                     <text>{{item.add}}</text>
                   </view>
-                  <view>
+                  <view wx:for="{{item.node}}" wx:for-item="ite">
                     <view class="iconfont icon-jixiang"></view>
-                    <text>当前节点：{{item.node}}</text>
+                    <text>当前节点：{{ite.reportname}}</text>
                   </view>
-                  <view>
-                    <view class="iconfont icon-jixiang"></view>
-                    <text>当前节点：{{item.nextnode}}</text>
-                  </view>
+                 
                 </view>
               </view>
               <view class='listBoxbottom'>
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
                     <view class="weui-cell__bd"></view>
-                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.reportId}}" type="primary">关联报告</button>
+                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.projectEstablishId}}" type="primary">关联报告</button>
                   </view>
                 </view>
               </view>

@@ -63,7 +63,7 @@ let isQQ = (str) => {
 
 
 let userInfo = wx.getStorageSync("userInfo");
-let urlheader = "https://api.jingrunjia.com.cn/api/" 
+let urlheader = "https://api.shhongzhiyun.com/api/" 
 let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
 let arr = reg.exec(userInfo.adminPassword);
 let cookie = RegExp.$1;

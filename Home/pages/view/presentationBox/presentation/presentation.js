@@ -145,7 +145,7 @@ Page({
       wx.navigateTo({
         url: '../accompany/accompany?reportid='+orderId,
       })
-    } else if (val.currentTarget.dataset.type == "监理服务"){
+    } else if (val.currentTarget.dataset.type == "监理"){
       wx.navigateTo({
         url: '../supervisor/supervisor?reportid=' + orderId,
       })
@@ -158,6 +158,7 @@ Page({
     let userInfo = wx.getStorageSync("userInfo");
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
     let arr = reg.exec(userInfo.adminPassword);
+    console.log(userInfo)
     let cookie = RegExp.$1;
     console.log(topNav)
     console.log(leftNav)
@@ -172,7 +173,6 @@ Page({
       },
       method: 'post',
       success: function (res) {
-        console.log(res.data.info)
         let data = res.data.info
         var newData=[]
         if(data!=null){
@@ -183,34 +183,31 @@ Page({
             obj.orderNum = data[i].projectEstablish.orderDetail.orderNumber;
             obj.add = data[i].projectEstablish.orderDetail.detailAddress;
             obj.types = that.data.tabs[that.data.activeIndex];
-            obj.typedata = data[i].projectEstablish.orderDetail.categoryName
-            obj.reportId = data[i].projectEstablishId
+            obj.typedata = data[i].projectEstablish.orderDetail.serviceStateName
+            obj.reportId = data[i].projectEstablishId;
+            obj.node = data[i].projectEstablish.entryReports
+            var index = -1;
+            if (obj.node.length>2){
+              for (let j = 0; j < obj.node.length; j++) {
+                if (obj.node[i].okCount == obj.node[i].reportCount) {
+                  index=i
+                }
+              }
+              if(index==-1){
+                obj.node=obj.node.splice(0,2)
+              } else if (index == obj.node.length-1){
+                obj.node = obj.node.splice(index, 1)
+              }else{
+                obj.node = obj.node.splice(index, 2)
+              }
+            }
             newData.push(obj)
           }
-          wx.request({
-            url: utilBox.urlheader + "public/entryreport/query", //仅为示例，并非真实的接口地址
-            data: {
-              serviceTypeId :1,
-              projectId:data[0].projectEstablishId
-            },
-            header: {
-              'content-type': 'application/json', // 默认值
-              cookie: cookie
-            },
-            method: 'post',
-            success: function (res) {
-              console.log(res)
-            },
-            fail: function (err) {
-              console.log(err)
-            }
-
-          })
         }
-        console.log(newData)
         that.setData({
           orderdataeList: newData
         })
+        console.log(that.data.orderdataeList)
       },
       fail: function (err) {
         console.log(err)

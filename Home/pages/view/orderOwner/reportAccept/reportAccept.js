@@ -1,46 +1,33 @@
 // pages/view/orderOwner/reportAccept/reportAccept.js
+var utilBox = require("../../../../utils/utilBox.js");
+var network = require("../../../../utils/network.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    orderId:"",
+    types:"",
     imglist: [
-      {
-        src: '../../../images/ok.png'
-      },
-      {
-        src: '../../../images/ok.png'
-      },
-      {
-        src: '../../../images/ok.png'
-      },
-      {
-        src: '../../../images/ok.png'
-      },
-      {
-        src: '../../../images/ok.png'
-      },
-      {
-        src: '../../../images/ok.png'
-      },
-      {
-        src: '../../../images/ok.png'
-      }
     ],
     tabs: [
       {
-        name: '合格',
+        name: '不合格',
         list: ['检测说明', '解决方案', '施工隐患', '解决方法']
       },
       {
-        name: '不合格',
-        list: ['检测说明', '解决方案', '施工隐患', '解决方法']
+        name: '合格',
+        list: ['检测说明']
       }
     ],
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
+    cookie:"",
+    bgId:"",
+    standard:"",
+    acceptance:""
   },
   // 切换内容tabs
   tabClick: function (e) {
@@ -49,59 +36,129 @@ Page({
       activeIndex: e.currentTarget.id
     });
   },
+  uploadImg(){
+    let that = this;
+    var imglist = this.data.imglist;
+      wx.chooseImage({
+        count: 9, // 默认9
+        sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+        sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+        success: res => {
+          wx.showToast({
+            title: '正在上传...',
+            icon: 'loading',
+            mask: true,
+            duration: 1000
+          })
+          // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+          let tempFilePaths = res.tempFilePaths;
+          let newImgList = imglist.concat(tempFilePaths)
+          that.setData({
+            imglist: newImgList
+          })
+        }
+      })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
-  },
+    console.log(options.id, options.types)
+    let userInfo = wx.getStorageSync("userInfo");
+    let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
+    let arr = reg.exec(userInfo.adminPassword);
+    let cookie = RegExp.$1;
+    console.log(options.bgid)
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+    this.setData({
+      orderId: options.id,
+      types: options.types,
+      cookie: cookie,
+      bgId: options.bgid,
+      standard: options.standard,
+      acceptance: options.acceptance
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  noNeed(){
+    var that = this;
+    var cookie = this.data.cookie
+    var id=that.data.bgId
+    console.log
+    // 订单信息查询
+    wx.request({
+      url: utilBox.urlheader + "public/entryreport/updateType", //仅为示例，并非真实的接口地址
+      data: {
+        isService:2,
+        reportId: id,
+        id: that.data.orderId,
+        remark:"无需验收"
+      },
+      header: {
+        'content-type': 'application/json', // 默认值
+        cookie: cookie
+      },
+      method: 'post',
+      success: function (res) {
+        console.log("修改成功")
+        wx.navigateTo({
+          url: '../../presentationBox/disclose/disclose?id=' + that.data.bgId,
+        })
+      },
+      fail: function (err) {
+        console.log(err)
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  formSub(e){
+    var that = this;
+    var cookie = this.data.cookie
+    var id = that.data.bgId
+    var aa0 = e.detail.value.aa00
+    var aa1 = e.detail.value.aa01
+    var aa2 = e.detail.value.aa02
+    var aa3 = e.detail.value.aa03
+    var aa10 = e.detail.value.aa10
+    var imgList = this.data.imglist;
+    var a0= aa0==""? aa10 : aa0
+    console.log(e.detail.value)
+    var img=""
+    for (var i = 0; i < imgList.length;i++){
+      if (imgList.length == 0 && i == (imgList.length-1)){
+        img += imgList[i]
+      }else{
+        img += imgList[i] + ","
+      }
+    }
+    console.log(this.data.activeIndex)
+    console.log(img)
+    // 订单信息查询
+    wx.request({
+      url: utilBox.urlheader + "public/entryreport/updateType",
+      data: {
+        isService: that.data.activeIndex,
+        reportId: id,
+        id: that.data.orderId,
+        imgs:img,
+        instructions:a0,
+        solution:aa1,
+        hdanger:aa2,
+        solutionf:aa3,
+        remark:"合格与不合格"
+      },
+      header: {
+        'content-type': 'application/json', // 默认值
+        cookie: cookie
+      },
+      method: 'post',
+      success: function (res) {
+        console.log("修改成功")
+        wx.navigateTo({
+          url: '../../presentationBox/disclose/disclose?id=' + that.data.bgId,
+        })
+      },
+      fail: function (err) {
+        console.log(err)
+      }
+    })
   }
 })

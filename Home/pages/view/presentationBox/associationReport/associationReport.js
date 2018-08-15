@@ -38,7 +38,7 @@ Page({
     let cookie = RegExp.$1;
     wx.request({
       url: utilBox.urlheader + "public/entryreport/queryMapByProjectIds", //仅为示例，并非真实的接口地址
-      data:[id],
+      data:[2],
       header: {
         'content-type': 'application/json', // 默认值
         cookie: cookie
@@ -46,6 +46,9 @@ Page({
       method: 'post',
       success: function (res) {
         console.log(res.data.info.list)
+        that.setData({
+          list: res.data.info.list
+        })
       },
       fail: function (err) {
         console.log(err)

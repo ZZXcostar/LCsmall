@@ -1,21 +1,23 @@
+<form bindsubmit="formSub">
 <view class='reportaccept'>
+ 
     <view style='padding:10rpx 20rpx;margin-top:10rpx;'>
-          <text class='number'><text class='flag'>订单编号：</text><text class='red'>123456</text>
+          <text class='number'><text class='flag'>订单编号：</text><text class='red'>{{orderId}}</text>
           </text>
     </view>
     <view>
-        <view class='titles'><text class='flag'>墙地面实测,验收表面平整度</text></view>
+        <view class='titles'><text class='flag'>测试项目{{types}}</text></view>
         <view class='content_detail'>
            <view style='border-bottom:1rpx solid #cccccc;padding-bottom:15rpx;'>
               <view class='name'>验收标准：</view>
               <view class='content'>
-                  <textarea placeholder='请输入验证标准' placeholder-class='holder'></textarea>
+                  <textarea placeholder='请输入验证标准' value='{{standard}}' placeholder-class='holder'></textarea>
               </view> 
            </view>
            <view>
               <view class='name'>验收方式：</view>
               <view class='content'>
-                  <input placeholder='请输入验证方式' placeholder-class='holder' />
+                  <input placeholder='请输入验证方式' value='{{acceptance}}' placeholder-class='holder' />
               </view> 
            </view>
         </view>
@@ -23,11 +25,11 @@
     <view>
         <view class='titles'><text class='flag'>上传图片</text></view>
         <view  class='content_detail imglist'>
-            <image class='imgs' wx:for="{{imglist}}" data-src='{{item.src}}'  mode="scaleToFill" src="{{item.src}}" bindtap='enlarge'></image>
-            <view class='uploadimg'>
+            <image class='imgs' wx:for="{{imglist}}" data-src='{{item}}'  mode="scaleToFill" src="{{item}}" bindtap='enlarge'></image>
+            <view class='uploadimg' bindtap="uploadImg">
               <view class='iconfont icon-zhaoxiangji'></view>
-              <view style='font-size:20rpx;text-align:center;'>单次上传</view>
-              <view style='font-size:20rpx;text-align:center;'>最多10张</view>
+              <!-- <view style='font-size:20rpx;text-align:center;'>单次上传</view>
+              <view style='font-size:20rpx;text-align:center;'>最多10张</view> -->
           </view> 
         </view>
     </view>
@@ -45,14 +47,15 @@
                 <view bindtap='toDetail' wx:for="{{item.list}}" wx:key='this' class='switchlist'>
                     <view class='label' style='float:left;'>{{item}}：</view>
                     <view class='content'>
-                        <textarea auto-height='{{true}}'></textarea>
+                        <textarea auto-height='{{true}}' name="aa{{activeIndex}}{{index}}"></textarea>
                     </view>
                 </view>
             </view>
         </view>
     </view>
     <view class='btns weui-flex'>
-        <button class="weui-btn weui-flex__item" type="warn">无需验收</button>
-        <button class="weui-btn weui-flex__item" type="primary">保存</button>
+        <button class="weui-btn weui-flex__item" type="warn" bindtap='noNeed'>无需验收</button>
+        <button class="weui-btn weui-flex__item" formType="submit" bindtap='save'>保存</button>
     </view>
 </view>
+</form>

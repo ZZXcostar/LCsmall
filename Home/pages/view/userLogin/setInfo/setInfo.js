@@ -83,22 +83,44 @@ Page({
     });
   },
   loginOut:function(){
-    network.requestLoading(
-      utilBox.urlheader + "public/logout", {},
-      "正在退出...",
-      function(res){
+    // network.requestLoading(
+    //   utilBox.urlheader + "public/logout", {},
+    //   "正在退出...",
+    //   function(res){
+    //     console.log(res)
+    //     if(res.status==200){
+    //       wx.navigateTo({
+    //         url: '../login/login',
+    //       })
+    //       wx.clearStorageSync("userInfo");
+    //     }else{
+    //       wx.showToast({
+    //         title: res.info,
+    //       })
+    //     }
+    //   },
+    //   function(res){},"get")
+    wx.request({
+      url: utilBox.urlheader + "public/logout", //仅为示例，并非真实的接口地址
+      method: 'get',
+      success: function (res) {
         console.log(res)
-        if(res.status==200){
+        if (res.statusCode == 200) {
+          console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
           wx.navigateTo({
             url: '../login/login',
           })
           wx.clearStorageSync("userInfo");
-        }else{
+        } else {
           wx.showToast({
             title: res.info,
           })
         }
       },
-      function(res){},"get")
+      fail: function (err) {
+        console.log(err)
+      }
+    })
+
   }
 })
