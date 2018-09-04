@@ -115,7 +115,7 @@ page{
   color:#fff;
 }
 .btngroup button.prime{
-  background-color: #11b786;
+  background-color: #1bd375;
 }
 .btngroup button.warn{
   background-color: #d7434d;
@@ -173,7 +173,7 @@ border:1px solid #ddd;
   text-align: center;
   font-size: 25rpx;
   margin-top:0rpx;
-  color:#11b786;
+  color:#1bd375;
   width:50%;
   padding-top:20rpx;
   padding-bottom: 20rpx;

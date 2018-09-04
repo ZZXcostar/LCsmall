@@ -106,7 +106,7 @@
   margin-top:0rpx;
 }
 .weui-btn[type='primary']{
-  background-color: #11b786;
+  background-color: #1bd375;
 }
 .weui-btn[type='warn']{
   background-color: #d7434d;
@@ -157,7 +157,7 @@
   text-align: center;
   font-size: 25rpx;
   margin-top:0rpx;
-  color:#11b786;
+  color:#1bd375;
   width:50%;
   padding-top:20rpx;
   padding-bottom: 20rpx;

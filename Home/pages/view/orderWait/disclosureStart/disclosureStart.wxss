@@ -4,13 +4,13 @@ view{
 }
 .weui-cells__title{
   font-size: 16px;
-  color: #11b786;
+  color: #1bd375;
 }
 .cur{
   color: #d7434d;
 }
 .okg{
-  color: #11b786;
+  color: #1bd375;
 }
 .icon-start{
   display: inline-block;

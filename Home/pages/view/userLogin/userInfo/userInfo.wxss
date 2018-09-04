@@ -3,7 +3,7 @@
 }
 .userBox{
   height: 120px;
-  background: #11b786;
+  background: #1bd375;
 }
 .boxImg{
   position: absolute;
@@ -57,7 +57,7 @@
   top: 20%;
 }
 .green {
-  color: #11b786;
+  color: #1bd375;
 }
 .userInfo text{
   display: block;

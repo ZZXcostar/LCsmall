@@ -54,7 +54,7 @@ view{
   
 }
 .weui-btn-area button{
- background: #11b786;
+ background: #1bd375;
  color: #fff;
  border-radius: 0;
 }

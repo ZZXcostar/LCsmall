@@ -7,7 +7,7 @@
  border: none;
  width: 80%;
  margin: auto;
- background: #11b786;
+ background: #1bd375;
  color:#fff;
 }
 .isOk{

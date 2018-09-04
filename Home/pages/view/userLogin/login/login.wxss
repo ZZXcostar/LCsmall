@@ -14,7 +14,7 @@
 .cimgSize text{
   
   font-size:18px;
-  color:#11b786;
+  color:#1bd375;
   font-family:"微软雅黑";
   font-weight: 700;
   display: block;
@@ -42,14 +42,14 @@
   color: #fff;
 }
 .buttonStyle button{
-  background: #11b786;
+  background: #1bd375;
    border-radius: 10px; 
 }
 .boxpositio .weui-cell__bd{
    font-size: 16px;
   padding: 4px 0px 4px 4px;
   margin-top: 20px;
-  border:1px solid #11b786;
+  border:1px solid #1bd375;
   border-radius: 50px; 
  
 }
@@ -57,7 +57,7 @@
   /* font-size: 16px;
   padding: 4px 0px 4px 4px;
   margin-top: 20px;
-  border:1px solid #11b786;
+  border:1px solid #1bd375;
   border-radius: 50px; */
   
 }
@@ -74,7 +74,7 @@
   font-size:40px;
   text-align: left;
   line-height: 40px;
-  color:#11b786;
+  color:#1bd375;
 }
 .textIfo {
   margin-top: 40px;

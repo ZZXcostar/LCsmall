@@ -15,7 +15,7 @@
   background: #fff;
 }
 .textGreen{
-  color: #11b786;
+  color: #1bd375;
   margin-top: 20px;
 }
 .buttonSize{
@@ -23,7 +23,7 @@
   line-height: 30px;
   font-size: 14px;
   margin-top: 20px;
-  background: #11b786;
+  background: #1bd375;
   color: #fff;
   width:84px;
   margin-right: 10px;

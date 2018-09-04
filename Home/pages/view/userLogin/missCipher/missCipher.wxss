@@ -18,9 +18,9 @@
 .getcode {
   border: none;
   color:#fff;
-  background: #11b786;
+  background: #1bd375;
 }
 .buttonStyle button{
-  background: #11b786;
+  background: #1bd375;
   color:#fff;
 }

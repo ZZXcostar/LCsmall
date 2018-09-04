@@ -94,5 +94,5 @@
   margin-top:0rpx;
 }
 .weui-btn[type='primary']{
-  background-color: #11b786;
+  background-color: #1bd375;
 }

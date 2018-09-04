@@ -63,6 +63,6 @@
 .btngroup button{
   height:80rpx;
   line-height: 2;
-  background-color: #11b786;
+  background-color: #1bd375;
   border-radius: 0;
 }

@@ -24,7 +24,7 @@ view{
 .lineBox{
   width: 3px;
   height: 12px;
-  background: #11b786;
+  background: #1bd375;
   display: inline-block;
   margin-right: 10px;
   position: relative;
@@ -39,6 +39,6 @@ view{
 }
 .weui-btn-area button{
 border-radius: 0;
-background: #11b786;
+background: #1bd375;
 color: #fff;
 }
