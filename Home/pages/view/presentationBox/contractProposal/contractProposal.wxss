@@ -1,6 +1,3 @@
-page{
-  background: #eeeeee
-}
 view{
   font-size: 12px;
   color:#3f3f3f;
@@ -20,20 +17,23 @@ view{
   border: none;
   width: 40%;
   float: left;
-  line-height: 40px;
+  line-height: 35px;
 }
 .newcheckSzie{
   float: left;
-  line-height: 40px;
+  line-height: 35px;
   padding-top: 6px;
 }
+.weui-panel__bd{
+  padding: 20rpx;
+}
 .newWidth{
-  width: 90%;
-  margin-left: 5%;
+  width:50%;
+  padding-left: 5%;
+  box-sizing: border-box;
   float: left;
-  line-height: 40px;
-  min-height: 40px;
-  border-bottom: 1px solid #ddd;
+  line-height: 35px;
+  min-height: 35px;
 }
 .leftBox{
   float: left;
@@ -52,10 +52,20 @@ view{
   width: 100%;
   margin: 0;
   padding: 0;
-  
+  position: fixed;
+  bottom: 0px;
 }
 .weui-btn-area button{
  background: #11b786;
  color: #fff;
  border-radius: 0;
+}
+.inp{
+  width: 90%;
+  background: #eee;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  padding: 0rpx 14rpx;
+  box-sizing: border-box;
+  height: 80rpx;
 }

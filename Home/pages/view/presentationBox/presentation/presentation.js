@@ -21,41 +21,7 @@ Page({
       { "name": "单次水电" },
       { "name": "单次泥工" }
       ],
-    orderdataeList:[
-      {orderNumber:'201814815144',
-      types:"服务中",
-      typedata:"监理服务",
-      name:"张三",
-      add:"杭州市胜多负少发链接是登陆副科级",
-      node:"开工交点3.0",
-      nextnode:"验收节点3.0"
-      }, 
-      {
-        orderNumber: '201814815144',
-        types: "服务中",
-        typedata: "陪迁服务",
-        name: "张三",
-        add: "杭州市胜多负少发链接是登陆副科级",
-        node: "开工交点3.0",
-        nextnode: "验收节点3.0"
-      },
-      {orderNumber: '201814815144',
-        types: "服务中",
-        typedata: "陪迁服务",
-        name: "张三",
-        add: "杭州市胜多负少发链接是登陆副科级",
-        node: "开工交点3.0",
-        nextnode: "验收节点3.0"
-      },
-      {orderNumber: '201814815144',
-        types: "服务中",
-        typedata: "陪迁服务",
-        name: "张三",
-        add: "杭州市胜多负少发链接是登陆副科级",
-        node: "开工交点3.0",
-        nextnode: "验收节点3.0"
-      }
-      ]
+    orderdataeList:[]
   },
   onLoad: function () {
     var that = this;
@@ -141,6 +107,7 @@ Page({
   gopresent: function (val){
     console.log(val.currentTarget.dataset.reportid)
     let orderId = val.currentTarget.dataset.reportid
+    console.log(val.currentTarget.dataset.type)
     if(val.currentTarget.dataset.type == "陪签"){
       wx.navigateTo({
         url: '../accompany/accompany?reportid='+orderId,
@@ -158,7 +125,6 @@ Page({
     let userInfo = wx.getStorageSync("userInfo");
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
     let arr = reg.exec(userInfo.adminPassword);
-    console.log(userInfo)
     let cookie = RegExp.$1;
     console.log(topNav)
     console.log(leftNav)
@@ -178,7 +144,7 @@ Page({
         if(data!=null){
           for (let i = 0; i < data.length; i++) {
             let obj = {}
-            obj.name = data[i].projectEstablish.orderDetail.name;
+            obj.name = data[i].projectEstablish.name;
             obj.phone = data[i].projectEstablish.orderDetail.phone;
             obj.orderNum = data[i].projectEstablish.orderDetail.orderNumber;
             obj.add = data[i].projectEstablish.orderDetail.detailAddress;
@@ -204,10 +170,10 @@ Page({
             newData.push(obj)
           }
         }
+        console.log(res)
         that.setData({
           orderdataeList: newData
         })
-        console.log(that.data.orderdataeList)
       },
       fail: function (err) {
         console.log(err)

@@ -2,37 +2,32 @@
   "pages": [
     "pages/view/userLogin/login/login",
     "pages/view/presentationBox/presentation/presentation",
-    
+    "pages/view/demandinformaction/demandinformaction",
+    "pages/view/presentationBox/dataInfo/dataInfo",
+    "pages/view/materialScience/materialScience",
+    "pages/view/presentationBox/contractProposal/contractProposal",
+    "pages/view/presentationBox/onstructionDrawings/onstructionDrawings",
     "pages/view/orderOwner/reportAccept/reportAccept",
-   
-    
     "pages/view/orderWait/reportAccept/reportAccept",
     "pages/view/presentationBox/disclose/disclose",
-    
-    
-    
     "pages/view/presentationBox/wantAdd/wantAdd",
     "pages/view/userLogin/setInfo/setInfo",
     "pages/view/userLogin/userInfo/userInfo",
     "pages/view/userLogin/perfectUser/perfectUser",
-   
     "pages/view/userLogin/quickLogon/quickLogon",
     "pages/view/userLogin/missCipher/missCipher",
     "pages/view/presentationBox/newLook/newLook",
     "pages/view/userLogin/setpass/setpass",
-    
     "pages/view/orderHose/orderHose",
     "pages/view/orderbasic/orderbasic",
     "pages/view/orderother/orderother",
     "pages/view/ordercontract/ordercontract",
     "pages/view/orderconstruction/orderconstruction",
-    "pages/view/materialScience/materialScience",
     "pages/view/wantAddEidt/wantAddEidt",
-    "pages/view/decorate/decorate", 
+    "pages/view/decorate/decorate",
     "pages/view/addDesigner/addDesigner",
     "pages/view/orderWait/list/list",
     "pages/view/orderWait/details/details",
-    
     "pages/view/orderWait/disclosureStart/disclosureStart",
     "pages/view/orderOwner/details/details",
     "pages/view/orderOwner/list/list",
@@ -42,20 +37,13 @@
     "pages/view/orderOwner/addConstruinfo/addConstruinfo",
     "pages/view/orderOwner/disclosureStart/disclosureStart",
     "pages/view/orderOwner/preview/preview",
-    
-    "pages/view/demandinformaction/demandinformaction",
-    
-    
-    
     "pages/view/infoBox/comment/comment",
     "pages/view/infoBox/orderDeil/orderDeil",
     "pages/view/infoBox/info/info",
-   
-    
     "pages/view/presentationBox/supervisor/supervisor",
     "pages/view/presentationBox/accompany/accompany",
     "pages/view/presentationBox/associationReport/associationReport"
-   
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

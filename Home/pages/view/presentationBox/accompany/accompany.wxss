@@ -17,6 +17,19 @@ page{
 .mtop .weui-cell__bd, .mtop .newTop, .mtop .weui-cell__ft {
    font-size: 14px !important;
 }
+.switchlist{
+  padding:25rpx 20rpx;
+  border-bottom:1rpx solid #f5f5f5;
+  font-size: 28rpx;
+  position: relative;
+}
+.switchlist text{
+  position: absolute;
+  right: 20rpx
+}
+.weui-navbar__slider{
+  width: 33.3%;
+}
 .lineGreen{
   height: 14px;
   width: 4px;
@@ -77,4 +90,8 @@ border:none;
   width: 50%;
   display: inline-block;
   text-align: center;
+}
+.weui-navbar__item.weui-bar__item_on{
+  /* color: #11b786 !important; */
+  border-bottom: 6rpx solid #11b786 !important;
 }

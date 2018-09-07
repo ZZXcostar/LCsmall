@@ -39,7 +39,6 @@ float:right;
 .leftSize view{
   border-bottom: 1px dashed #ddd;
   line-height: 40px;
-  
   color: #000;
 }
 .weui-tab__content{
@@ -48,7 +47,7 @@ float:right;
 }
 .weui-tab__content:after{display:block;clear:both;content:"";visibility:hidden;height:0}
  view .sizeActive{
-  color: #11b786;
+  color: #11b786 !important;
 }
 page,.page{
   overflow: hidden;
@@ -73,6 +72,7 @@ page,.page{
   height: 30px;
   line-height: 30px;
   font-size: 16px;
+  background: #11b786 !important;
 }
 .listBoxmiddle:after{display:block;clear:both;content:"";visibility:hidden;height:0}
 .imgBox,.userInfoBox{
@@ -123,7 +123,6 @@ page,.page{
 }
 .textinfo text{
   font-size: 12px;
-  
 }
 .iconfont{
   display: inline-block;

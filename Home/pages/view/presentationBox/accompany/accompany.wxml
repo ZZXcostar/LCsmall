@@ -3,7 +3,7 @@
     <view class="weui-cell">
       <view class="weui-cell__bd">
         <view class="lineGreen"></view>订单编号：{{orderInfo.orderDetail.orderNumber}}</view>
-      <view class="weui-cell__ft">{{orderInfo.orderDetail.categoryName}}服务</view>
+      <view class="weui-cell__ft">{{orderInfo.orderDetail.serviceStateName}}服务</view>
     </view>
     <view class='viewBox userInfo'>
       <view class='newTop'>
@@ -12,7 +12,7 @@
         <view class="weui-flex">
           <view class="weui-flex__item">
             <view class="placeholder">业主姓名：
-              <text>{{orderInfo.orderDetail.name}}</text>
+              <text>{{orderInfo.name}}</text>
             </view>
           </view>
           <view class="weui-flex__item">
@@ -54,7 +54,7 @@
           </view>
           <view class="weui-flex__item">
             <view class="placeholder">装修类型：
-              <text>{{orderInfo.decorate}}</text>
+              <text>{{orderInfo.decorate==null?'':orderInfo.decorate}}</text>
             </view>
           </view>
         </view>
@@ -67,7 +67,7 @@
         <view class="weui-flex">
           <view class="weui-flex__item">
             <view class="placeholder">装修公司：
-              <text>{{orderInfo.decoration}}</text>
+              <text>{{orderInfo.decoration==null?'':orderInfo.decoration}}</text>
             </view>
           </view>
         </view>
@@ -94,59 +94,26 @@
           <view class="weui-flex__item">
             <view class="placeholder">工人信息：
               <text>{{orderInfo.workerInfo.name}}（{{orderInfo.workerInfo.phone}} {{orderInfo.workerInfo.profession}} {{orderInfo.workerInfo.profession}}元㎡）</text>
-              <textarea class='textareBox' disabled>{{orderInfo.workerInfo.remark}}</textarea>
+              <textarea class='textareBox' disabled>{{orderInfo.workerInfo.remark==null? '无' : orderInfo.workerInfo.remark}}</textarea>
             </view>
           </view>
         </view>
       </view>
     </view>
-    <view class='viewBox'>
-      <view class='newTop'>
-        <text>陪签备忘录</text>
-        <text>基础信息</text>
-      </view>
-      <view class='newBox'>
-        <view class='lineHeightLine borderBottem'>
-          <view class="weui-flex">
-            <view class="weui-flex__item">
-              <view class="placeholder">后期可能存在增项</view>
-            </view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-          </view>
+    <view style='position:relative;' class='viewBox'>
+        <view class="weui-navbar">
+            <block wx:for="{{tabs}}" wx:key="*this">
+                <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                    <view class="weui-navbar__title">{{item.name}}</view>
+                </view>
+            </block>
+            <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
         </view>
-        <view class='lineHeightLine borderBottem'>
-          <view class="weui-flex">
-            <view class="weui-flex__item">
-              <view class="placeholder">砌筑巡检3.0</view>
+        <view class="weui-tab__panel" >
+            <view wx:for="{{tabs}}" wx:key="*this" class="weui-tab__content" hidden="{{activeIndex != index}}">
+                <view bindtap='towantAdd' wx:for="{{item.list}}" wx:key='this' class='switchlist' data-towantAdd='{{item}}'>{{item}} <text class='iconfont icon-jiantou flag_jt'></text></view>
             </view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-          </view>
         </view>
-        <view class='lineHeightLine borderBottem'>
-          <view class="weui-flex">
-            <view class="weui-flex__item">
-              <view class="placeholder">材料工艺项目</view>
-            </view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-          </view>
-        </view>
-        <view class='lineHeightLine borderBottem'>
-          <view class="weui-flex">
-            <view class="weui-flex__item">
-              <view class="placeholder">施工图纸建议</view>
-            </view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-          </view>
-        </view>
-        <view class='lineHeightLine borderBottem'>
-          <view class="weui-flex">
-            <view class="weui-flex__item">
-              <view class="placeholder">合同记录</view>
-            </view>
-            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-          </view>
-        </view>
-      </view>
     </view>
   </view>
 </view>

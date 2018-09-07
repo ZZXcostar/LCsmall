@@ -36,18 +36,19 @@ Page({
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
     let arr = reg.exec(userInfo.adminPassword);
     let cookie = RegExp.$1;
+    console.log(id)
     wx.request({
       url: utilBox.urlheader + "public/entryreport/queryMapByProjectIds", //仅为示例，并非真实的接口地址
-      data:[2],
+      data: [id],
       header: {
         'content-type': 'application/json', // 默认值
         cookie: cookie
       },
       method: 'post',
       success: function (res) {
-        console.log(res.data.info.list)
+        console.log(res.data.info)
         that.setData({
-          list: res.data.info.list
+          list: res.data.info
         })
       },
       fail: function (err) {

@@ -11,6 +11,7 @@ Page({
     types:"",
     imglist: [
     ],
+    imglists:[],
     tabs: [
       {
         name: '不合格',
@@ -56,6 +57,39 @@ Page({
           that.setData({
             imglist: newImgList
           })
+          var cookie = that.data.cookie
+          var list = []
+          for (let i = 0; i < newImgList.length;i++){
+            wx.uploadFile({
+              url: utilBox.urlheader + 'zuul/sms/file/fileUpload?type=public',
+              filePath: newImgList[i],
+              name: 'fileUpload',
+              header: {
+                "Content-Type": "multipart/form-data",
+                'accept': 'application/json',
+                cookie: cookie
+              },
+              success: function (res) {
+                var data = res.data;
+                data = data.replace(" ", "");
+                
+                if (typeof data != 'object') {
+                  data = data.replace(/\ufeff/g, "");//重点
+                  var jj = JSON.parse(data);
+                  jj = jj.info
+                  list.push(jj);
+                }
+                console.log(list)
+                that.setData({
+                  imglists: list
+                })
+              },
+              fail: function (res) {
+                console.log('fail');
+              },
+            })
+          }
+          
         }
       })
   },
@@ -69,7 +103,6 @@ Page({
     let arr = reg.exec(userInfo.adminPassword);
     let cookie = RegExp.$1;
     console.log(options.bgid)
-
     this.setData({
       orderId: options.id,
       types: options.types,
@@ -109,6 +142,7 @@ Page({
       }
     })
   },
+  
   formSub(e){
     var that = this;
     var cookie = this.data.cookie
@@ -118,19 +152,17 @@ Page({
     var aa2 = e.detail.value.aa02
     var aa3 = e.detail.value.aa03
     var aa10 = e.detail.value.aa10
-    var imgList = this.data.imglist;
+    var imgList = this.data.imglists;
     var a0= aa0==""? aa10 : aa0
-    console.log(e.detail.value)
+    console.log(imgList)
     var img=""
     for (var i = 0; i < imgList.length;i++){
-      if (imgList.length == 0 && i == (imgList.length-1)){
+      if (imgList.length == 0 && i == (imgList.length)){
         img += imgList[i]
       }else{
         img += imgList[i] + ","
       }
     }
-    console.log(this.data.activeIndex)
-    console.log(img)
     // 订单信息查询
     wx.request({
       url: utilBox.urlheader + "public/entryreport/updateType",
@@ -160,5 +192,6 @@ Page({
         console.log(err)
       }
     })
-  }
+  },
+  
 })

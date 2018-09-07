@@ -119,13 +119,17 @@ checkbox-group{
 }
 .boxSize{
   float: left;
-  width: 32.5%;
-  padding:0 20px; 
+  width: 40%;
+  padding:0 0px 0px 20px; 
   border-bottom: 1px solid #ddd;
 }
 .leftfloat{
   float: left;
-  width: 50%;
+  width: 40%;
+}
+.rightfloat{
+  width: 60%;
+  margin-top: 20rpx;
 }
 .borders{
   border-bottom: 1px solid #ddd;

@@ -2,7 +2,7 @@
   font-size:25rpx;
   color:#757575;
   background-color: #f5f5f5;
-  padding-bottom:500rpx;
+  /* padding-bottom:150rpx; */
 }
 .reportaccept>view:not(.overback){
   padding-top: 10rpx;

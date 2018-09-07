@@ -2,8 +2,13 @@ view{
   font-size: 12px;
   color:#3f3f3f;
 }
+page{
+  background: #eeeeee
+}
 .weui-panel__hd{
   color:#3f3f3f;
+  width: 100% !important;
+  box-sizing: border-box;
 }
 .listBoxs{
   float: left;
@@ -21,18 +26,20 @@ view{
 }
 .newcheckSzie{
   float: left;
-  line-height: 40px;
-  padding-top: 6px;
+  line-height: 20px;
+  box-sizing: border-box;
+  padding-top: 10px;
 }
 .newWidth{
-  width:24%;
+  width:33%;
   float: left;
-  line-height: 40px;
-  min-height: 40px;
-  border-bottom: 1px solid #ddd;
+  line-height: 30px;
+  min-height: 30px;
 }
 .bodymg{
   margin-left: 5%;
+  margin-right: 5%;
+  border-bottom: 1px solid #eeeeee
 }
 .leftBox{
   float: left;
@@ -83,4 +90,5 @@ view{
 }
 .clearafter{
   padding: 10px 20px 0px;
+  
 }

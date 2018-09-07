@@ -75,7 +75,7 @@
       <view class='newTop'><view class="lineGreen"></view>验收节点</view>
       <view class='newBox'>
       <view  class='lineHeightLine borderBottem' wx:for="{{node}}" >
-      <view class="weui-flex" bindtap='godisclose' data-index="{{item.id}}">
+      <view class="weui-flex" bindtap='godisclose' data-index="{{item.id}}" data-tit='{{item.reportname}}'>
             <view class="weui-flex__item">
             <view class="placeholder">{{item.reportname}}<text> {{item.okCount}}/{{item.reportCount}}</text></view>
             </view>

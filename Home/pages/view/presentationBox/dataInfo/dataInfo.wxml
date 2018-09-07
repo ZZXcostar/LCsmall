@@ -1,0 +1,192 @@
+<view class="weui-cells__title csize">基础信息</view>
+<view class="weui-panel weui-panel_access">
+    <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd ">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">装修公司：</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="圣都装饰城西分公司" value="{{household}}"/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cell__hd ">
+           <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">陪签日期：</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="2018-01-01" value="{{measure}}"/>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd ">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">年  龄：</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入年龄" value="{{household}}"/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cell__hd ">
+           <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">职  业：</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入职业" value="{{measure}}"/>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd ">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">装修风格：</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="简欧" value="{{household}}"/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cell__hd ">
+           <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">装修类型：</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="请输入职业" value="{{measure}}"/>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd ">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">户型：</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="三室一厅一卫" value="{{household}}"/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cell__hd ">
+           <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">面积：</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="132" value="{{measure}}"/>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd ">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">原报价：</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="14万" value="{{household}}"/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cell__hd ">
+           <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">合同价：</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="10万" value="{{measure}}"/>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd ">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">设计费：</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="1万" value="{{household}}"/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cell__hd ">
+           <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">管理费率：</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="10%" value="{{measure}}"/>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd ">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">税率：</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="10%" value="{{household}}"/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cell__hd ">
+           <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">跟单税率：</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="10%" value="{{measure}}"/>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd ">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">直接费：</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="1万" value="{{household}}"/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cell__hd ">
+           <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">项目经理工资</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" placeholder="1万" value="{{measure}}"/>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<text class='tisi'>以上属于必填，没有可写无</text>
+<view class="weui-panel weui-panel_access">
+  <view class="weui-cells__title csize">备注</view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_text">
+     <textarea class="weui-textarea" placeholder="备注" style="height: 6.3em;background:#ddd;" />
+    </view>
+  </view>
+</view>
+
+<view class="weui-btn-area">
+     <button class="weui-btn"  bindtap="showTopTips">确定</button>
+</view>

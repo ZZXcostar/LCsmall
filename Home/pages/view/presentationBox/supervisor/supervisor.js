@@ -45,31 +45,12 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
   godisclose: (e) => {
     console.log(e.currentTarget.dataset.index)
     var id = e.currentTarget.dataset.index
+    var tit = e.currentTarget.dataset.tit
     wx.navigateTo({
-      url: '../disclose/disclose?id='+id
+      url: '../disclose/disclose?id='+id+'&tit='+tit
     })
   },
   login: () => {
