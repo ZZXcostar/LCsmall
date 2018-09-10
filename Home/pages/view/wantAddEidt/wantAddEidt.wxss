@@ -22,10 +22,14 @@ view{
   float: left;
   line-height: 40px;
 }
+.weui-cell__bd{
+  line-height: 35rpx !important;
+  padding: 20rpx 0rpx !important;
+}
 .newcheckSzie{
   float: left;
-  line-height: 40px;
-  padding-top: 6px;
+  line-height: 20px;
+  padding-top: 12px;
 }
 .newWidth{
   width: 90%;

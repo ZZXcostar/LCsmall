@@ -52,7 +52,7 @@
       <view class="weui-tab__panel">
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
           <view class='rightBox'>
-            <view class='listBox' wx:for="{{orderdataeList}}">
+            <view class='listBox' wx:for="{{orderdataeList}}" wx:key="{{index}}">
               <view class='listBoxTop'>
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
@@ -74,7 +74,7 @@
                     <view class="iconfont icon-add"></view>
                     <text>{{item.add}}</text>
                   </view>
-                  <view wx:for="{{item.node}}" wx:for-item="ite" wx:for-index="ind">
+                  <view wx:for="{{item.node}}" wx:for-item="ite" wx:for-index="ind"  wx:key="{{ind}}">
                     <view class="iconfont icon-jixiang"></view>
                     <text wx:if='{{ind=="0"}}'>当前节点：{{ite.reportname}}</text>
                     <text wx:if='{{ind=="1"}}'>下一节点：{{ite.reportname}}</text>
@@ -94,7 +94,7 @@
         </view>
          <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
           <view class='rightBox'>
-            <view class='listBox' wx:for="{{orderdataeList}}">
+            <view class='listBox' wx:for="{{orderdataeList}}"  wx:key="{{index}}">
               <view class='listBoxTop'>
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
@@ -116,7 +116,7 @@
                     <view class="iconfont icon-add"></view>
                     <text>{{item.add}}</text>
                   </view>
-                  <view wx:for="{{item.node}}" wx:for-item="ite" wx:for-index="ind">
+                  <view wx:for="{{item.node}}" wx:for-item="ite" wx:for-index="ind" wx:key="{{ind}}">
                     <view class="iconfont icon-jixiang"></view>
                     <text wx:if='{{ind=="0"}}'>当前节点：{{ite.reportname}}</text>
                     <text wx:if='{{ind=="1"}}'>下一节点：{{ite.reportname}}</text>
@@ -136,7 +136,7 @@
         </view>
          <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
           <view class='rightBox'>
-            <view class='listBox' wx:for="{{orderdataeList}}">
+            <view class='listBox' wx:for="{{orderdataeList}}"  wx:key="{{index}}">
               <view class='listBoxTop'>
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
@@ -158,7 +158,7 @@
                     <view class="iconfont icon-add"></view>
                     <text>{{item.add}}</text>
                   </view>
-                  <view wx:for="{{item.node}}" wx:for-item="ite" wx:for-index="ind">
+                  <view wx:for="{{item.node}}" wx:for-item="ite" wx:for-index="ind" wx:key="{{ind}}">
                     <view class="iconfont icon-jixiang"></view>
                     <text wx:if='{{ind=="0"}}'>当前节点：{{ite.reportname}}</text>
                     <text wx:if='{{ind=="1"}}'>下一节点：{{ite.reportname}}</text>
@@ -178,7 +178,7 @@
         </view>
          <view class="weui-tab__content" hidden="{{activeIndex != 3}}">
           <view class='rightBox'>
-            <view class='listBox' wx:for="{{orderdataeList}}">
+            <view class='listBox' wx:for="{{orderdataeList}}" wx:key="{{index}}">
               <view class='listBoxTop'>
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
@@ -200,7 +200,7 @@
                     <view class="iconfont icon-add"></view>
                     <text>{{item.add}}</text>
                   </view>
-                  <view wx:for="{{item.node}}" wx:for-item="ite" wx:for-index="ind">
+                  <view wx:for="{{item.node}}" wx:for-item="ite" wx:for-index="ind" wx:key="{{ind}}">
                     <view class="iconfont icon-jixiang"></view>
                     <text wx:if='{{ind=="0"}}'>当前节点：{{ite.reportname}}</text>
                     <text wx:if='{{ind=="1"}}'>下一节点：{{ite.reportname}}</text>
@@ -221,7 +221,7 @@
         
       </view>
       <view class='leftBox leftSize'>
-        <view class="{{currentTab==index?'sizeActive':''}}" data-current="{{index}}" bindtap="clickTab" wx:for="{{listInfo}}" data-currentTabId="{{item.id}}">{{item.serName}}</view>
+        <view class="{{currentTab==index?'sizeActive':''}}" data-current="{{index}}" bindtap="clickTab" wx:for="{{listInfo}}" data-currentTabId="{{item.id}}"  wx:key="{{index}}">{{item.serName}}</view>
         <!-- <view>精装</view>
         <view>毛培</view>
         <view>决算</view>

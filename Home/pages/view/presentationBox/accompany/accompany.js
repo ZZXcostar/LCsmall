@@ -23,14 +23,14 @@ Page({
     ],
     activeIndex: 0,
     sliderLeft: 0,
+    projectId:'',
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     var id = options.reportid;
     console.log(id)
+    this.setData({
+      projectId:id
+    })
     var that = this;
     let userInfo = wx.getStorageSync("userInfo");
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
@@ -79,6 +79,7 @@ Page({
     } else{
       goDetail = '../../demandinformaction/demandinformaction';
     }
+    goDetail += '?projectId=' + this.data.projectId
     wx.navigateTo({
       url: goDetail,
     })

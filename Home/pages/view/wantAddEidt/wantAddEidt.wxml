@@ -1,9 +1,9 @@
 
 <view class="weui-panel weui-panel_access">
-  <view class="weui-panel__hd">一、是否有材料清单</view>
+  <view class="weui-panel__hd">一、水电工程项目</view>
   <view class="weui-panel__bd">
-    <checkbox-group bindchange="checkboxChange" data-chk="checkboxItems">
-          <label class=" weui-check__label newWidth" wx:for="{{checkboxItems}}" wx:key="value">
+    <checkbox-group bindchange="checkboxChange" data-chk="hydropower">
+          <label class=" weui-check__label newWidth" wx:for="{{checkboxItems.hydropower}}" wx:key="value">
               <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
 
               <view class="weui-cell__hd weui-check__hd_in-checkbox newcheckSzie">
@@ -18,8 +18,8 @@
 <view class="weui-panel weui-panel_access">
   <view class="weui-panel__hd">二、泥工工程存在增项</view>
   <view class="weui-panel__bd">
-    <checkbox-group bindchange="checkboxChange" data-chk="checkboxItems1">
-          <label class=" weui-check__label newWidth" wx:for="{{checkboxItems1}}" wx:key="value">
+    <checkbox-group bindchange="checkboxChange" data-chk="tiler">
+          <label class=" weui-check__label newWidth" wx:for="{{checkboxItems.tiler}}" wx:key="value">
               <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
 
               <view class="weui-cell__hd weui-check__hd_in-checkbox newcheckSzie">
@@ -34,8 +34,8 @@
 <view class="weui-panel weui-panel_access">
   <view class="weui-panel__hd">三、防水工程存在增项</view>
   <view class="weui-panel__bd">
-    <checkbox-group bindchange="checkboxChange" data-chk="checkboxItems2">
-          <label class=" weui-check__label newWidth" wx:for="{{checkboxItems2}}" wx:key="value">
+    <checkbox-group bindchange="checkboxChange" data-chk="waterproof">
+          <label class=" weui-check__label newWidth" wx:for="{{checkboxItems.waterproof}}" wx:key="value">
               <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
 
               <view class="weui-cell__hd weui-check__hd_in-checkbox newcheckSzie">
@@ -50,8 +50,8 @@
 <view class="weui-panel weui-panel_access">
   <view class="weui-panel__hd">四、木作工程存在增项</view>
   <view class="weui-panel__bd">
-    <checkbox-group bindchange="checkboxChange" data-chk="checkboxItems3">
-          <label class=" weui-check__label newWidth" wx:for="{{checkboxItems3}}" wx:key="value">
+    <checkbox-group bindchange="checkboxChange" data-chk="carpentry">
+          <label class=" weui-check__label newWidth" wx:for="{{checkboxItems.carpentry}}" wx:key="value">
               <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
 
               <view class="weui-cell__hd weui-check__hd_in-checkbox newcheckSzie">
@@ -66,8 +66,8 @@
 <view class="weui-panel weui-panel_access">
   <view class="weui-panel__hd">五、油漆工程存在增项</view>
   <view class="weui-panel__bd">
-    <checkbox-group bindchange="checkboxChange" data-chk="checkboxItems4">
-          <label class=" weui-check__label newWidth" wx:for="{{checkboxItems4}}" wx:key="value">
+    <checkbox-group bindchange="checkboxChange" data-chk="paint">
+          <label class=" weui-check__label newWidth" wx:for="{{checkboxItems.paint}}" wx:key="value">
               <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
 
               <view class="weui-cell__hd weui-check__hd_in-checkbox newcheckSzie">
@@ -82,8 +82,8 @@
 <view class="weui-panel weui-panel_access">
   <view class="weui-panel__hd">六、其他</view>
   <view class="weui-panel__bd">
-    <checkbox-group bindchange="checkboxChange" data-chk="checkboxItems5">
-          <label class=" weui-check__label newWidth" wx:for="{{checkboxItems5}}" wx:key="value">
+    <checkbox-group bindchange="checkboxChange" data-chk="rest">
+          <label class=" weui-check__label newWidth" wx:for="{{checkboxItems.rest}}" wx:key="value">
               <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
 
               <view class="weui-cell__hd weui-check__hd_in-checkbox newcheckSzie">
@@ -99,7 +99,7 @@
   <view class="weui-panel__hd">七、总结</view>
   <view class="weui-panel__bd">
     <view class="weui-media-box weui-media-box_text">
-     <textarea class="weui-textarea" placeholder="备注" style="height: 6.3em;background:#ddd;" />
+     <textarea class="weui-textarea" value="{{remarks}}" bindinput='remarks' placeholder="备注" style="height: 6.3em;background:#ddd;" />
     </view>
 
   </view>
