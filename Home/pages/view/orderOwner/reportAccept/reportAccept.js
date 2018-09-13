@@ -112,7 +112,7 @@ Page({
       acceptance: options.acceptance
     })
   },
-  noNeed(){
+  noNeed(){ //无需验收
     var that = this;
     var cookie = this.data.cookie
     var id=that.data.bgId
@@ -133,9 +133,7 @@ Page({
       method: 'post',
       success: function (res) {
         console.log("修改成功")
-        wx.navigateTo({
-          url: '../../presentationBox/disclose/disclose?id=' + that.data.bgId,
-        })
+        wx.navigateBack({ changed: true });//返回上一页
       },
       fail: function (err) {
         console.log(err)
@@ -143,7 +141,7 @@ Page({
     })
   },
   
-  formSub(e){
+  formSub(e){ //数据提交
     var that = this;
     var cookie = this.data.cookie
     var id = that.data.bgId
@@ -184,9 +182,7 @@ Page({
       method: 'post',
       success: function (res) {
         console.log("修改成功")
-        wx.navigateTo({
-          url: '../../presentationBox/disclose/disclose?id=' + that.data.bgId,
-        })
+        wx.navigateBack({ changed: true });//返回上一页
       },
       fail: function (err) {
         console.log(err)

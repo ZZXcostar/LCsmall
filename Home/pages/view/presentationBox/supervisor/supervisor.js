@@ -2,21 +2,12 @@
 var utilBox = require("../../../../utils/utilBox.js");
 var network = require("../../../../utils/network.js");
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     orderInfo:"",
     node:""
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     var id = options.reportid;
-    console.log(id)
     var that = this;
     let userInfo = wx.getStorageSync("userInfo");
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
@@ -34,6 +25,7 @@ Page({
       success: function (res) {
         console.log(res.data.info[0])
         res.data.info[0].acreage = parseInt(res.data.info[0].acreage)
+        wx.setStorageSync('userInfos', res.data.info[0] )
         that.setData({
           orderInfo: res.data.info[0],
           node: res.data.info[0].entryReports      
@@ -44,9 +36,7 @@ Page({
       }
     })
   },
-
   godisclose: (e) => {
-    console.log(e.currentTarget.dataset.index)
     var id = e.currentTarget.dataset.index
     var tit = e.currentTarget.dataset.tit
     wx.navigateTo({

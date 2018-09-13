@@ -1,30 +1,82 @@
 // pages/view/presentationBox/wantAdd/wantAdd.js
+var utilBox = require("../../../../utils/utilBox.js");
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     radioItems: [
       { name: '杭州市推荐版', value: '0', checked: true },
       { name: '自印版', value: '1'}
     ],
-    radioItemsa: [
-      { name: 'cell standard', value: '0', checked: true },
-      { name: 'cell standard', value: '1' },
-      { name: 'cell standard', value: '2' }
-    ],
-    checkboxItems: [
-      { name: '杭州市推荐版', value: '0', checked: true },
-      { name: '自印版', value: '1' },
-    ],
+    projectId: '',//项目id
+    rest:'',//备注
+    timeLimit:'',//工期约定
+    payment:'',//合同付款方式
+    cookie: '',
+    isSee: false
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    var that=this
+    var id = options.projectId
+    let userInfo = wx.getStorageSync("userInfo");
+    let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
+    let arr = reg.exec(userInfo.adminPassword);
+    let cookie = RegExp.$1;
+    this.setData({
+      projectId: id,
+      cookie
+    })
+    wx.request({
+      url: utilBox.urlheader + "public/entrysigncontract/queryByIds",
+      data: [id],
+      header: {
+        'content-type': 'application/json', // 默认值
+        cookie: cookie
+      },
+      method: 'post',
+      success: function (res) {
+        var list = res.data.info.list
+        console.log(list)
+        if (list.length) {
+          let radioItems = that.data.radioItems
+          if (list[0].contract==false){
+            radioItems[0].checked=true;
+            radioItems[1].checked = false;
+          }else{
+            radioItems[0].checked = false;
+            radioItems[1].checked = true;
+          }
+          that.setData({
+            isSee: false,
+            rest: list[0].rest,
+            radioItems,
+            payment: list[0].payment,
+            timeLimit: list[0].duration,
+            rest: list[0].rest
+          })
+        } else {
+          that.setData({
+            isSee: true
+          })
+        }
+      },
+      fail: function (err) {
+        console.log(err)
+      }
+    })
+  },
+  rest(e) { //其他
+    this.setData({
+      rest: e.detail.value
+    })
+  },
+  payment(e) {//合同付款方式
+    this.setData({
+      payment: e.detail.value
+    })
+  },
+  timeLimit(e) {//工期约定
+    this.setData({
+      timeLimit: e.detail.value
+    })
   },
   radioChange: function (e) {
     console.log('radio发生change事件，携带value值为：', e.detail.value);
@@ -42,4 +94,41 @@ Page({
       radioItems: radioItems
     });
   },
+  showTopTips(){
+    var data = {}
+    data.projectId = this.data.projectId;
+    data.rest = this.data.rest;
+    data.payment = this.data.payment
+    data.duration = this.data.timeLimit
+    var radioItems = this.data.radioItems
+    for (let i in radioItems) {
+      if (radioItems[i].checked == true) {
+        if (radioItems[i].value == 0) {
+          data.contract = false
+        } else {
+          data.contract = true
+        }
+      }
+    }
+    console.log(data)
+    let cookie = this.data.cookie
+    wx.request({
+      url: utilBox.urlheader + "public/entrysigncontract/insertOne",
+      data: data,
+      header: {
+        'content-type': 'application/json', // 默认值
+        cookie: cookie
+      },
+      method: 'post',
+      success: function (res) {
+        console.log(res)
+        if (res.data.status == 200) {
+          wx.navigateBack({ changed: true });//返回上一页
+        }
+      },
+      fail: function (err) {
+        console.log(err)
+      }
+    })
+  }
 })

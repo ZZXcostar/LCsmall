@@ -1,3 +1,4 @@
+<form bindsubmit="formSubmit">
 <view class="weui-cells__title csize">基本信息</view>
 <view class="weui-panel weui-panel_access">
     <view class="weui-cell weui-cell_select">
@@ -6,9 +7,7 @@
                 <view class="weui-cell__hd">
                     <view class="weui-label">业主姓名：</view>
                 </view>
-                <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="读取姓名" value="{{household}}"/>
-                </view>
+                <input class="weui-input" placeholder="读取姓名" disabled='{{!isSee}}' name="name" value="{{orderInfo.name}}"/>
             </view>
         </view>
         <view class="weui-cell__hd ">
@@ -16,9 +15,8 @@
                 <view class="weui-cell__hd">
                     <view class="weui-label">联系方式：</view>
                 </view>
-                <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="读取电话" value="{{measure}}"/>
-                </view>
+                    <input class="weui-input" placeholder="读取电话"  disabled='{{!isSee}}' name="phone" value="{{orderInfo.orderDetail.phone}}"/>
+              
             </view>
         </view>
     </view>
@@ -29,7 +27,7 @@
                     <view class="weui-label">业主地址：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="读取地址" value="{{household}}"/>
+                    <input class="weui-input inpt" placeholder="读取地址" name="addr"  disabled='{{!isSee}}' value="{{orderInfo.orderDetail.detailAddress}}"/>
                 </view>
             </view>
         </view>
@@ -38,21 +36,17 @@
         <view class="weui-cell__hd ">
             <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
-                    <view class="weui-label">年  龄：</view>
+                    <view class="weui-label">业主年龄：</view>
                 </view>
-                <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入年龄" value="{{household}}"/>
-                </view>
+                    <input class="weui-input" placeholder="请输入年龄"  disabled='{{!isSee}}' name="age" value="{{orderInfo.list.age}}"/>
             </view>
         </view>
         <view class="weui-cell__hd ">
            <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
-                    <view class="weui-label">职  业：</view>
+                    <view class="weui-label">业主职业：</view>
                 </view>
-                <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入职业" value="{{measure}}"/>
-                </view>
+               <input class="weui-input" placeholder="请输入职业"  disabled='{{!isSee}}' name="job" value="{{orderInfo.list.profession}}"/>
             </view>
         </view>
     </view>
@@ -66,7 +60,7 @@
                     <view class="weui-label">常驻人数：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="4人" value="{{household}}"/>
+                    <input class="weui-input inpt" placeholder="4人"  disabled='{{!isSee}}' name="people" value="{{orderInfo.list.permanent}}"/>
                 </view>
             </view>
         </view>
@@ -75,10 +69,10 @@
         <view class="weui-cell__hd ">
             <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
-                    <view class="weui-label">业主地址：</view>
+                    <view class="weui-label">孩子：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="读取地址" value="{{household}}"/>
+                    <input class="weui-input inpt" placeholder="男孩 女孩"  disabled='{{!isSee}}' name="children" value="{{orderInfo.list.child}}"/>
                 </view>
             </view>
         </view>
@@ -90,12 +84,13 @@
                     <view class="weui-label">孩子年龄：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入年龄" value="{{household}}"/>
+                    <input class="weui-input inpt" placeholder="请输入孩子年龄" disabled='{{!isSee}}' name="childrenAge" value="{{orderInfo.list.childAge}}"/>
                 </view>
             </view>
         </view>
     </view>
 </view>
-<view class="weui-btn-area">
-     <button class="weui-btn"  bindtap="showTopTips">确定</button>
+<view class="weui-btn-area" wx:if='{{isSee}}'>
+     <button class="weui-btn"  formType="submit">确定</button>
 </view>
+</form>

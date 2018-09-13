@@ -17,9 +17,11 @@ view{
 }
 .weui-input{
   text-align: left;
+  width: 500rpx !important;
 }
 .weui-label{
-  width: auto;
+  width: 130rpx;
+
 }
 .lineBox{
   width: 3px;
@@ -61,7 +63,7 @@ color: #fff;
   width: auto;
 }
 .weui-cell__hd{
-width: 50%;
+  width: 50%;
 }
 .csize{
   line-height: 20px;

@@ -1,22 +1,22 @@
 <view class='reportaccept'>
     <view>
-         <view class='titles'><text class='flag'>开工交底3.0</text></view>
+         <view class='titles'><text class='flag'>{{nodeInfo.reportname}}</text></view>
          <view class='content_detail'>
             <view style='border-bottom:1rpx solid #f5f5f5'>
                 <view class='line-content'>
                     <view class='title'>业主姓名：</view>
-                    <view class='content'>测试</view>
+                    <view class='content'>{{userInfos.orderDetail.name}}</view>
                 </view>
                 <view class='line-content'>
                     <view class='title'>业主电话：</view>
-                    <view class='content'>15058160069</view>
+                    <view class='content'>{{userInfos.orderDetail.phone}}</view>
                 </view>
                 <view class='line-content'>
                     <view class='title'>验收地址：</view>
-                    <view class='content wordhidden'>上海浦东上海浦东上海浦东上海浦东上海浦东上海浦东上海浦东上海浦东上海浦东上海浦东上海浦东上海浦东上海浦东上海浦东</view>
+                    <view class='content wordhidden'>{{userInfos.orderDetail.detailAddress}}</view>
                 </view>
             </view>
-            <view>
+            <!-- <view>
                 <view class='line-content'>
                     <view class='title'>管家姓名：</view>
                     <view class='content'>测试</view>
@@ -26,45 +26,46 @@
                     <view class='content'>15058160069</view>
                 </view>
                 <view class='line-content'>
-                    <view class='title'>验收事件：</view>
+                    <view class='title'>验收时间：</view>
                     <view class='content'>2018-12-12 12:00</view>
                 </view>
-            </view>
+            </view> -->
          </view>
     </view>
     <view>
-        <view class='titles'><text class='flag flag_red'>验收不符合标准说明</text></view>
+        <view class='titles' wx:if='{{nodeInfo.entryReportStandards[0].isService==0}}'><text class='flag flag_red'>验收不符合标准说明</text></view>
+        <view class='titles' wx:if='{{nodeInfo.entryReportStandards[0].isService==1}}'><text class='flag flag_gg'>验收符合标准说明</text></view>
         <view class='content_detail'>
             <view class='line-content'>
                 <view class='title'>验收项目：</view>
-                <view class='content'>房屋平整度</view>
+                <view class='content'>{{nodeInfo.entryReportStandards[0].items}}</view>
             </view>
             <view class='line-content'>
                 <view class='title'>验收方式：</view>
-                <view class='content'>2m靠尺和塞尺</view>
+                <view class='content'>{{nodeInfo.entryReportStandards[0].acceptance}}</view>
             </view>
             <view class='line-content'>
                 <view class='title'>验收标准：</view>
-                <view class='content'>&lt;4mm</view>
+                <view class='content'>{{nodeInfo.entryReportStandards[0].standard}}</view>
             </view>
-            <view class='line-content'>
+            <view class='line-content' wx:if='{{nodeInfo.entryReportStandards[0].isService==0}}'>
                 <view class='title'>施工隐患：</view>
-                <view class='content'>房屋平整度</view>
+                <view class='content'>{{nodeInfo.entryReportStandards[0].hdanger}}</view>
             </view>
-            <view class='line-content'>
+            <view class='line-content' wx:if='{{nodeInfo.entryReportStandards[0].isService==0}}'>
                 <view class='title'>解决方案：</view>
-                <view class='content'>房屋平整度</view>
+                <view class='content'>{{nodeInfo.entryReportStandards[0].solution}}</view>
             </view>
-            <view class='line-content'>
+            <view class='line-content' wx:if='{{nodeInfo.entryReportStandards[0].isService==0}}'>
                 <view class='title'>解决方法：</view>
-                <view class='content'>房屋平整度</view>
+                <view class='content'>{{nodeInfo.entryReportStandards[0].solutionf}}</view>
             </view>
-            <view class='line-content'>
+            <!-- <view class='line-content'>
                 <view class='title'>管家提醒：</view>
-                <view class='content'>房屋平整度房屋平整度房屋平整度房屋平整度房屋平整度房屋平整度房屋平整度</view>
-            </view>
+                <view class='content'>房屋平整度房屋平整度房屋平整度房屋</view>
+            </view> -->
             <view  class='imglist'>
-                <image class='imgs' wx:for="{{imglist}}" data-src='{{item.src}}'  mode="scaleToFill" src="{{item.src}}" bindtap='enlarge'></image>
+                <image class='imgs' wx:for="{{nodeInfo.entryReportStandards[0].imgs}}" wx:key='{{index}}' data-src='{{item.src}}'  mode="scaleToFill" src="{{'http://101.89.175.155/api/'+item}}" bindtap='enlarge' data-ind='{{index}}'></image>
             </view>
         </view>
     </view> 

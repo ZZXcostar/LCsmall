@@ -1,10 +1,10 @@
+<form bindsubmit="formSubmit">
 <view class="weui-panel weui-panel_access">
   <view class="weui-panel__hd">设备</view>
   <view class="weui-panel__bd bodymg clearfloat">
     <checkbox-group bindchange="checkboxChange" data-chk='equipment'>
           <label class=" weui-check__label newWidth" wx:for="{{checkboxItems.equipment}}" wx:key="value">
-              <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
-
+              <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}" disabled='{{!isSee}}'/>
               <view class="weui-cell__hd weui-check__hd_in-checkbox newcheckSzie">
                   <icon class="weui-icon-radio"  type="circle" size="12" wx:if="{{!item.checked}}"></icon>
                   <icon class="weui-icon-radio"  type="success" size="12" wx:if="{{item.checked}}"></icon>
@@ -13,7 +13,7 @@
           </label>
       </checkbox-group>
   </view>
-  <view class='ddsize'><text>其他备注：</text><input ></input></view>
+  <view class='ddsize'><text>其他备注：</text><input name="equipmentr" disabled='{{!isSee}}' value='{{data.equipmentr}}'></input></view>
 </view>
 
 <view class="weui-panel weui-panel_access">
@@ -21,8 +21,7 @@
   <view class="weui-panel__bd bodymg clearfloat">
     <checkbox-group bindchange="checkboxChange" data-chk='kitchen'>
           <label class=" weui-check__label newWidth" wx:for="{{checkboxItems.kitchen}}" wx:key="value">
-              <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
-
+              <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}" disabled='{{!isSee}}'/>
               <view class="weui-cell__hd weui-check__hd_in-checkbox newcheckSzie">
                   <icon class="weui-icon-radio"  type="circle" size="12" wx:if="{{!item.checked}}"></icon>
                   <icon class="weui-icon-radio"  type="success" size="12" wx:if="{{item.checked}}"></icon>
@@ -31,7 +30,7 @@
           </label>
       </checkbox-group>
   </view>
-  <view class='ddsize'><text>其他备注：</text><input ></input></view>
+  <view class='ddsize'><text>其他备注：</text><input  name="kitchenr" disabled='{{!isSee}}' value='{{data.kitchenr}}'></input></view>
 </view>
 
 <view class="weui-panel weui-panel_access">
@@ -39,8 +38,7 @@
   <view class="weui-panel__bd bodymg clearfloat">
     <checkbox-group bindchange="checkboxChange" data-chk='toilet'>
           <label class=" weui-check__label newWidth" wx:for="{{checkboxItems.toilet}}" wx:key="value">
-              <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
-
+              <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}" disabled='{{!isSee}}'/>
               <view class="weui-cell__hd weui-check__hd_in-checkbox newcheckSzie">
                   <icon class="weui-icon-radio"  type="circle" size="12" wx:if="{{!item.checked}}"></icon>
                   <icon class="weui-icon-radio"  type="success" size="12" wx:if="{{item.checked}}"></icon>
@@ -49,7 +47,7 @@
           </label>
       </checkbox-group>
   </view>
-  <view class='ddsize'><text>其他备注：</text><input ></input></view>
+  <view class='ddsize'><text>其他备注：</text><input name="toiletr" disabled='{{!isSee}}' value='{{data.toiletr}}'></input></view>
 </view>
 
 <view class="weui-panel weui-panel_access">
@@ -57,7 +55,7 @@
   <view class="weui-panel__bd bodymg clearfloat">
     <checkbox-group bindchange="checkboxChange" data-chk='balcony'>
           <label class=" weui-check__label newWidth" wx:for="{{checkboxItems.balcony}}" wx:key="value">
-              <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
+              <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}" disabled='{{!isSee}}'/>
               <view class="weui-cell__hd weui-check__hd_in-checkbox newcheckSzie">
                   <icon class="weui-icon-radio"  type="circle" size="12" wx:if="{{!item.checked}}"></icon>
                   <icon class="weui-icon-radio"  type="success" size="12" wx:if="{{item.checked}}"></icon>
@@ -66,7 +64,7 @@
           </label>
       </checkbox-group>
   </view>
-  <view class='ddsize'><text>其他备注：</text><input ></input></view>
+  <view class='ddsize'><text>其他备注：</text><input name="balconyr" disabled='{{!isSee}}' value='{{data.balconyr}}'></input></view>
 </view>
 
 <view class="weui-panel weui-panel_access">
@@ -74,8 +72,7 @@
   <view class="weui-panel__bd bodymg clearfloat">
     <checkbox-group bindchange="checkboxChange" data-chk='room'>
           <label class=" weui-check__label newWidth" wx:for="{{checkboxItems.room}}" wx:key="value">
-              <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
-
+              <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}" disabled='{{!isSee}}'/>
               <view class="weui-cell__hd weui-check__hd_in-checkbox newcheckSzie">
                   <icon class="weui-icon-radio"  type="circle" size="12" wx:if="{{!item.checked}}"></icon>
                   <icon class="weui-icon-radio"  type="success" size="12" wx:if="{{item.checked}}"></icon>
@@ -84,16 +81,14 @@
           </label>
       </checkbox-group>
   </view>
-  <view class='ddsize'><text>其他备注：</text><input ></input></view>
+  <view class='ddsize'><text>其他备注：</text><input name="roomr" disabled='{{!isSee}}' value='{{data.roomr}}'></input></view>
 </view>
-
 <view class="weui-panel weui-panel_access">
   <view class="weui-panel__hd">客餐厅</view>
   <view class="weui-panel__bd bodymg clearfloat">
     <checkbox-group bindchange="checkboxChange" data-chk='restaurant'>
           <label class=" weui-check__label newWidth" wx:for="{{checkboxItems.restaurant}}" wx:key="value">
-              <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
-
+              <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}" disabled='{{!isSee}}'/>
               <view class="weui-cell__hd weui-check__hd_in-checkbox newcheckSzie">
                   <icon class="weui-icon-radio"  type="circle" size="12" wx:if="{{!item.checked}}"></icon>
                   <icon class="weui-icon-radio"  type="success" size="12" wx:if="{{item.checked}}"></icon>
@@ -102,19 +97,19 @@
           </label>
       </checkbox-group>
   </view>
-  <view class='ddsize'><text>其他备注：</text><input ></input></view>
+  <view class='ddsize'><text>其他备注：</text><input name="parlorr" disabled='{{!isSee}}' value='{{data.parlorr}}'></input></view>
 </view>
 
 <view class="weui-panel weui-panel_access">
   <view class="weui-panel__hd">其他</view>
   <view class="weui-panel__bd">
     <view class="weui-media-box weui-media-box_text">
-     <textarea class="weui-textarea" placeholder="其他补充" style="height: 6.3em;background:#ddd;" />
+     <textarea class="weui-textarea" placeholder="其他补充" name="rest" disabled='{{!isSee}}'  style="height: 6.3em;background:#ddd;" value='{{data.rest}}' />
     </view>
-
   </view>
 </view>
 
-<view class="weui-btn-area">
-     <button class="weui-btn"  bindtap="showTopTips">确定</button>
+<view class="weui-btn-area" wx:if="{{isSee}}">
+     <button class="weui-btn" formType="submit">确定</button>
 </view>
+</form>

@@ -3,7 +3,7 @@
   <view class="weui-panel__bd">
     <checkbox-group bindchange="checkboxChange">
           <label class=" weui-check__label newWidth" wx:for="{{checkboxItems}}" wx:key="value">
-              <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
+              <checkbox class="weui-check" value="{{item.value}}" disabled='{{!isSee}}' checked="{{item.checked}}"/>
               <view class="weui-cell__hd weui-check__hd_in-checkbox newcheckSzie">
                   <icon class="weui-icon-radio"  type="circle" size="12" wx:if="{{!item.checked}}"></icon>
                   <icon class="weui-icon-radio"  type="success" size="12" wx:if="{{item.checked}}"></icon>
@@ -17,10 +17,10 @@
   <view class="weui-panel__hd">二、设计图其他注意事项</view>
   <view class="weui-panel__bd">
     <view class="weui-media-box weui-media-box_text">
-     <textarea class="weui-textarea" placeholder="备注" style="height: 6.3em;background:#ddd;" />
+     <textarea class="weui-textarea" placeholder="备注" bindinput='rest' disabled='{{!isSee}}' value='{{rest}}' style="height: 6.3em;background:#ddd;" />
     </view>
   </view>
 </view>
-<view class="weui-btn-area">
+<view class="weui-btn-area" wx:if="{{isSee}}">
      <button class="weui-btn"  bindtap="showTopTips">确认提交</button>
 </view>

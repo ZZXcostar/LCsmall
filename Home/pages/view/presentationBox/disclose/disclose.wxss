@@ -16,3 +16,25 @@ view{
   color: red;
   font-size: 18px;
 }
+.btns{
+   margin-top:100rpx;
+  position: fixed; 
+   bottom:0rpx;
+   width:100%;
+   margin-bottom: 0rpx !important;
+   padding-bottom: 0rpx !important;
+   z-index: 999;
+   height: 88rpx;
+   line-height: 88rpx;
+}
+.btns .weui-btn{
+  font-size:30rpx;
+  border-radius: 0;
+  margin-top:0rpx;
+}
+.weui-btn[type='primary']{
+  background-color: #11b786;
+}
+.weui-btn[type='warn']{
+  background-color: #d7434d;
+}

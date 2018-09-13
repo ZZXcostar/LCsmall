@@ -3,7 +3,7 @@
   <view class="weui-panel__bd">
     <checkbox-group bindchange="radioChange">
           <label class=" weui-check__label newWidth" wx:for="{{radioItems}}" wx:key="value">
-              <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
+              <radio class="weui-check" value="{{item.value}}" disabled='{{!isSee}}' checked="{{item.checked}}"/>
               <view class="weui-cell__hd weui-check__hd_in-checkbox newcheckSzie">
                   <icon class="weui-icon-radio"  type="circle" size="12" wx:if="{{!item.checked}}"></icon>
                   <icon class="weui-icon-radio"  type="success" size="12" wx:if="{{item.checked}}"></icon>
@@ -16,24 +16,24 @@
 <view class="weui-panel weui-panel_access">
   <view class="weui-panel__hd">二、合同付款方式 </view>
   <view class="weui-panel__bd">
-    <input class='inp' placeholder='预付30%，中期60%，结束10%'></input>
+    <input class='inp'  bindinput='payment' value='{{payment}}' disabled='{{!isSee}}' placeholder='预付30%，中期60%，结束10%'></input>
   </view>
 </view>
 <view class="weui-panel weui-panel_access">
   <view class="weui-panel__hd">三、工期约定 </view>
   <view class="weui-panel__bd">
-    <input class='inp' placeholder='三个月'></input>
+    <input class='inp'  bindinput='timeLimit' disabled='{{!isSee}}' value='{{timeLimit}}' placeholder='三个月'></input>
   </view>
 </view>
 <view class="weui-panel weui-panel_access">
   <view class="weui-panel__hd">三、其他</view>
   <view class="weui-panel__bd">
     <view class="weui-media-box weui-media-box_text">
-     <textarea class="weui-textarea" placeholder="备注" style="height: 6.3em;background:#ddd;" />
+     <textarea class="weui-textarea" placeholder="备注" bindinput='rest' disabled='{{!isSee}}' value='{{rest}}' style="height: 6.3em;background:#ddd;" />
     </view>
   </view>
 </view>
 
-<view class="weui-btn-area">
+<view class="weui-btn-area" wx:if="{{isSee}}">
      <button class="weui-btn"  bindtap="showTopTips">提交</button>
 </view>

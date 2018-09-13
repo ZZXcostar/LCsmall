@@ -2,6 +2,9 @@
   padding-left: 40rpx;
   padding-right: 40rpx;
 }
+page{
+  background: #f5f5f5
+}
 view{
   font-size: 12px;
   line-height: 80rpx;
@@ -18,7 +21,12 @@ view{
 .weui-input{
   text-align: left;
 }
-
+.inpt{
+  width: 60rpx  !important;
+}
+.weui-label{
+  width: 130rpx !important;
+}
 .lineBox{
   width: 3px;
   height: 12px;
@@ -38,20 +46,19 @@ view{
 border-radius: 0;
 background: #11b786;
 color: #fff;
-
-background: #11b786;
-color: #fff;
 }
 .inputsize .weui-input{
   border: 1px solid #ddd;
- width: 40px;
+ width: 400rpx !important;
  min-height: 30px;
  float: left;
+ padding-left: 10rpx;
  position: relative;
  height: 30px;
  line-height: 30px;
  border-radius: 5px;
- text-align: center;
+ text-align: left;
+ letter-spacing:8rpx;
 }
 .newcheckSzie{
   float: left;
@@ -61,7 +68,6 @@ color: #fff;
 .weui-input{
   width: auto;
 }
-
 .setWidths{
   width: 70px;
 }

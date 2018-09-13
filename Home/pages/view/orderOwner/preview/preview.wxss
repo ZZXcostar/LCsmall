@@ -29,6 +29,9 @@
 .reportaccept .flag_red{
   border-left-color: red;
 }
+.reportaccept .flag_gg{
+  border-left-color: #30bc8f;
+}
 .reportaccept .red{
   color:red;
 }

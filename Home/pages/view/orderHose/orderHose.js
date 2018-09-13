@@ -1,27 +1,22 @@
 // pages/view/decorate/decorate.js
+var utilBox = require("../../../utils/utilBox.js");
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    commpontName: "圣都装饰城西分公司",
-    signDate: '2018-02-10',
-    dectype: "欧式",
-    household: '三室一厅一卫',
-    measure: '132㎡',
-    offer: '14万',
-    Design: '1万',
-    Administration: '10%',
-    direct: '1万',
-    project: '1万',
     iskuang:false,
-    countryCodes: ["1", "2", "3", "4",'5','6','7'],
+    countryCodes: [
+      ["1房", "2房", "3房", "4房", '5房', '6房', '7房'],
+      [ "1厅", "2厅", "3厅", "4厅", '5厅', '6厅', '7厅'],
+      [ "1卫", "2卫", "3卫", "4卫", '5卫', '6卫', '7卫'],
+      [ "1厨", "2厨", "3厨", "4厨", '5厨', '6厨', '7厨'],
+      [ "1阳台", "2阳台", "3阳台", "4阳台", '5阳台', '6阳台', '7阳台']
+      ],
+    huxing:'',
     checkboxItems: {
       decorationType: [
         { name: '平层公寓', value: '0', checked: true },
-        { name: '复式、LOFT', value: '1' },
-        { name: '排屋、别墅', value: '2' }
+        { name: '复式/LOFT', value: '1' },
+        { name: '排屋', value: '2' },
+        { name: '别墅', value: '3' }
       ],
       decorationSituation: [
         { name: '毛坯房', value: '0', checked: true },
@@ -42,19 +37,100 @@ Page({
       ]
     },
     roomRate:[
-      { name: '主卧', square: '32' },
-      { name: '次卧', square: '32' },
-      { name: '餐厅', square: '32' },
-      { name: '主卧', square: '32' },
-      { name: '主卧', square: '32' },
-    ]
+      { name: '主卧', square: '' },
+      { name: '厨房', square: '' },
+      { name: '次卧', square: '' },
+      { name: '阳台1', square: '' },
+      { name: '阳台2', square: '' },
+      { name: '儿童房', square: '' },
+      { name: '更衣室', square: '' },
+      { name: '书房', square: '' },
+      { name: '客厅过道', square: '' },
+      { name: '客房', square: '' },
+      { name: '主卫', square: '' },
+      { name: '次卫', square: '' },
+    ],
+    orderInfo:'',
+    projectId:'',
+    types:'',
+    measure:'',
+    dates:"2018-09-20",
+    cookie: '',
+    isSee: false,
+    data:''
   },
-
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数
    */
   onLoad: function (options) {
-
+    var that=this
+    var id = options.projectId
+    let userInfo = wx.getStorageSync("userInfo");
+    let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
+    let arr = reg.exec(userInfo.adminPassword);
+    let cookie = RegExp.$1;
+    var orderInfo = wx.getStorageSync("pqOrderInfo")
+    console.log(orderInfo)
+    this.setData({
+      projectId: id,
+      orderInfo: orderInfo,
+      cookie
+    })
+    wx.request({
+      url: utilBox.urlheader + "public/entrysignhousinginformation/queryByIds",
+      data: [id],
+      header: {
+        'content-type': 'application/json', // 默认值
+        cookie: cookie
+      },
+      method: 'post',
+      success: function (res) {
+        var list = res.data.info.list;
+        console.log(list[0])
+        if (list.length) {
+          var addHousehold = list[0].addHousehold.split('+')
+          var arr = []
+          for (let i in addHousehold) { //得房率处理
+            let obj = {}
+            var aa = addHousehold[i].split(':')
+            obj.name = aa[0]
+            obj.square = aa[1]
+            arr.push(obj)
+          }
+          arr.pop()
+          var checkboxItems = that.data.checkboxItems
+          checkboxItems.decorationType = that.homeData(checkboxItems.decorationType, list[0].housingType)
+          checkboxItems.decorationSituation = that.homeData(checkboxItems.decorationSituation, list[0].decorateSituation)
+          checkboxItems.decorationUse = that.homeData(checkboxItems.decorationUse, list[0].decorationPurposes)
+          checkboxItems.decorationForm = that.homeData(checkboxItems.decorationForm, list[0].decorateForm)
+          that.setData({
+            isSee: false,
+            huxing:list[0].householdType,
+            roomRate:arr,
+            data:list[0],
+            dates: list[0].decorateTime,
+            checkboxItems
+          })
+        } else {
+          that.setData({
+            isSee: true
+          })
+        }
+      },
+      fail: function (err) {
+        console.log(err)
+      }
+    })
+  },
+  homeData(list,data){ //单选数据处理
+    for(let i in list){
+      if(list[i].name==data){
+        list[i].checked=true
+      }else{
+        list[i].checked = false
+      }
+    }
+    return list
   },
   checkboxChange: function (e) {
     console.log('checkbox发生change事件，携带value值为：', e.detail.value);
@@ -98,37 +174,118 @@ Page({
   bindCountryCodeChange: function (e) {
     console.log('picker country code 发生选择改变，携带值为', e.detail.value);
     console.log(e.currentTarget.dataset.chk)
-    var chk = e.currentTarget.dataset.chk
-    if(chk=='index'){
-      this.setData({
-        countryCodeIndex: e.detail.value
-      })
-    }else if(chk=='index1'){
-      this.setData({
-        countryCodeIndex1: e.detail.value
-      })
-    } else if (chk == 'index2') {
-      this.setData({
-        countryCodeIndex2: e.detail.value
-      })
-    } else if (chk == 'index3') {
-      this.setData({
-        countryCodeIndex3: e.detail.value
-      })
-    } else if (chk == 'index4') {
-      this.setData({
-        countryCodeIndex4: e.detail.value
-      })
+    var list = e.detail.value
+    var countryCodes = this.data.countryCodes
+    var huxing=""
+    for (let i in countryCodes){
+      let aa = list[i]
+      huxing += countryCodes[i][aa]
     }
+    console.log(huxing)
+    this.setData({
+      huxing: huxing
+    })
   },
   istankuang(){
     this.setData({
       iskuang:true
     })
   },
-  iskuangfrom(){
+  iskuangfrom(e){
+    console.log(e.currentTarget.dataset.istrue)
+    var istrue = e.currentTarget.dataset.istrue
+    var list={}
+    list.name = this.data.types
+    list.square = this.data.measure
+    if (istrue=='true'){
+      let roomRate = this.data.roomRate
+      console.log(list)
+      roomRate.push(list)
+      this.setData({
+        roomRate: roomRate,
+        iskuang: false
+      })
+    }else{
+      this.setData({
+        iskuang: false
+      })
+    }
+    console.log(this.data.roomRate)
+  },
+  measure(e){
     this.setData({
-      iskuang: false
+      measure: e.detail.value
+    })
+  },
+  types(e) {
+    this.setData({
+      types: e.detail.value
+    })
+  },
+  bindDateChange: function (e) {
+    this.setData({
+      dates: e.detail.value
+    })
+  },
+  roomRate(e){
+    var ind = e.currentTarget.dataset.ind
+    var value = e.detail.value
+    var roomRate = this.data.roomRate
+    roomRate[ind].square = value
+    this.setData({
+      roomRate: roomRate
+    })
+  },
+  formSubmit(e){
+    console.log(e.detail.value)
+    var checkboxItems = this.data.checkboxItems
+    var list = e.detail.value
+    var data={}
+    data.projectId = this.data.projectId;
+    data.householdType = this.data.huxing;
+    data.acreage = list.acreage;
+    data.contract = list.contract;
+    data.decorateTime = this.data.dates;
+    data.decoration = list.decoration;
+    data.furnishingStyle = list.furnishingStyle;
+    for (let k in checkboxItems){
+      for (let i in checkboxItems[k]){
+        if (k == "decorationType" && checkboxItems[k][i].checked==true){
+          data.housingType = checkboxItems[k][i].name
+        } else if (k == "decorationSituation" && checkboxItems[k][i].checked == true){
+          data.decorateSituation = checkboxItems[k][i].name
+        } else if (k == "decorationUse" && checkboxItems[k][i].checked == true) {
+          data.decorationPurposes = checkboxItems[k][i].name
+        } else if (k == "decorationForm" && checkboxItems[k][i].checked == true) {
+          data.decorateForm = checkboxItems[k][i].name
+        }
+      }
+    }
+    var roomRate = this.data.roomRate
+    var addHousehold=""
+    for (let j in roomRate){
+      addHousehold += roomRate[j].name + ':' + roomRate[j].square+'+'
+    }
+    data.addHousehold = addHousehold
+    console.log(data)
+    let cookie = this.data.cookie
+    wx.request({
+      url: utilBox.urlheader + "public/entrysignhousinginformation/insertOne",
+      data: data,
+      header: {
+        'content-type': 'application/json', // 默认值
+        cookie: cookie
+      },
+      method: 'post',
+      success: function (res) {
+        console.log(res)
+        if (res.data.status == 200) {
+          wx.navigateBack({ changed: true });//返回上一页
+        }
+      },
+      fail: function (err) {
+        console.log(err)
+      }
     })
   }
 })

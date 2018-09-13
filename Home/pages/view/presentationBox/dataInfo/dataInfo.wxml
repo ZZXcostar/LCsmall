@@ -1,3 +1,4 @@
+<form bindsubmit="formSubmit">
 <view class="weui-cells__title csize">基础信息</view>
 <view class="weui-panel weui-panel_access">
     <view class="weui-cell weui-cell_select">
@@ -7,7 +8,7 @@
                     <view class="weui-label">装修公司：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="圣都装饰城西分公司" value="{{household}}"/>
+                    <input class="weui-input" disabled='{{!isSee}}' placeholder="圣都装饰城西分公司" value='{{orderInfo.list? orderInfo.list.decoration : orderInfo.decoration}}' name="decoration"/>
                 </view>
             </view>
         </view>
@@ -17,29 +18,7 @@
                     <view class="weui-label">陪签日期：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="2018-01-01" value="{{measure}}"/>
-                </view>
-            </view>
-        </view>
-    </view>
-    <view class="weui-cell weui-cell_select">
-        <view class="weui-cell__hd ">
-            <view class="weui-cell weui-cell_input">
-                <view class="weui-cell__hd">
-                    <view class="weui-label">年  龄：</view>
-                </view>
-                <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入年龄" value="{{household}}"/>
-                </view>
-            </view>
-        </view>
-        <view class="weui-cell__hd ">
-           <view class="weui-cell weui-cell_input">
-                <view class="weui-cell__hd">
-                    <view class="weui-label">职  业：</view>
-                </view>
-                <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入职业" value="{{measure}}"/>
+                    <input class="weui-input" disabled='{{!isSee}}' placeholder="2018-01-01" value='{{orderInfo.list? orderInfo.list.signTime : orderInfo.startTime}}' name="signTime"/>
                 </view>
             </view>
         </view>
@@ -51,7 +30,7 @@
                     <view class="weui-label">装修风格：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="简欧" value="{{household}}"/>
+                    <input class="weui-input" disabled='{{!isSee}}' value='{{orderInfo.list.decor}}' placeholder="简欧" name="decor"/>
                 </view>
             </view>
         </view>
@@ -61,7 +40,7 @@
                     <view class="weui-label">装修类型：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入职业" value="{{measure}}"/>
+                    <input class="weui-input" disabled='{{!isSee}}' placeholder="装修类型" value='{{orderInfo.list? orderInfo.list.adornType : orderInfo.decorate}}' name="adornType"/>
                 </view>
             </view>
         </view>
@@ -73,7 +52,7 @@
                     <view class="weui-label">户型：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="三室一厅一卫" value="{{household}}"/>
+                    <input class="weui-input" disabled='{{!isSee}}' value='{{orderInfo.list.unit}}' placeholder="三室一厅一卫"  name="unit"/>
                 </view>
             </view>
         </view>
@@ -83,7 +62,7 @@
                     <view class="weui-label">面积：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="132" value="{{measure}}"/>
+                    <input class="weui-input" disabled='{{!isSee}}' placeholder="132" value='{{orderInfo.list? orderInfo.list.acreage : orderInfo.acreage}}' name="acreage"/>
                 </view>
             </view>
         </view>
@@ -95,7 +74,7 @@
                     <view class="weui-label">原报价：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="14万" value="{{household}}"/>
+                    <input class="weui-input" disabled='{{!isSee}}' placeholder="万元" value='{{orderInfo.list.original}}'  name="original"/>
                 </view>
             </view>
         </view>
@@ -105,7 +84,7 @@
                     <view class="weui-label">合同价：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="10万" value="{{measure}}"/>
+                    <input class="weui-input" disabled='{{!isSee}}' placeholder="万元"value='{{orderInfo.list.contract}}'  name="contract"/>
                 </view>
             </view>
         </view>
@@ -117,7 +96,7 @@
                     <view class="weui-label">设计费：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="1万" value="{{household}}"/>
+                    <input class="weui-input" disabled='{{!isSee}}' placeholder="万元" value='{{orderInfo.list.design}}'  name="design"/>
                 </view>
             </view>
         </view>
@@ -126,8 +105,8 @@
                 <view class="weui-cell__hd">
                     <view class="weui-label">管理费率：</view>
                 </view>
-                <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="10%" value="{{measure}}"/>
+                <view class="weui-cell__bd"> 
+                    <input class="weui-input" disabled='{{!isSee}}' placeholder="百分比" value='{{orderInfo.list.overheadRate}}'  name="overheadRate"/>
                 </view>
             </view>
         </view>
@@ -139,7 +118,7 @@
                     <view class="weui-label">税率：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="10%" value="{{household}}"/>
+                    <input class="weui-input" disabled='{{!isSee}}' placeholder="百分比" value='{{orderInfo.list.taxRate}}' name="taxRate"/>
                 </view>
             </view>
         </view>
@@ -149,7 +128,7 @@
                     <view class="weui-label">跟单税率：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="10%" value="{{measure}}"/>
+                    <input class="weui-input"  disabled='{{!isSee}}' placeholder="百分比" value='{{orderInfo.list.documentaryRate}}' name="documentaryRate"/>
                 </view>
             </view>
         </view>
@@ -161,7 +140,7 @@
                     <view class="weui-label">直接费：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="1万" value="{{household}}"/>
+                    <input class="weui-input"  disabled='{{!isSee}}' placeholder="万元" value='{{orderInfo.list.direct}}'  name="direct"/>
                 </view>
             </view>
         </view>
@@ -171,7 +150,7 @@
                     <view class="weui-label">项目经理工资</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="1万" value="{{measure}}"/>
+                    <input class="weui-input"  disabled='{{!isSee}}' placeholder="万元" value='{{orderInfo.list.salary}}'  name="salary"/>
                 </view>
             </view>
         </view>
@@ -182,11 +161,11 @@
   <view class="weui-cells__title csize">备注</view>
   <view class="weui-panel__bd">
     <view class="weui-media-box weui-media-box_text">
-     <textarea class="weui-textarea" placeholder="备注" style="height: 6.3em;background:#ddd;" />
+     <textarea class="weui-textarea" placeholder="备注" disabled='{{!isSee}}' value='{{orderInfo.list.remark}}' style="height: 6.3em;background:#ddd;"  name="remark" />
     </view>
   </view>
 </view>
-
-<view class="weui-btn-area">
-     <button class="weui-btn"  bindtap="showTopTips">确定</button>
+<view class="weui-btn-area" wx:if="{{isSee}}">
+     <button class="weui-btn" formType="submit">确定</button>
 </view>
+</form>

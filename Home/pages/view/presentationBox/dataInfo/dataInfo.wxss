@@ -75,6 +75,7 @@ width: 50%;
   background: #fff;
   margin: 0 !important;
   padding: 20rpx 30rpx;
+  border-bottom: 1px solid #ddd !important;
 }
 .tisi{
   font-size: 24rpx;

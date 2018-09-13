@@ -5,39 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imglist:[
-      {
-        src:'../../../images/ok.png'
-      },
-      {
-        src: '../../../images/ok.png'
-      },
-      {
-        src: '../../../images/ok.png'
-      },
-      {
-        src: '../../../images/ok.png'
-      },
-      {
-        src: '../../../images/ok.png'
-      },
-      {
-        src: '../../../images/ok.png'
-      },
-      {
-        src: '../../../images/ok.png'
-      },
-      {
-        src: '../../../images/ok.png'
-      }
-    ],
     src_bingimg:'',
-    bigimghidden:true
+    bigimghidden:true,
+    nodeInfo:'',
+    userInfos:''
   },
   enlarge:function(e){
     var src=e.currentTarget.dataset.src;
-    this.setData({src_bingimg:src});
-    this.setData({ bigimghidden: false });    
+    var ind=e.currentTarget.dataset.ind
+    var imgList = this.data.nodeInfo.entryReportStandards[0].imgs
+    for (let i in imgList){
+      imgList[i] = 'http://101.89.175.155/api/' + imgList[i]
+    }
+    wx.previewImage({
+      current: imgList[ind],     //当前图片地址
+      urls: imgList,               //所有要预览的图片的地址集合 数组形式
+    })   
   },
   hideBigimg:function(){
     this.setData({ bigimghidden: true });    
@@ -46,55 +29,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var jlNodeInfo = wx.getStorageSync("jlNodeInfo");
+    var userInfos = wx.getStorageSync("userInfos");
+    var imgs=jlNodeInfo.entryReportStandards[0].imgs.split(',')
+    imgs.pop()
+    jlNodeInfo.entryReportStandards[0].imgs=imgs
+    console.log(jlNodeInfo)
+    this.setData({
+      nodeInfo: jlNodeInfo,
+      userInfos: userInfos
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })

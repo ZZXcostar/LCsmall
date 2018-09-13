@@ -5,6 +5,9 @@ view{
 .weui-panel__hd{
   color:#3f3f3f;
 }
+page{
+  background: #eeeeee
+}
 .listBoxs{
   float: left;
   width: 30px;

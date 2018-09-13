@@ -1,23 +1,9 @@
 // pages/view/presentationBox/wantAdd/wantAdd.js
+var utilBox = require("../../../../utils/utilBox.js");
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    radioItems: [
-      { name: 'cell standard', value: '0', checked: true },
-      { name: 'cell standard', value: '1' },
-      { name: 'cell standard', value: '2' }
-    ],
-    radioItemsa: [
-      { name: 'cell standard', value: '0', checked: true },
-      { name: 'cell standard', value: '1' },
-      { name: 'cell standard', value: '2' }
-    ],
     checkboxItems: [
-      {
-        name: '原始尺寸图', value: '0', checked: true },
+      {name: '原始尺寸图', value: '0', checked: true },
       { name: '拆除平面图', value: '1' },
       { name: '砌墙平面图', value: '2' },
       { name: '平面布置图', value: '3' },
@@ -38,17 +24,70 @@ Page({
       { name: '给水管布置图', value: '18' },
       { name: '效果图（VR/草图）', value: '19' },
     ],
+    projectId:'',//项目id
+    rest:'',
+    cookie:'',
+    isSee:false
   },
   onLoad: function (options) {
-
+    var that=this
+    let userInfo = wx.getStorageSync("userInfo");
+    let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
+    let arr = reg.exec(userInfo.adminPassword);
+    let cookie = RegExp.$1;
+    var id = options.projectId
+    this.setData({
+      projectId: id,
+      cookie: cookie
+    })
+    
+    wx.request({
+      url: utilBox.urlheader + "public/entrysignsuggest/queryByIds",
+      data: [id],
+      header: {
+        'content-type': 'application/json', // 默认值
+        cookie: cookie
+      },
+      method: 'post',
+      success: function (res) {
+        var list = res.data.info.list
+        console.log(list)
+        if (list.length) {
+          var drawing = list[0].drawing.split('+')
+          let checkboxItems = that.data.checkboxItems
+          for (let k in checkboxItems){
+            for(let i in drawing){
+              if (drawing[i] == checkboxItems[k].name){
+                checkboxItems[k].checked=true
+              }
+            }
+          }
+          that.setData({
+            isSee: false,
+            rest: list[0].rest,
+            checkboxItems
+          })
+        } else {
+          that.setData({
+            isSee: true
+          })
+        }
+      },
+      fail: function (err) {
+        console.log(err)
+      }
+    })
+  },
+  rest(e) {
+    this.setData({
+      rest: e.detail.value
+    })
   },
   checkboxChange: function (e) {
-    console.log('checkbox发生change事件，携带value值为：', e.detail.value);
-
+    // console.log('checkbox发生change事件，携带value值为：', e.detail.value);
     var checkboxItems = this.data.checkboxItems, values = e.detail.value;
     for (var i = 0, lenI = checkboxItems.length; i < lenI; ++i) {
       checkboxItems[i].checked = false;
-
       for (var j = 0, lenJ = values.length; j < lenJ; ++j) {
         if (checkboxItems[i].value == values[j]) {
           checkboxItems[i].checked = true;
@@ -56,33 +95,41 @@ Page({
         }
       }
     }
-
     this.setData({
       checkboxItems: checkboxItems
     });
   },
-  radioChange: function (e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value);
-
-    var radioItems = this.data.radioItems;
-    for (var i = 0, len = radioItems.length; i < len; ++i) {
-      radioItems[i].checked = radioItems[i].value == e.detail.value;
+  showTopTips(){
+    var data = {}
+    data.projectId = this.data.projectId;
+    data.rest = this.data.rest;
+    var checkboxItems = this.data.checkboxItems;
+    var list = ""
+    for (let i in checkboxItems){
+      if (checkboxItems[i].checked==true){
+        list += checkboxItems[i].name + '+'
+      }
     }
-
-    this.setData({
-      radioItems: radioItems
-    });
-  },
-  radioChanges: function (e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value);
-
-    var radioItemsa = this.data.radioItemsa;
-    for (var i = 0, len = radioItemsa.length; i < len; ++i) {
-      radioItemsa[i].checked = radioItemsa[i].value == e.detail.value;
-    }
-
-    this.setData({
-      radioItemsa: radioItemsa
-    });
-  },
+    data.drawing = list
+    // console.log(data)
+    let cookie = this.data.cookie
+    wx.request({
+      url: utilBox.urlheader + "public/entrysignsuggest/insertOne",
+      data: data,
+      header: {
+        'content-type': 'application/json', // 默认值
+        cookie: cookie
+      },
+      method: 'post',
+      success: function (res) {
+        // console.log(res)
+        if (res.data.status == 200) {
+          wx.navigateBack({ changed: true });//返回上一页
+        }
+      },
+      fail: function (err) {
+        console.log(err)
+      }
+    })
+  }
 })

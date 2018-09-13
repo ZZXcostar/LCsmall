@@ -74,10 +74,10 @@
      <view class='viewBox'>
       <view class='newTop'><view class="lineGreen"></view>验收节点</view>
       <view class='newBox'>
-      <view  class='lineHeightLine borderBottem' wx:for="{{node}}" >
+      <view  class='lineHeightLine borderBottem' wx:for="{{node}}"  wx:key='{{index}}'>
       <view class="weui-flex" bindtap='godisclose' data-index="{{item.id}}" data-tit='{{item.reportname}}'>
             <view class="weui-flex__item">
-            <view class="placeholder">{{item.reportname}}<text> {{item.okCount}}/{{item.reportCount}}</text></view>
+            <view class="placeholder">{{item.reportname}}<text> {{item.okCount==null? '0':item.okCount}}/{{item.reportCount}}</text></view>
             </view>
             <view class="weui-cell__ft weui-cell__ft_in-access">
               <button class='buttonSytle'>{{item.okCount==item.reportCount?"已完成":"未完成"}}</button>
@@ -93,7 +93,6 @@
             <button class='buttonSytle'>已完成</button></view>
         </view>
       </view> -->
-      
       </view>
     </view>
 </view>

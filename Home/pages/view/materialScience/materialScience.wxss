@@ -49,7 +49,8 @@ view{
   width: 100%;
   margin: 0;
   padding: 0;
-  
+  position: fixed;
+  bottom: 0px;
 }
 .weui-btn-area button{
  background: #11b786;

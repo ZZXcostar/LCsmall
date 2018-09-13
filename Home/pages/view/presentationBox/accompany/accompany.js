@@ -47,6 +47,7 @@ Page({
       success: function (res) {
         console.log(res.data.info[0])
         res.data.info[0].acreage=parseInt(res.data.info[0].acreage)
+        wx.setStorageSync('pqOrderInfo', res.data.info[0])
         that.setData({
           orderInfo: res.data.info[0]
         })
@@ -89,27 +90,6 @@ Page({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
   },
   quickLogon: () => {
     wx.navigateTo({

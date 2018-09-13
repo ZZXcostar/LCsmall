@@ -1,4 +1,5 @@
 // pages/view/presentationBox/wantAdd/wantAdd.js
+var utilBox = require("../../../utils/utilBox.js");
 Page({
 
   /**
@@ -13,19 +14,74 @@ Page({
       { name: '有', value: '0', checked: true },
       { name: '部分', value: '1' }
     ],
-    checkboxItems: [
-      { name: '有', value: '0', checked: true },
-      { name: '部分', value: '1' },
-    ],
+    rest:'',//其他
+    projectId:'',//项目id
+    cookie:'',
+    isSee: false,
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    var that=this
+    let userInfo = wx.getStorageSync("userInfo");
+    let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
+    let arr = reg.exec(userInfo.adminPassword);
+    let cookie = RegExp.$1;
+    this.setData({
+      projectId: options.projectId,
+      cookie: cookie
+    })
+    wx.request({
+      url: utilBox.urlheader + "public/entrysignmaterials/queryByIds",
+      data: [options.projectId],
+      header: {
+        'content-type': 'application/json', // 默认值
+        cookie: cookie
+      },
+      method: 'post',
+      success: function (res) {
+        var list = res.data.info.list
+        console.log(list)
+        if (list.length) {
+          var radioItems = that.data.radioItems
+          var radioItems1 = that.data.radioItems1
+          for (let i in radioItems){
+            radioItems[i].checked=false
+          }
+          if (list[0].detailed==false){
+            radioItems[0].checked = false
+            radioItems[1].checked = true
+          }else{
+            radioItems[0].checked = true
+            radioItems[1].checked = false
+          }
+          for (let i in radioItems1) {
+            radioItems1[i].checked = false
+          }
+          if (list[0].manual == false) {
+            radioItems1[0].checked = false
+            radioItems1[1].checked = true
+          } else {
+            radioItems1[0].checked = true
+            radioItems1[1].checked = false
+          }
+          that.setData({
+            isSee: false,
+            rest: list[0].rest,
+            radioItems1: radioItems1,
+            radioItems: radioItems
+          })
+        } else {
+          that.setData({
+            isSee: true
+          })
+        }
+      },
+      fail: function (err) {
+        console.log(err)
+      }
+    })
   },
   radioChange: function (e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value);
+    // console.log('radio发生change事件，携带value值为：', e.detail.value);
     var chk = e.currentTarget.dataset.chk
     if (chk =='radioItems'){
       var radioItems = this.data.radioItems;
@@ -51,4 +107,54 @@ Page({
       });
     }
   },
+  rest(e){
+    this.setData({
+      rest: e.detail.value
+    })
+  },
+  showTopTips(){ //确定提交
+    var data={}
+    data.projectId = this.data.projectId;
+    data.rest = this.data.rest;
+    var radioItems = this.data.radioItems;
+    var radioItems1 = this.data.radioItems1
+    for (let i in radioItems){
+      if (radioItems[i].checked == true){
+        if (radioItems[i].value == 0){
+          data.detailed = false
+        }else{
+          data.detailed = true
+        }
+      }
+    }
+    for (let i in radioItems1) {
+      if (radioItems1[i].checked == true) {
+        if (radioItems1[i].value == 0) {
+          data.manual = false
+        } else {
+          data.manual = true
+        }
+      }
+    }
+    console.log(data)
+    let cookie = this.data.cookie
+    wx.request({
+      url: utilBox.urlheader + "public/entrysignmaterials/insertOne",
+      data: data,
+      header: {
+        'content-type': 'application/json', // 默认值
+        cookie: cookie
+      },
+      method: 'post',
+      success: function (res) {
+        console.log(res)
+        if (res.data.status == 200) {
+          wx.navigateBack({ changed: true });//返回上一页
+        }
+      },
+      fail: function (err) {
+        console.log(err)
+      }
+    })
+  }
 })
