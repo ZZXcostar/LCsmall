@@ -28,7 +28,7 @@ Page({
 
     ],
     // 验收节点
-    acceptnodes:['验收交底3.0','砌筑巡检3.0'],
+    acceptnodes:[{"reportname":'验收交底2.0',"okCount":0,"reportCount":2},{"reportname":'验收交底3.0',"okCount":0,"reportCount":2}],
     tabs:[
       {
         name:'陪签备忘录',
@@ -62,8 +62,27 @@ Page({
    */
   onLoad: function (options) {
     let info = wx.getStorageSync('orderInfo');
-   
+    let that =this;
     console.log(info.id)
+    //订单详情
+    if (info.orderDetail){
+      this.setData({
+        orderdetail: {
+          address: info.orderDetail.detailAddress,
+          number: info.orderDetail.orderNumber,
+          phone: info.orderDetail.phone,
+          servicename: info.orderDetail.serviceType.serName,
+          type_house: info.categoryName,
+          uesrname: info.orderDetail.name,
+          remark: info.remarks == null ?"无备注":info.remarks,
+          "area_house": info.acreage,
+          appointTime:info.orderDetail.updateAppointTime == null?info.orderDetail.appointTime.split(" ")[0]:info.orderDetail.updateAppointTime.split(" ")[0],
+          decorate:info.decorate == null?'':info.decorate
+        }
+      })
+    }
+
+    //查询项目报告列表
     network.requestLoading(
       utilBox.urlheader + `public/entryreport/queryMapByProjectIds`,
       [info.id], "",
@@ -71,28 +90,18 @@ Page({
         console.log(res)
         let resMessage = res.info
         if (res.status == 200) {
+          that.setData({
+            acceptnodes: resMessage
+          })
         }
       }, function (res) {
         wx.showToast({
           title: '加载数据失败',
         })
       }, 'application/json');
-
-    if (info.orderDetail){
-      this.setData({
-        orderdetail: {
-          address: info.orderDetail.detailAddress,
-          number: info.orderInfo.number,
-          phone: info.orderDetail.phone,
-          servicename: info.orderDetail.categoryName,
-          type_house: info.commodityCategory.name,
-          uesrname: info.name,
-          remark: info.remarks!=null ? info.remarks:"",
-          "area_house": info.acreage,
-        }
-      })
-    }
+    
   },
+  //立即接单
   upDateinfo:function(){
     let info = wx.getStorageSync('orderInfo');
     let userInfo = wx.getStorageSync('userInfo');
@@ -107,13 +116,18 @@ Page({
       function (res) {
         console.log(res)
         let resMessage = res.info
-        if (res.msg == "修改") {
+        if (res.msg == "修改成功") {
           wx.showToast({
-            title: '添加成功',
+            title: '接单成功',
           })
           setTimeout(() => {
             wx.switchTab({
               url: '../../orderWait/list/list',
+              success: function (e) { 
+                var page = getCurrentPages().pop(); 
+                if (page == undefined || page == null) return; 
+                page.onLoad(); 
+                } 
             })
           }, 2000)
         }

@@ -9,7 +9,7 @@ Page({
   data: {
     page:1,
     pageSize: 3,
-    contentlist:[],
+    contentlist:[],  
     hasMoreData: true,
     orderIds: "",
     inputVal:"",
@@ -51,8 +51,10 @@ Page({
     this.setData({ showcancle: isshow});
  
   },
+  //放弃接单
   formSubmit: function (options){
     console.log(options)
+    let that =this;
     this.setData({
       inputVal: '',
     })
@@ -70,13 +72,13 @@ Page({
         
         if (res.status == 200) {
           wx.showToast({
-            title:"放弃接单",
+            title:"放弃接单成功",
           })
-          this.setData({ showcancle: true });
-          this.getMusicInfo('正在加载数据...')
+          that.setData({ showcancle: true });
+          that.getMusicInfo('正在加载数据...')
         } else {
           wx.showToast({
-            title: res.showapi_res_error,
+            title: res.msg,
           })
         }
 
@@ -116,6 +118,9 @@ Page({
         })
      }
   },
+  onShow: function () {  
+    this.onLoad();
+  },
   getMusicInfo: function (message) {
     var that = this;
     network.requestLoading(
@@ -132,6 +137,28 @@ Page({
             contentlistTem = []
           }
           var contentlist = res.info.list
+          if (contentlist != null) {
+            for (let i = 0; i < contentlist.length; i++) {
+              contentlist[i].node = contentlist[i].entryReports
+              let node = contentlist[i].node
+                var index = -1;
+                if (node.length>2){
+                  for (let j = 0; j < node.length; j++) {
+                    if (node[i].okCount == node[i].reportCount) {
+                      index=i
+                    }
+                  }
+                  if(index==-1){
+                    node = node.splice(0,2)
+                  } else if (index == node.length-1){
+                    node = node.splice(index, 1)
+                  }else{
+                    node = node.splice(index, 2)
+                  }
+                }
+               contentlist[i].node =node
+            }
+          }
           if (contentlist.length < that.data.pageSize) {
             that.setData({
               contentlist: contentlistTem.concat(contentlist),

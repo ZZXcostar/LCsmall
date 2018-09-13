@@ -24,8 +24,8 @@
                 <view class='half'>房屋面积：{{orderdetail.area_house}}㎡</view>
             </view>
             <view>
-                <view class='half'>预约时间：{{orderdetail.date_service}}</view>
-                <view class='half'>装修类型：<input bindtap='selectrenovationtype' value='{{orderdetail.type_renovation}}' class='selectlist' />  </view>
+                <view class='half'>预约时间：{{orderdetail.appointTime}}</view>
+                <view class='half'>装修类型：{{orderdetail.decorate}} </view>
                 
             </view>
         </view>
@@ -43,9 +43,10 @@
             <text class='flag'>验收节点</text>
         </view>
         <view>
-            <view class='nodecontent' wx:for='{{acceptnodes}}' wx:key='index'>{{item}}<text class='flag_jt'>18/18 <text class='iconfont icon-jiantou' style=''></text></text></view>
+            <view class='nodecontent' wx:for='{{acceptnodes}}' wx:key='index'>{{item.reportname}}<text class='flag_jt'>{{ item.okCount==null?0:item.okCount }}/{{ item.reportCount==null?'':item.reportCount }} </text></view>
         </view>
     </view>
+    <!--右箭头 <text class='iconfont icon-jiantou' style=''></text> -->
     <view class='btngroup'>
         <button class="weui-btn" bindtap='upDateinfo' type="primary">立即接单</button>
     </view>
