@@ -63,7 +63,7 @@ Page({
   onLoad: function (options) {
     let info = wx.getStorageSync('orderInfo');
     let that =this;
-    console.log(info.id)
+    console.log(info)
     //订单详情
     if (info.orderDetail){
       this.setData({
@@ -117,19 +117,25 @@ Page({
         console.log(res)
         let resMessage = res.info
         if (res.msg == "修改成功") {
+          wx.switchTab({
+            url: '../../orderWait/list/list'
+          })
           wx.showToast({
             title: '接单成功',
           })
-          setTimeout(() => {
-            wx.switchTab({
-              url: '../../orderWait/list/list',
-              success: function (e) { 
-                var page = getCurrentPages().pop(); 
-                if (page == undefined || page == null) return; 
-                page.onLoad(); 
-                } 
-            })
-          }, 2000)
+          
+
+          // setTimeout(() => {
+          //   
+          //   wx.switchTab({
+          //     url: '../../orderWait/list/list',
+          //     success: function (e) { 
+          //       var page = getCurrentPages().pop(); 
+          //       if (page == undefined || page == null) return; 
+          //       page.onLoad(); 
+          //       } 
+          //   })
+          // }, 2000)
         }
       }, function (res) {
         wx.showToast({

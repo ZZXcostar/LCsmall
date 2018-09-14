@@ -22,16 +22,15 @@ Page({
         list: ['检测说明']
       }
     ],
-    activeIndex: 0,
+    activeIndex: '',
     sliderOffset: 0,
     sliderLeft: 0,
     cookie:"",
-    bgId:"",
-    standard:"",
-    acceptance:""
+    nodeInfo:''
   },
   // 切换内容tabs
   tabClick: function (e) {
+    console.log(e.currentTarget)
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
@@ -97,19 +96,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.id, options.types)
     let userInfo = wx.getStorageSync("userInfo");
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
     let arr = reg.exec(userInfo.adminPassword);
     let cookie = RegExp.$1;
-    console.log(options.bgid)
+    console.log(options.index)
+    var jlNodeInfo = wx.getStorageSync("jlNodeInfo");
+    jlNodeInfo.entryReportStandards = jlNodeInfo.entryReportStandards[options.index]
+    var imgs = jlNodeInfo.entryReportStandards.imgs.split(',')
+    imgs.pop()
+    for(let i in imgs){
+      imgs[i] = 'http://101.89.175.155/api/' + imgs[i]
+    }
+    jlNodeInfo.entryReportStandards.imgs = imgs
+    if (jlNodeInfo.entryReportStandards.isService==1){
+      var left = wx.getSystemInfoSync().windowWidth/2
+    }
+    console.log(jlNodeInfo)
     this.setData({
-      orderId: options.id,
-      types: options.types,
       cookie: cookie,
-      bgId: options.bgid,
-      standard: options.standard,
-      acceptance: options.acceptance
+      nodeInfo: jlNodeInfo,
+      imglist: jlNodeInfo.entryReportStandards.imgs,
+      activeIndex: jlNodeInfo.entryReportStandards.isService,
+      sliderOffset: left
     })
   },
   noNeed(){ //无需验收
@@ -150,6 +159,7 @@ Page({
     var aa2 = e.detail.value.aa02
     var aa3 = e.detail.value.aa03
     var aa10 = e.detail.value.aa10
+    console.log(aa0,aa1,aa2,aa3,aa10)
     var imgList = this.data.imglists;
     var a0= aa0==""? aa10 : aa0
     console.log(imgList)
@@ -161,33 +171,46 @@ Page({
         img += imgList[i] + ","
       }
     }
-    // 订单信息查询
-    wx.request({
-      url: utilBox.urlheader + "public/entryreport/updateType",
-      data: {
-        isService: that.data.activeIndex,
-        reportId: id,
-        id: that.data.orderId,
-        imgs:img,
-        instructions:a0,
-        solution:aa1,
-        hdanger:aa2,
-        solutionf:aa3,
-        remark:"合格与不合格"
-      },
-      header: {
-        'content-type': 'application/json', // 默认值
-        cookie: cookie
-      },
-      method: 'post',
+    wx.showModal({
+      title: '是否提交报告',
+      content: '预览是预览报告，确定是保存报告！！',
+      cancelText:'预览',
       success: function (res) {
-        console.log("修改成功")
-        wx.navigateBack({ changed: true });//返回上一页
-      },
-      fail: function (err) {
-        console.log(err)
+        if (res.confirm) {
+          wx.request({
+              url: utilBox.urlheader + "public/entryreport/updateType",
+              data: {
+                isService: that.data.activeIndex,
+                reportId: id,
+                id: that.data.orderId,
+                imgs:img,
+                instructions:a0,
+                solution:aa1,
+                hdanger:aa2,
+                solutionf:aa3,
+                remark:"合格与不合格"
+              },
+              header: {
+                'content-type': 'application/json', // 默认值
+                cookie: cookie
+              },
+              method: 'post',
+              success: function (res) {
+                console.log("修改成功")
+                wx.navigateBack({ changed: true });//返回上一页
+              },
+              fail: function (err) {
+                console.log(err)
+              }
+            })
+        } else if (res.cancel) {
+          wx.navigateTo({
+            url: '../../orderOwner/preview/preview'
+          })
+        }
       }
-    })
+    })  
+    // 订单信息查询
   },
   
 })

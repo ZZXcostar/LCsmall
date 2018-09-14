@@ -71,23 +71,24 @@ Page({
   },
   reportAccept(e){
     console.log(e.currentTarget.dataset)
-    var id = e.currentTarget.dataset.id
-    var types = e.currentTarget.dataset.types
-    var bgid = e.currentTarget.dataset.bgid
-    var standard = e.currentTarget.dataset.standard
-    var acceptance = e.currentTarget.dataset.acceptance
+    var index = e.currentTarget.dataset.ind
+    // var types = e.currentTarget.dataset.types
+    // var bgid = e.currentTarget.dataset.bgid
+    // var standard = e.currentTarget.dataset.standard
+    // var acceptance = e.currentTarget.dataset.acceptance
     var datalist= this.data.datalist
-    for (let k in datalist){
-      if (datalist[k].isService == '') {
+    // for (let k in datalist){
+      // if (datalist[k].isService == '') {
         wx.navigateTo({
-          url: '../../orderOwner/reportAccept/reportAccept?id=' + id + "&types=" + types + "&bgid=" + bgid + "&acceptance=" + acceptance + "&standard=" + standard,
+          url: '../../orderOwner/reportAccept/reportAccept?index=' + index
         })
-      } else {
-        wx.navigateTo({
-          url: '../../orderOwner/preview/preview'
-        })
-      }
-    }
+      // } 
+      // else {
+      //   wx.navigateTo({
+      //     url: '../../orderOwner/preview/preview'
+      //   })
+      // }
+    // }
   },
   preview(){
     console.log('aaaaaaaaaaa')

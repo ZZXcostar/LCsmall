@@ -39,7 +39,7 @@ Page({
     let arr = reg.exec(userInfo.adminPassword);
     let cookie = RegExp.$1;
     wx.request({
-      url: utilBox.urlheader + "product/serviceType/find", //仅为示例，并非真实的接口地址
+      url: utilBox.urlheader + "product/serviceType/find", 
       data: {},
       header: {
         'content-type': 'application/json', // 默认值
