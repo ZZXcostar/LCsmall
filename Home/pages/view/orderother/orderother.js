@@ -32,7 +32,6 @@ Page({
       method: 'post',
       success: function (res) {
         var list = res.data.info.list
-        console.log(list)
         if (list.length) {
           that.setData({
             isSee: false,
@@ -68,7 +67,6 @@ Page({
       },
       method: 'post',
       success: function (res) {
-        console.log(res)
         if (res.data.status == 200) {
           wx.navigateBack({ changed: true });//返回上一页
         }

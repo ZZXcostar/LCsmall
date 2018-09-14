@@ -1,7 +1,7 @@
 <view>
 <view class="weui-cells__title">验收项目</view>
     <view class="weui-cells weui-cells_after-title" >
-        <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{datalist}}" bindtap='reportAccept' data-ind='{{index}}' wx:key='{{index}}' >
+        <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for="{{datalist}}" bindtap='reportAccept' data-ind='{{index}}' wx:key='{{index}}'data-types="{{item.items}}" data-id="{{item.id}}" data-bgId="{{bgId}}" data-acceptance="{{item.acceptance}}" data-standard="{{item.standard}}" >
             <view class="weui-cell__hd">
                 <image src="{{icon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
             </view>

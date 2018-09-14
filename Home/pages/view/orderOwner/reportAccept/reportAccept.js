@@ -22,15 +22,15 @@ Page({
         list: ['检测说明']
       }
     ],
-    activeIndex: '',
+    activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
     cookie:"",
-    nodeInfo:''
+    nodeInfo:'',
+    index:''
   },
   // 切换内容tabs
   tabClick: function (e) {
-    console.log(e.currentTarget)
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
@@ -78,7 +78,6 @@ Page({
                   jj = jj.info
                   list.push(jj);
                 }
-                console.log(list)
                 that.setData({
                   imglists: list
                 })
@@ -88,7 +87,6 @@ Page({
               },
             })
           }
-          
         }
       })
   },
@@ -100,32 +98,20 @@ Page({
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
     let arr = reg.exec(userInfo.adminPassword);
     let cookie = RegExp.$1;
-    console.log(options.index)
-    var jlNodeInfo = wx.getStorageSync("jlNodeInfo");
-    jlNodeInfo.entryReportStandards = jlNodeInfo.entryReportStandards[options.index]
-    var imgs = jlNodeInfo.entryReportStandards.imgs.split(',')
-    imgs.pop()
-    for(let i in imgs){
-      imgs[i] = 'http://101.89.175.155/api/' + imgs[i]
-    }
-    jlNodeInfo.entryReportStandards.imgs = imgs
-    if (jlNodeInfo.entryReportStandards.isService==1){
-      var left = wx.getSystemInfoSync().windowWidth/2
-    }
-    console.log(jlNodeInfo)
     this.setData({
+      orderId: options.id,
+      types: options.types,
       cookie: cookie,
-      nodeInfo: jlNodeInfo,
-      imglist: jlNodeInfo.entryReportStandards.imgs,
-      activeIndex: jlNodeInfo.entryReportStandards.isService,
-      sliderOffset: left
+      bgId: options.bgid,
+      standard: options.standard,
+      acceptance: options.acceptance,
+      index: options.index
     })
   },
   noNeed(){ //无需验收
     var that = this;
     var cookie = this.data.cookie
     var id=that.data.bgId
-    console.log
     // 订单信息查询
     wx.request({
       url: utilBox.urlheader + "public/entryreport/updateType", //仅为示例，并非真实的接口地址
@@ -141,7 +127,6 @@ Page({
       },
       method: 'post',
       success: function (res) {
-        console.log("修改成功")
         wx.navigateBack({ changed: true });//返回上一页
       },
       fail: function (err) {
@@ -154,15 +139,28 @@ Page({
     var that = this;
     var cookie = this.data.cookie
     var id = that.data.bgId
-    var aa0 = e.detail.value.aa00
-    var aa1 = e.detail.value.aa01
-    var aa2 = e.detail.value.aa02
-    var aa3 = e.detail.value.aa03
-    var aa10 = e.detail.value.aa10
-    console.log(aa0,aa1,aa2,aa3,aa10)
+    if (that.data.activeIndex==0){ //不合格输入框数据
+      var aa0 = e.detail.value.aa0
+      var aa1 = e.detail.value.aa1
+      var aa2 = e.detail.value.aa2
+      var aa3 = e.detail.value.aa3
+    } else {  //合格输入框数据
+      var aa0 = e.detail.value.bb0
+      var aa1 = ''
+      var aa2 = ''
+      var aa3 = ''
+    }
     var imgList = this.data.imglists;
-    var a0= aa0==""? aa10 : aa0
-    console.log(imgList)
+    var data={}
+    data.imgs = imgList;
+    data.solution=aa1;
+    data.hdanger=aa2;
+    data.solutionf=aa3;
+    data.instructions=aa0;
+    data.isService = that.data.activeIndex;
+    data.reportId=id;
+    data.id = that.data.orderId
+    data.remark = "合格与不合格";
     var img=""
     for (var i = 0; i < imgList.length;i++){
       if (imgList.length == 0 && i == (imgList.length)){
@@ -176,27 +174,17 @@ Page({
       content: '预览是预览报告，确定是保存报告！！',
       cancelText:'预览',
       success: function (res) {
+        data.imgs = img
         if (res.confirm) {
           wx.request({
               url: utilBox.urlheader + "public/entryreport/updateType",
-              data: {
-                isService: that.data.activeIndex,
-                reportId: id,
-                id: that.data.orderId,
-                imgs:img,
-                instructions:a0,
-                solution:aa1,
-                hdanger:aa2,
-                solutionf:aa3,
-                remark:"合格与不合格"
-              },
+              data: data,
               header: {
                 'content-type': 'application/json', // 默认值
                 cookie: cookie
               },
               method: 'post',
               success: function (res) {
-                console.log("修改成功")
                 wx.navigateBack({ changed: true });//返回上一页
               },
               fail: function (err) {
@@ -204,13 +192,13 @@ Page({
               }
             })
         } else if (res.cancel) {
+          wx.setStorageSync('jlNodeInfos', data)
           wx.navigateTo({
-            url: '../../orderOwner/preview/preview'
+            url: '../../orderOwner/preview/preview?act=11&index='+that.data.index
           })
         }
       }
     })  
     // 订单信息查询
   },
-  
 })

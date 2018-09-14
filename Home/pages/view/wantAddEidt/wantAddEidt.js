@@ -64,7 +64,6 @@ Page({
       method: 'post',
       success: function (res) {
         var list=res.data.info.list
-        // console.log(list)
         if(list.length){
           let carpentry = list[0].carpentry.split('+')
           let hydropower = list[0].hydropower.split('+')
@@ -72,7 +71,6 @@ Page({
           let rest = list[0].rest.split('+')
           let tiler = list[0].tiler.split('+')
           let waterproof = list[0].waterproof.split('+')
-          // console.log(carpentry, hydropower, paint, rest, waterproof, tiler)
           for (let k in checkboxItems){
             if (k =='hydropower'){
               for (let i in hydropower){
@@ -124,7 +122,6 @@ Page({
               }
             }
           }
-          // console.log(checkboxItems)
           that.setData({
             isSee: false,
             remarks: list[0].remark,
@@ -218,7 +215,6 @@ Page({
         data.rest = list
       }
     }
-    // console.log(data)
     let cookie = this.data.cookie
     wx.request({
       url: utilBox.urlheader + "public/entrysignadditmes/insertOne",
@@ -229,7 +225,6 @@ Page({
       },
       method: 'post',
       success: function (res) {
-        // console.log(res.data.status)
         if (res.data.status==200){
           wx.navigateBack({ changed: true });//返回上一页
         }

@@ -39,7 +39,6 @@ Page({
       method: 'post',
       success: function (res) {
         var list = res.data.info.list
-        console.log(list)
         if (list.length) {
           var radioItems = that.data.radioItems
           var radioItems1 = that.data.radioItems1
@@ -81,7 +80,6 @@ Page({
     })
   },
   radioChange: function (e) {
-    // console.log('radio发生change事件，携带value值为：', e.detail.value);
     var chk = e.currentTarget.dataset.chk
     if (chk =='radioItems'){
       var radioItems = this.data.radioItems;
@@ -136,7 +134,6 @@ Page({
         }
       }
     }
-    console.log(data)
     let cookie = this.data.cookie
     wx.request({
       url: utilBox.urlheader + "public/entrysignmaterials/insertOne",
@@ -147,7 +144,6 @@ Page({
       },
       method: 'post',
       success: function (res) {
-        console.log(res)
         if (res.data.status == 200) {
           wx.navigateBack({ changed: true });//返回上一页
         }

@@ -48,6 +48,10 @@
                 <view class='title'>验收标准：</view>
                 <view class='content'>{{nodeInfo.entryReportStandards[0].standard}}</view>
             </view>
+            <view class='line-content'>
+                <view class='title'>检测说明：</view>
+                <view class='content'>{{nodeInfo.entryReportStandards[0].instructions==null? '' :nodeInfo.entryReportStandards[0].instructions}}</view>
+            </view>
             <view class='line-content' wx:if='{{nodeInfo.entryReportStandards[0].isService==0}}'>
                 <view class='title'>施工隐患：</view>
                 <view class='content'>{{nodeInfo.entryReportStandards[0].hdanger}}</view>
@@ -71,5 +75,8 @@
     </view> 
     <view class='overback' hidden='{{bigimghidden}}' bindtap='hideBigimg'>
       <image src="{{src_bingimg}}" mode='aspectFit'></image>
+    </view>
+    <view class='btns weui-flex' wx:if='{{act==11}}'>
+        <button class="weui-btn weui-flex__item" bindtap='submit'>提交</button>
     </view>
 </view>

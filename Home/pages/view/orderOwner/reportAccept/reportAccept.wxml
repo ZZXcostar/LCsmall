@@ -1,22 +1,22 @@
 <form bindsubmit="formSub">
 <view class='reportaccept'>
     <view style='padding:10rpx 20rpx;margin-top:10rpx;'>
-          <text class='number'><text class='flag'>订单编号：</text><text class='red'>{{nodeInfo.entryReportStandards.id}}</text>
+          <text class='number'><text class='flag'>订单编号：</text><text class='red'>{{orderId}}</text>
           </text>
     </view>
     <view>
-        <view class='titles'><text class='flag'>测试项目：{{nodeInfo.entryReportStandards.items}}</text></view>
+        <view class='titles'><text class='flag'>测试项目：{{types}}</text></view>
         <view class='content_detail'>
            <view style='border-bottom:1rpx solid #cccccc;padding-bottom:15rpx;'>
               <view class='name'>验收标准：</view>
               <view class='content'>
-                  <textarea placeholder='请输入验证标准' disabled='true' value='{{nodeInfo.entryReportStandards.standard}}' placeholder-class='holder'></textarea>
+                  <textarea placeholder='请输入验证标准' disabled='true' value='{{standard}}' placeholder-class='holder'></textarea>
               </view> 
            </view>
            <view>
               <view class='name'>验收方式：</view>
               <view class='content'>
-                  <input placeholder='请输入验证方式' disabled='true' value='{{nodeInfo.entryReportStandards.acceptance}}' placeholder-class='holder' />
+                  <input placeholder='请输入验证方式' disabled='true' value='{{acceptance}}' placeholder-class='holder' />
               </view> 
            </view>
         </view>
@@ -40,22 +40,19 @@
             <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
         </view>
         <view class="weui-tab__panel">
-            <view wx:for="{{tabs}}" wx:key="*this" class="weui-tab__content" hidden="{{activeIndex != index}}">
-                <view bindtap='toDetail' wx:for="{{item.list}}" wx:key='this' class='switchlist'>
+            <view  class="weui-tab__content" hidden="{{activeIndex != 0}}">
+                <view bindtap='toDetail' wx:for="{{tabs[0].list}}" wx:key='this' class='switchlist'>
                     <view class='label' style='float:left;'>{{item}}：</view>
                     <view class='content'>
-                      <block wx:if='{{index==1}}'>
-                        <textarea auto-height='{{true}}' class='heig' name="aa{{activeIndex}}{{index}}" value='{{nodeInfo.entryReportStandards.solution}}'></textarea>
-                      </block>
-                      <block wx:if='{{index==2}}'>
-                        <textarea auto-height='{{true}}' class='heig' name="aa{{activeIndex}}{{index}}" value='{{nodeInfo.entryReportStandards.hdanger}}'></textarea>
-                      </block>
-                      <block wx:if='{{index==3}}'>
-                        <textarea auto-height='{{true}}' class='heig' name="aa{{activeIndex}}{{index}}" value='{{nodeInfo.entryReportStandards.solutionf}}'></textarea>
-                      </block>
-                      <block wx:if='{{index==0}}'>
-                        <textarea auto-height='{{true}}' class='heig' name="aa{{activeIndex}}{{index}}" value=''></textarea>
-                      </block>
+                        <textarea auto-height='{{true}}' class='heig' name="aa{{index}}"></textarea>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+                <view bindtap='toDetail' wx:for="{{tabs[1].list}}" wx:key='this' class='switchlist'>
+                    <view class='label' style='float:left;'>{{item}}：</view>
+                    <view class='content'>
+                        <textarea auto-height='{{true}}' class='heig' name="bb{{index}}"></textarea>
                     </view>
                 </view>
             </view>
@@ -63,7 +60,7 @@
     </view>
     <view class='btns weui-flex'>
         <button class="weui-btn weui-flex__item" type="warn" bindtap='noNeed'>无需验收</button>
-        <button class="weui-btn weui-flex__item" formType="submit">保存</button>
+        <button class="weui-btn weui-flex__item" formType="submit">预览/保存</button>
     </view>
 </view>
 </form>

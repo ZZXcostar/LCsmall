@@ -98,16 +98,13 @@ Page({
     });
   },
   goassociationReport:function(e){
-    console.log(e.currentTarget.dataset.reportid)
     let reportId = e.currentTarget.dataset.reportid
     wx.navigateTo({
       url: '../associationReport/associationReport?reportId=' + reportId,
     })
   },
   gopresent: function (val){
-    console.log(val.currentTarget.dataset.reportid)
     let orderId = val.currentTarget.dataset.reportid
-    console.log(val.currentTarget.dataset.type)
     if(val.currentTarget.dataset.type == "陪签"){
       wx.navigateTo({
         url: '../accompany/accompany?reportid='+orderId,
@@ -126,8 +123,6 @@ Page({
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
     let arr = reg.exec(userInfo.adminPassword);
     let cookie = RegExp.$1;
-    // console.log(topNav)
-    // console.log(leftNav)
     wx.request({
       url: utilBox.urlheader + "/product/workList/queryType?typeId=" + leftNav, //仅为示例，并非真实的接口地址
       data: {

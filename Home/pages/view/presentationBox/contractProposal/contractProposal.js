@@ -34,7 +34,6 @@ Page({
       method: 'post',
       success: function (res) {
         var list = res.data.info.list
-        console.log(list)
         if (list.length) {
           let radioItems = that.data.radioItems
           if (list[0].contract==false){
@@ -79,7 +78,6 @@ Page({
     })
   },
   radioChange: function (e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value);
     var len = e.detail.value
     var ind=len[(len.length-1)]
     var radioItems = this.data.radioItems;
@@ -110,7 +108,6 @@ Page({
         }
       }
     }
-    console.log(data)
     let cookie = this.data.cookie
     wx.request({
       url: utilBox.urlheader + "public/entrysigncontract/insertOne",
@@ -121,7 +118,6 @@ Page({
       },
       method: 'post',
       success: function (res) {
-        console.log(res)
         if (res.data.status == 200) {
           wx.navigateBack({ changed: true });//返回上一页
         }

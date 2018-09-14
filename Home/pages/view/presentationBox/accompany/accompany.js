@@ -27,7 +27,6 @@ Page({
   },
   onLoad: function (options) {
     var id = options.reportid;
-    console.log(id)
     this.setData({
       projectId:id
     })
@@ -45,7 +44,6 @@ Page({
       },
       method: 'post',
       success: function (res) {
-        console.log(res.data.info[0])
         res.data.info[0].acreage=parseInt(res.data.info[0].acreage)
         wx.setStorageSync('pqOrderInfo', res.data.info[0])
         that.setData({
@@ -58,7 +56,6 @@ Page({
     })
   },
   towantAdd(e){
-    console.log(e.currentTarget.dataset.towantadd)
     var goWantAdd = e.currentTarget.dataset.towantadd
     var goDetail = ''
     if (goWantAdd =='后期可能存在的增项'){

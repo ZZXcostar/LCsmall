@@ -14,7 +14,6 @@ Page({
   onLoad: function (options) {
     var that=this
     var orderInfo = wx.getStorageSync("pqOrderInfo")
-    console.log(orderInfo)
     let userInfo = wx.getStorageSync("userInfo");
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
     let arr = reg.exec(userInfo.adminPassword);
@@ -37,13 +36,11 @@ Page({
         var list = res.data.info.list;
         var orderInfo = that.data.orderInfo;
         orderInfo.list = list[0]
-        console.log(list)
         if (list.length) {
           that.setData({
             isSee: false,
             orderInfo
           })
-          console.log(that.data.orderInfo)
         } else {
           that.setData({
             isSee: true
@@ -63,7 +60,6 @@ Page({
     data.acreage = parseFloat(data.acreage)
     data.original = parseFloat(data.original)
     data.projectId = this.data.projectId;
-    console.log(data)
     var isInfo=true
     for(let i in data){
       if(data[i]==""){
@@ -88,7 +84,6 @@ Page({
         },
         method: 'post',
         success: function (res) {
-          console.log(res)
           if (res.data.status == 200) {
             wx.navigateBack({ changed: true });//返回上一页
           }
@@ -98,6 +93,5 @@ Page({
         }
       })
     }
-    console.log(isInfo)
   }
 })

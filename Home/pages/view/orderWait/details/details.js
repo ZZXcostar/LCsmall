@@ -128,10 +128,6 @@ Page({
           wx.showToast({
             title: '接单成功',
           })
-          // setTimeout(() => {
-          //   
-          //   wx.switchTab({
-          //     success: function (e) { 
         }
       }, function (res) {
         wx.showToast({

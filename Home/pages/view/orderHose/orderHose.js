@@ -70,7 +70,6 @@ Page({
     let arr = reg.exec(userInfo.adminPassword);
     let cookie = RegExp.$1;
     var orderInfo = wx.getStorageSync("pqOrderInfo")
-    console.log(orderInfo)
     this.setData({
       projectId: id,
       orderInfo: orderInfo,
@@ -86,7 +85,6 @@ Page({
       method: 'post',
       success: function (res) {
         var list = res.data.info.list;
-        console.log(list[0])
         if (list.length) {
           var addHousehold = list[0].addHousehold.split('+')
           var arr = []
@@ -133,8 +131,6 @@ Page({
     return list
   },
   checkboxChange: function (e) {
-    console.log('checkbox发生change事件，携带value值为：', e.detail.value);
-    console.log(e.currentTarget.dataset.chk)
     var chk = e.currentTarget.dataset.chk;
     var values = e.detail.value;
     var checkboxItems = this.data.checkboxItems
@@ -172,8 +168,6 @@ Page({
     });
   },
   bindCountryCodeChange: function (e) {
-    console.log('picker country code 发生选择改变，携带值为', e.detail.value);
-    console.log(e.currentTarget.dataset.chk)
     var list = e.detail.value
     var countryCodes = this.data.countryCodes
     var huxing=""
@@ -181,7 +175,6 @@ Page({
       let aa = list[i]
       huxing += countryCodes[i][aa]
     }
-    console.log(huxing)
     this.setData({
       huxing: huxing
     })
@@ -192,14 +185,12 @@ Page({
     })
   },
   iskuangfrom(e){
-    console.log(e.currentTarget.dataset.istrue)
     var istrue = e.currentTarget.dataset.istrue
     var list={}
     list.name = this.data.types
     list.square = this.data.measure
     if (istrue=='true'){
       let roomRate = this.data.roomRate
-      console.log(list)
       roomRate.push(list)
       this.setData({
         roomRate: roomRate,
@@ -210,7 +201,6 @@ Page({
         iskuang: false
       })
     }
-    console.log(this.data.roomRate)
   },
   measure(e){
     this.setData({
@@ -237,7 +227,6 @@ Page({
     })
   },
   formSubmit(e){
-    console.log(e.detail.value)
     var checkboxItems = this.data.checkboxItems
     var list = e.detail.value
     var data={}
@@ -267,7 +256,6 @@ Page({
       addHousehold += roomRate[j].name + ':' + roomRate[j].square+'+'
     }
     data.addHousehold = addHousehold
-    console.log(data)
     let cookie = this.data.cookie
     wx.request({
       url: utilBox.urlheader + "public/entrysignhousinginformation/insertOne",
@@ -278,7 +266,6 @@ Page({
       },
       method: 'post',
       success: function (res) {
-        console.log(res)
         if (res.data.status == 200) {
           wx.navigateBack({ changed: true });//返回上一页
         }
