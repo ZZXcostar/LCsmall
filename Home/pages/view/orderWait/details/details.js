@@ -76,7 +76,7 @@ Page({
           uesrname: info.orderDetail.name,
           remark: info.remarks == null ?"无备注":info.remarks,
           "area_house": info.acreage,
-          appointTime:info.orderDetail.updateAppointTime == null?info.orderDetail.appointTime.split(" ")[0]:info.orderDetail.updateAppointTime.split(" ")[0],
+          appointTime: info.orderDetail.updateAppointTime == null ? info.orderDetail.appointTime == null ? '' : info.orderDetail.appointTime.split(" ")[0]:info.orderDetail.updateAppointTime.split(" ")[0],
           decorate:info.decorate == null?'':info.decorate
         }
       })
@@ -118,24 +118,20 @@ Page({
         let resMessage = res.info
         if (res.msg == "修改成功") {
           wx.switchTab({
-            url: '../../orderWait/list/list'
+            url: '../../orderWait/list/list',
+            success: function (e) {
+              var page = getCurrentPages().pop();
+              if (page == undefined || page == null) return;
+              page.onLoad();
+            }
           })
           wx.showToast({
             title: '接单成功',
           })
-          
-
           // setTimeout(() => {
           //   
           //   wx.switchTab({
-          //     url: '../../orderWait/list/list',
           //     success: function (e) { 
-          //       var page = getCurrentPages().pop(); 
-          //       if (page == undefined || page == null) return; 
-          //       page.onLoad(); 
-          //       } 
-          //   })
-          // }, 2000)
         }
       }, function (res) {
         wx.showToast({

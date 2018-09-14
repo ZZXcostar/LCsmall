@@ -75,7 +75,7 @@ Page({
             title:"放弃接单成功",
           })
           that.setData({ showcancle: true });
-          that.getMusicInfo('正在加载数据...')
+          that.onLoad()
         } else {
           wx.showToast({
             title: res.msg,
@@ -100,7 +100,9 @@ Page({
 
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
+    console.log(options)
     var that = this
+    this.data.page = 1
     that.getMusicInfo('正在加载数据...')
   },
   onPullDownRefresh: function () {
@@ -118,9 +120,10 @@ Page({
         })
      }
   },
-  onShow: function () {  
-    this.onLoad();
-  },
+  // onShow: function (e) {
+  //   console.log(e) 
+  //   this.onLoad()
+  // },
   getMusicInfo: function (message) {
     var that = this;
     network.requestLoading(
