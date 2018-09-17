@@ -8,8 +8,20 @@
   margin-bottom: -10000px;  
   padding-bottom: 10000px; 
 }
+.page{
+  background: #f5f5f5
+}
+.searchbox{
+  width:80%;
+  font-size: 30rpx;
+  margin:20rpx auto;
+  border-radius:10rpx;
+  padding:15rpx 30rpx;
+  background-color: #ffffff;
+}
 .pheight{
   height: 100%;
+  background: #ffffff
 }
 .weui-tab__panel .rightBox{
  width: 100%;

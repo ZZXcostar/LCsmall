@@ -1,6 +1,6 @@
 <view class='page__owner'>
   <view class='page_top'>
-      <input class='searchbox' placeholder='姓名、电话、楼盘名称'         placeholder-style='text-align:center' confirm-type='Search'>
+      <input class='searchbox' placeholder='姓名、电话、楼盘名称' placeholder-style='text-align:center' confirm-type='Search'>
       </input>
   </view>
   <scroll-view class='container_order' scroll-y='true'>

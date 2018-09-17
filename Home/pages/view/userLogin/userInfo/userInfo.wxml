@@ -61,8 +61,7 @@
       <view class="weui-cell__hd">
         <view class="iconfont icon-service" ></view>  
       </view>
-      <view class="weui-cell__bd">联系客服 : 95555555</view>
-
+      <view class="weui-cell__bd">联系客服 : 95059999</view>
     </navigator>
     <button  id="shareBtn" open-type="share" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
       <view class="weui-cell__hd">

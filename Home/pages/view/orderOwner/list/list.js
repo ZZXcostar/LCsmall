@@ -46,12 +46,9 @@ Page({
       isshow = this.data.showcancle ? false : true;
 
     }
-
     this.setData({ showcancle: isshow });
-
   },
   formSubmit: function (options) {
-
     console.log(this.data.orderIds)
     this.setData({
       inputVal: '',

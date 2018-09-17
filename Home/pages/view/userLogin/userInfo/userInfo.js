@@ -14,7 +14,6 @@ Page({
   onLoad: function (options) {
     var that = this;
     let userInfo = wx.getStorageSync("userInfo");
-
     if (userInfo) {
       console.log(userInfo)
     }
@@ -38,10 +37,6 @@ Page({
       }
     }
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
    
   },
