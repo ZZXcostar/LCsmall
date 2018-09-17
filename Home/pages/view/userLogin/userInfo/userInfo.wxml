@@ -21,14 +21,14 @@
   <div class="weui-flex fleBox">
     <div class="weui-flex__item">
       <div class="placeholder">
-        <text class='green'>630</text>
+        <text class='green'>{{ userinfo.currentReport }}</text>
         <text>当月报告</text>
       </div>
       <view class='lines'></view>
     </div>
     <div class="weui-flex__item">
       <div class="placeholder">
-        <text>9999</text>
+        <text>{{ userinfo.countReport }}</text>
         <text>累计报告</text>
       </div>
       <view class='lines'></view>
