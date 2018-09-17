@@ -1,5 +1,9 @@
 .weui-navbar__slider{
   width: 5rem;
+  background: #11b786
+}
+.weui-bar__item_on{
+  color: #11b786 !important;
 }
 .weui-tab__panel .leftBox{
   width: 20%;
@@ -81,10 +85,11 @@ page,.page{
   font-size: 12px;
 }
 .buttonSize{
-  height: 30px;
-  line-height: 30px;
-  font-size: 16px;
+  height: 56rpx;
+  line-height: 56rpx;
+  font-size: 30rpx;
   background: #11b786 !important;
+  padding: 0px 20rpx !important;
 }
 .listBoxmiddle:after{display:block;clear:both;content:"";visibility:hidden;height:0}
 .imgBox,.userInfoBox{

@@ -121,6 +121,7 @@
   font-size:30rpx;
   border-radius: 0;
   margin-top:0rpx;
+  line-height: 88rpx !important;
 }
 .weui-btn[type='primary']{
   background-color: #11b786;

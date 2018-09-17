@@ -2,7 +2,7 @@
   "pages": [
     "pages/view/userLogin/login/login",
     "pages/view/presentationBox/presentation/presentation",
-    
+    "pages/view/userLogin/userInfo/userInfo",
     "pages/view/materialScience/materialScience",
     "pages/view/demandinformaction/demandinformaction",
     "pages/view/presentationBox/dataInfo/dataInfo",
@@ -13,7 +13,6 @@
     "pages/view/presentationBox/disclose/disclose",
     "pages/view/presentationBox/wantAdd/wantAdd",
     "pages/view/userLogin/setInfo/setInfo",
-    "pages/view/userLogin/userInfo/userInfo",
     "pages/view/userLogin/perfectUser/perfectUser",
     "pages/view/userLogin/quickLogon/quickLogon",
     "pages/view/userLogin/missCipher/missCipher",

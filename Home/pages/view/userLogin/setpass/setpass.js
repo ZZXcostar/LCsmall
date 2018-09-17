@@ -45,9 +45,6 @@ Page({
       "登录中请稍等...",
       function(req){
         if(req.status==200){
-         
-          
-        
           var currentTime = that.data.currentTime
           var interval = setInterval(function () {
             currentTime--;

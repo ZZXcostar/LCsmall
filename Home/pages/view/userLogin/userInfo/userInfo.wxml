@@ -10,10 +10,10 @@
       <view class='usrName'>
         {{userinfo.adminName}}
       </view>
-      <view class='line'>
-      </view>
+      
       <view class='userInfo'>
         <text>{{userinfo.accGradeName}}</text>
+        <text>|</text>
         <text>{{userinfo.phone}}</text>
       </view>
     </view>
@@ -50,20 +50,19 @@
     </div>
   </div>
   <view class="weui-cells weui-cells_after-title">
-    <navigator url="" class="weui-cell weui-cell_access">
+    <view url="" class="weui-cell weui-cell_access">
       <view class="weui-cell__hd">
        <view class="iconfont icon-add"></view>  
       </view>
       <view class="weui-cell__bd">服务区域 : {{userinfo.areaName}}</view>
-
-    </navigator>
-    <navigator url="" class="weui-cell weui-cell_access">
+    </view>
+    <view url="" class="weui-cell weui-cell_access">
       <view class="weui-cell__hd">
         <view class="iconfont icon-service" ></view>  
       </view>
       <view class="weui-cell__bd">联系客服 : 95059999</view>
-    </navigator>
-    <button  id="shareBtn" open-type="share" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    </view>
+    <button  id="shareBtn" style='border:none' open-type="share" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
       <view class="weui-cell__hd">
        <view class="iconfont icon-share" ></view>  
       </view>
