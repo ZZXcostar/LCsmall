@@ -44,6 +44,7 @@ Page({
       jlNodeInfo.entryReportStandards[index].items = xm
       jlNodeInfo.entryReportStandards[index].standard = bz
       jlNodeInfo.entryReportStandards[index].acceptance = fs
+      console.log(jlNodeInfo)
       this.setData({
         nodeInfo: jlNodeInfo,
         userInfos: userInfos
@@ -59,6 +60,7 @@ Page({
     }
   },
   submit(){
+    var that=this;
     let userInfo = wx.getStorageSync("userInfo");
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
     let arr = reg.exec(userInfo.adminPassword);
@@ -78,7 +80,14 @@ Page({
             },
             method: 'post',
             success: function (res) {
-              wx.navigateBack({ changed: true });//返回上一页
+              if (res.data.status == 200) {
+                wx.navigateBack({ //返回上两页
+                  delta: 2
+                })
+                // wx.navigateTo({ //刷新页面的返回
+                //   url: '../../presentationBox/disclose/disclose?id=' + that.data.nodeInfo.reportId + '&tit='+that.data.nodeInfo.reportname,
+                // })
+              } 
             },
             fail: function (err) {
               console.log(err)

@@ -27,7 +27,8 @@ Page({
     sliderLeft: 0,
     cookie:"",
     nodeInfo:'',
-    index:''
+    index:'',
+    bgId:''
   },
   // 切换内容tabs
   tabClick: function (e) {
@@ -98,6 +99,7 @@ Page({
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
     let arr = reg.exec(userInfo.adminPassword);
     let cookie = RegExp.$1;
+    console.log(options)
     this.setData({
       orderId: options.id,
       types: options.types,
@@ -185,7 +187,13 @@ Page({
               },
               method: 'post',
               success: function (res) {
-                wx.navigateBack({ changed: true });//返回上一页
+                if (res.data.status == 200){
+                  wx.navigateBack({ changed: true });//返回上一页
+                  // wx.navigateTo({//刷新页面的返回
+                  //   url: '../../presentationBox/disclose/disclose?id='+that.data.bgId,
+                  // })
+                }
+               
               },
               fail: function (err) {
                 console.log(err)
