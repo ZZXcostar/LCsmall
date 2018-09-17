@@ -23,7 +23,6 @@ Page({
       },
       method: 'post',
       success: function (res) {
-        console.log(res.data.info[0])
         res.data.info[0].acreage = parseInt(res.data.info[0].acreage)
         wx.setStorageSync('userInfos', res.data.info[0] )
         that.setData({

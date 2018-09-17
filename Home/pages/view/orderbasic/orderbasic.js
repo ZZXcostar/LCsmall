@@ -19,7 +19,6 @@ Page({
     var that=this;
     var id = options.projectId;
     var orderInfo = wx.getStorageSync("pqOrderInfo");
-    console.log(orderInfo)
     let userInfo = wx.getStorageSync("userInfo");
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
     let arr = reg.exec(userInfo.adminPassword);
@@ -39,7 +38,6 @@ Page({
       method: 'post',
       success: function (res) {
         var list = res.data.info.list;
-        console.log(list)
         var orderInfo1 = that.data.orderInfo;
         orderInfo1.list=list[0]
         if (list.length) {
@@ -47,7 +45,6 @@ Page({
             isSee: false,
             orderInfo: orderInfo1
           })
-          console.log(that.data.orderInfo)
         } else {
           that.setData({
             isSee: true
@@ -60,7 +57,6 @@ Page({
     })
   },
   formSubmit(e){
-    console.log(e.detail.value)
     var list = e.detail.value
     var data={}
     data.projectId = this.data.projectId
@@ -69,7 +65,6 @@ Page({
     data.permanent = parseInt(list.people);
     data.child = list.children;
     data.childAge = parseInt(list.childrenAge);
-    console.log(data)
     let cookie = this.data.cookie;
     wx.request({
       url: utilBox.urlheader + "public/entrysigninformation/insertOne",
@@ -80,7 +75,6 @@ Page({
       },
       method: 'post',
       success: function (res) {
-        console.log(res)
         if (res.data.status == 200) {
           wx.navigateBack({ changed: true });//返回上一页
         }
@@ -89,7 +83,5 @@ Page({
         console.log(err)
       }
     })
-
-  }
-  
+  } 
 })

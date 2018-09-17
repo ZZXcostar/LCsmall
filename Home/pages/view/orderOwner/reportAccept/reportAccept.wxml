@@ -24,7 +24,7 @@
     <view>
         <view class='titles'><text class='flag'>上传图片</text></view>
         <view  class='content_detail imglist'>
-            <image class='imgs' wx:for="{{imglist}}" data-src='{{item}}'  mode="scaleToFill" src="{{item}}" bindtap='enlarge'></image>
+            <image class='imgs' wx:for="{{imglist}}" wx:key='{{index}}' data-src='{{item}}'  mode="scaleToFill" src="{{item}}" bindtap='enlarge'></image>
             <view class='uploadimg' bindtap="uploadImg">
               <view class='iconfont icon-zhaoxiangji'></view>
           </view> 
@@ -40,14 +40,19 @@
             <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
         </view>
         <view class="weui-tab__panel">
-            <view wx:for="{{tabs}}" wx:key="*this" class="weui-tab__content" hidden="{{activeIndex != index}}">
-                <view bindtap='toDetail' wx:for="{{item.list}}" wx:key='this' class='switchlist'>
+            <view  class="weui-tab__content" hidden="{{activeIndex != 0}}">
+                <view bindtap='toDetail' wx:for="{{tabs[0].list}}" wx:key='this' class='switchlist'>
                     <view class='label' style='float:left;'>{{item}}：</view>
-                    <!-- <view class='content'>
-                        <textarea name="aa{{activeIndex}}{{index}}" class='heig'></textarea>
-                    </view> -->
                     <view class='content'>
-                        <textarea auto-height='{{true}}' class='heig' name="aa{{activeIndex}}{{index}}"></textarea>
+                        <textarea auto-height='{{true}}' class='heig' name="aa{{index}}"></textarea>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+                <view bindtap='toDetail' wx:for="{{tabs[1].list}}" wx:key='this' class='switchlist'>
+                    <view class='label' style='float:left;'>{{item}}：</view>
+                    <view class='content'>
+                        <textarea auto-height='{{true}}' class='heig' name="bb{{index}}"></textarea>
                     </view>
                 </view>
             </view>
@@ -55,7 +60,7 @@
     </view>
     <view class='btns weui-flex'>
         <button class="weui-btn weui-flex__item" type="warn" bindtap='noNeed'>无需验收</button>
-        <button class="weui-btn weui-flex__item" formType="submit">保存</button>
+        <button class="weui-btn weui-flex__item" formType="submit">预览/保存</button>
     </view>
 </view>
 </form>

@@ -51,7 +51,6 @@ Page({
       method: 'post',
       success: function (res) {
         var list = res.data.info.list
-        console.log(list)
         if (list.length) {
           var drawing = list[0].drawing.split('+')
           let checkboxItems = that.data.checkboxItems
@@ -111,7 +110,6 @@ Page({
       }
     }
     data.drawing = list
-    // console.log(data)
     let cookie = this.data.cookie
     wx.request({
       url: utilBox.urlheader + "public/entrysignsuggest/insertOne",
@@ -122,7 +120,6 @@ Page({
       },
       method: 'post',
       success: function (res) {
-        // console.log(res)
         if (res.data.status == 200) {
           wx.navigateBack({ changed: true });//返回上一页
         }

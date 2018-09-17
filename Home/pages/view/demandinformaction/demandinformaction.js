@@ -109,7 +109,6 @@ Page({
       method: 'post',
       success: function (res) {
         var list = res.data.info.list;
-        console.log(list[0])
         if (list.length) {
           var checkboxItems = that.data.checkboxItems
           checkboxItems.equipment = that.demandData(checkboxItems.equipment, list[0].equipment)
@@ -123,7 +122,6 @@ Page({
             data:list[0],
             checkboxItems
           })
-          console.log(that.data.checkboxItems)
         } else {
           that.setData({
             isSee: true
@@ -145,7 +143,6 @@ Page({
         }
       }
     }
-    console.log(list)
     return list
   },
   checkboxChange: function (e) { //多选按钮点击事件
@@ -235,7 +232,6 @@ Page({
       },
       method: 'post',
       success: function (res) {
-        console.log(res)
         if (res.data.status == 200) {
           wx.navigateBack({ changed: true });//返回上一页
         }

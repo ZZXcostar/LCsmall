@@ -1,9 +1,6 @@
 // pages/view/reportAccept/reportAccept.js
+var utilBox = require("../../../../utils/utilBox.js");
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     src_bingimg:'',
     bigimghidden:true,
@@ -29,15 +26,77 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var jlNodeInfo = wx.getStorageSync("jlNodeInfo");
-    var userInfos = wx.getStorageSync("userInfos");
-    var imgs=jlNodeInfo.entryReportStandards[0].imgs.split(',')
-    imgs.pop()
-    jlNodeInfo.entryReportStandards[0].imgs=imgs
-    console.log(jlNodeInfo)
+    var index = options.index
     this.setData({
-      nodeInfo: jlNodeInfo,
-      userInfos: userInfos
+      act: options.act
     })
+    var userInfos = wx.getStorageSync("userInfos");
+    var jlNodeInfo = wx.getStorageSync("jlNodeInfo");
+    var xm = jlNodeInfo.entryReportStandards[index].items
+    var bz = jlNodeInfo.entryReportStandards[index].standard
+    var fs = jlNodeInfo.entryReportStandards[index].acceptance
+    if (options.act==11){
+      var jlNodeInfos = wx.getStorageSync("jlNodeInfos");
+      jlNodeInfo.entryReportStandards[index] = jlNodeInfos
+      var imgs = jlNodeInfo.entryReportStandards[index].imgs.split(',')
+      imgs.pop()
+      jlNodeInfo.entryReportStandards[index].imgs = imgs
+      jlNodeInfo.entryReportStandards[index].items = xm
+      jlNodeInfo.entryReportStandards[index].standard = bz
+      jlNodeInfo.entryReportStandards[index].acceptance = fs
+      console.log(jlNodeInfo)
+      this.setData({
+        nodeInfo: jlNodeInfo,
+        userInfos: userInfos
+      })
+    }else{
+      var imgs = jlNodeInfo.entryReportStandards[index].imgs.split(',')
+      imgs.pop()
+      jlNodeInfo.entryReportStandards[index].imgs = imgs
+      this.setData({
+        nodeInfo: jlNodeInfo,
+        userInfos: userInfos
+      })
+    }
   },
+  submit(){
+    var that=this;
+    let userInfo = wx.getStorageSync("userInfo");
+    let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
+    let arr = reg.exec(userInfo.adminPassword);
+    let cookie = RegExp.$1;
+    var jlNodeInfos = wx.getStorageSync("jlNodeInfos");
+    wx.showModal({
+      title: '是否提交报告',
+      content: '报告提交后不可修改！！',
+      success: function (res) {
+        if (res.confirm) {
+          wx.request({
+            url: utilBox.urlheader + "public/entryreport/updateType",
+            data: jlNodeInfos,
+            header: {
+              'content-type': 'application/json', // 默认值
+              cookie: cookie
+            },
+            method: 'post',
+            success: function (res) {
+              if (res.data.status == 200) {
+                wx.navigateBack({ //返回上两页
+                  delta: 2
+                })
+                // wx.navigateTo({ //刷新页面的返回
+                //   url: '../../presentationBox/disclose/disclose?id=' + that.data.nodeInfo.reportId + '&tit='+that.data.nodeInfo.reportname,
+                // })
+              } 
+            },
+            fail: function (err) {
+              console.log(err)
+            }
+          })
+        }else{
+
+        }
+      }
+    })
+  }
 })

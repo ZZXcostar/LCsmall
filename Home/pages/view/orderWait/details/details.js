@@ -63,7 +63,7 @@ Page({
   onLoad: function (options) {
     let info = wx.getStorageSync('orderInfo');
     let that =this;
-    console.log(info.id)
+    console.log(info)
     //订单详情
     if (info.orderDetail){
       this.setData({
@@ -121,7 +121,6 @@ Page({
             url: '../../orderWait/list/list',
             success: function (e) {
               var page = getCurrentPages().pop();
-             // console.log(page)
               if (page == undefined || page == null) return;
               page.onLoad();
             }
