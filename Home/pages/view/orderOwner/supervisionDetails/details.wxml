@@ -1,0 +1,78 @@
+<view class='mtop'>
+<view class="weui-cells weui-cells_after-title">
+    <view  class="weui-cell" >
+        <view class="weui-cell__bd"><view class="lineGreen"></view>订单编号：{{orderInfo.orderDetail.orderNumber}}</view>
+        <view class="weui-cell__ft">监理服务</view>
+    </view>
+    <view class='viewBox userInfo'>
+      <view class='newTop'><view class="lineGreen"></view>业主信息</view>
+      <view class='newBox'>
+      <view class="weui-flex">
+            <view class="weui-flex__item">
+            <view class="placeholder">业主姓名：<text>{{orderInfo.orderDetail.name}}</text></view>
+            </view>
+            <view class="weui-flex__item">
+            <view class="placeholder">联系方式：<text>{{orderInfo.orderDetail.phone}}</text></view>
+            </view>
+        </view>
+        <view class="weui-flex">
+            <view class="weui-flex__item">
+            <view class="placeholder">业主地址：<text>{{orderInfo.orderDetail.detailAddress}}</text></view>
+            </view>
+        </view>
+      </view>
+    </view>
+    <view class='viewBox fwinfo'>
+      <view class='newTop'><view class="lineGreen"></view>房屋信息</view>
+      <view class='newBox'>
+      <view class="weui-flex">
+            <view class="weui-flex__item">
+            <view class="placeholder">房屋类型：<text>{{orderInfo.categoryName}}</text></view>
+            </view>
+            <view class="weui-flex__item">
+            <view class="placeholder">房屋面积：<text>{{orderInfo.acreage==null?'':orderInfo.acreage}}㎡</text></view>
+            </view>
+        </view>
+        <!-- <view class="weui-flex">
+            <view class="weui-flex__item">
+            <view class="placeholder">服务时间：<text>{{orderInfo.startTime==null?'':orderInfo.startTime}}</text></view>
+            </view>
+            <view class="weui-flex__item">
+            <view class="placeholder">装修类型：<text>{{orderInfo.decorate==null?'':orderInfo.decorate}}</text></view>
+            </view>
+        </view> -->
+      </view>
+    </view>
+     <view class='viewBox' style="margin-bottom:50rpx;">
+      <view class='newTop'><view class="lineGreen"></view>验收节点</view>
+      <view class='newBox'>
+      <view  class='lineHeightLine borderBottem' wx:for="{{node}}"  wx:key='{{index}}'>
+      <view class="weui-flex" bindtap='godisclose' data-index="{{item.id}}" data-tit='{{item.reportname}}'>
+            <view class="weui-flex__item">
+            <view class="placeholder">{{item.reportname}}<text> {{item.okCount==null? '0':item.okCount}}/{{item.reportCount}}</text></view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">
+              <button class='buttonSytle'>{{item.okCount==item.reportCount?"已完成":"未完成"}}</button>
+            </view>
+        </view>
+      </view>
+      </view>
+    </view>
+    <view class='btns weui-flex'>
+        <button class="weui-btn weui-flex__item" type="warn" bindtap='changeshow'>申请放弃派单</button>
+        <button class="weui-btn weui-flex__item" type="primary" bindtap='addSupervision' data-projectId="{{ projectId }}">添加施工信息</button>
+    </view>
+    <view class="overback" hidden='{{showcancle}}' catchtap='changeshow' id='overback'>
+      <view class='dialog'>
+          <view class='header'>确认拒绝订单？</view>
+          <view class='dialog-content'>
+              <textarea class="weui-textarea" value="{{inputVal}}" placeholder="请输入放弃原因" />
+          </view>
+          <view class='btngroup'>
+              <view  class="certain" catchtap='giveupOrder'>确认</view>
+              <view id='cancle' class="cancle" catchtap='changeshow'>取消</view>
+          </view>
+      </view>
+    </view>
+</view>
+</view>

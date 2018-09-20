@@ -4,7 +4,7 @@
         <view class='content_detail'>
            <view>
               <view class='name'>装修公司名称：</view>
-              <input  />
+              <input value='{{ decoration }}' bindinput="decorationInput" placeholder="具体那个分公司" />
            </view>
         </view>
     </view> 
@@ -13,12 +13,12 @@
         <view class='content_detail'>
            <view class='half'>
               <view class='name'>工期：</view>
-              <input  placeholder='*个月' placeholder-style='color:#cccccc;'  />
+              <input value='{{ duration }}' bindinput="durationInput" placeholder='*个月' placeholder-style='color:#cccccc;'  />
            </view>
            <view class='half'>
-              <picker style='position:relative;' bindchange="bindPickerChange" value="{{renovationIndex}}" range="{{typelist_renovation}}">
+              <picker style='position:relative;' bindchange="bindPickerChange" value="{{renovationIndex}}" range="{{countryCodes}}">
                   <view class="picker">
-                    装修方式：{{typelist_renovation[renovationIndex]}}
+                    装修方式：{{ huxing }}
                   </view>
                   <view class='borderstyle'></view>
                 </picker>
@@ -30,36 +30,38 @@
         <view class='content_detail'>
           <view class='half'>
               <view class='name'>姓名：</view>
-              <input  placeholder='填写姓名' placeholder-style='color:#cccccc;'  />
+              <input value='{{ pmname }}' bindinput="pmnameInput" placeholder='填写姓名' placeholder-style='color:#cccccc;'  />
           </view>
           <view class='half'>
             <view class='name'>联系方式：</view>
-            <input  placeholder='填写电话' placeholder-style='color:#cccccc;'  />
+            <input value='{{ pmphone }}' bindinput="pmphoneInput" placeholder='填写电话' placeholder-style='color:#cccccc;'  />
           </view>
         </view>
     </view> 
     <view>
-        <view class='titles'><text class='flag'>工人信息(选填）</text></view>
-        <view class='content_detail'>
+        <view class='titles'><text class='flag'>工人信息(选填）</text> <text class='workerInfo' bindtap="addWorker">+添加工人信息</text></view>
+
+        <view class='content_detail' wx:for='{{workerArr}}' wx:key="index">
           <view style='margin-bottom:10rpx;overflow:hidden;border-bottom:1px solid #f5f5f5;'>
               <view class='half'>
+             
                   <view class='name'>姓名：</view>
-                  <input  placeholder='填写姓名' placeholder-style='color:#cccccc;'  />
+                  <input  placeholder='填写姓名' value="{{ item.name }}" bindinput="nameInput" data-nameIndex="{{ index }}" placeholder-style='color:#cccccc;'  />
               </view>
               <view class='half'>
                 <view class='name'>联系方式：</view>
-                <input  placeholder='填写电话' placeholder-style='color:#cccccc;'  />
+                <input  placeholder='填写电话' value="{{ item.phone }}" bindinput="phoneInput" data-phoneIndex="{{ index }}" placeholder-style='color:#cccccc;'  />
               </view>
           </view>
           <view style='margin-bottom:10rpx;overflow:hidden;border-bottom:1px solid #f5f5f5;'>
               <view class='half'>
                   <view class='name'>人工费：</view>
-                  <input  placeholder='0' placeholder-style='color:#cccccc;'  />
+                  <input  placeholder='0' value="{{ item.manpower }}" bindinput="manpowerInput" data-manpowerIndex="{{ index }}" placeholder-style='color:#cccccc;'  />
               </view>
               <view class='half'>
-                  <picker style='position:relative;' bindchange="bindPickerChange" value="{{priceIndex}}" range="{{typelist_price}}">
+                  <picker style='position:relative;' bindchange="pricingChange" data-pricingIndex="{{ index }}" value="{{priceIndex}}" range="{{typelist_price}}">
                       <view class="picker">
-                        计价方式：{{typelist_price[priceIndex]}}
+                        计价方式：{{ item.pricing }}
                       </view>
                       <view class='borderstyle'></view>
                     </picker>
@@ -67,9 +69,9 @@
           </view>
           <view>
               <view class='half'>
-                  <picker style='position:relative;' bindchange="bindPickerChange" value="{{workerIndex}}" range="{{typelist_worker}}">
+                  <picker style='position:relative;' bindchange="professionChange" data-professionIndex="{{ index }}" value="{{workerIndex}}" range="{{typelist_worker}}">
                       <view class="picker">
-                        工种：{{typelist_worker[workerIndex]}}
+                        工种：{{ item.profession }}
                       </view>
                       <view class='borderstyle' style='width:78%'></view>
                     </picker>
@@ -78,6 +80,6 @@
         </view>
     </view> 
     <view class='btngroup'>
-        <button class="weui-btn" type="primary">提交</button>
+        <button class="weui-btn" type="primary" bindtap="sureAddConstructionInfo">提交</button>
     </view>
 </view>

@@ -1,0 +1,101 @@
+<view class='mtop'>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <view class="lineGreen"></view>订单编号：{{orderInfo.orderDetail.orderNumber}}</view>
+      <view class="weui-cell__ft">{{orderInfo.orderDetail.serviceStateName}}服务</view>
+    </view>
+    <view class='viewBox userInfo'>
+      <view class='newTop'>
+        <view class="lineGreen"></view>业主信息</view>
+      <view class='newBox'>
+        <view class="weui-flex">
+          <view class="weui-flex__item">
+            <view class="placeholder">业主姓名：
+              <text>{{orderInfo.name}}</text>
+            </view>
+          </view>
+          <view class="weui-flex__item">
+            <view class="placeholder">联系方式：
+              <text>{{orderInfo.orderDetail.phone}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="weui-flex">
+          <view class="weui-flex__item">
+            <view class="placeholder">业主地址：
+              <text>{{orderInfo.orderDetail.detailAddress}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='viewBox fwinfo'>
+      <view class='newTop'>
+        <view class="lineGreen"></view>房屋信息</view>
+      <view class='newBox'>
+        <view class="weui-flex">
+          <view class="weui-flex__item">
+            <view class="placeholder">房屋类型：
+              <text>{{orderInfo.categoryName}}</text>
+            </view>
+          </view>
+          <view class="weui-flex__item">
+            <view class="placeholder">房屋面积：
+              <text>{{orderInfo.acreage}}㎡</text>
+            </view>
+          </view>
+        </view>
+        <view class="weui-flex">
+          <view class="weui-flex__item">
+            <view class="placeholder">服务时间：
+              <text>{{orderInfo.startTime}}</text>
+            </view>
+          </view>
+          <view class="weui-flex__item">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__hd setWidths">
+                <view class="weui-label">装修类型：</view>
+              </view>
+              <picker class='inputsize' bindchange="bindCountryCodeChange" value="0" range="{{countryCodes}}">
+                <view class="weui-input inpt">{{huxing}}</view>
+              </picker>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+ 
+    <view style='position:relative;margin-bottom:50rpx;' class='viewBox'>
+        <view class="weui-navbar">
+            <block wx:for="{{tabs}}" wx:key="*this">
+                <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                    <view class="weui-navbar__title">{{item.name}}</view>
+                </view>
+            </block>
+            <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+        </view>
+        <view class="weui-tab__panel" >
+            <view wx:for="{{tabs}}" wx:key="*this" class="weui-tab__content" hidden="{{activeIndex != index}}">
+                <view wx:for="{{item.list}}" wx:key='this' class='switchlist' data-towantAdd='{{item}}'>{{item}} <text class='iconfont icon-jiantou flag_jt'></text></view>
+            </view>
+        </view>
+    </view>
+    <view class='btns weui-flex'>
+        <button class="weui-btn weui-flex__item" type="warn" bindtap='changeshow'>申请放弃派单</button>
+        <button class="weui-btn weui-flex__item" type="primary" bindtap='addDesigner' data-projectId="{{ projectId }}">添加设计师信息</button>
+    </view>
+    <view class="overback" hidden='{{showcancle}}' catchtap='changeshow' id='overback'>
+      <view class='dialog'>
+          <view class='header'>确认拒绝订单？</view>
+          <view class='dialog-content'>
+              <textarea class="weui-textarea" value="{{inputVal}}" placeholder="请输入放弃原因" />
+          </view>
+          <view class='btngroup'>
+              <view  class="certain" catchtap='giveupOrder'>确认</view>
+              <view id='cancle' class="cancle" catchtap='changeshow'>取消</view>
+          </view>
+      </view>
+    </view>
+  </view>
+</view>

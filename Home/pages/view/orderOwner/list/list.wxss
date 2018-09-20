@@ -53,7 +53,7 @@ page{
   width:150rpx;
   height:150rpx;
   border-radius: 50%;
-  background-color: #ededed;
+  /* background-color: #ededed; */
   float: left;
   margin-top: 70rpx;
   margin-left:20rpx;

@@ -5,21 +5,55 @@
         <view class="weui-cell__hd ">
             <view class="newBox"><view class='lineBox'></view>装修公司名称<view class="msize">(必填)</view></view>
         </view>
-        <view class="weui-cell__bd">
-            <picker bindchange="bindCountryChange" value="{{countryIndex}}" range="{{countries}}">
-                <view class="weui-select weui-select_in-select-after">{{countries[countryIndex]!=null?countries[countryIndex]:'具体是那个分公司'}}</view>
-            </picker>
+    </view>
+     <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd ">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">装修公司名称：</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" value='{{ decoration }}' bindinput="decorationInput" placeholder="具体那个分公司"/>
+                </view>
+            </view>
         </view>
     </view>
 </view>
-<view class="weui-cells__title"></view>
+
+<view class="weui-cells weui-cells_after-title">
+    
+  <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd ">
+            <view class="newBox"><view class='lineBox'></view>装修信息<view  class="msize">(必填)</view></view>
+        </view>
+    </view>
+    <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd ">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">工期：</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input" value='{{ duration }}' bindinput="durationInput" placeholder="3个月"/>
+                </view>
+            </view>
+        </view>
+        <view class="weui-cell__hd ">
+           <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <picker class='inputsize' bindchange="bindCountryChange" value="countryIndex" range="{{countryCodes}}">
+                      <view class="weui-input inpt" >{{huxing}}</view>
+                    </picker>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
 <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell weui-cell_select">
         <view class="weui-cell__hd ">
             <view class="newBox"><view class='lineBox'></view>设计师信息<view  class="msize">(必填)</view></view>
         </view>
-        
-
     </view>
     <view class="weui-cell weui-cell_select">
         <view class="weui-cell__hd ">
@@ -28,7 +62,7 @@
                     <view class="weui-label">姓名：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入qq"/>
+                    <input class="weui-input" value='{{ stylistname }}' bindinput="stylistnameInput" placeholder="XXX"/>
                 </view>
             </view>
         </view>
@@ -38,12 +72,15 @@
                     <view class="weui-label">联系方式：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入电话号码"/>
+                    <input class="weui-input" value='{{ stylistphone }}' bindinput="stylistphoneInput" placeholder="请输入电话号码"/>
                 </view>
             </view>
         </view>
     </view>
+    <view class="weui-cell weui-cell_select designerNote">
+        <textarea class="weui-textarea" value="{{ stylistremark }}" bindinput="stylistremarkInput" placeholder="备注（客户特殊要求）" />
+    </view>
 </view>
 <view class="weui-btn-area">
-    <button class="weui-btn" >确定</button>
+    <button class="weui-btn" bindtap="sureAddDesigner">确定</button>
 </view>

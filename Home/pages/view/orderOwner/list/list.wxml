@@ -4,7 +4,7 @@
       </input>
   </view>
   <scroll-view class='container_order' scroll-y='true'>
-    <view class='order' wx:for='{{contentlist}}' bindtap='toDetails' data-id='item.id'>
+    <view class='order' wx:for='{{contentlist}}' bindtap='toDetails' data-type="{{item.orderDetail.serviceType.serName}}" data-id="{{item.id}}">
       <view class='order_top'>
         <text class='float_l'>订单编号：{{item.orderInfo.number}}</text>
         <text class='float_r'>
@@ -16,16 +16,16 @@
         </text>
       </view>
       <view class='order_container'>
-        <view class='headeimg'><image></image></view>
+        <view class='headeimg'><image src="../../../images/logo.png"></image></view>
         <view class='content'>
           <view class='msg'>
-            <text class='name'>{{item.name}}</text>
-            <text class='phone'>{{item.orderInfo.phone}}</text>
+            <text class='name'>{{item.orderDetail.name}}</text>
+            <text class='phone'>{{item.orderDetail.phone}}</text>
           </view>
           <view class='tips'>
             <view class='cont'>
               <view class='iconfont icon-fangwuxinxi'>
-                <text class='words'>房屋类型：{{item.commodityCategory?item.commodityCategory.name:""}}</text>
+                <text class='words'>房屋类型：{{item.categoryName}}</text>
               </view>
             </view>
             <view class='cont'>
@@ -33,14 +33,10 @@
                 <text class='words'>房屋面积：{{item.acreage}}㎡</text>
               </view>
             </view>
-            <view class='cont'>
-              <view class='iconfont icon-fuwujiedian'>
-                <text class='words'>当前节点：{{item.conditon3}}</text>
-              </view>
-            </view>
-            <view class='cont'>
-              <view class='iconfont icon-fuwujiedian'>
-                <text class='words'>下个节点：{{item.conditon4}}</text>
+            <view class='cont' wx:for="{{item.node}}" wx:for-item="ite" wx:for-index="ind" wx:key="index">
+              <view class="iconfont icon-fuwujiedian">
+                  <text class='words' wx:if='{{ind=="0"}}'>当前节点：{{ite.reportname}}</text>
+                  <text class='words' wx:if='{{ind=="1"}}'>下一节点：{{ite.reportname}}</text>
               </view>
             </view>
             <view class='cont'>

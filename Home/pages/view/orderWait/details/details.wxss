@@ -8,7 +8,7 @@
   padding: 10rpx 0rpx;
   background-color: #fff;
   overflow: hidden;
-  margin-bottom:15rpx;
+  margin-bottom:60rpx;
 }
 .orderdetail .number{
   float: left;

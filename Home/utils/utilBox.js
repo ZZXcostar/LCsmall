@@ -61,7 +61,7 @@ let isQQ = (str) => {
   return reg.test(str);
 }
 
-
+ 
 let userInfo = wx.getStorageSync("userInfo");
 let urlheader = "https://api.shhongzhiyun.com/api/" 
 let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;

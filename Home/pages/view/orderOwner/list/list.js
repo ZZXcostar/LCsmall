@@ -30,8 +30,9 @@ Page({
     showcancle: true
   },
 
-  changeshows: function (e) {
+  changeshows:function(e){
     console.log(e)
+    wx.setStorageSync('worklists', e.currentTarget.dataset.worklists)
     this.setData({ orderIds: e.currentTarget.dataset.ids });
     this.setData({ showcancle: false });
   },
@@ -90,7 +91,9 @@ Page({
 
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
+    console.log(options)
     var that = this
+    this.data.page = 1
     that.getMusicInfo('正在加载数据...')
   },
   onPullDownRefresh: function () {
@@ -112,7 +115,7 @@ Page({
     var that = this;
     network.requestLoading(
       utilBox.urlheader + `product/workList/queryListByAdminIds?page=${that.data.page}&pageSize=${that.data.pageSize}&isAccepted=1&keyword=`,
-      [wx.getStorageSync("userInfo").id],
+       [wx.getStorageSync("userInfo").id],
       message, function (res) {
         console.log(res)
         var contentlistTem = that.data.contentlist
@@ -124,6 +127,28 @@ Page({
             contentlistTem = []
           }
           var contentlist = res.info.list
+          if (contentlist != null) {
+            for (let i = 0; i < contentlist.length; i++) {
+              contentlist[i].node = contentlist[i].entryReports
+              let node = contentlist[i].node
+                var index = -1;
+                if (node.length>2){
+                  for (let j = 0; j < node.length; j++) {
+                    if (node[i].okCount == node[i].reportCount) {
+                      index=i
+                    }
+                  }
+                  if(index==-1){
+                    node = node.splice(0,2)
+                  } else if (index == node.length-1){
+                    node = node.splice(index, 1)
+                  }else{
+                    node = node.splice(index, 2)
+                  }
+                }
+               contentlist[i].node =node
+            }
+          }
           if (contentlist.length < that.data.pageSize) {
             that.setData({
               contentlist: contentlistTem.concat(contentlist),
@@ -137,7 +162,7 @@ Page({
             })
           }
         } else {
-          if (res.info == "尚未登录") {
+          if (res.info == "尚未登录"){
             wx.navigateTo({
               url: '../../orderWait/list/list',
             })
@@ -157,10 +182,16 @@ Page({
 
   toDetails(event) {
     console.log(event)
-    wx.setStorageSync('orderInfo', event.currentTarget.dataset.info)
-    wx.setStorageSync('worklists', event.currentTarget.dataset.worklists)
-    wx.navigateTo({
-      url: '../details/details',
-    })
+    wx.removeStorageSync('addDesignerId')
+    let orderId = event.currentTarget.dataset.id;
+    if(event.currentTarget.dataset.type == "陪签"){
+      wx.navigateTo({
+        url: '../accompanyDetails/details?orderId='+orderId,
+      })
+    }else if(event.currentTarget.dataset.type == "监理"){
+      wx.navigateTo({
+        url: '../supervisionDetails/details?orderId='+orderId,
+      })
+    }
   }
 })
