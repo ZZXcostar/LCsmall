@@ -12,13 +12,12 @@ Page({
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
     let arr = reg.exec(userInfo.adminPassword);
     let cookie = RegExp.$1;
-    console.log(options.tit, options.id)
     wx.setNavigationBarTitle({
-      title: options.tit
+      title: wx.getStorageSync('nodeName')
     })
-    var id = options.id
+    var id = wx.getStorageSync('nodeId')
     this.setData({
-      bgId: options.id,
+      bgId: id,
       cookie
     })
     var that = this;
@@ -32,7 +31,6 @@ Page({
       },
       method: 'post',
       success: function (res) {
-        console.log(res.data)
         wx.setStorageSync('jlNodeInfo', res.data.info.list[0])
         let aa = res.data.info.list[0].entryReportStandards;
         for(var i=0;i<aa.length;i++){
@@ -58,7 +56,7 @@ Page({
   },
   onShow() { //返回显示页面状态函数
     //错误处理
-    // this.onLoad()//再次加载，实现返回上一页页面刷新
+    this.onLoad()//再次加载，实现返回上一页页面刷新
     //正确方法
     //只执行获取地址的方法，来进行局部刷新
   },

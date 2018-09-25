@@ -48,6 +48,7 @@ Page({
       method: 'post',
       success: function (res) {
         // console.log(res.data.info.list)
+        console.log(res)
         let navLeftData = res.data.info.list;
         that.setData({
           listInfo: navLeftData,
@@ -75,6 +76,9 @@ Page({
       currentTab: 0
     });
     this.getRightData(this.data.activeIndex, this.data.navLeftId)
+  },
+  onShow(){
+    this.onLoad()
   },
   showInput: function () {
     this.setData({
@@ -105,11 +109,13 @@ Page({
   },
   gopresent: function (val){
     let orderId = val.currentTarget.dataset.reportid
-    if(val.currentTarget.dataset.type == "陪签"){
+    var types = val.currentTarget.dataset.type
+    wx.setStorageSync('id', orderId)
+    if (types == "陪签" ){
       wx.navigateTo({
         url: '../accompany/accompany?reportid='+orderId,
       })
-    } else if (val.currentTarget.dataset.type == "监理"){
+    } else if (types == "监理"){
       wx.navigateTo({
         url: '../supervisor/supervisor?reportid=' + orderId,
       })

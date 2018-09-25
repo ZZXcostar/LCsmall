@@ -4,6 +4,10 @@
       </input>
   </view>
   <scroll-view class='container_order' scroll-y='true'>
+    <view class='zwxx' wx:if='{{contentlist.length==0}}'>
+      <image src='../../../images/zwxx.png'></image>
+      <text>暂无订单</text>
+    </view>
     <view class='order' wx:for='{{contentlist}}' bindtap='toDetails' data-type="{{item.orderDetail.serviceType.serName}}" data-id="{{item.id}}">
       <view class='order_top'>
         <text class='float_l'>订单编号：{{item.orderInfo.number}}</text>

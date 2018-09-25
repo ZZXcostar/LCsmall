@@ -12,7 +12,6 @@ function requestLoading(url, params, message, success, fail, types ="application
   let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
   let arr = reg.exec(userInfo.adminPassword);
   let cookie = RegExp.$1;
-  console.log(cookie)
   wx.showNavigationBarLoading()
   if (message != "") {
     wx.showLoading({

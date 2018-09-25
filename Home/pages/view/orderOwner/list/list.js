@@ -29,7 +29,6 @@ Page({
     ],
     showcancle: true
   },
-
   changeshows:function(e){
     console.log(e)
     wx.setStorageSync('worklists', e.currentTarget.dataset.worklists)
@@ -179,7 +178,9 @@ Page({
         })
       }, 'application/json')
   },
-
+  onShow(){
+    this.onLoad()
+  },
   toDetails(event) {
     console.log(event)
     wx.removeStorageSync('addDesignerId')

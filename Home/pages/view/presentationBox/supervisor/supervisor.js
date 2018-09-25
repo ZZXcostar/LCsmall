@@ -7,13 +7,12 @@ Page({
     node:""
   },
   onLoad: function (options) {
-    var id = options.reportid;
+    var id = wx.getStorageSync('id');
     var that = this;
     let userInfo = wx.getStorageSync("userInfo");
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
     let arr = reg.exec(userInfo.adminPassword);
     let cookie = RegExp.$1;
-    // 订单信息查询
     wx.request({
       url: utilBox.urlheader + "/product/ProjectEstablish/queryMap", //仅为示例，并非真实的接口地址
       data: [id],
@@ -38,6 +37,8 @@ Page({
   godisclose: (e) => {
     var id = e.currentTarget.dataset.index
     var tit = e.currentTarget.dataset.tit
+    wx.setStorageSync('nodeId', id)
+    wx.setStorageSync('nodeName', tit)
     wx.navigateTo({
       url: '../disclose/disclose?id='+id+'&tit='+tit
     })
@@ -47,4 +48,7 @@ Page({
       url: '../orderOwner/orderOwner',
     })
   },
+  onShow(){
+    this.onLoad()
+  }
 })

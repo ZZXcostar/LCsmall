@@ -1,4 +1,4 @@
-<view class='mtop'>
+<view class='mtop'> 
   <view class="weui-cells weui-cells_after-title">
       <navigator wx:for="{{contentlist}}" wx:key='index' url="{{item.urls}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
           <view class="weui-cell__bd showBox">
@@ -8,4 +8,8 @@
           <!-- <view class="weui-cell__ft weui-cell__ft_in-access"></view> -->
       </navigator>
   </view>
+</view>
+  <view class='zwxx' wx:if='{{contentlist.length==0}}'>
+    <image src='../../../images/zwxx.png'></image>
+  <text>暂无消息</text>
 </view>

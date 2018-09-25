@@ -12,7 +12,7 @@
       </view>
       
       <view class='userInfo'>
-        <text>{{userinfo.accGradeName}}</text>
+        <text>{{userinfo.groupName}}</text>
         <text>|</text>
         <text>{{userinfo.phone}}</text>
       </view>
@@ -54,7 +54,7 @@
       <view class="weui-cell__hd">
        <view class="iconfont icon-add"></view>  
       </view>
-      <view class="weui-cell__bd">服务区域 : {{userinfo.areaName}}</view>
+      <view class="weui-cell__bd">服务区域 : {{userinfo.disName}}</view>
     </view>
     <view url="" class="weui-cell weui-cell_access">
       <view class="weui-cell__hd">
