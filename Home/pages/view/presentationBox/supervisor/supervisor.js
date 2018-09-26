@@ -27,7 +27,7 @@ Page({
           var dateTime = res.data.info[0].orderDetail.appointment.startTime
           res.data.info[0].orderDetail.appointment.startTime = that.updateTime(dateTime)
         }
-        console.log(res)
+        console.log(res.data.info[0].entryReports)
         wx.setStorageSync('userInfos', res.data.info[0])
         that.setData({
           orderInfo: res.data.info[0],
@@ -50,11 +50,8 @@ Page({
   },
   updateTime(dateTime) {
     var date = ''
-    date = dateTime.split(':')
-    date.pop()
-    date = date[0] + ':' + date[1]
-    console.log(date)
-    return date
+    date = dateTime.split(' ')
+    return date[0]
   },
   login: () => {
     wx.switchTab({

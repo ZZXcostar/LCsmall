@@ -9,7 +9,7 @@
           <view class="weui-cell__bd">
               <view class="iconfont icon-user"></view>  
               <input name="iphone" value='13566027903' class="weui-input" placeholder="手机号码" />
-              <!-- 18356987163  -->
+              <!-- 13566027903  18356987163-->
           </view>
       </view>
       <view class=" weui-cell_input weui-cell_vcode">
