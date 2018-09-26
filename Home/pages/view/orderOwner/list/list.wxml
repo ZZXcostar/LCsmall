@@ -4,7 +4,7 @@
       </input>
   </view>
   <scroll-view class='container_order' scroll-y='true'>
-    <view class='order' wx:for='{{contentlist}}' bindtap='toDetails' data-type="{{item.orderDetail.serviceType.serName}}" data-id="{{item.id}}">
+    <view class='order' wx:for='{{contentlist}}' wx:key="index" bindtap='toDetails' data-type="{{item.orderDetail.serviceType.serName}}" data-id="{{item.id}}" data-workid="{{ item.workLists[0].id }}">
       <view class='order_top'>
         <text class='float_l'>订单编号：{{item.orderInfo.number}}</text>
         <text class='float_r'>

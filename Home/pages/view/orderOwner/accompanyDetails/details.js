@@ -1,5 +1,6 @@
 // pages/login/login.js
 var utilBox = require("../../../../utils/utilBox.js");
+var network = require("../../../../utils/network.js");
 Page({
 
   /**
@@ -28,10 +29,12 @@ Page({
     countryCodes:["清包","半包","全包"],
     huxing:'',
     cookie:'',
-    inputVal:''
+    inputVal:'',
+    workId:''
   },
   onLoad: function (options) {
     var id = options.orderId;
+    var workId = options.workId
     wx.setStorageSync('addDesignerId', id);
     var that = this;
     let userInfo = wx.getStorageSync("userInfo");
@@ -40,7 +43,8 @@ Page({
     let cookie = RegExp.$1;
     this.setData({
       projectId: id,
-      cookie:cookie
+      cookie:cookie,
+      workId: workId
     })
     wx.request({
       url: utilBox.urlheader + "/product/ProjectEstablish/queryMap", //仅为示例，并非真实的接口地址
@@ -145,10 +149,16 @@ Page({
       }
     })
   },
+  resonInput: function (e) {
+    let str = e.detail.value
+    this.setData({
+      inputVal: str
+    })
+  },
   //放弃接单
   giveupOrder(){
     let that = this;
-    let ids = this.data.projectId;
+    let ids = this.data.workId;
     let reason = this.data.inputVal;
     network.requestLoading(
       utilBox.urlheader + `product/workList/update`,
@@ -166,6 +176,14 @@ Page({
             title: "放弃派单成功",
           })
           that.setData({ showcancle: true });
+          wx.switchTab({
+            url: '../../orderOwner/list/list',
+            success: function (e) {
+              var page = getCurrentPages().pop();
+              if (page == undefined || page == null) return;
+              page.onLoad();
+            }
+          })
         } else {
           wx.showToast({
             title: res.msg,

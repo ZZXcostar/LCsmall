@@ -184,13 +184,15 @@ Page({
     console.log(event)
     wx.removeStorageSync('addDesignerId')
     let orderId = event.currentTarget.dataset.id;
-    if(event.currentTarget.dataset.type == "陪签"){
+    let workId = event.currentTarget.dataset.workid
+    let typestr = event.currentTarget.dataset.type
+    if (typestr == "陪签服务" || typestr == "全案服务" || typestr == "装修规划"){
       wx.navigateTo({
-        url: '../accompanyDetails/details?orderId='+orderId,
+        url: '../accompanyDetails/details?orderId=' + orderId + '&workId=' + workId,
       })
-    }else if(event.currentTarget.dataset.type == "监理"){
+    } else if (typestr == "全程监理" || typestr == "经典服务" || typestr == "决算服务" || typestr == "单次巡检" || typestr == "精装修验收" || typestr == "毛坯房验收"){
       wx.navigateTo({
-        url: '../supervisionDetails/details?orderId='+orderId,
+        url: '../supervisionDetails/details?orderId=' + orderId + '&workId=' + workId,
       })
     }
   }

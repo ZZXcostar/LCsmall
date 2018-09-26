@@ -82,14 +82,14 @@
         </view>
     </view>
     <view class='btns weui-flex'>
-        <button class="weui-btn weui-flex__item" type="warn" bindtap='changeshow'>申请放弃派单</button>
+        <button class="weui-btn weui-flex__item" type="warn" bindtap='changeshow'>申请放弃订单</button>
         <button class="weui-btn weui-flex__item" type="primary" bindtap='addDesigner' data-projectId="{{ projectId }}">添加设计师信息</button>
     </view>
     <view class="overback" hidden='{{showcancle}}' catchtap='changeshow' id='overback'>
       <view class='dialog'>
           <view class='header'>确认拒绝订单？</view>
           <view class='dialog-content'>
-              <textarea class="weui-textarea" value="{{inputVal}}" placeholder="请输入放弃原因" />
+              <textarea class="weui-textarea" value="{{inputVal}}" bindinput="resonInput" placeholder="请输入放弃原因" />
           </view>
           <view class='btngroup'>
               <view  class="certain" catchtap='giveupOrder'>确认</view>

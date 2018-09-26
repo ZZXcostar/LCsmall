@@ -8,10 +8,12 @@ Page({
     showcancle:true,
     projectId:'',
     cookie:'',
-    inputVal:''
+    inputVal:'',
+    workId:''
   },
   onLoad: function (options) {
     var id = options.orderId;
+    var workId = options.workId
     wx.setStorageSync('addDesignerId', id);
     var that = this;
     let userInfo = wx.getStorageSync("userInfo");
@@ -20,7 +22,8 @@ Page({
     let cookie = RegExp.$1;
     this.setData({
       projectId: id,
-      cookie: cookie
+      cookie: cookie,
+      workId: workId
     })
     // 订单信息查询
     wx.request({
@@ -87,10 +90,14 @@ Page({
       isshow = this.data.showcancle ? false : true;
     }
     this.setData({ showcancle: isshow });
+    this.setData({ inputVal: '' });
+  },
+  upInput:function(e){
+    this.data.inputVal = e.detail.value;
   },
   giveupOrder() {
     let that = this;
-    let ids = this.data.projectId;
+    let ids = this.data.workId;
     let reason = this.data.inputVal;
     network.requestLoading(
       utilBox.urlheader + `product/workList/update`,
@@ -108,6 +115,14 @@ Page({
             title: "放弃派单成功",
           })
           that.setData({ showcancle: true });
+          wx.switchTab({
+            url: '../../orderOwner/list/list',
+            success: function (e) {
+              var page = getCurrentPages().pop();
+              if (page == undefined || page == null) return;
+              page.onLoad();
+            }
+          })
         } else {
           wx.showToast({
             title: res.msg,

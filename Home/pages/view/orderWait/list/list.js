@@ -122,7 +122,7 @@ Page({
   },
   // onShow: function (e) {
   //   console.log(e) 
-  //   this.onLoad()
+  //   this.getMusicInfo()
   // },
   getMusicInfo: function (message) {
     var that = this;
