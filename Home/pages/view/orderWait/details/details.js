@@ -76,7 +76,7 @@ Page({
           uesrname: info.orderDetail.name,
           remark: info.remarks == null ?"无备注":info.remarks,
           "area_house": info.acreage,
-          appointTime: info.orderDetail.updateAppointTime == null ? info.orderDetail.appointTime == null ? '' : info.orderDetail.appointTime.split(" ")[0]:info.orderDetail.updateAppointTime.split(" ")[0],
+          appointTime: info.orderDetail.appointment == null ? '' : info.orderDetail.appointment.startTime.split(" ")[0],
           decorate:info.decorate == null?'':info.decorate
         }
       })
