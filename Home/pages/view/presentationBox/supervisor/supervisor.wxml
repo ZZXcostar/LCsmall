@@ -35,7 +35,7 @@
         </view>
         <view class="weui-flex">
             <view class="weui-flex__item">
-            <view class="placeholder">服务时间：<text>{{orderInfo.startTime}}</text></view>
+            <view class="placeholder">服务时间：<text>{{orderInfo.orderDetail.appointment==null?orderInfo.startTime:orderInfo.orderDetail.appointment.startTime}}</text></view>
             </view>
             <view class="weui-flex__item">
             <view class="placeholder">装修类型：<text>{{orderInfo.decorate}}</text></view>

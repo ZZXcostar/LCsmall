@@ -21,7 +21,7 @@ page{
 
 }
 button::after{
-border: none;
+ border: none;
 }
 .weui-cell_access::after{
   border: none;

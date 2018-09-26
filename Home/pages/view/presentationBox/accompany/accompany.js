@@ -26,7 +26,7 @@ Page({
     projectId:'',
   },
   onLoad: function (options) {
-    var id = options.reportid;
+    var id = wx.getStorageSync('id')
     this.setData({
       projectId:id
     })
@@ -44,6 +44,7 @@ Page({
       },
       method: 'post',
       success: function (res) {
+        console.log(res)
         res.data.info[0].acreage=parseInt(res.data.info[0].acreage)
         wx.setStorageSync('pqOrderInfo', res.data.info[0])
         that.setData({

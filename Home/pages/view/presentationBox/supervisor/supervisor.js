@@ -3,8 +3,8 @@ var utilBox = require("../../../../utils/utilBox.js");
 var network = require("../../../../utils/network.js");
 Page({
   data: {
-    orderInfo:"",
-    node:""
+    orderInfo: "",
+    node: ""
   },
   onLoad: function (options) {
     var id = wx.getStorageSync('id');
@@ -23,10 +23,15 @@ Page({
       method: 'post',
       success: function (res) {
         res.data.info[0].acreage = parseInt(res.data.info[0].acreage)
-        wx.setStorageSync('userInfos', res.data.info[0] )
+        if (res.data.info[0].orderDetail.appointment != null) {
+          var dateTime = res.data.info[0].orderDetail.appointment.startTime
+          res.data.info[0].orderDetail.appointment.startTime = that.updateTime(dateTime)
+        }
+        console.log(res)
+        wx.setStorageSync('userInfos', res.data.info[0])
         that.setData({
           orderInfo: res.data.info[0],
-          node: res.data.info[0].entryReports      
+          node: res.data.info[0].entryReports
         })
       },
       fail: function (err) {
@@ -40,15 +45,23 @@ Page({
     wx.setStorageSync('nodeId', id)
     wx.setStorageSync('nodeName', tit)
     wx.navigateTo({
-      url: '../disclose/disclose?id='+id+'&tit='+tit
+      url: '../disclose/disclose?'
     })
+  },
+  updateTime(dateTime) {
+    var date = ''
+    date = dateTime.split(':')
+    date.pop()
+    date = date[0] + ':' + date[1]
+    console.log(date)
+    return date
   },
   login: () => {
     wx.switchTab({
       url: '../orderOwner/orderOwner',
     })
   },
-  onShow(){
+  onShow() {
     this.onLoad()
   }
 })

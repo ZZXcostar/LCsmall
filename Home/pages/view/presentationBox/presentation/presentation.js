@@ -29,7 +29,8 @@ Page({
       success: function (res) {
         that.setData({
           sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 4,
-          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
+          sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex,
+          currentTab:0
         });
       }
     });
@@ -48,8 +49,8 @@ Page({
       method: 'post',
       success: function (res) {
         // console.log(res.data.info.list)
-        console.log(res)
         let navLeftData = res.data.info.list;
+        console.log(navLeftData)
         that.setData({
           listInfo: navLeftData,
           navLeftId: navLeftData[0].id
@@ -73,9 +74,9 @@ Page({
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id,
-      currentTab: 0
+      currentTab: 0,
     });
-    this.getRightData(this.data.activeIndex, this.data.navLeftId)
+    this.getRightData(this.data.activeIndex, this.data.currentTab)
   },
   onShow(){
     this.onLoad()
@@ -110,17 +111,23 @@ Page({
   gopresent: function (val){
     let orderId = val.currentTarget.dataset.reportid
     var types = val.currentTarget.dataset.type
+    var typeName=this.data.listInfo[this.data.currentTab].serName
+    console.log(typeName)
     wx.setStorageSync('id', orderId)
-    if (types == "陪签" ){
+    if (typeName == "陪签服务" || typeName == "装修规划" || typeName == "全案服务"){
       wx.navigateTo({
-        url: '../accompany/accompany?reportid='+orderId,
+        url: '../accompany/accompany',
       })
-    } else if (types == "监理"){
+    } else if (typeName == ""){
+      wx.showToast({
+        icon: 'none',
+        title: '此项类别为空',
+      })
+    }else{
       wx.navigateTo({
-        url: '../supervisor/supervisor?reportid=' + orderId,
+        url: '../supervisor/supervisor',
       })
-    }
-    
+    } 
   },
   // 右侧数据请求
   getRightData(topNav,leftNav){
@@ -141,6 +148,7 @@ Page({
       method: 'post',
       success: function (res) {
         let data = res.data.info
+        console.log(data)
         var newData=[]
         if(data!=null){
           for (let i = 0; i < data.length; i++) {

@@ -32,15 +32,13 @@
  height: 100%;
  float: left;
 overflow-y:scroll;
-
-max-height:948rpx;
-padding-bottom: 10px;
+max-height:900rpx;
+padding-bottom: 1000rpx !important;
 }
 .weui-tab__panel{
   height: 100%;
   width:77%;
 float:right;
-
 }
 .leftSize{
   text-align: center;

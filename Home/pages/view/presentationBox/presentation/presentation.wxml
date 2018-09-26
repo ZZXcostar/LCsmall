@@ -15,16 +15,16 @@
       </view>
       <view class="weui-tab__panel">
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-          <view class='rightBox'>
-            <!-- <view class='zwxx' wx:if='{{contentlist}}'>
+            <view class='zwxx' wx:if='{{orderdataeList.length==0}}'>
               <image src='../../../images/zwxx.png'></image>
               <text>暂无报告</text>
-            </view> -->
+            </view>
+          <view class='rightBox'>
             <view class='listBox' wx:for="{{orderdataeList}}" wx:key="{{index}}">
               <view class='listBoxTop'>
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
-                    <view class="weui-cell__bd">订单编号:{{item.orderNum}}</view>
+                    <view class="weui-cell__bd">订单号:{{item.orderNum}}</view>
                     <view class="weui-cell__ft">{{item.types}}
                       <view class='linebox'></view>{{item.typedata}}</view>
                   </view>
@@ -61,12 +61,16 @@
           </view>
         </view>
          <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+         <view class='zwxx' wx:if='{{orderdataeList.length==0}}'>
+              <image src='../../../images/zwxx.png'></image>
+              <text>暂无报告</text>
+            </view>
           <view class='rightBox'>
             <view class='listBox' wx:for="{{orderdataeList}}"  wx:key="{{index}}">
               <view class='listBoxTop'>
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
-                    <view class="weui-cell__bd">订单编号:{{item.orderNum}}</view>
+                    <view class="weui-cell__bd">订单号:{{item.orderNum}}</view>
                     <view class="weui-cell__ft">{{item.types}}
                       <view class='linebox'></view>{{item.typedata}}</view>
                   </view>
@@ -103,12 +107,16 @@
           </view>
         </view>
          <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+         <view class='zwxx' wx:if='{{orderdataeList.length==0}}'>
+              <image src='../../../images/zwxx.png'></image>
+              <text>暂无报告</text>
+            </view>
           <view class='rightBox'>
             <view class='listBox' wx:for="{{orderdataeList}}"  wx:key="{{index}}">
               <view class='listBoxTop'>
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
-                    <view class="weui-cell__bd">订单编号:{{item.orderNum}}</view>
+                    <view class="weui-cell__bd">订单号:{{item.orderNum}}</view>
                     <view class="weui-cell__ft">{{item.types}}
                       <view class='linebox'></view>{{item.typedata}}</view>
                   </view>
@@ -144,13 +152,17 @@
             </view>
           </view>
         </view>
-         <view class="weui-tab__content" hidden="{{activeIndex != 5}}">
+         <view class="weui-tab__content" hidden="{{activeIndex != 3}}">
+         <view class='zwxx' wx:if='{{orderdataeList.length==0}}'>
+              <image src='../../../images/zwxx.png'></image>
+              <text>暂无报告</text>
+            </view>
           <view class='rightBox'>
             <view class='listBox' wx:for="{{orderdataeList}}" wx:key="{{index}}">
               <view class='listBoxTop'>
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
-                    <view class="weui-cell__bd">订单编号:{{item.orderNum}}</view>
+                    <view class="weui-cell__bd">订单号:{{item.orderNum}}</view>
                     <view class="weui-cell__ft">{{item.types}}
                       <view class='linebox'></view>{{item.typedata}}</view>
                   </view>
@@ -171,7 +183,7 @@
                   <view wx:for="{{item.node}}" wx:for-item="ite" wx:for-index="ind" wx:key="{{ind}}">
                     <view class="iconfont icon-jixiang"></view>
                     <text wx:if='{{ind=="0"}}'>当前节点：{{ite.reportname}}</text>
-                    <!-- <text wx:if='{{ind=="1"}}'>下一节点：{{ite.reportname}}</text> -->
+                    <text wx:if='{{ind=="1"}}'>下一节点：{{ite.reportname}}</text>
                   </view>
                 </view>
               </view>
