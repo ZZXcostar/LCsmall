@@ -28,9 +28,9 @@ Page({
     })
     that.getMusicInfo('正在加载数据...')
   },
-  onShow(){
-    this.onLoad()
-  },
+  // onShow(){
+  //   this.onLoad()
+  // },
   onPullDownRefresh: function () {
     this.data.page = 1
     this.getMusicInfo('正在刷新数据')

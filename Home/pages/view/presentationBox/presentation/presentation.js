@@ -50,7 +50,6 @@ Page({
       success: function (res) {
         // console.log(res.data.info.list)
         let navLeftData = res.data.info.list;
-        console.log(navLeftData)
         that.setData({
           listInfo: navLeftData,
           navLeftId: navLeftData[0].id
@@ -78,9 +77,9 @@ Page({
     });
     this.getRightData(this.data.activeIndex, this.data.currentTab)
   },
-  onShow(){
-    this.onLoad()
-  },
+  // onShow(){
+  //   this.onLoad()
+  // },
   showInput: function () {
     this.setData({
       inputShowed: true
@@ -112,7 +111,6 @@ Page({
     let orderId = val.currentTarget.dataset.reportid
     var types = val.currentTarget.dataset.type
     var typeName=this.data.listInfo[this.data.currentTab].serName
-    console.log(typeName)
     wx.setStorageSync('id', orderId)
     if (typeName == "陪签服务" || typeName == "装修规划" || typeName == "全案服务"){
       wx.navigateTo({

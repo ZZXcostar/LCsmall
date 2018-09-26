@@ -17,10 +17,8 @@ Page({
     this.setData({
       'userinfo': userInfo
     })
-    console.log(this.data.userinfo)
   },
   onShareAppMessage: function (res) {
-    console.log(res)
     return {
       title: '绿城装修管家',
       desc: '最具人气的绿城装修管家！！！！',
@@ -37,9 +35,9 @@ Page({
   onReady: function () {
    
   },
-  onShow() {
-    this.onLoad()
-  },
+  // onShow() {
+  //   this.onLoad()
+  // },
   onHide: function () {
 
   },

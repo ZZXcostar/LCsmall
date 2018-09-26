@@ -92,7 +92,7 @@
         </view>
         <view class="weui-flex">
           <view class="weui-flex__item">
-            <view class="placeholder">工人信息：
+            <view class="placeholder">设计师：
               <text>{{orderInfo.workerInfo.name}}（{{orderInfo.workerInfo.phone}} {{orderInfo.workerInfo.profession}} {{orderInfo.workerInfo.profession}}元㎡）</text>
               <textarea class='textareBox' disabled>{{orderInfo.workerInfo.remark==null? '无' : orderInfo.workerInfo.remark}}</textarea>
             </view>
