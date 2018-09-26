@@ -178,9 +178,9 @@ Page({
         })
       }, 'application/json')
   },
-  onShow(){
-    this.onLoad()
-  },
+  // onShow(){
+  //   this.getMusicInfo()
+  // },
   toDetails(event) {
     console.log(event)
     wx.removeStorageSync('addDesignerId')
