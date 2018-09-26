@@ -41,6 +41,9 @@
         <view class="weui-cell__hd ">
            <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
+                    <view class="weui-label">装修方式：</view>
+                </view>
+                <view class="weui-cell__bd">
                     <picker class='inputsize' bindchange="bindCountryChange" value="countryIndex" range="{{countryCodes}}">
                       <view class="weui-input inpt" >{{huxing}}</view>
                     </picker>

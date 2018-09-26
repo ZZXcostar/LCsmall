@@ -1,9 +1,9 @@
 var utilBox = require("../../../utils/utilBox.js");
 Page({
   data: {
-    countryCodes: ["清包", "半包", "全包"],
+    countryCodes: ["清 包", "半 包", "全 包"],
     countryIndex: 0,
-    huxing:'请选择装修方式',
+    huxing:'请选择',
     decoration:'',
     duration:'',
     stylistname:'',
@@ -40,7 +40,7 @@ Page({
           orderInfo: res.data.info[0]
         })
         that.setData({
-          huxing: that.data.orderInfo.decorate == null ? '' : that.data.orderInfo.decorate,
+          huxing: that.data.orderInfo.decorate == null ? '请选择' : that.data.orderInfo.decorate,
           decoration: that.data.orderInfo.decoration == null ? '' : that.data.orderInfo.decoration,
           duration: that.data.orderInfo.duration == null ? '' : that.data.orderInfo.duration,
           stylistname: that.data.orderInfo.stylistname == null ? '' : that.data.orderInfo.stylistname,

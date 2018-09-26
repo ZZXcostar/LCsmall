@@ -44,16 +44,17 @@ color: #fff;
 }
 .inputsize .weui-input{
 border:1px solid #ddd;
-width:255rpx !important;
+/* width:105rpx !important; */
 min-height:18px;
 float:left;
-padding-left:25rpx;
+/* padding-left:15rpx;
+padding-right:15rpx; */
 position:relative;
 height:20px;
 line-height:20px;
 border-radius:5px;
 text-align:left;
-letter-spacing:8rpx;
+letter-spacing:3rpx;
 
 
 }

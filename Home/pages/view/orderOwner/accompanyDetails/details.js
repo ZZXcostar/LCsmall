@@ -26,7 +26,7 @@ Page({
     sliderLeft: 0,
     projectId:'',
     showcancle:true,
-    countryCodes:["清包","半包","全包"],
+    countryCodes:["清 包","半 包","全 包"],
     huxing:'',
     cookie:'',
     inputVal:'',
