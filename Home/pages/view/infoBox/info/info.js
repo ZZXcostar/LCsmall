@@ -2,10 +2,6 @@
 var network = require("../../../../utils/network.js");
 var utilBox = require("../../../../utils/utilBox.js");
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     page: 1,
     pageSize: 30,
@@ -27,16 +23,16 @@ Page({
     // 页面初始化 options为页面跳转所带来的参数
     var that = this
     let userInfo = wx.getStorageSync("userInfo");
-    console.log(userInfo)
-    that.getMusicInfo('正在加载数据...')
     that.setData({
-      userId: userInfo.id
+      userId: userInfo.id,
     })
-    
+    that.getMusicInfo('正在加载数据...')
+  },
+  onShow(){
+    this.onLoad()
   },
   onPullDownRefresh: function () {
     this.data.page = 1
-
     this.getMusicInfo('正在刷新数据')
   },
   onReachBottom: function () {
@@ -52,14 +48,13 @@ Page({
         receiverAdminId:that.data.userId
       },
       message, function (res) {
-      console.log(res)
-      var contentlistTem = that.data.contentlist
-
+        var contentlistTem = that.data.contentlist
         if (res.status == 200) {
         if (that.data.page == 1) {
           contentlistTem = []
         }
         var contentlist = res.info.list
+        console.log(contentlist)
         for (let i in contentlist){//时间处理
           contentlist[i].createTime = contentlist[i].createTime.substr(0, contentlist[i].createTime.length - 2);  
         }

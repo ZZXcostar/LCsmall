@@ -6,7 +6,7 @@
   color: #11b786 !important;
 }
 .weui-tab__panel .leftBox{
-  width: 20%;
+  width: 19%;
   height: 100%;
   float: left;
   margin-bottom: -10000px;  
@@ -32,12 +32,13 @@
  height: 100%;
  float: left;
 overflow-y:scroll;
+
 max-height:948rpx;
 padding-bottom: 10px;
 }
 .weui-tab__panel{
   height: 100%;
-  width:80%;
+  width:77%;
 float:right;
 
 }
@@ -45,7 +46,7 @@ float:right;
   text-align: center;
   font-size: 14px;
   border: 1px solid #ddd;
-  width: 19%;
+  width: 22%;
   float: left;
   margin-top:50px;
   height: 100%;
@@ -70,16 +71,16 @@ page,.page{
   height: 100%;
 }
 .weui-cell {
-  padding: 10px 5px;
+  padding: 10px 5px !important;
 }
 .listBox{
   border: 1px solid #ddd;
-  margin:4% 4.5%;
+  margin:2.5%;
   overflow: hidden;
   border-radius: 10px;
 }
 .listBox:last-child{
-  margin:4% 4.5% 8% 4.5%;
+  margin:4% 2.5% 8% 2.5%;
 }
 .weui-cell__bd,.weui-cell__ft{
   font-size: 12px;

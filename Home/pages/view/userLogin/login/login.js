@@ -12,6 +12,8 @@ Page({
     //     console.log(res.header)
     //   }
     // })
+    console.log(e.detail.value.iphone)
+    console.log(e.detail.value.password)
     if (utilBox.isPhone(e.detail.value.iphone)) {
       if (e.detail.value.password != "") {
         wx.showToast({
