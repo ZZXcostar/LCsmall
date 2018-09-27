@@ -38,14 +38,14 @@
             <text>{{orderdetail.remark}}</text>
         </view>
     </view>
-    <view wx:if='isorderwait'>
+    <!-- <view wx:if='isorderwait'>
         <view class='titles'>
             <text class='flag'>验收节点</text>
         </view>
         <view>
             <view class='nodecontent' wx:for='{{acceptnodes}}' wx:key='index'>{{item.reportname}}<text class='flag_jt'>{{ item.okCount==null?0:item.okCount }}/{{ item.reportCount==null?'':item.reportCount }} </text></view>
         </view>
-    </view>
+    </view> -->
     <!--右箭头 <text class='iconfont icon-jiantou' style=''></text> -->
     <view class='btngroup'>
         <button class="weui-btn" bindtap='upDateinfo' type="primary">立即接单</button>
