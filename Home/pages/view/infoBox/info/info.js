@@ -34,6 +34,7 @@ Page({
   onPullDownRefresh: function () {
     this.data.page = 1
     this.getMusicInfo('正在刷新数据')
+    wx.stopPullDownRefresh()
   },
   onReachBottom: function () {
     if (this.data.hasMoreData) {

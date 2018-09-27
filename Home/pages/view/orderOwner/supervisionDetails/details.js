@@ -103,7 +103,7 @@ Page({
       utilBox.urlheader + `product/workList/update`,
       {
         id: ids,
-        isAccepted: 2,
+        isAccepted: 4,
         rejectedReason: reason
       }, "",
       function (res) {
@@ -112,7 +112,7 @@ Page({
 
         if (res.status == 200) {
           wx.showToast({
-            title: "放弃派单成功",
+            title: "放弃订单成功",
           })
           that.setData({ showcancle: true });
           wx.switchTab({

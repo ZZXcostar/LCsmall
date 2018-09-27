@@ -109,6 +109,7 @@ Page({
     console.log(1)
     this.data.page = 1
     this.getMusicInfo('正在刷新数据')
+    wx.stopPullDownRefresh()
   },
   onReachBottom: function () {
     console.log(1)
