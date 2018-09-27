@@ -14,6 +14,7 @@ Page({
   },
   formSubmit: function (e) {
     let { adminName, phone } =(e.detail.value);
+    var that=this
     network.requestLoading(
       utilBox.urlheader +"admin/account/update",
       { adminName, phone, adminHeadImg: this.imgurl,id:this.id},
@@ -23,6 +24,10 @@ Page({
           wx.showToast({
             title: res.msg,
           })
+          let userInfo = wx.getStorageSync("userInfo");
+          userInfo.adminHeadImg=that.imgurl
+          userInfo.adminName = adminName
+          wx.setStorageSync('userInfo', userInfo)
         }else{
           wx.showToast({
             title: res.msg,
@@ -36,7 +41,6 @@ Page({
   onLoad: function (options) {
     var that = this;
     let userInfo = wx.getStorageSync("userInfo");
-
     if (userInfo) {
       console.log(userInfo)
     }
@@ -48,7 +52,6 @@ Page({
   },
   bindChooiceProduct: function () {
     var that = this;
-
     wx.chooseImage({
       count: 1,  //最多可以选择的图片总数  
       sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有  

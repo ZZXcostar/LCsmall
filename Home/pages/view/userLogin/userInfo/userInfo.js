@@ -35,9 +35,9 @@ Page({
   onReady: function () {
    
   },
-  // onShow() {
-  //   this.onLoad()
-  // },
+  onShow() {
+    this.onLoad()
+  },
   onHide: function () {
 
   },

@@ -30,7 +30,7 @@
                   </view>
                 </view>
               </view>
-              <view class='listBoxmiddle' bindtap='gopresent' data-type="{{item.typedata}}" data-reportId="{{item.reportId}}">
+              <view class='listBoxmiddle' bindtap='gopresent' data-type="{{item.typedata}}" data-num='{{item.orderNum}}' data-reportId="{{item.reportId}}">
                 <view class='imgBox'>
                   <image src="../../../images/logo.png"></image>
                 </view>
@@ -76,7 +76,7 @@
                   </view>
                 </view>
               </view>
-              <view class='listBoxmiddle' bindtap='gopresent' data-type="{{item.typedata}}" data-reportId="{{item.reportId}}">
+              <view class='listBoxmiddle' bindtap='gopresent' data-type="{{item.typedata}}" data-num='{{item.orderNum}}' data-reportId="{{item.reportId}}">
                 <view class='imgBox'>
                   <image src="../../../images/logo.png"></image>
                 </view>
@@ -122,7 +122,7 @@
                   </view>
                 </view>
               </view>
-              <view class='listBoxmiddle' bindtap='gopresent' data-type="{{item.typedata}}" data-reportId="{{item.reportId}}">
+              <view class='listBoxmiddle' bindtap='gopresent' data-type="{{item.typedata}}" data-num='{{item.orderNum}}' data-reportId="{{item.reportId}}">
                 <view class='imgBox'>
                   <image src="../../../images/logo.png"></image>
                 </view>
@@ -168,7 +168,7 @@
                   </view>
                 </view>
               </view>
-              <view class='listBoxmiddle' bindtap='gopresent' data-type="{{item.typedata}}" data-reportId="{{item.reportId}}">
+              <view class='listBoxmiddle' bindtap='gopresent' data-type="{{item.typedata}}" data-num='{{item.orderNum}}' data-reportId="{{item.reportId}}">
                 <view class='imgBox'>
                   <image src="../../../images/logo.png"></image>
                 </view>

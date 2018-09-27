@@ -99,9 +99,9 @@ Page({
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
     let arr = reg.exec(userInfo.adminPassword);
     let cookie = RegExp.$1;
-    console.log(options)
+    wx.getStorageSync('id')
     this.setData({
-      orderId: options.id,
+      orderId: wx.getStorageSync('orderNum'),
       types: options.types,
       cookie: cookie,
       bgId: options.bgid,

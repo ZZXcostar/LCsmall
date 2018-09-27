@@ -27,7 +27,7 @@ Page({
           var dateTime = res.data.info[0].orderDetail.appointment.startTime
           res.data.info[0].orderDetail.appointment.startTime = that.updateTime(dateTime)
         }
-        console.log(res.data.info[0].entryReports)
+        // console.log(res.data.info[0].entryReports)
         wx.setStorageSync('userInfos', res.data.info[0])
         that.setData({
           orderInfo: res.data.info[0],

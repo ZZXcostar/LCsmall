@@ -12,8 +12,6 @@ Page({
     //     console.log(res.header)
     //   }
     // })
-    console.log(e.detail.value.iphone)
-    console.log(e.detail.value.password)
     if (utilBox.isPhone(e.detail.value.iphone)) {
       if (e.detail.value.password != "") {
         wx.showToast({
@@ -33,6 +31,7 @@ Page({
                 if (res.status == 200) {
                   wx.removeStorage("userInfo")
                   wx.setStorageSync("userInfo", res.info)
+                  console.log(res.info)
                   setTimeout(()=>{
                     wx.switchTab({
                       url: '../../orderWait/list/list',

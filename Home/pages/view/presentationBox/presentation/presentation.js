@@ -111,7 +111,9 @@ Page({
     let orderId = val.currentTarget.dataset.reportid
     var types = val.currentTarget.dataset.type
     var typeName=this.data.listInfo[this.data.currentTab].serName
+    let orderNum = val.currentTarget.dataset.num
     wx.setStorageSync('id', orderId)
+    wx.setStorageSync('orderNum', orderNum)
     if (typeName == "陪签服务" || typeName == "装修规划" || typeName == "全案服务"){
       wx.navigateTo({
         url: '../accompany/accompany',
@@ -151,7 +153,7 @@ Page({
         if(data!=null){
           for (let i = 0; i < data.length; i++) {
             let obj = {}
-            obj.name = data[i].projectEstablish.name;
+            obj.name = data[i].projectEstablish.orderDetail.name;
             obj.phone = data[i].projectEstablish.orderDetail.phone;
             obj.orderNum = data[i].projectEstablish.orderDetail.orderNumber;
             obj.add = data[i].projectEstablish.orderDetail.detailAddress;

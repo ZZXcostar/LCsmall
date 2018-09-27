@@ -3,7 +3,7 @@
     <view class="weui-cell">
       <view class="weui-cell__bd">
         <view class="lineGreen"></view>订单编号：{{orderInfo.orderDetail.orderNumber}}</view>
-      <view class="weui-cell__ft">{{orderInfo.orderDetail.serviceStateName}}服务</view>
+      <view class="weui-cell__ft">{{orderInfo.orderDetail.serviceStateName}}</view>
     </view>
     <view class='viewBox userInfo'>
       <view class='newTop'>
@@ -12,7 +12,7 @@
         <view class="weui-flex">
           <view class="weui-flex__item">
             <view class="placeholder">业主姓名：
-              <text>{{orderInfo.name}}</text>
+              <text>{{orderInfo.orderDetail.name}}</text>
             </view>
           </view>
           <view class="weui-flex__item">
