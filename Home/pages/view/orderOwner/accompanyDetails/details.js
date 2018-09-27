@@ -8,6 +8,7 @@ Page({
    */
   data: {
     orderInfo:"",
+    appointTime:'',
     tabs: [
       {
         name: '陪签备忘录',
@@ -60,6 +61,21 @@ Page({
         that.setData({
           orderInfo: res.data.info[0]
         })
+        let appointTimes = res.data.info[0].orderDetail.appointment
+        if (appointTimes == null){
+          that.setData({
+            appointTime: ''
+          })
+        }else{
+          let appointTimeArr1 = appointTimes.startTime.split(" ")
+          let appointTimeStr1 = appointTimeArr1[0]
+          let appointTimeStr2 = appointTimeArr1[1]
+          let appointTimeArr2 = appointTimeStr2.split(":")
+          let appointTimeStr3 = appointTimeArr2[0] +":"+ appointTimeArr2[1]
+            that.setData({
+              appointTime: appointTimeStr1 +" "+ appointTimeStr3
+          })
+        }
         that.setData({
           huxing: that.data.orderInfo.decorate == null ? '' : that.data.orderInfo.decorate
         })

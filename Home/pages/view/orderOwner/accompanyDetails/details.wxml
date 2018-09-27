@@ -3,7 +3,7 @@
     <view class="weui-cell">
       <view class="weui-cell__bd">
         <view class="lineGreen"></view>订单编号：{{orderInfo.orderDetail.orderNumber}}</view>
-      <view class="weui-cell__ft">{{orderInfo.orderDetail.serviceStateName}}服务</view>
+      <view class="weui-cell__ft">{{orderInfo.orderDetail.serviceStateName}}</view>
     </view>
     <view class='viewBox userInfo'>
       <view class='newTop'>
@@ -48,8 +48,9 @@
         </view>
         <view class="weui-flex">
           <view class="weui-flex__item">
-            <view class="placeholder">服务时间：
-              <text>{{orderInfo.startTime}}</text>
+           <view class="placeholder">服务时间：</view>
+            <view class="placeholder">
+              <text>{{appointTime}}</text>
             </view>
           </view>
           <view class="weui-flex__item">

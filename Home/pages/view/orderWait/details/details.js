@@ -24,6 +24,7 @@ Page({
       "type_renovation":"类型一",
       "remark":'这是备注这是备注这是备注这是备注这是备注这是备注这是备注这是备注这是备注这是备注这是备注这是备注'
     },
+    appointTime:'',
     typelist_renovation:[
 
     ],
@@ -76,12 +77,27 @@ Page({
           uesrname: info.orderDetail.name,
           remark: info.remarks == null ?"无备注":info.remarks,
           "area_house": info.acreage,
-          appointTime: info.orderDetail.appointment == null ? '' : info.orderDetail.appointment.startTime.split(" ")[0],
           decorate:info.decorate == null?'':info.decorate
         }
       })
-    }
 
+      let appointTimes = info.orderDetail.appointment
+      if (appointTimes == null) {
+        that.setData({
+            appointTime: ''
+        })
+      } else {
+        let appointTimeArr1 = appointTimes.startTime.split(" ")
+        let appointTimeStr1 = appointTimeArr1[0]
+        let appointTimeStr2 = appointTimeArr1[1]
+        let appointTimeArr2 = appointTimeStr2.split(":")
+        let appointTimeStr3 = appointTimeArr2[0] + ":" + appointTimeArr2[1]
+        that.setData({
+            appointTime: appointTimeStr1 + " " + appointTimeStr3
+        })
+      }
+    }
+    
     //查询项目报告列表
     network.requestLoading(
       utilBox.urlheader + `public/entryreport/queryMapByProjectIds`,
