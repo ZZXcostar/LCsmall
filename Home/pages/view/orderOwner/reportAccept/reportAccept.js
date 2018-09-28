@@ -28,7 +28,8 @@ Page({
     cookie:"",
     nodeInfo:'',
     index:'',
-    bgId:''
+    bgId:'',
+    orderNum:''
   },
   // 切换内容tabs
   tabClick: function (e) {
@@ -100,14 +101,16 @@ Page({
     let arr = reg.exec(userInfo.adminPassword);
     let cookie = RegExp.$1;
     wx.getStorageSync('id')
+    // 
     this.setData({
-      orderId: wx.getStorageSync('orderNum'),
+      orderId: options.id,
       types: options.types,
       cookie: cookie,
       bgId: options.bgid,
       standard: options.standard,
       acceptance: options.acceptance,
-      index: options.index
+      index: options.index,
+      orderNum: wx.getStorageSync('orderNum')
     })
   },
   noNeed(){ //无需验收
@@ -141,6 +144,13 @@ Page({
     var that = this;
     var cookie = this.data.cookie
     var id = that.data.bgId
+    if (e.detail.value.aa0 == '' && e.detail.value.bb0==''){
+      wx.showToast({
+        icon: 'none',
+        title: '检测说明不能为空',
+      })
+      return
+    }
     if (that.data.activeIndex==0){ //不合格输入框数据
       var aa0 = e.detail.value.aa0
       var aa1 = e.detail.value.aa1

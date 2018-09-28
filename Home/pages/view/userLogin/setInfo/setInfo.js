@@ -106,11 +106,12 @@ Page({
       success: function (res) {
         console.log(res)
         if (res.statusCode == 200) {
-          console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+          wx.clearStorageSync('userPhonePwd')
+          wx.clearStorageSync("userInfo");
           wx.navigateTo({
             url: '../login/login',
           })
-          wx.clearStorageSync("userInfo");
+          
         } else {
           wx.showToast({
             title: res.info,

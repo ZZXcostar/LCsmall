@@ -2,7 +2,7 @@
   <view class='userImf'>
     <view class='userBox'></view>
     <view class='boxImg'>
-      <image src='{{userinfo.adminHeadImg}}'></image>
+      <image src='{{userinfo.adminHeadImg? userinfo.adminHeadImg :"../../../images/header.png"}}'></image>
     </view>
   </view>
   <view class='userText'   >

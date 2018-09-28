@@ -1,7 +1,7 @@
 <form bindsubmit="formSub">
 <view class='reportaccept'>
     <view style='padding:10rpx 20rpx;margin-top:10rpx;'>
-          <text class='number'><text class='flag'>订单编号：</text><text class='red'>{{orderId}}</text>
+          <text class='number'><text class='flag'>订单编号：</text><text class='red'>{{orderNum}}</text>
           </text>
     </view>
     <view>

@@ -190,12 +190,20 @@ Page({
     list.name = this.data.types
     list.square = this.data.measure
     if (istrue=='true'){
-      let roomRate = this.data.roomRate
-      roomRate.push(list)
-      this.setData({
-        roomRate: roomRate,
-        iskuang: false
-      })
+      if (list.name==''){
+        wx.showToast({
+          icon: 'none',
+          title: '类型不能为空！',
+        })
+      }else{
+        let roomRate = this.data.roomRate
+        roomRate.push(list)
+        this.setData({
+          roomRate: roomRate,
+          iskuang: false
+        })
+      }
+      
     }else{
       this.setData({
         iskuang: false

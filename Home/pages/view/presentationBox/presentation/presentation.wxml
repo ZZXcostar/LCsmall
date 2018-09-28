@@ -137,7 +137,7 @@
                   <view wx:for="{{item.node}}" wx:for-item="ite" wx:for-index="ind" wx:key="{{ind}}">
                     <view class="iconfont icon-jixiang"></view>
                     <text wx:if='{{ind=="0"}}'>当前节点：{{ite.reportname}}</text>
-                    <!-- <text wx:if='{{ind=="1"}}'>下一节点：{{ite.reportname}}</text> -->
+                    <text wx:if='{{ind=="1"}}'>下一节点：{{ite.reportname}}</text>
                   </view>
                 </view>
               </view>

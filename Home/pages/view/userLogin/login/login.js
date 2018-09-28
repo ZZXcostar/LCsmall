@@ -3,15 +3,22 @@ var utilBox = require("../../../../utils/utilBox.js");
 var network = require("../../../../utils/network.js");
 Page({
   data: {
+    phone:'',
+    pwd:''
+  },
+  onLoad(){
 
+    var user = wx.getStorageSync('userPhonePwd')
+    var time = wx.getStorageSync('time')
+    var timestamp = Date.parse(new Date())
+    if (user && time > timestamp){   //判断缓存  是否过期和缓存是否
+      this.setData({
+        phone: user.phone,
+        pwd: user.pwd
+      })
+    }
   },
   formSubmit: function (e) {
-    // wx.login({
-    //   success:function(res){
-    //     console.log(res)
-    //     console.log(res.header)
-    //   }
-    // })
     if (utilBox.isPhone(e.detail.value.iphone)) {
       if (e.detail.value.password != "") {
         wx.showToast({
@@ -31,6 +38,13 @@ Page({
                 if (res.status == 200) {
                   wx.removeStorage("userInfo")
                   wx.setStorageSync("userInfo", res.info)
+                  let userPhonePwd={}
+                  userPhonePwd.phone = e.detail.value.iphone
+                  userPhonePwd.pwd = e.detail.value.password
+                  var timestamp=Date.parse(new Date())   //获取当前时间   秒数
+                  var time = timestamp + 86400000        //设置缓存保存时间
+                  wx.setStorageSync('userPhonePwd', userPhonePwd)  //存储用户手机号和密码
+                  wx.setStorageSync('time', time)         //存储缓存保存时间
                   console.log(res.info)
                   setTimeout(()=>{
                     wx.switchTab({
