@@ -3,4 +3,8 @@
   display: block;
   width: 100%;
   font-size: 15px;
+  color: #333333
+}
+.showBox text:nth-child(2){
+  color: #666666
 }

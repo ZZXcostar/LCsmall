@@ -7,11 +7,11 @@ Page({
    */
   data: {
     radioItems: [
-      { name: '有', value: '0', checked: true },
+      { name: '有', value: '0'},
       { name: '部分', value: '1' }
     ], 
     radioItems1: [
-      { name: '有', value: '0', checked: true },
+      { name: '有', value: '0'},
       { name: '部分', value: '1' }
     ],
     rest:'',//其他

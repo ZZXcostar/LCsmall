@@ -13,25 +13,25 @@ Page({
     huxing:'',
     checkboxItems: {
       decorationType: [
-        { name: '平层公寓', value: '0', checked: true },
+        { name: '平层公寓', value: '0'},
         { name: '复式/LOFT', value: '1' },
         { name: '排屋', value: '2' },
         { name: '别墅', value: '3' }
       ],
       decorationSituation: [
-        { name: '毛坯房', value: '0', checked: true },
+        { name: '毛坯房', value: '0'},
         { name: '二手房', value: '1' },
         { name: '精装房改造', value: '2' }
       ],
       decorationUse: [
-        { name: '自助', value: '0', checked: true },
+        { name: '自住', value: '0'},
         { name: '出租', value: '1' },
         { name: '其他', value: '2' }
       ],
       decorationForm: [
-        { name: '全包', value: '0', checked: true },
+        { name: '全包', value: '0'},
         { name: '半包', value: '1' },
-        { name: '清场', value: '2' },
+        { name: '清包', value: '2' },
         { name: '整装', value: '3' },
         { name: '半包+部分主', value: '4' },
       ]

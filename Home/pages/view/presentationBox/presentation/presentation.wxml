@@ -1,6 +1,6 @@
 <view class="page">
 <view class='page_top'>
-      <input class='searchbox' placeholder='姓名、电话、楼盘名称' placeholder-style='text-align:center' confirm-type='Search'>
+      <input class='searchbox' placeholder='姓名、电话' placeholder-style='text-align:center' value='{{search}}' confirm-type='search' bindconfirm='confirm'>
       </input>
   </view>
   <view class="page__bd pheight">

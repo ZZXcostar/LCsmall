@@ -21,7 +21,8 @@ Page({
       { "name": "单次水电" },
       { "name": "单次泥工" }
       ],
-    orderdataeList:[]
+    orderdataeList:[],
+    search:''
   },
   onLoad: function () {
     var that = this;
@@ -54,11 +55,22 @@ Page({
           listInfo: navLeftData,
           navLeftId: navLeftData[0].id
         })
-        that.getRightData(that.data.activeIndex, that.data.navLeftId)
+        that.getRightData(that.data.activeIndex, that.data.navLeftId,'')
       },
       fail:function(err){
         console.log(err)
       }
+    })
+  },
+  confirm(e){
+    console.log(e.detail.value)
+    wx.showToast({
+      icon: 'none',
+      title: e.target.value,
+    })
+    this.getRightData(this.data.activeIndex, this.data.navLeftId, e.detail.value)
+    this.setData({
+      search:''
     })
   },
   clickTab: function(e){
@@ -67,7 +79,7 @@ Page({
       currentTab: e.target.dataset.current,
       navLeftId: e.currentTarget.dataset.currenttabid
     })
-    this.getRightData(this.data.activeIndex, this.data.navLeftId)
+    this.getRightData(this.data.activeIndex, this.data.navLeftId,'')
   },
   tabClick: function (e) {
     this.setData({
@@ -75,7 +87,7 @@ Page({
       activeIndex: e.currentTarget.id,
       currentTab: 0,
     });
-    this.getRightData(this.data.activeIndex, this.data.currentTab)
+    this.getRightData(this.data.activeIndex, this.data.currentTab,'')
   },
   // onShow(){
   //   this.onLoad()
@@ -130,7 +142,7 @@ Page({
     } 
   },
   // 右侧数据请求
-  getRightData(topNav,leftNav){
+  getRightData(topNav, leftNav, keyword){
     var that=this;
     let userInfo = wx.getStorageSync("userInfo");
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
@@ -139,7 +151,8 @@ Page({
     wx.request({
       url: utilBox.urlheader + "/product/workList/queryType?typeId=" + leftNav, //仅为示例，并非真实的接口地址
       data: {
-        isAccepted: topNav
+        isAccepted: topNav,
+        keyword: keyword
       },
       header: {
         'content-type': 'application/json', // 默认值
@@ -148,7 +161,7 @@ Page({
       method: 'post',
       success: function (res) {
         let data = res.data.info
-        console.log(data)
+        console.log(res.data)
         var newData=[]
         if(data!=null){
           for (let i = 0; i < data.length; i++) {

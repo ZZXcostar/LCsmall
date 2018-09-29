@@ -3,7 +3,7 @@ var utilBox = require("../../../../utils/utilBox.js");
 Page({
   data: {
     checkboxItems: [
-      {name: '原始尺寸图', value: '0', checked: true },
+      {name: '原始尺寸图', value: '0'},
       { name: '拆除平面图', value: '1' },
       { name: '砌墙平面图', value: '2' },
       { name: '平面布置图', value: '3' },

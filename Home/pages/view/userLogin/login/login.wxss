@@ -4,16 +4,15 @@
   height: 100%;
 }
 .cimgSize{
-  height:100px;
-  width:120px;
+  height:200rpx;
+  width:240rpx;
   margin: auto;
   /* margin-bottom: 80px; */
   padding-top: 75rpx;
   text-align: center;
 }
 .cimgSize text{
-  
-  font-size:18px;
+  font-size:36rpx;
   color:#11b786;
   font-family:"微软雅黑";
   font-weight: 700;
@@ -27,30 +26,27 @@
 .boxpositio{
   width: 80%;
   margin: auto;
-  min-height: 20px;
-  margin-top: 40px;
-}
-.marginTop{
-  margin-top:10px; 
+  min-height: 40rpx;
+  margin-top: 80rpx;
 }
 .buttonStyle{
-  margin: 30px 0  16px 0;
+  margin: 20rpx 0  32rpx 0;
   
 }
 .buttonStyle button{
-  margin: 30px 0  16px 0;
+  margin: 60rpx 0  32rpx 0;
   color: #fff;
 }
 .buttonStyle button{
   background: #11b786;
-   border-radius: 10px; 
+   border-radius: 20rpx; 
 }
 .boxpositio .weui-cell__bd{
-   font-size: 16px;
-  padding: 4px 0px 4px 4px;
+   font-size: 32rpx;
+  padding: 8rpx 0px 8rpx 8rpx;
   margin-top: 20px;
   border:1px solid #11b786;
-  border-radius: 50px; 
+  border-radius: 100rpx; 
  
 }
 .weui-input{
@@ -63,32 +59,31 @@
 }
 .icon-left:before { content: "&#xe608"; }
 .fontStyle{
-  font-size: 16px;
+  font-size: 32rpx;
   color:#666;
   text-align: center;
-  padding: 8px 16px;
+  padding: 16rpx 32rpx;
 }
 .icon-user,.icon-pass{
-  float: left;width: 46px;
-  height: 40px;
+  float: left;width: 92rpx;
+  height: 80rpx;
   font-size:40px;
   text-align: left;
-  line-height: 40px;
+  line-height: 80rpx;
   color:#11b786;
 }
 .textIfo {
-  margin-top: 40px;
-  margin-bottom: 60px;
+  margin-top: 80rpx;
 }
 .textIfo text{
-  font-size: 14px;
+  font-size: 28rpx;
   width:80%;
   margin: auto;
   display: block;
   text-align: center;
 }
 .textIfo text:nth-child(2){
-  font-size: 12px;
+  font-size: 24rpx;
   width:80%;
   color:#666;
   margin: auto;

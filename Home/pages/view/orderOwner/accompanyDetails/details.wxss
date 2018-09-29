@@ -1,6 +1,12 @@
 .weui-flex__item{
   font-size: 14px;
 }
+page{
+  background: #f5f5f5
+}
+.mtop{
+  background: #f5f5f5
+}
 .viewBox,.weui-cell{
 background: #fff;
 }

@@ -3,7 +3,7 @@ var utilBox = require("../../../../utils/utilBox.js");
 Page({
   data: {
     radioItems: [
-      { name: '杭州市推荐版', value: '0', checked: true },
+      { name: '杭州市推荐版', value: '0' },
       { name: '自印版', value: '1'}
     ],
     projectId: '',//项目id
