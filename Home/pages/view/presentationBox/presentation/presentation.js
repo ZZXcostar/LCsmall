@@ -64,14 +64,12 @@ Page({
   },
   confirm(e){
     console.log(e.detail.value)
-    wx.showToast({
-      icon: 'none',
-      title: e.target.value,
-    })
-    this.getRightData(this.data.activeIndex, this.data.navLeftId, e.detail.value)
+    var data=this.getRightData(this.data.activeIndex, this.data.navLeftId, e.detail.value)
     this.setData({
-      search:''
+      search:'',
+      // orderdataeList: data
     })
+    // console.log(data)
   },
   clickTab: function(e){
     var that = this;
@@ -89,36 +87,33 @@ Page({
     });
     this.getRightData(this.data.activeIndex, this.data.currentTab,'')
   },
-  // onShow(){
-  //   this.onLoad()
+  // showInput: function () {
+  //   this.setData({
+  //     inputShowed: true
+  //   });
   // },
-  showInput: function () {
-    this.setData({
-      inputShowed: true
-    });
-  },
-  hideInput: function () {
-    this.setData({
-      inputVal: "",
-      inputShowed: false
-    });
-  },
-  clearInput: function () {
-    this.setData({
-      inputVal: ""
-    });
-  },
-  inputTyping: function (e) {
-    this.setData({
-      inputVal: e.detail.value
-    });
-  },
-  goassociationReport:function(e){
-    let reportId = e.currentTarget.dataset.reportid
-    wx.navigateTo({
-      url: '../associationReport/associationReport?reportId=' + reportId,
-    })
-  },
+  // hideInput: function () {
+  //   this.setData({
+  //     inputVal: "",
+  //     inputShowed: false
+  //   });
+  // },
+  // clearInput: function () {
+  //   this.setData({
+  //     inputVal: ""
+  //   });
+  // },
+  // inputTyping: function (e) {
+  //   this.setData({
+  //     inputVal: e.detail.value
+  //   });
+  // },
+  // goassociationReport:function(e){
+  //   let reportId = e.currentTarget.dataset.reportid
+  //   wx.navigateTo({
+  //     url: '../associationReport/associationReport?reportId=' + reportId,
+  //   })
+  // },
   gopresent: function (val){
     let orderId = val.currentTarget.dataset.reportid
     var types = val.currentTarget.dataset.type
@@ -195,6 +190,8 @@ Page({
         that.setData({
           orderdataeList: newData
         })
+        console.log(that.data.orderdataeList)
+        return newData
       },
       fail: function (err) {
         console.log(err)
