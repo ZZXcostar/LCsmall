@@ -12,7 +12,7 @@
     <view class="weui-cell__hd " style='width:auto;'>
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd setWidths">
-          <view class="weui-label">户 型：</view>
+          <text class="weui-label" decode='{{true}}'>户&emsp;&emsp;型：</text>
         </view>
         <picker class='inputsize' bindchange="bindCountryCodeChange" mode='multiSelector' disabled='{{!isSee}}' value="0" name="ff" data-chk='index' range="{{countryCodes}}">
           <view class="weui-input inpt">{{huxing}}</view>
@@ -60,8 +60,7 @@
         <view class="weui-cell__hd setWidths">
           <view class="weui-label">合 同 价：</view>
         </view>
-        <input  placeholder='填写合同价位' name="contract" disabled='{{!isSee}}' placeholder-style='color:#cccccc;' value="{{data.contract}}" />
-          <text style='position:absolute; top:0;right:-50%'>10万含设计费</text>
+        <input  placeholder='10万含设计费' name="contract" disabled='{{!isSee}}' value="{{data.contract}}" />
       </view>
     </view>
   </view>

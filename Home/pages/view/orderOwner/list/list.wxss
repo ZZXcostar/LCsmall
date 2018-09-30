@@ -2,31 +2,42 @@
 page{
   width:100%;
 }
+.page_top{
+  box-shadow: 0rpx 0rpx 10rpx 1rpx #dddddd;
+  padding: 20rpx 0px;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  background: #ffffff;
+  z-index: 9999
+}
 .searchbox{
   width:80%;
   font-size: 30rpx;
-  margin:20rpx auto;
+  margin:0rpx auto;
   border-radius:10rpx;
   padding:15rpx 30rpx;
   background-color: #ededed;
 }
 .container_order{
   /* height:930rpx; */
+  height: 100vh;
   overflow: hidden;
   background-color: #f5f5f5;
-  padding-top:20rpx;
+  padding-top:140rpx;
 }
 .order{
   padding: 20rpx;
-  margin:0rpx 25rpx 20rpx 25rpx;
+  margin:10rpx 25rpx 20rpx 25rpx;
   background-color: #fff;
   border-radius: 10rpx;
+  box-shadow: 0rpx 0rpx 10rpx 1rpx #dddddd
 }
 .order .order_top{
   text-align: left;
   font-size: 25rpx;
   overflow: hidden;
-  border-bottom: 1rpx solid #cccccc;
+  border-bottom: 1rpx solid #dddddd;
   padding-bottom: 10rpx;
   color:#757575;
 }
@@ -47,7 +58,8 @@ page{
   color:#30bc8f;
 }
 .order .order_container{
-  height:310rpx;
+  height:320rpx;
+  /* overflow: hidden; */
 }
 .order .order_container .headeimg{
   width:150rpx;
@@ -67,6 +79,7 @@ page{
   float: left;
   margin-top:20rpx;
   margin-left:30rpx;
+  /* width: 100%; */
 }
 .order .order_container .content .msg{
   color:#30bc8f;

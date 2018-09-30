@@ -23,6 +23,7 @@
 .zwxx{
   text-align: center;
   background: #fff;
+  height: 100vh;
   padding-top: 200rpx
 }
 .zwxx image{

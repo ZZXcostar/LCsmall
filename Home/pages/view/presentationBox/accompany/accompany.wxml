@@ -73,7 +73,8 @@
         </view>
         <view class="weui-flex">
           <view class="weui-flex__item">
-            <view class="placeholder">工期：
+            <view class="placeholder" >
+              <text decode="{{true}}">工&emsp;&emsp;期：</text> 
               <text>{{orderInfo.duration}}个月</text>
             </view>
           </view>
@@ -92,7 +93,8 @@
         </view>
         <view class="weui-flex">
           <view class="weui-flex__item">
-            <view class="placeholder">设计师：
+            <view class="placeholder">
+              <text decode='{{true}}'>设&ensp;计&ensp;师：</text> 
               <text>{{orderInfo.workerInfo.name}}（{{orderInfo.workerInfo.phone}} {{orderInfo.workerInfo.profession}} {{orderInfo.workerInfo.profession}}元㎡）</text>
               <textarea class='textareBox' disabled>{{orderInfo.workerInfo.remark==null? '无' : orderInfo.workerInfo.remark}}</textarea>
             </view>
@@ -100,7 +102,7 @@
         </view>
       </view>
     </view>
-    <view style='position:relative;' class='viewBox'>
+    <view style='position:relative;' class='viewBox he'>
         <view class="weui-navbar">
             <block wx:for="{{tabs}}" wx:key="*this">
                 <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">

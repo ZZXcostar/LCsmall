@@ -69,7 +69,7 @@
         <view class="weui-cell__hd ">
             <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
-                    <view class="weui-label">孩子：</view>
+                    <text class="weui-label" style='display: block' decode='{{true}}'>孩&emsp;&emsp;子：</text>
                 </view>
                 <view class="weui-cell__bd">
                     <input class="weui-input inpt" placeholder="男孩 女孩"  disabled='{{!isSee}}' name="children" value="{{orderInfo.list.child}}"/>

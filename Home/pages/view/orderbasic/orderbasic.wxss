@@ -18,6 +18,7 @@ view{
 .weui-input{
   text-align: left;
   width: 500rpx !important;
+  
 }
 .weui-label{
   width: 130rpx;
