@@ -58,6 +58,13 @@
 .holder{
   color: #cccccc;
 }
+.button-hover{
+  border: 0px !important
+}
+button::after{
+  /* border: 0px !important; */
+  border-radius: 0px;
+}
 .imglist{
   display: flex;
   justify-content: flex-start;

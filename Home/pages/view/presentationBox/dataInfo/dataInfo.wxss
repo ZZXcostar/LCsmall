@@ -1,165 +1,116 @@
-.weui-navbar__slider{
-  width: 5rem;
-  background: #11b786
+.newBox{
+  padding-left: 40rpx;
+  padding-right: 40rpx;
 }
-
-.weui-bar__item_on{
-  color: #11b786 !important;
+view{
+  font-size: 12px;
+  line-height: 80rpx;
 }
-
-.weui-tab__panel .leftBox{
-  width: 19%;
-  height: 100%;
-  float: left;
-  margin-bottom: -10000px;  
-  padding-bottom: 10000px; 
+.weui-cell__bd{
+  text-align: right;
 }
-.page{
-  background: #f5f5f5
+.msize{
+  display: inline-block;
+  font-size: 12px;
+  color: #7e7e7e;
+  padding-left: 6px;
 }
-.searchbox{
-  width:80%;
-  font-size: 30rpx;
-  margin:20rpx auto;
-  border-radius:10rpx;
-  padding:15rpx 30rpx;
-  background-color: #ffffff;
+.weui-input{
+  text-align: left;
 }
-.pheight{
-  height: 100%;
-  background: #ffffff
+.weui-label{
+  width: auto;
 }
-.weui-tab__panel .rightBox{
- width: 100%;
- height: 100%;
- float: left;
-overflow-y:scroll;
-max-height:900rpx;
-padding-bottom: 1000rpx !important;
-/* background: #f5f5f5; */
+.wid{
+  width: 180rpx !important;
 }
-
-.weui-tab__panel{
-  height: 100%;
-  width:77%;
-float:right;
+.wid1{
+  width: 100rpx !important;
+  margin-left:20rpx; 
 }
-
-.leftSize{
-  border-right: 1px solid #ddd;
-  text-align: center;
-  font-size: 28rpx;
-  width: 22%;
-  float: left;
-  margin-top:50px;
-  height: 100%;
-  /* box-shadow: 0rpx 10rpx 10rpx 1rpx #aaa; */
-  /* height: 100%; */
+page{
+  background: #eeeeee
 }
-.weui-bar__item_on{
-  width: 100%
+.lineBox{
+  width: 3px;
+  height: 12px;
+  background: #11b786;
+  display: inline-block;
+  margin-right: 10px;
+  position: relative;
+  top:2px;
 }
-.leftSize view{
-  border-bottom: 1px dashed #ddd;
-  line-height: 40px;
-  color: #000;
+.weui-btn-area{
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  margin:0;
+  padding: 0; 
 }
-.leftSize view:last-child{
-  border-bottom: none
+.weui-btn-area button{
+border-radius: 0;
+background: #11b786;
+color: #fff;
 }
-.weui-tab__content{
-  height: 100%;
-  overflow: hidden;
+.weui-textarea{
+  line-height: 35rpx;
 }
-.weui-tab__content:after{display:block;clear:both;content:"";visibility:hidden;height:0}
- view .sizeActive{
-  color: #11b786 !important;
+.weui-panel{
+  /* margin-bottom: 30rpx; */
 }
-page,.page{
-  overflow: hidden;
-  height: 100%;
-}
-.weui-cell {
-  padding: 10px 30rpx !important;
-  box-sizing: border-box;
-}
-.listBox{
+.inputsize .weui-input{
   border: 1px solid #ddd;
-  margin:2.5%;
-  overflow: hidden;
-  border-radius: 10px;
+ width: 60px;
+ min-height: 30px;
+ float: left;
+ position: relative;
+ left: -24px;
+ height: 30px;
+ line-height: 30px;
+ border-radius: 5px;
+ text-align: center;
 }
-.listBox:last-child{
-  margin:4% 2.5% 8% 2.5%;
+.weui-input{
+  width: auto;
 }
-.weui-cell__bd,.weui-cell__ft{
-  font-size: 24rpx;
+.weui-cell__hd{
+width: 50%;
 }
-.weui-cell__ft{
-  float: right;
-}
-.buttonSize{
-  height: 56rpx;
-  line-height: 56rpx;
-  font-size: 30rpx;
-  background: #11b786 !important;
-  padding: 0px 20rpx !important;
-}
-.listBoxmiddle:after{display:block;clear:both;content:"";visibility:hidden;height:0}
-.imgBox,.userInfoBox{
-  float: left;
-  font-size: 28rpx;
-  width: 100%  !important
-}
-.weui-btn{
-  margin: 0;
-}
-.listBoxbottom{
+.csize{
   line-height: 20px;
+  font-size: 12px;
+  background: #fff;
+  margin: 0 !important;
+  padding: 20rpx 30rpx;
+  border-bottom: 1px solid #ddd !important;
 }
-.imgBox{
-  width: 30%;
-  text-align: center;
-  line-height: 80px;
-  padding-top: 30px;
-}
-.userInfoBox{
-  width: 70%;
-   font-size: 28rpx;
-}
-.imgBox image{
-  width: 40px;
-  height: 40px;
-}
-.textOver{
-  width: 100%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
-}
-.linebox{
-  width: 2px;
-  height: 10px;
-  background: red;
-  display: inline-block;
-  margin: 0 4px;
-}
-.listBoxmiddle{
-  padding: 5px 40rpx;
-  border-top:1px solid #ddd;
-  border-bottom:1px solid #ddd;
-  box-sizing: border-box;
-  font-size: 30rpx;
-  color: #757575;
-}
-.weui-cell{
-  padding: 5px 10px;
-}
-.textinfo{
-  font-size: 32rpx;
-  color: #11b786;
-}
-.textinfo text{
+.tisi{
   font-size: 24rpx;
+  color: #666;
+  padding: 10rpx 30rpx;
 }
-.iconfont{
+.weui-panel__hd{
+  width: 100%;
+  padding: 0px 30rpx !important;
+}
+.weui-textarea{
+  border-radius: 5px;
+  padding: 10px;
+  width: 95%;
+}
+.lineafte::before{
+  content: "";
+  width:3px;
+  height: 10px;
   display: inline-block;
-  margin-right: 5px;
+  background: #08c078;
+  margin-right: 10px;
+}
+.weui-panel{
+  margin-top: 0;
+}
+.sizeColor{
+  background: #f5f5f5;
+  margin: 0;
+  padding:10px 15px;
 }

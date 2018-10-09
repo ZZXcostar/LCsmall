@@ -5,6 +5,10 @@ view{
   font-size: 16px;
   color: #11b786;
 }
+button::after{
+  border-radius: 0px;
+  
+}
 .cur{
   color: #d7434d;
 }

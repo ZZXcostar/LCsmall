@@ -1,8 +1,8 @@
 {
   "pages": [
-    
     "pages/view/userLogin/login/login",
     "pages/view/presentationBox/presentation/presentation",
+    
     "pages/view/userLogin/userInfo/userInfo",
     "pages/view/materialScience/materialScience",
     "pages/view/demandinformaction/demandinformaction",

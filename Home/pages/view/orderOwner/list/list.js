@@ -123,7 +123,6 @@ Page({
         let resMessage = res.info.list
         var contentlistTem = that.data.contentlist
         if (res.status == 200) {
-
           if (that.data.page == 1) {
             contentlistTem = []
           }

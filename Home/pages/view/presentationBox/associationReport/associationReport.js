@@ -31,15 +31,17 @@ Page({
    */
   onLoad: function (options) {
     var id = options.reportId;
+    var phone=options.phone;
+    console.log(id)
     var that = this;
     let userInfo = wx.getStorageSync("userInfo");
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
     let arr = reg.exec(userInfo.adminPassword);
     let cookie = RegExp.$1;
-    console.log(id)
+    console.log(phone)
     wx.request({
-      url: utilBox.urlheader + "public/entryreport/queryMapByProjectIds", //仅为示例，并非真实的接口地址
-      data: [id],
+      url: utilBox.urlheader + "product/ProjectEstablish/queryListByOrderInfoPhone?phone=" + phone, //仅为示例，并非真实的接口地址
+      data: {},
       header: {
         'content-type': 'application/json', // 默认值
         cookie: cookie
@@ -47,21 +49,46 @@ Page({
       method: 'post',
       success: function (res) {
         console.log(res.data.info)
+        let obj=[]
+        for (let i in res.data.info){
+          if (id != res.data.info[i].id) {
+            obj.push(res.data.info[i])
+          }
+        }
         that.setData({
-          list: res.data.info
+          list: obj
         })
+        console.log(obj)
       },
       fail: function (err) {
         console.log(err)
       }
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
 
+  },
+  buttonSize(e){
+    console.log(e.target.dataset)
+    let orderId = e.target.dataset.ind;
+    let orderNum = e.target.dataset.num;
+    let typeName = e.target.dataset.name;
+    wx.setStorageSync('id', orderId)
+    wx.setStorageSync('orderNum', orderNum)
+    if (typeName == "陪签服务" || typeName == "装修规划" || typeName == "全案服务") {
+      wx.navigateTo({
+        url: '../accompany/accompany',
+      })
+    } else if (typeName == "") {
+      wx.showToast({
+        icon: 'none',
+        title: '此项类别为空',
+      })
+    } else {
+      wx.navigateTo({
+        url: '../supervisor/supervisor',
+      })
+    } 
   },
 
   /**

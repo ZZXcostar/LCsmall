@@ -49,7 +49,7 @@
           <view class="weui-label">面 积：</view>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="请输入面积" name="acreage" disabled='{{!isSee}}' value="{{orderInfo.acreage}}" />
+          <input class="weui-input" placeholder="请输入面积" name="acreage" disabled='{{!isSee}}' value="{{orderInfo.acreage+'㎡'}}" />
         </view>
       </view>
     </view>
@@ -171,9 +171,9 @@
     </view>
   </view>
   <view class='listBox clearfloat'>
-    <view class='boxSize' wx:for="{{roomRate}}" wx:key="{{index}}">
+    <view class='boxSize' wx:for="{{roomRate}}" wx:key="{{index}}" wx:if="{{item.square!=''}}">
       <view class='leftfloat'>{{item.name}}:</view>
-      <input class='rightfloat' data-ind="{{index}}" bindinput='roomRate' disabled='{{!isSee}}' placeholder='㎡'  value='{{item.square}}'></input>
+      <input class='rightfloat' data-ind="{{index}}" bindinput='roomRate' disabled='{{!isSee}}' placeholder='㎡'  value='{{item.square==""?"":item.square+"㎡"}}'></input>
     </view>
   </view>
 </view>

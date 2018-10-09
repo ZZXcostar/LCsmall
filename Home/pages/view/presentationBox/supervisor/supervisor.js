@@ -39,13 +39,25 @@ Page({
       }
     })
   },
-  godisclose: (e) => {
+  godisclose(e){  
     var id = e.currentTarget.dataset.index
     var tit = e.currentTarget.dataset.tit
+    console.log(e.currentTarget.dataset.ind)
+    var ind = e.currentTarget.dataset.ind
+    if (ind > 0){
+      if (this.data.node[ind - 1].okCount != this.data.node[ind - 1].reportCount) {
+        wx.showToast({
+          icon: 'none',
+          title: '上一节点未完成！',
+        })
+        return
+      } 
+    }
+    
     wx.setStorageSync('nodeId', id)
     wx.setStorageSync('nodeName', tit)
     wx.navigateTo({
-      url: '../disclose/disclose?'
+      url: '../disclose/disclose'
     })
   },
   updateTime(dateTime) {

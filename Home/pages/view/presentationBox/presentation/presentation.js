@@ -63,13 +63,18 @@ Page({
     })
   },
   confirm(e){
-    console.log(e.detail.value)
-    var data=this.getRightData(this.data.activeIndex, this.data.navLeftId, e.detail.value)
-    this.setData({
-      search:'',
-      // orderdataeList: data
-    })
-    // console.log(data)
+    if (e.detail.value==''){
+      wx.showToast({
+        icon: 'none',
+        title: '请输入搜索内容',
+      })
+    }else{
+      this.getRightData(this.data.activeIndex, this.data.navLeftId, e.detail.value)
+      this.setData({
+        search: '',
+      })
+    }
+    
   },
   clickTab: function(e){
     var that = this;
@@ -108,12 +113,16 @@ Page({
   //     inputVal: e.detail.value
   //   });
   // },
-  // goassociationReport:function(e){
-  //   let reportId = e.currentTarget.dataset.reportid
-  //   wx.navigateTo({
-  //     url: '../associationReport/associationReport?reportId=' + reportId,
-  //   })
+  // onShow(){
+  //   this.getRightData(this.data.activeIndex, this.data.currentTab, '')
   // },
+  goassociationReport:function(e){
+    let reportId = e.currentTarget.dataset.reportid
+    let phone = e.currentTarget.dataset.phone
+    wx.navigateTo({
+      url: '../associationReport/associationReport?reportId=' + reportId + '&phone=' + phone,
+    })
+  },
   gopresent: function (val){
     let orderId = val.currentTarget.dataset.reportid
     var types = val.currentTarget.dataset.type
@@ -156,7 +165,7 @@ Page({
       method: 'post',
       success: function (res) {
         let data = res.data.info
-        console.log(res.data)
+        console.log(data)
         var newData=[]
         if(data!=null){
           for (let i = 0; i < data.length; i++) {
@@ -172,8 +181,8 @@ Page({
             var index = -1;
             if (obj.node.length>2){
               for (let j = 0; j < obj.node.length; j++) {
-                if (obj.node[i].okCount == obj.node[i].reportCount) {
-                  index=i
+                if (obj.node[j].okCount == obj.node[j].reportCount) {
+                  index=j
                 }
               }
               if(index==-1){

@@ -72,7 +72,7 @@ border:none;
   margin: 5px 0;
 }
 .placeholder{
-   line-height: 30px;
+   line-height: 40px;
 }
 /* 以下是按钮样式 */
 .btns{

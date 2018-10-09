@@ -75,7 +75,7 @@
           <view class="weui-flex__item">
             <view class="placeholder" >
               <text decode="{{true}}">工&emsp;&emsp;期：</text> 
-              <text>{{orderInfo.duration}}个月</text>
+              <text>{{orderInfo.duration}}</text>
             </view>
           </view>
           <view class="weui-flex__item">
@@ -85,18 +85,20 @@
           </view>
         </view>
         <view class="weui-flex">
-          <view class="weui-flex__item">
+          <!-- <view class="weui-flex__item">
             <view class="placeholder">项目经理：
               <text>{{orderInfo.pmname}}（{{orderInfo.pmphone}}）</text>
             </view>
-          </view>
+          </view> -->
         </view>
         <view class="weui-flex">
           <view class="weui-flex__item">
             <view class="placeholder">
               <text decode='{{true}}'>设&ensp;计&ensp;师：</text> 
-              <text>{{orderInfo.workerInfo.name}}（{{orderInfo.workerInfo.phone}} {{orderInfo.workerInfo.profession}} {{orderInfo.workerInfo.profession}}元㎡）</text>
-              <textarea class='textareBox' disabled>{{orderInfo.workerInfo.remark==null? '无' : orderInfo.workerInfo.remark}}</textarea>
+              <!-- <text wx:if='{{orderInfo.stylistname!=null}}'>{{orderInfo.workerInfo.name}}（{{orderInfo.workerInfo.phone}} {{orderInfo.workerInfo.profession}} {{orderInfo.workerInfo.profession}}元㎡）</text> -->
+              <text wx:if='{{orderInfo.stylistname!=null}}'>{{orderInfo.stylistname}}（{{orderInfo.stylistphone}}）</text>
+              <text wx:if='{{orderInfo.stylistname==null}}'>未添加</text>
+              <textarea class='textareBox' disabled>{{orderInfo.stylistremark==null? '无' : orderInfo.stylistremark}}</textarea>
             </view>
           </view>
         </view>

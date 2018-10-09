@@ -100,7 +100,7 @@ Page({
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
     let arr = reg.exec(userInfo.adminPassword);
     let cookie = RegExp.$1;
-    wx.getStorageSync('id')
+    console.log(wx.getStorageSync('id'))
     // 
     this.setData({
       orderId: options.id,
@@ -116,28 +116,40 @@ Page({
   noNeed(){ //无需验收
     var that = this;
     var cookie = this.data.cookie
-    var id=that.data.bgId
-    // 订单信息查询
-    wx.request({
-      url: utilBox.urlheader + "public/entryreport/updateType", //仅为示例，并非真实的接口地址
-      data: {
-        isService:2,
-        reportId: id,
-        id: that.data.orderId,
-        remark:"无需验收"
-      },
-      header: {
-        'content-type': 'application/json', // 默认值
-        cookie: cookie
-      },
-      method: 'post',
+    var id = wx.getStorageSync('id')
+    wx.showModal({
+      title: '是否提交报告',
+      content: '报告提交后不可修改！！',
       success: function (res) {
-        wx.navigateBack({ changed: true });//返回上一页
-      },
-      fail: function (err) {
-        console.log(err)
+        wx.request({
+          url: utilBox.urlheader + "public/entryreport/updateType", //仅为示例，并非真实的接口地址
+          data: {
+            isService: 2,
+            reportId: that.data.bgId,
+            id:  that.data.orderId,
+            remark: "无需验收"
+          },
+          header: {
+            'content-type': 'application/json', // 默认值
+            cookie: cookie
+          },
+          method: 'post',
+          success: function (res) {
+            console.log(res)
+            wx.showToast({
+              icon: 'none',
+              title: res.data.msg,
+            })
+            if(res.data.status == 200){
+              wx.navigateBack({ changed: true });//返回上一页
+            }
+          },
+          fail: function (err) {
+            console.log(err)
+          }
+        })
       }
-    })
+    })  
   },
   
   formSub(e){ //数据提交
@@ -156,6 +168,20 @@ Page({
       var aa1 = e.detail.value.aa1
       var aa2 = e.detail.value.aa2
       var aa3 = e.detail.value.aa3
+      if (aa1==''){
+        wx.showToast({
+          icon: 'none',
+          title: '解决方案不能为空',
+        })
+        return;
+        if (aa2 == ''){
+          wx.showToast({
+            icon: 'none',
+            title: '施工隐患不能为空',
+          })
+          return;
+        }
+      }
     } else {  //合格输入框数据
       var aa0 = e.detail.value.bb0
       var aa1 = ''

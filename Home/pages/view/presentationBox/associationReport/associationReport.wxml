@@ -1,15 +1,18 @@
 <view>
+<view class='zwxx' wx:if='{{list.length==0}}'>
+  <image src='../../../images/zwxx.png'></image>
+  <text>暂无关联报告</text>
+</view>
 <view class="weui-flex" wx:for='{{list}}'>
     <view><view class="placeholder">
     <view class='imgBox'><image src='../../../images/logo.png'></image></view>
     </view></view>
     <view class="weui-flex__item"><view class="placeholder">
-    <view class='textGreen'>{{item.reportname}} {{item.id}}</view>
-    <view><view class="iconfont icon-add"></view>  <text class='textSize'>{{item.add}}地址</text></view>
+    <view class='textGreen'>{{item.orderDetail.name}} {{item.orderDetail.phone}}</view>
+    <view><view class="iconfont icon-location2"></view>  <text class='textSize'>{{item.orderDetail.detailAddress}}</text></view>
     </view></view>
     <view><view class="placeholder">
-    <button class='buttonSize'>陪签服务</button>
+    <button class='buttonSize' bindtap='buttonSize' data-name='{{item.orderDetail.serviceStateName}}' data-num='{{item.orderDetail.orderNumber}}' data-ind='{{item.id}}'>{{item.orderDetail.serviceStateName}}</button>
     </view></view>
 </view>
-
 </view>

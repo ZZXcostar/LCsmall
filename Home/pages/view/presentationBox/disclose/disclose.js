@@ -128,6 +128,11 @@ Page({
       method: 'post',
       success: function (res) {
         if (res.data.status==200){
+          wx.showToast({
+            title: '提交成功！',
+            icon: 'none',
+            mask: true
+          })
           wx.navigateBack({ changed: true });//返回上一页
         } else if (res.data.status==300){
           wx.showToast({

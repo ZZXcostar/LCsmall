@@ -1,8 +1,8 @@
 <view class="page">
-<!-- <view class='page_top'>
+<view class='page_top'>
       <input class='searchbox' placeholder='姓名、电话' placeholder-style='text-align:center' value='{{search}}' confirm-type='search' bindconfirm='confirm'>
       </input>
-  </view> -->
+  </view>
   <view class="page__bd pheight">
     <view class="weui-tab">
       <view class="weui-navbar">
@@ -14,7 +14,7 @@
         <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
       </view>
       <view class="weui-tab__panel">
-        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+        <view class="weui-tab__content" wx:if="{{activeIndex == 0}}">
             <view class='zwxx' wx:if='{{orderdataeList.length==0}}'>
               <image src='../../../images/zwxx.png'></image>
               <text>暂无报告</text>
@@ -39,7 +39,7 @@
                     <text>{{item.phone}}</text>
                   </view>
                   <view class='textOver'>
-                    <view class="iconfont icon-add"></view>
+                    <view class="iconfont icon-location2"></view>
                     <text>{{item.add}}</text>
                   </view>
                   <view wx:for="{{item.node}}" wx:for-item="ite" wx:for-index="ind"  wx:key="{{ind}}">
@@ -53,14 +53,60 @@
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
                     <view class="weui-cell__bd"></view>
-                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.reportId}}" type="primary">关联报告</button>
+                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.reportId}}" data-phone='{{item.phone}}' type="primary">关联报告</button>
                   </view>
                 </view>
               </view>
             </view>
           </view>
         </view>
-         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+         <view class="weui-tab__content" wx:if="{{activeIndex == 1}}">
+            <view class='zwxx' wx:if='{{orderdataeList.length==0}}'>
+              <image src='../../../images/zwxx.png'></image>
+              <text>暂无报告</text>
+            </view>
+          <view class='rightBox'>
+            <view class='listBox' wx:for="{{orderdataeList}}"  wx:key="{{index}}">
+              <view class='listBoxTop'>
+                <view class=" weui-cells_after-title">
+                  <view class="weui-cell">
+                    <view class="weui-cell__bd">订单号:{{item.orderNum}}</view>
+                    <view class="weui-cell__ft">{{item.types}}
+                      <view class='linebox'></view>{{item.typedata}}</view>
+                  </view>
+                </view>
+              </view>
+              <view class='listBoxmiddle' bindtap='gopresent' data-type="{{item.typedata}}" data-num='{{item.orderNum}}' data-reportId="{{item.reportId}}">
+                <view class='imgBox'>
+                  <image src="../../../images/logo.png"></image>
+                </view>
+                <view class='userInfoBox'>
+                  <view class='textinfo'>{{item.name}}
+                    <text>{{item.phone}}</text>
+                  </view>
+                  <view class='textOver'>
+                    <view class="iconfont icon-location2"></view>
+                    <text>{{item.add}}</text>
+                  </view>
+                  <view wx:for="{{item.node}}" wx:for-item="ite" wx:for-index="ind" wx:key="{{ind}}">
+                    <view class="iconfont icon-jixiang"></view>
+                    <text wx:if='{{ind=="0"}}'>当前节点：{{ite.reportname}}</text>
+                    <text wx:if='{{ind=="1"}}'>下一节点：{{ite.reportname}}</text>
+                  </view>
+                </view>
+              </view>
+              <view class='listBoxbottom'>
+                <view class=" weui-cells_after-title">
+                  <view class="weui-cell">
+                    <view class="weui-cell__bd"></view>
+                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.reportId}}" data-phone='{{item.phone}}' type="primary">关联报告</button>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+         <view class="weui-tab__content" wx:if="{{activeIndex == 2}}">
          <view class='zwxx' wx:if='{{orderdataeList.length==0}}'>
               <image src='../../../images/zwxx.png'></image>
               <text>暂无报告</text>
@@ -85,7 +131,7 @@
                     <text>{{item.phone}}</text>
                   </view>
                   <view class='textOver'>
-                    <view class="iconfont icon-add"></view>
+                    <view class="iconfont icon-location2"></view>
                     <text>{{item.add}}</text>
                   </view>
                   <view wx:for="{{item.node}}" wx:for-item="ite" wx:for-index="ind" wx:key="{{ind}}">
@@ -99,60 +145,14 @@
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
                     <view class="weui-cell__bd"></view>
-                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.reportId}}" type="primary">关联报告</button>
+                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.reportId}}" data-phone='{{item.phone}}' type="primary">关联报告</button>
                   </view>
                 </view>
               </view>
             </view>
           </view>
         </view>
-         <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
-         <view class='zwxx' wx:if='{{orderdataeList.length==0}}'>
-              <image src='../../../images/zwxx.png'></image>
-              <text>暂无报告</text>
-            </view>
-          <view class='rightBox'>
-            <view class='listBox' wx:for="{{orderdataeList}}"  wx:key="{{index}}">
-              <view class='listBoxTop'>
-                <view class=" weui-cells_after-title">
-                  <view class="weui-cell">
-                    <view class="weui-cell__bd">订单号:{{item.orderNum}}</view>
-                    <view class="weui-cell__ft">{{item.types}}
-                      <view class='linebox'></view>{{item.typedata}}</view>
-                  </view>
-                </view>
-              </view>
-              <view class='listBoxmiddle' bindtap='gopresent' data-type="{{item.typedata}}" data-num='{{item.orderNum}}' data-reportId="{{item.reportId}}">
-                <view class='imgBox'>
-                  <image src="../../../images/logo.png"></image>
-                </view>
-                <view class='userInfoBox'>
-                  <view class='textinfo'>{{item.name}}
-                    <text>{{item.phone}}</text>
-                  </view>
-                  <view class='textOver'>
-                    <view class="iconfont icon-add"></view>
-                    <text>{{item.add}}</text>
-                  </view>
-                  <view wx:for="{{item.node}}" wx:for-item="ite" wx:for-index="ind" wx:key="{{ind}}">
-                    <view class="iconfont icon-jixiang"></view>
-                    <text wx:if='{{ind=="0"}}'>当前节点：{{ite.reportname}}</text>
-                    <text wx:if='{{ind=="1"}}'>下一节点：{{ite.reportname}}</text>
-                  </view>
-                </view>
-              </view>
-              <view class='listBoxbottom'>
-                <view class=" weui-cells_after-title">
-                  <view class="weui-cell">
-                    <view class="weui-cell__bd"></view>
-                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.reportId}}" type="primary">关联报告</button>
-                  </view>
-                </view>
-              </view>
-            </view>
-          </view>
-        </view>
-         <view class="weui-tab__content" hidden="{{activeIndex != 3}}">
+         <view class="weui-tab__content" wx:if="{{activeIndex == 3}}">
          <view class='zwxx' wx:if='{{orderdataeList.length==0}}'>
               <image src='../../../images/zwxx.png'></image>
               <text>暂无报告</text>
@@ -177,7 +177,7 @@
                     <text>{{item.phone}}</text>
                   </view>
                   <view class='textOver'>
-                    <view class="iconfont icon-add"></view>
+                    <view class="iconfont icon-location2"></view>
                     <text>{{item.add}}</text>
                   </view>
                   <view wx:for="{{item.node}}" wx:for-item="ite" wx:for-index="ind" wx:key="{{ind}}">
@@ -191,14 +191,13 @@
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
                     <view class="weui-cell__bd"></view>
-                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.reportId}}" type="primary">关联报告</button>
+                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.reportId}}" data-phone='{{item.phone}}' type="primary">关联报告</button>
                   </view>
                 </view>
               </view>
             </view>
           </view>
         </view>
-        
       </view>
       <view class='leftBox leftSize'>
         <view class="{{currentTab==index?'sizeActive':''}}" data-current="{{index}}" bindtap="clickTab" wx:for="{{listInfo}}" data-currentTabId="{{item.id}}"  wx:key="{{index}}">{{item.serName}}</view>

@@ -47,6 +47,9 @@ Page({
         console.log(res)
         res.data.info[0].acreage=parseInt(res.data.info[0].acreage)
         wx.setStorageSync('pqOrderInfo', res.data.info[0])
+        if (res.data.info[0].duration!=null && res.data.info[0].duration.indexOf("月") == -1){
+          res.data.info[0].duration = res.data.info[0].duration+"个月"
+        }
         that.setData({
           orderInfo: res.data.info[0]
         })

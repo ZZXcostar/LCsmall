@@ -16,7 +16,7 @@
            <view>
               <view class='name'>验收方式：</view>
               <view class='content'>
-                  <input placeholder='请输入验证方式' disabled='true' value='{{acceptance}}' placeholder-class='holder' />
+                  <textarea placeholder='请输入验证方式' disabled='true' value='{{acceptance}}' placeholder-class='holder'></textarea>
               </view> 
            </view>
         </view>

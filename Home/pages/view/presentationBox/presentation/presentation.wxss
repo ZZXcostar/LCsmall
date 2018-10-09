@@ -5,6 +5,7 @@
 .weui-bar__item_on{
   color: #11b786 !important;
 }
+
 .weui-tab__panel .leftBox{
   width: 19%;
   height: 100%;
@@ -26,6 +27,7 @@
 .pheight{
   height: 100%;
   background: #ffffff
+
 }
 .weui-tab__panel .rightBox{
  width: 100%;
@@ -34,12 +36,20 @@
  background: #f5f5f5;
 overflow-y:scroll;
 max-height:900rpx;
+position: relative;
+z-index: 999999;
 padding-bottom: 1000rpx !important;
 }
 .weui-tab__panel{
   height: 100%;
   width:78%;
   float:right;
+}
+.weui-navbar{
+  /* position: relative; */
+  /* top: -100%; */
+  z-index: 9999999;
+  background: #ffffff
 }
 .leftSize{
   text-align: center;
@@ -60,9 +70,14 @@ box-sizing: border-box;
 }
 .weui-tab__content{
   height: 100%;
+  /* padding-top: 80rpx; */
+  background-color:rgba(red, green, blue, 0) !important;
   overflow: hidden;
 }
-.weui-tab__content:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+.weui-tab__content::after{
+  background-color:rgba(red, green, blue, 0) !important;
+}
+.weui-tab__content:after{display:block;clear:both;content:"";visibility:hidden;height:0;  background-color:rgba(red, green, blue, 0) !important;}
  view .sizeActive{
   color: #11b786 !important;
 }
