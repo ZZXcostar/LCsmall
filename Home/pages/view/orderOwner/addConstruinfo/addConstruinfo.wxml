@@ -35,7 +35,7 @@
           </view>
           <view class='half'>
             <view class='name'>联系方式：</view>
-            <input value='{{ pmphone }}' bindinput="pmphoneInput" placeholder='填写电话' placeholder-style='color:#cccccc;'  />
+            <input value='{{ pmphone }}' bindinput="pmphoneInput" bindblur="pmphoneInputAuth" placeholder='填写电话' placeholder-style='color:#cccccc;'  />
           </view>
         </view>
     </view> 
@@ -51,7 +51,7 @@
               </view>
               <view class='half'>
                 <view class='name'>联系方式：</view>
-                <input  placeholder='填写电话' value="{{ item.phone }}" bindinput="phoneInput" data-phoneIndex="{{ index }}" placeholder-style='color:#cccccc;'  />
+                <input  placeholder='填写电话' value="{{ item.phone }}" bindinput="phoneInput" bindblur="phoneInputAuth" data-phoneIndex="{{ index }}" placeholder-style='color:#cccccc;'  />
               </view>
           </view>
           <view style='margin-bottom:10rpx;overflow:hidden;border-bottom:1px solid #f5f5f5;'>
