@@ -3,7 +3,7 @@
   padding-right: 40rpx;
 }
 view{
-  font-size: 12px;
+  font-size: 24rpx;
   line-height: 80rpx;
 }
 .weui-cell__bd{
@@ -11,9 +11,9 @@ view{
 }
 .msize{
   display: inline-block;
-  font-size: 12px;
+  font-size: 24rpx;
   color: #7e7e7e;
-  padding-left: 6px;
+  padding-left: 12rpx;
 }
 .weui-input{
   text-align: left;
@@ -25,13 +25,13 @@ view{
 
 }
 .lineBox{
-  width: 3px;
-  height: 12px;
+  width: 6rpx;
+  height: 24rpx;
   background: #11b786;
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 24rpx;
   position: relative;
-  top:2px;
+  top:4rpx;
 }
 .weui-btn-area{
   position: absolute;
@@ -55,9 +55,9 @@ color: #fff;
  float: left;
  position: relative;
  left: -24px;
- height: 30px;
- line-height: 30px;
- border-radius: 5px;
+ height: 60rpx;
+ line-height: 60rpx;
+ border-radius: 10rpx;
  text-align: center;
 }
 .weui-input{
@@ -67,21 +67,21 @@ color: #fff;
   width: 50%;
 }
 .csize{
-  line-height: 20px;
-  font-size: 12px;
+  line-height: 40rpx;
+  font-size: 24rpx;
 }
 .weui-textarea{
   border-radius: 5px;
-  padding: 10px;
+  padding: 20rpx;
   width: 95%;
 }
 .lineafte::before{
   content: "";
-  width:3px;
-  height: 10px;
+  width:6rpx;
+  height: 20rpx;
   display: inline-block;
   background: #08c078;
-  margin-right: 10px;
+  margin-right: 20rpx;
 }
 .weui-panel{
   margin-top: 0;
@@ -89,5 +89,5 @@ color: #fff;
 .sizeColor{
   background: #f5f5f5;
   margin: 0;
-  padding:10px 15px;
+  padding:20rpx 30rpx;
 }

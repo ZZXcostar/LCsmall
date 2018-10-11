@@ -43,20 +43,13 @@
 }
 .boxpositio .weui-cell__bd{
    font-size: 32rpx;
-  padding: 8rpx 0px 8rpx 8rpx;
-  margin-top: 20px;
+  padding: 10rpx 0px 10rpx 10rpx;
+  margin-top: 40rpx;
   border:1px solid #11b786;
   border-radius: 100rpx; 
  
 }
-.weui-input{
-  /* font-size: 16px;
-  padding: 4px 0px 4px 4px;
-  margin-top: 20px;
-  border:1px solid #11b786;
-  border-radius: 50px; */
-  
-}
+
 .icon-left:before { content: "&#xe608"; }
 .fontStyle{
   font-size: 32rpx;
@@ -67,10 +60,15 @@
 .icon-user,.icon-pass{
   float: left;width: 92rpx;
   height: 80rpx;
-  font-size:40px;
+  font-size:80rpx;
   text-align: left;
   line-height: 80rpx;
   color:#11b786;
+}
+.user{
+  font-size: 90rpx;
+  margin-top: 3rpx;
+  margin-left: -2rpx;
 }
 .textIfo {
   margin-top: 80rpx;
@@ -81,6 +79,9 @@
   margin: auto;
   display: block;
   text-align: center;
+}
+button{
+  font-size: 36rpx;
 }
 .textIfo text:nth-child(2){
   font-size: 24rpx;

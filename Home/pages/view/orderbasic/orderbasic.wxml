@@ -7,7 +7,7 @@
                 <view class="weui-cell__hd">
                     <view class="weui-label">业主姓名：</view>
                 </view>
-                <input class="weui-input" placeholder="读取姓名" disabled='{{!isSee}}' name="name" value="{{orderInfo.name}}"/>
+                <input class="weui-input" placeholder="读取姓名" disabled='{{!isSee}}' name="name" value="{{orderInfo.orderDetail.name}}"/>
             </view>
         </view>
         <view class="weui-cell__hd ">

@@ -6,7 +6,7 @@ page{
   background: #f5f5f5
 }
 view{
-  font-size: 12px;
+  font-size: 24rpx;
   line-height: 80rpx;
 }
 .weui-cell__bd{
@@ -14,9 +14,9 @@ view{
 }
 .msize{
   display: inline-block;
-  font-size: 12px;
+  font-size: 24rpx;
   color: #7e7e7e;
-  padding-left: 6px;
+  padding-left: 12rpx;
 }
 .weui-input{
   text-align: left;
@@ -28,13 +28,13 @@ view{
   width: 130rpx !important;
 }
 .lineBox{
-  width: 3px;
-  height: 12px;
+  width: 6rpx;
+  height: 24rpx;
   background: #11b786;
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 20rpx;
   position: relative;
-  top:2px;
+  top:4rpx;
 }
 .weui-btn-area{
   bottom:0;
@@ -50,43 +50,43 @@ color: #fff;
 .inputsize .weui-input{
   border: 1px solid #ddd;
  width: 400rpx !important;
- min-height: 30px;
+ min-height: 60rpx;
  float: left;
  padding-left: 10rpx;
  position: relative;
- height: 30px;
- line-height: 30px;
- border-radius: 5px;
+ height: 60rpx;
+ line-height: 60rpx;
+ border-radius: 10rpx;
  text-align: left;
  letter-spacing:8rpx;
 }
 .newcheckSzie{
   float: left;
-  line-height: 40px;
-  padding-top: 6px;
+  line-height: 80rpx;
+  padding-top: 12rpx;
 }
 .weui-input{
   width: auto;
 }
 .setWidths{
-  width: 70px;
+  width: 140rpx;
 }
 .csize{
-  line-height: 20px;
-  font-size: 12px;
+  line-height: 40rpx;
+  font-size: 24rpx;
 }
 .weui-textarea{
-  border-radius: 5px;
-  padding: 10px;
+  border-radius: 10rpx;
+  padding: 20rpx;
   width: 95%;
 }
 .lineafte::before{
   content: "";
-  width:3px;
-  height: 10px;
+  width:6rpx;
+  height: 20rpx;
   display: inline-block;
   background: #08c078;
-  margin-right: 10px;
+  margin-right: 20rpx;
 }
 .weui-panel{
   margin-top: 0;
@@ -94,7 +94,7 @@ color: #fff;
 .sizeColor{
   background: #f5f5f5;
   margin: 0;
-  padding:10px 15px;
+  padding:20rpx 30rpx;
 }
 .widthauto{
   width: 100%;
@@ -104,9 +104,17 @@ checkbox-group{
   width: 100%;
 }
 .newWidth{
-  width: 33%;
+  width: 50%;
   float: left;
   text-align: center;
+  height: 80rpx;
+  box-sizing: border-box;
+  padding-left: 10rpx;
+}
+.checkBox{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap:wrap;
 }
 .checkBox .weui-cell__hd{
   width: auto;
@@ -115,10 +123,10 @@ checkbox-group{
   text-align: left;
 }
 .setWidth{
-  width: 60px;
+  width: 120rpx;
 }
 .setmarginbottom{
-  margin-bottom: 50px;
+  margin-bottom: 100rpx;
 }
 .listBox{
   margin-left: 10%;
@@ -126,8 +134,14 @@ checkbox-group{
 .boxSize{
   float: left;
   width: 40%;
-  padding:0 0px 0px 20px; 
+  padding:0 0px 0px 40rpx; 
   border-bottom: 1px solid #ddd;
+  position: relative;
+}
+.boxSize text{
+  position: absolute;
+  right: 30rpx;
+  top: 0rpx;
 }
 .leftfloat{
   float: left;
@@ -143,7 +157,7 @@ checkbox-group{
 .clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
 .addtext{
  position: absolute;
- right: 10px;
+ right: 20rpx;
  color: #08c078;
   font-weight: 700;
 }
@@ -164,12 +178,12 @@ checkbox-group{
   margin-top: -180rpx;
   left: 50%;
   margin-left: -40%;
-  border-radius: 10px;
+  border-radius: 20rpx;
    overflow: hidden;
 }
 .maskTop{
   height: 20%;
-  padding-left: 10px;
+  padding-left: 20rpx;
 }
 .maskMiddle{
    height: 60%;
@@ -193,24 +207,24 @@ checkbox-group{
   width: 49.8%;
 }
 .content_detail{
-  padding:5px 20px;
+  padding:10rpx 40rpx;
 }
 .half{
-  height:50px;
-  line-height: 50px;
+  height:100rpx;
+  line-height: 100rpx;
 }
 .half .name,.half input{
   float: left;
    height: 100%;
-   line-height: 50px;
+   line-height: 100rpx;
    
 }
 .half input{
   float: left;
-   height:30px;
-   line-height: 50px;
+   height:60rpx;
+   line-height: 100rpx;
    background: #f0f0f0;
-   padding: 0 10px;
-   margin: 10px 10px;
+   padding: 0 20rpx;
+   margin: 20rpx 20rpx;
 }
 .clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}

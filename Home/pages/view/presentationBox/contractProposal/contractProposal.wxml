@@ -16,13 +16,14 @@
 <view class="weui-panel weui-panel_access">
   <view class="weui-panel__hd">二、合同付款方式 </view>
   <view class="weui-panel__bd">
-    <input class='inp'  bindinput='payment' value='{{payment}}' disabled='{{!isSee}}' placeholder='预付30%，中期60%，结束10%'></input>
+    <input class='inp1'  bindinput='payment' value='{{payment}}' disabled='{{!isSee}}' placeholder='预付30%，中期60%，结束10%'></input>
   </view>
 </view>
 <view class="weui-panel weui-panel_access">
   <view class="weui-panel__hd">三、工期约定 </view>
   <view class="weui-panel__bd">
-    <input class='inp'  bindinput='timeLimit' disabled='{{!isSee}}' value='{{timeLimit}}' placeholder='三个月'></input>
+    <input class='inp'  bindinput='timeLimit' disabled='{{!isSee}}' value='{{timeLimit}}' placeholder='2'></input>
+    <text class='txt'>工作日</text>
   </view>
 </view>
 <view class="weui-panel weui-panel_access">

@@ -64,9 +64,9 @@
             <view class="placeholder">项目经理：<text>{{orderInfo.pmname}}（{{orderInfo.pmphone}}）</text></view>
             </view>
         </view>
-        <view class="weui-flex">
+        <view class="weui-flex" wx:for='{{orderInfo.workerInfos}}' wx:key='{{index}}'>
             <view class="weui-flex__item">
-            <view class="placeholder">工人信息：<text>{{orderInfo.workerInfo.name}}（{{orderInfo.workerInfo.phone}} {{orderInfo.workerInfo.profession}} {{orderInfo.workerInfo.profession}}元㎡）</text></view>
+            <view class="placeholder">工人信息：<text>{{item.name}}（{{item.phone}} {{item.profession}} {{item.manpower}}）</text></view>
             </view>
         </view>
       </view>

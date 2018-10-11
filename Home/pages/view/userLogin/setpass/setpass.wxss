@@ -1,6 +1,6 @@
 .buttonWidth {
 
-  margin-top: 40px;
+  margin-top: 80rpx;
  
 }
 .buttonWidth button{
@@ -13,13 +13,19 @@
 .isOk{
   text-align: center;
 }
+.weui-cells{
+  font-size: 32rpx;
+}
 .isOk text{
- font-size: 18px;
+ font-size: 36rpx;
 }
 .isOkImg{
-  width: 100px;
-  height: 100px;
-  margin: 40px auto;
+  width: 200rpx;
+  height: 200rpx;
+  margin: 80rpx auto;
+}
+button{
+  font-size: 36rpx
 }
 .isOkImg image{
   width: 100%;

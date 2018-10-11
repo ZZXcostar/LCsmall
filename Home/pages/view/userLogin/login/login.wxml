@@ -7,8 +7,8 @@
     <view class='boxpositio'>
       <view class=" weui-cell_input weui-cell_vcode">
           <view class="weui-cell__bd">
-              <view class="iconfont icon-user"></view>  
-              <input name="iphone" value='{{phone}}' class="weui-input" placeholder="手机号码" />
+              <view class="iconfont icon-user user"></view>  
+              <input name="iphone" value='{{phone}}' type='number' class="weui-input" placeholder="手机号码" />
               <!-- 13566027903  18356987163-->
           </view>
       </view>
@@ -28,7 +28,7 @@
         <button formType="submit" class="weui-btn" bindtap='login' >登录</button>
     </view>
     <view class='textIfo'>
-      <text>绿城服务旗下集团唯一第三方监管</text>
+      <text>绿城服务集团旗下唯一第三方监理</text>
       <text>装修前找管家.全程无忧</text>
     </view>
     </view>

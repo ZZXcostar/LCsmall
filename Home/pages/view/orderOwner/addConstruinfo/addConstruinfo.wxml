@@ -14,6 +14,7 @@
            <view class='half'>
               <view class='name'>工期：</view>
               <input value='{{ duration }}' bindinput="durationInput" placeholder='*个月' placeholder-style='color:#cccccc;'  />
+              <text>工作日</text>
            </view>
            <view class='half'>
               <picker style='position:relative;' bindchange="bindPickerChange" value="{{renovationIndex}}" range="{{countryCodes}}">

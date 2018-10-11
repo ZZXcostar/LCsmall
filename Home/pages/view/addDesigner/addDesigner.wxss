@@ -15,6 +15,20 @@ view{
   color: #7e7e7e;
   padding-left: 6px;
 }
+.ipt{
+  position: relative;
+  width: 240rpx;
+}
+.inpt{
+  width: 150rpx;
+  text-align: center;
+}
+.ts{
+  position: absolute;
+  right: 30rpx;
+  z-index: 999;
+  top: 0rpx;
+}
 .weui-input{
   text-align: left;
 }
@@ -41,6 +55,11 @@ view{
 border-radius: 0;
 background: #11b786;
 color: #fff;
+}
+.inp{
+  width: 120rpx;
+  box-sizing: border-box;
+  padding-right: 120rpx !important;
 }
 .inputsize .weui-input{
 border:1px solid #ddd;

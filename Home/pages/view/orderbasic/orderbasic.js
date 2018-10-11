@@ -20,6 +20,7 @@ Page({
     var id = options.projectId;
     var orderInfo = wx.getStorageSync("pqOrderInfo");
     let userInfo = wx.getStorageSync("userInfo");
+    // console.log(orderInfo)
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
     let arr = reg.exec(userInfo.adminPassword);
     let cookie = RegExp.$1;
