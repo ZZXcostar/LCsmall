@@ -1,7 +1,7 @@
 .imgBox{
-  width: 40px;
-  height: 40px;
-  padding: 20px;
+  width: 80rpx;
+  height: 80rpx;
+  padding: 40rpx;
 }
 .imgBox image{
   width: 100%;
@@ -9,25 +9,26 @@
 }
 .weui-flex{
   height: 148rpx;
-  font-size: 14px;
+  font-size: 28rpx;
   border-bottom: 1px solid #ddd;
   margin-bottom: 20rpx;
   background: #fff;
 }
 .textGreen{
   color: #11b786;
-  margin-top: 20px;
+  margin-top: 40rpx;
 }
 .buttonSize{
-  height: 30px;
-  line-height: 30px;
-  font-size: 14px;
-  margin-top: 20px;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  margin-top: 40rpx;
   background: #11b786;
   color: #fff;
-  width:84px;
-  margin-right: 10px;
-
+  width:168rpx;
+  margin-right: 20rpx;
+  padding-right:0rpx !important;
+  padding-left: 0rpx !important; 
 }
 page{
   height: 100%;
@@ -35,10 +36,10 @@ page{
 }
 .textSize{
   display: inline-block;
-  width: 150px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
-
+  width: 300rpx;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
+  line-height: 50rpx !important;
 }
 .iconfont{
- padding-right: 5px;
+ padding-right: 10rpx;
  float: left;
 }

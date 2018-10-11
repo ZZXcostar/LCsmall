@@ -165,7 +165,7 @@ Page({
       method: 'post',
       success: function (res) {
         let data = res.data.info
-        console.log(data)
+        // console.log(data)
         var newData=[]
         if(data!=null){
           for (let i = 0; i < data.length; i++) {
@@ -199,7 +199,7 @@ Page({
         that.setData({
           orderdataeList: newData
         })
-        console.log(that.data.orderdataeList)
+        // console.log(that.data.orderdataeList)
         return newData
       },
       fail: function (err) {

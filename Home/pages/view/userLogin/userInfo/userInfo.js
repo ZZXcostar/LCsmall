@@ -21,7 +21,7 @@ Page({
   onShareAppMessage: function (res) {
     return {
       title: '绿城装修管家',
-      desc: '最具人气的绿城装修管家！！！！',
+      desc: '最具人气的装修管家！！',
       path: '/pages/view/userLogin/login/login',
       imageUrl: "../../../images/fx.jpg",
       success: (res) => {

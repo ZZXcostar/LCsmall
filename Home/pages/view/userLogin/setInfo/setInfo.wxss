@@ -1,16 +1,15 @@
 .buttonWidth {
-
-  margin-top: 10px;
- 
+  margin-top: 20rpx;
 }
 .buttonWidth button{
  border: none;
  background: #fff;
 }
 .mtop{
-  padding-top:10px; 
+  padding-top:20rpx; 
   background: #f5f5f5;
   height: 100%;
+  font-size: 32rpx;
 }
 page{
   height: 100%;
@@ -19,4 +18,10 @@ page{
   width:80rpx;
   height:80rpx;  
   padding-top: 20rpx;
+}
+.weui-cells {
+  font-size: 32rpx;
+}
+button {
+  font-size: 32rpx;
 }

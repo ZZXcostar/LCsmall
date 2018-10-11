@@ -5,7 +5,9 @@
 .weui-bar__item_on{
   color: #11b786 !important;
 }
-
+.weui-navbar__title{
+  font-size: 30rpx;
+}
 .weui-tab__panel .leftBox{
   width: 19%;
   height: 100%;
@@ -53,7 +55,7 @@ padding-bottom: 1000rpx !important;
 }
 .leftSize{
   text-align: center;
-  font-size: 14px;
+  font-size: 28rpx;
   border-right: 1px solid #ddd;
   width: 22%;
   float: left;
@@ -65,7 +67,7 @@ box-sizing: border-box;
 }
 .leftSize view{
   border-bottom: 1px dashed #ddd;
-  line-height: 40px;
+  line-height: 80rpx;
   color: #000;
 }
 .weui-tab__content{
@@ -86,20 +88,20 @@ page,.page{
   height: 100%;
 }
 .weui-cell {
-  padding: 10px 5px !important;
+  padding: 20rpx 10rpx !important;
 }
 .listBox{
   border: 1px solid #ddd;
   margin:2.5%;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 20rpx;
   background: #ffffff;
 }
 .listBox:last-child{
   margin:4% 2.5% 8% 2.5%;
 }
 .weui-cell__bd,.weui-cell__ft{
-  font-size: 12px;
+  font-size: 24rpx;
 }
 .buttonSize{
   height: 56rpx;
@@ -111,13 +113,13 @@ page,.page{
 .listBoxmiddle:after{display:block;clear:both;content:"";visibility:hidden;height:0}
 .imgBox,.userInfoBox{
   float: left;
-  font-size: 14px;
+  font-size: 28rpx;
 }
 .weui-btn{
   margin: 0;
 }
 .listBoxbottom{
-  line-height: 20px;
+  line-height: 40rpx;
 }
 .leftSize view:last-child{
   border-bottom: none
@@ -125,43 +127,43 @@ page,.page{
 .imgBox{
   width: 30%;
   text-align: center;
-  line-height: 80px;
-  padding-top: 30px;
+  line-height: 160rpx;
+  padding-top: 60rpx;
 }
 .userInfoBox{
   width: 70%;
-   font-size: 12px;
+   font-size: 24rpx;
 }
 .imgBox image{
-  width: 40px;
-  height: 40px;
+  width: 80rpx;
+  height: 80rpx;
 }
 .textOver{
-  width: 180px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
+  width: 360rpx;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
 }
 .linebox{
-  width: 2px;
-  height: 10px;
+  width: 4rpx;
+  height: 20rpx;
   background: red;
   display: inline-block;
-  margin: 0 4px;
+  margin: 0 8rpx;
 }
 .listBoxmiddle{
-  padding: 5px 0;
+  padding: 10rpx 0;
   border-top:1px solid #ddd;
   border-bottom:1px solid #ddd;
 }
 .weui-cell{
-  padding: 5px 10px;
+  padding: 10rpx 20rpx;
 }
 .textinfo{
-  font-size: 16px;
+  font-size: 32rpx;
   color: #11b786;
 }
 .textinfo text{
-  font-size: 12px;
+  font-size: 24rpx;
 }
 .iconfont{
   display: inline-block;
-  margin-right: 5px;
+  margin-right: 10rpx;
 }

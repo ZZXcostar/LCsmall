@@ -168,19 +168,33 @@ Page({
       var aa1 = e.detail.value.aa1
       var aa2 = e.detail.value.aa2
       var aa3 = e.detail.value.aa3
+      if (this.data.imglists == '') {
+        wx.showToast({
+          icon: 'none',
+          title: '不合格图片不能为空',
+        })
+        return;
+      }
       if (aa1==''){
         wx.showToast({
           icon: 'none',
           title: '解决方案不能为空',
         })
         return;
-        if (aa2 == ''){
-          wx.showToast({
-            icon: 'none',
-            title: '施工隐患不能为空',
-          })
-          return;
-        }
+      }
+      if (aa2 == '') {
+        wx.showToast({
+          icon: 'none',
+          title: '施工隐患不能为空',
+        })
+        return;
+      }
+      if (aa3 == '') {
+        wx.showToast({
+          icon: 'none',
+          title: '解决方法不能为空',
+        })
+        return;
       }
     } else {  //合格输入框数据
       var aa0 = e.detail.value.bb0

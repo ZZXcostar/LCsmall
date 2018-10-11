@@ -1,7 +1,7 @@
 var utilBox = require("../../../utils/utilBox.js");
 Page({
   data: {
-    countryCodes: ["清 包", "半 包", "全 包"],
+    countryCodes: ["清 包", "半 包", "全 包","半包+主材"],
     countryIndex: 0,
     huxing:'请选择',
     decoration:'',

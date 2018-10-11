@@ -33,7 +33,7 @@ Page({
         { name: '半包', value: '1' },
         { name: '清包', value: '2' },
         { name: '整装', value: '3' },
-        { name: '半包+部分主', value: '4' },
+        { name: '半包+部分主材', value: '4' },
       ]
     },
     roomRate:[
@@ -85,6 +85,7 @@ Page({
       method: 'post',
       success: function (res) {
         var list = res.data.info.list;
+        console.log(list)
         if (list.length) {
           var addHousehold = list[0].addHousehold.split('+')
           var arr = []
@@ -109,16 +110,19 @@ Page({
             dates: list[0].decorateTime,
             checkboxItems
           })
+          console.log(that.data.roomRate)
         } else {
           that.setData({
             isSee: true
           })
+          console.log(that.data.roomRate)
         }
       },
       fail: function (err) {
         console.log(err)
       }
     })
+    console.log(this.data.roomRate)
   },
   homeData(list,data){ //单选数据处理
     for(let i in list){
@@ -200,13 +204,16 @@ Page({
         roomRate.push(list)
         this.setData({
           roomRate: roomRate,
-          iskuang: false
+          iskuang: false,
+          measure:'',
+          types:''
         })
-      }
-      
+      }  
     }else{
       this.setData({
-        iskuang: false
+        iskuang: false,
+        measure: '',
+        types: ''
       })
     }
   },
@@ -240,7 +247,7 @@ Page({
     var data={}
     data.projectId = this.data.projectId;
     data.householdType = this.data.huxing;
-    data.acreage = list.acreage;
+    data.acreage = parseFloat(list.acreage);
     data.contract = list.contract;
     data.decorateTime = this.data.dates;
     data.decoration = list.decoration;

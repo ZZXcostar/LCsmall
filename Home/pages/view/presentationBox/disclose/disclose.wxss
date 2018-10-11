@@ -1,8 +1,8 @@
 view{
-  font-size: 14px;
+  font-size: 28rpx;
 }
 .weui-cells__title{
-  font-size: 16px;
+  font-size: 32rpx;
   color: #11b786;
 }
 button::after{
@@ -18,7 +18,7 @@ button::after{
 .icon-start{
   display: inline-block;
   color: red;
-  font-size: 18px;
+  font-size: 36rpx;
 }
 .btns{
    margin-top:100rpx;

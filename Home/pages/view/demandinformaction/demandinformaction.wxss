@@ -1,6 +1,9 @@
 view{
-  font-size: 12px;
+  font-size: 24rpx;
   color:#3f3f3f;
+}
+.weui-panel__hd{
+  font-size: 26rpx
 }
 page{
   background: #eeeeee
@@ -12,29 +15,29 @@ page{
 }
 .listBoxs{
   float: left;
-  width: 30px;
+  width: 60rpx;
 }
 .weui-cell__ft {
-  width: 40px;
+  width: 80rpx;
   text-align: center;
 }
 .newSzie{
   border: none;
   width: 40%;
   float: left;
-  line-height: 40px;
+  line-height: 80rpx;
 }
 .newcheckSzie{
   float: left;
-  line-height: 20px;
+  line-height: 40rpx;
   box-sizing: border-box;
-  padding-top: 10px;
+  padding-top: 20rpx;
 }
 .newWidth{
   width:33%;
   float: left;
-  line-height: 30px;
-  min-height: 30px;
+  line-height: 60rpx;
+  min-height: 60rpx;
 }
 .bodymg{
   margin-left: 5%;
@@ -43,15 +46,15 @@ page{
 }
 .leftBox{
   float: left;
-  width: 40px;
-  height: 40px;
-  line-height: 50px;
-  margin-left: 20px;
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 100rpx;
+  margin-left: 40rpx;
   text-align: center
 }
 .weui-textarea{
-  border-radius: 5px;
-  padding: 10px;
+  border-radius: 10rpx;
+  padding: 20rpx;
   width: 95%;
 }
 .weui-btn-area{
@@ -68,14 +71,14 @@ page{
 .ddsize{
   float:left;
   width:100%;
-  height: 40px;
-  line-height: 40px;
-  padding-left: 20px;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 40rpx;
 }
 .ddsize input{
   width: 60%;
   
- height: 40px;
+ height: 80rpx;
  float: left;
 }
 .ddsize text{
@@ -89,6 +92,6 @@ page{
   width: 0;
 }
 .clearafter{
-  padding: 10px 20px 0px;
+  padding: 20rpx 40rpx 0px;
   
 }

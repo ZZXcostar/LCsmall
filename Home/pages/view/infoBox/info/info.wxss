@@ -2,9 +2,10 @@
   float: left;
   display: block;
   width: 100%;
-  font-size: 15px;
+  font-size: 30rpx;
   color: #333333
 }
 .showBox text:nth-child(2){
-  color: #666666
+  color: #666666;
+  font-size: 28rpx;
 }

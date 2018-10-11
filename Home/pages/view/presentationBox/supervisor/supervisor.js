@@ -28,9 +28,23 @@ Page({
           res.data.info[0].orderDetail.appointment.startTime = that.updateTime(dateTime)
         }
         // console.log(res.data.info[0].entryReports)
+        
+        let data = res.data.info[0]
+        if (data.workerInfos){
+          for (let i in data.workerInfos){
+            if (data.workerInfos[i].pricing.indexOf('天')!=-1) {
+              data.workerInfos[i].manpower = data.workerInfos[i].manpower + '元/天'
+            } else if (data.workerInfos[i].pricing.indexOf('时') != -1) {
+              data.workerInfos[i].manpower = data.workerInfos[i].manpower + '元/小时'
+            } else {
+              res.data.info[0].workerInfos[i].manpower='无'
+            }
+          } 
+        }
+        console.log(data)
         wx.setStorageSync('userInfos', res.data.info[0])
         that.setData({
-          orderInfo: res.data.info[0],
+          orderInfo: data,
           node: res.data.info[0].entryReports
         })
       },
@@ -48,7 +62,7 @@ Page({
       if (this.data.node[ind - 1].okCount != this.data.node[ind - 1].reportCount) {
         wx.showToast({
           icon: 'none',
-          title: '上一节点未完成！',
+          title: this.data.node[ind - 1].reportname +'报告未上传！',
         })
         return
       } 
@@ -70,7 +84,4 @@ Page({
       url: '../orderOwner/orderOwner',
     })
   },
-  onShow() {
-    this.onLoad()
-  }
 })

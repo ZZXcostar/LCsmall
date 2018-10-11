@@ -3,42 +3,54 @@
   padding-right: 40rpx;
 }
 view{
-  font-size: 12px;
+  font-size: 24rpx;
   line-height: 80rpx;
 }
 .weui-cell__bd{
   text-align: right;
+  position: relative;
+}
+.weui-cell__bd text{
+  position: absolute;
+  right:0rpx;
+  top: -5rpx;
+  color: #333
 }
 .msize{
   display: inline-block;
-  font-size: 12px;
+  font-size: 24rpx;
   color: #7e7e7e;
-  padding-left: 6px;
+  padding-left:12rpx;
 }
 .weui-input{
   text-align: left;
+  box-sizing: border-box;
+  padding-right: 50rpx;
 }
 .weui-label{
   width: auto;
 }
+.red{
+  color: red !important
+}
 .wid{
-  width: 180rpx !important;
+  width: 200rpx !important;
 }
 .wid1{
-  width: 100rpx !important;
-  margin-left:20rpx; 
+  width: 80rpx !important;
+  margin-left:40rpx; 
 }
 page{
   background: #eeeeee
 }
 .lineBox{
-  width: 3px;
-  height: 12px;
+  width: 6rpx;
+  height: 24rpx;
   background: #11b786;
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 20rpx;
   position: relative;
-  top:2px;
+  top:4rpx;
 }
 .weui-btn-area{
   position: absolute;
@@ -60,14 +72,14 @@ color: #fff;
 }
 .inputsize .weui-input{
   border: 1px solid #ddd;
- width: 60px;
- min-height: 30px;
+ width: 120rpx;
+ min-height: 60rpx;
  float: left;
  position: relative;
- left: -24px;
- height: 30px;
- line-height: 30px;
- border-radius: 5px;
+ left: -48rpx;
+ height: 60rpx;
+ line-height: 60rpx;
+ border-radius: 10rpx;
  text-align: center;
 }
 .weui-input{
@@ -77,8 +89,8 @@ color: #fff;
 width: 50%;
 }
 .csize{
-  line-height: 20px;
-  font-size: 12px;
+  line-height: 40rpx;
+  font-size: 24rpx;
   background: #fff;
   margin: 0 !important;
   padding: 20rpx 30rpx;
@@ -94,17 +106,17 @@ width: 50%;
   padding: 0px 30rpx !important;
 }
 .weui-textarea{
-  border-radius: 5px;
-  padding: 10px;
+  border-radius: 10rpx;
+  padding: 20rpx;
   width: 95%;
 }
 .lineafte::before{
   content: "";
-  width:3px;
-  height: 10px;
+  width:6rpx;
+  height: 20rpx;
   display: inline-block;
   background: #08c078;
-  margin-right: 10px;
+  margin-right: 20rpx;
 }
 .weui-panel{
   margin-top: 0;
@@ -112,5 +124,5 @@ width: 50%;
 .sizeColor{
   background: #f5f5f5;
   margin: 0;
-  padding:10px 15px;
+  padding:20rpx 30rpx;
 }

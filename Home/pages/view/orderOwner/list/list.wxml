@@ -5,12 +5,10 @@
   </view>
   <scroll-view class='container_order' scroll-y='true'>
     <view class='order' wx:for='{{contentlist}}' wx:key="index" bindtap='toDetails' data-type="{{item.orderDetail.serviceType.serName}}" data-id="{{item.id}}" data-workid="{{ item.workLists[0].id }}">
-
     <view class='zwxx' wx:if='{{contentlist.length==0}}'>
       <image src='../../../images/zwxx.png'></image>
       <text>暂无订单</text>
     </view>
-   
       <view class='order_top'>
         <text class='float_l'>订单编号：{{item.orderInfo.number}}</text>
         <text class='float_r'>
@@ -54,5 +52,6 @@
         </view>
       </view>
     </view>
+    <text class='baseline' wx:if='{{contentlist.length>=3}}' decode="{{true}}">--------&ensp;&ensp;底&ensp;&ensp;线&ensp;&ensp;--------</text>
   </scroll-view>
 </view>

@@ -147,7 +147,7 @@
           <view class="section">  
             <picker mode="date" start="1978-01-01" disabled='{{!isSee}}'  bindchange="bindDateChange">  
               <view class="picker">  
-                装修时间: {{dates}}  
+                开始装修时间: {{dates}}  
               </view>  
             </picker>  
           </view>
@@ -171,9 +171,10 @@
     </view>
   </view>
   <view class='listBox clearfloat'>
-    <view class='boxSize' wx:for="{{roomRate}}" wx:key="{{index}}" wx:if="{{item.square!=''}}">
+    <view class='boxSize' wx:for="{{roomRate}}" wx:key="{{index}}" wx:if="{{item.square!='' || isSee}}">
       <view class='leftfloat'>{{item.name}}:</view>
-      <input class='rightfloat' data-ind="{{index}}" bindinput='roomRate' disabled='{{!isSee}}' placeholder='㎡'  value='{{item.square==""?"":item.square+"㎡"}}'></input>
+      <input class='rightfloat' data-ind="{{index}}" bindinput='roomRate' disabled='{{!isSee}}' placeholder='**'  value='{{item.square}}'></input>
+      <text>㎡</text>
     </view>
   </view>
 </view>
@@ -185,7 +186,7 @@
         <view class='content_detail'>
           <view class='half clearfloat'>
               <view class='name'>类型：</view>
-              <input  placeholder='填写房屋类型' bindinput='types'disabled='{{!isSee}}' value='{{types}}' placeholder-style='color:#cccccc;'  />
+              <input  placeholder='填写房屋类型' bindinput='types' disabled='{{!isSee}}' value='{{types}}' placeholder-style='color:#cccccc;'  />
           </view>
           <view class='half clearfloat'>
             <view class='name'>面积：</view>
