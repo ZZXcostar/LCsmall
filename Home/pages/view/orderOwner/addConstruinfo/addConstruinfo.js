@@ -105,7 +105,23 @@ Page({
     this.data.pmname = e.detail.value;
   },
   pmphoneInput: function (e) {
-    this.data.pmphone = e.detail.value;
+    // this.data.pmphone = e.detail.value;
+  },
+  pmphoneInputAuth:function(e){
+    console.log(e.detail.value)
+    if (utilBox.isPhone(e.detail.value)){
+      this.data.pmphone = e.detail.value;
+    }else{
+      wx.showToast({
+        title: '手机号码错误',
+        image: '../../../images/fail.png',  //自定义图标的本地路径，image 的优先级高于 icon
+        duration: 3000, //提示的延迟时间，单位毫秒，默认：1500
+        mask: false,  //是否显示透明蒙层，防止触摸穿透，默认：false
+        success: function () { }, //接口调用成功的回调函数
+        fail: function () { },  //接口调用失败的回调函数
+        complete: function () { } //接口调用结束的回调函数
+      });
+    }
   },
   addWorker(){
       var obj = {
@@ -133,11 +149,31 @@ Page({
     })
   },
   phoneInput: function (e) {
-    let arr = this.data.workerArr
-    arr[e.currentTarget.dataset.phoneindex].phone = e.detail.value
-    this.setData({
-      workerArr: arr
-    })
+    // let arr = this.data.workerArr
+    // arr[e.currentTarget.dataset.phoneindex].phone = e.detail.value
+    // this.setData({
+    //   workerArr: arr
+    // })
+  },
+  phoneInputAuth:function(e){
+    console.log(e.detail.value)
+    if (utilBox.isPhone(e.detail.value)) {
+      let arr = this.data.workerArr
+      arr[e.currentTarget.dataset.phoneindex].phone = e.detail.value
+      this.setData({
+        workerArr: arr
+      })
+    } else {
+      wx.showToast({
+        title: '手机号码错误',
+        image: '../../../images/fail.png',  //自定义图标的本地路径，image 的优先级高于 icon
+        duration: 3000, //提示的延迟时间，单位毫秒，默认：1500
+        mask: false,  //是否显示透明蒙层，防止触摸穿透，默认：false
+        success: function () { }, //接口调用成功的回调函数
+        fail: function () { },  //接口调用失败的回调函数
+        complete: function () { } //接口调用结束的回调函数
+      });
+    }
   },
   manpowerInput: function (e) {
     let arr = this.data.workerArr
