@@ -13,8 +13,8 @@
         <view class='content_detail'>
            <view class='half'>
               <view class='name'>工期：</view>
-              <input value='{{ duration }}' bindinput="durationInput" placeholder='*个月' placeholder-style='color:#cccccc;'  />
-              <text>工作日</text>
+              <input value='{{ duration }}' bindinput="durationInput" placeholder='*工作日' style='width:35%;' placeholder-style='color:#cccccc;'  />
+              <view class='name'>工作日</view>
            </view>
            <view class='half'>
               <picker style='position:relative;' bindchange="bindPickerChange" value="{{renovationIndex}}" range="{{countryCodes}}">
