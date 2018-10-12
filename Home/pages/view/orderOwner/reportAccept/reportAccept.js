@@ -29,7 +29,9 @@ Page({
     nodeInfo:'',
     index:'',
     bgId:'',
-    orderNum:''
+    orderNum:'',
+    hiddenmodalput: true,
+    reason:''    //无需验收理由
   },
   // 切换内容tabs
   tabClick: function (e) {
@@ -114,44 +116,63 @@ Page({
     })
   },
   noNeed(){ //无需验收
+    this.setData({
+      reason:'',
+      hiddenmodalput: !this.data.hiddenmodalput
+    }) 
+  },
+  reason(e) {//无需验收 输入框
+    this.setData({
+      reason: e.detail.value
+    })
+  },
+  cancel: function () {   //无需验收 取消按钮
+    this.setData({
+      hiddenmodalput: true
+    });
+  },
+  confirm: function () {    //无需验收 确定按钮
+    if (this.data.reason==""){
+      wx.showToast({
+        icon: 'none',
+        title: '无需验收原因不能为空',
+      })
+      return;
+    }
     var that = this;
     var cookie = this.data.cookie
     var id = wx.getStorageSync('id')
-    wx.showModal({
-      title: '是否提交报告',
-      content: '报告提交后不可修改！！',
+    wx.request({
+      url: utilBox.urlheader + "public/entryreport/updateType", //仅为示例，并非真实的接口地址
+      data: {
+        isService: 2,
+        reportId: that.data.bgId,
+        id: that.data.orderId,
+        remark: "无需验收"
+      },
+      header: {
+        'content-type': 'application/json', // 默认值
+        cookie: cookie
+      },
+      method: 'post',
       success: function (res) {
-        wx.request({
-          url: utilBox.urlheader + "public/entryreport/updateType", //仅为示例，并非真实的接口地址
-          data: {
-            isService: 2,
-            reportId: that.data.bgId,
-            id:  that.data.orderId,
-            remark: "无需验收"
-          },
-          header: {
-            'content-type': 'application/json', // 默认值
-            cookie: cookie
-          },
-          method: 'post',
-          success: function (res) {
-            console.log(res)
-            wx.showToast({
-              icon: 'none',
-              title: res.data.msg,
-            })
-            if(res.data.status == 200){
-              wx.navigateBack({ changed: true });//返回上一页
-            }
-          },
-          fail: function (err) {
-            console.log(err)
-          }
+        console.log(res)
+        wx.showToast({
+          icon: 'none',
+          title: res.data.msg,
         })
+        if (res.data.status == 200) {
+          that.setData({
+            hiddenmodalput: true
+          })
+          wx.navigateBack({ changed: true });//返回上一页
+        }
+      },
+      fail: function (err) {
+        console.log(err)
       }
-    })  
+    })
   },
-  
   formSub(e){ //数据提交
     var that = this;
     var cookie = this.data.cookie

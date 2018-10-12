@@ -11,7 +11,7 @@ Page({
     decoration:'',
     duration:'',
     // 装修方式
-    countryCodes: ["清包", "半包", "全包"],
+    countryCodes: ["清包", "半包", "全包","半包+主材"],
     renovationIndex:0,
     huxing:'',
     pmname:'',

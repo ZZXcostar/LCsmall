@@ -52,7 +52,7 @@
             <view class="placeholder">{{item.reportname}}<text> {{item.okCount==null? '0':item.okCount}}/{{item.reportCount}}</text></view>
             </view>
             <view class="weui-cell__ft ">
-              <button class='buttonSytle'>{{item.okCount==item.reportCount?"已完成":"未完成"}}</button>
+              <!-- <button class='buttonSytle'>{{item.okCount==item.reportCount?"已完成":"未完成"}}</button> -->
             </view>
         </view>
       </view>

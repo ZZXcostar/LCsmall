@@ -53,6 +53,9 @@ Page({
       }
     })
   },
+  onShow(){
+    this.onLoad();
+  },
   godisclose(e){  
     var id = e.currentTarget.dataset.index
     var tit = e.currentTarget.dataset.tit
