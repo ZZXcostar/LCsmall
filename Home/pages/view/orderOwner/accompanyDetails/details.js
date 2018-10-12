@@ -176,42 +176,51 @@ Page({
     let that = this;
     let ids = this.data.workId;
     let reason = this.data.inputVal;
-    network.requestLoading(
-      utilBox.urlheader + `product/workList/update`,
-      {
-        id: ids,
-        isAccepted: 4,
-        rejectedReason: reason
-      }, "",
-      function (res) {
-        console.log(res)
-        let resMessage = res.info
+    let replaceVlaue = reason.trim()
+    if (reason == '' || replaceVlaue == '') {
+      wx.showToast({
+        title: '请输入放弃原因',
+        icon: 'none'
+      })
+    }else{
+      network.requestLoading(
+        utilBox.urlheader + `product/workList/update`,
+        {
+          id: ids,
+          isAccepted: 4,
+          rejectedReason: reason
+        }, "",
+        function (res) {
+          console.log(res)
+          let resMessage = res.info
 
-        if (res.status == 200) {
+          if (res.status == 200) {
+            wx.showToast({
+              title: "放弃订单成功",
+            })
+            that.setData({ showcancle: true });
+            wx.switchTab({
+              url: '../../orderOwner/list/list',
+              success: function (e) {
+                var page = getCurrentPages().pop();
+                if (page == undefined || page == null) return;
+                page.onLoad();
+              }
+            })
+          } else {
+            wx.showToast({
+              title: res.msg,
+            })
+          }
+
+
+        }, function (res) {
           wx.showToast({
-            title: "放弃订单成功",
+            title: '放弃派单失败',
           })
-          that.setData({ showcancle: true });
-          wx.switchTab({
-            url: '../../orderOwner/list/list',
-            success: function (e) {
-              var page = getCurrentPages().pop();
-              if (page == undefined || page == null) return;
-              page.onLoad();
-            }
-          })
-        } else {
-          wx.showToast({
-            title: res.msg,
-          })
-        }
-
-
-      }, function (res) {
-        wx.showToast({
-          title: '放弃派单失败',
-        })
-      }, 'application/json')
+        }, 'application/json')
+    }
+    
   },
   //添加设计师信息
   addDesigner(event){

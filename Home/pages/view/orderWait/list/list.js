@@ -60,38 +60,44 @@ Page({
       inputVal: '',
     })
     let worklists = wx.getStorageSync('worklists');
-    network.requestLoading(
-      utilBox.urlheader + `product/workList/update`,
-      {
-        id: worklists[0].id,
-        isAccepted: 2,
-        rejectedReason: options.detail.value.text
-      }, "",
-       function (res) {
-        console.log(res)
-        let resMessage = res.info
-        
-        if (res.status == 200) {
+    let replaceValue = options.detail.value.text.trim()
+    if (options.detail.value.text == '' || replaceValue== ''){
+      wx.showToast({
+        title: '请输入放弃原因',
+        icon:'none'
+      })
+    }else{
+      network.requestLoading(
+        utilBox.urlheader + `product/workList/update`,
+        {
+          id: worklists[0].id,
+          isAccepted: 2,
+          rejectedReason: options.detail.value.text
+        }, "",
+        function (res) {
+          console.log(res)
+          let resMessage = res.info
+
+          if (res.status == 200) {
+            wx.showToast({
+              title: "放弃接单成功",
+            })
+            that.setData({ showcancle: true });
+            that.onLoad()
+          } else {
+            wx.showToast({
+              title: res.msg,
+            })
+          }
+
+
+        }, function (res) {
           wx.showToast({
-            title:"放弃接单成功",
+            title: '加载数据失败',
           })
-          that.setData({ showcancle: true });
-          that.onLoad()
-        } else {
-          wx.showToast({
-            title: res.msg,
-          })
-        }
-
-
-      }, function (res) {
-        wx.showToast({
-          title: '加载数据失败',
-        })
-      }, 'application/json')
-
-
-
+        }, 'application/json')
+    }
+    
 
   },
   /**
