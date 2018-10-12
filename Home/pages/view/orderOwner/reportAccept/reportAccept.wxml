@@ -19,6 +19,14 @@
                   <textarea placeholder='请输入验证方式' disabled='true' value='{{acceptance}}' placeholder-class='holder'></textarea>
               </view> 
            </view>
+           <view>
+              <!-- <view class='name'>验收时间：</view> -->
+              <picker mode="date" start="1978-01-01" bindchange="bindDateChange">  
+                <view class="picker">  
+                  验收时间： {{dates}}  
+                </view>  
+              </picker> 
+           </view>
         </view>
     </view> 
     <view>

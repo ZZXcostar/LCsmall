@@ -46,6 +46,7 @@ padding-bottom: 1000rpx !important;
   height: 100%;
   width:78%;
   float:right;
+  padding-top: 110rpx
 }
 .weui-navbar{
   /* position: relative; */
@@ -59,7 +60,7 @@ padding-bottom: 1000rpx !important;
   border-right: 1px solid #ddd;
   width: 22%;
   float: left;
-  margin-top:50px;
+  margin-top:110rpx;
   height: 100%;
 overflow: hidden;
 box-sizing: border-box;
@@ -129,6 +130,9 @@ page,.page{
   text-align: center;
   line-height: 160rpx;
   padding-top: 60rpx;
+}
+.weui-navbar__item{
+  padding:30rpx 0
 }
 .userInfoBox{
   width: 70%;

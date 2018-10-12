@@ -31,7 +31,8 @@ Page({
     bgId:'',
     orderNum:'',
     hiddenmodalput: true,
-    reason:''    //无需验收理由
+    reason:'',    //无需验收理由
+    dates: "2018-09-20",
   },
   // 切换内容tabs
   tabClick: function (e) {
@@ -39,6 +40,11 @@ Page({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
+  },
+  bindDateChange: function (e) { //验收时间选折
+    this.setData({
+      dates: e.detail.value
+    })
   },
   uploadImg(){
     let that = this;

@@ -147,7 +147,7 @@
           <view class="section">  
             <picker mode="date" start="1978-01-01" disabled='{{!isSee}}'  bindchange="bindDateChange">  
               <view class="picker">  
-                开始装修时间: {{dates}}  
+                装修开始时间: {{dates}}  
               </view>  
             </picker>  
           </view>

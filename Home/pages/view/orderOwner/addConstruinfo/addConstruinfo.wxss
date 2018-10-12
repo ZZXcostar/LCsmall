@@ -53,6 +53,9 @@ page{
   right: 20rpx;
   color: red;
 }
+.red{
+  color: red
+}
 .constructioninfo .content_detail>view{
   /* clear: both; */
   /* width:100%; */

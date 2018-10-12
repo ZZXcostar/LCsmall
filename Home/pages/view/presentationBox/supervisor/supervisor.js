@@ -6,6 +6,14 @@ Page({
     orderInfo: "",
     node: ""
   },
+  onLoad: function (e) {
+    var pages = getCurrentPages();
+    var prevPage = pages[pages.length - 2]; //上一个页面
+    prevPage.setData({
+      isRefresh: true
+    })
+  },
+
   onLoad: function (options) {
     var id = wx.getStorageSync('id');
     var that = this;
@@ -13,6 +21,11 @@ Page({
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
     let arr = reg.exec(userInfo.adminPassword);
     let cookie = RegExp.$1;
+    var pages = getCurrentPages(); 
+    var prevPage = pages[pages.length - 2]; //上一个页面
+    prevPage.setData({
+      isRefresh: true
+    })
     wx.request({
       url: utilBox.urlheader + "/product/ProjectEstablish/queryMap", //仅为示例，并非真实的接口地址
       data: [id],

@@ -22,7 +22,8 @@ Page({
       { "name": "单次泥工" }
       ],
     orderdataeList:[],
-    search:''
+    search:'',
+    isRefresh: false,
   },
   onLoad: function () {
     var that = this;
@@ -92,30 +93,12 @@ Page({
     });
     this.getRightData(this.data.activeIndex, this.data.currentTab,'')
   },
-  // showInput: function () {
-  //   this.setData({
-  //     inputShowed: true
-  //   });
-  // },
-  // hideInput: function () {
-  //   this.setData({
-  //     inputVal: "",
-  //     inputShowed: false
-  //   });
-  // },
-  // clearInput: function () {
-  //   this.setData({
-  //     inputVal: ""
-  //   });
-  // },
-  // inputTyping: function (e) {
-  //   this.setData({
-  //     inputVal: e.detail.value
-  //   });
-  // },
-  // onShow(){
-  //   this.getRightData(this.data.activeIndex, this.data.currentTab, '')
-  // },
+  onShow(){
+    // 返回时刷新页面
+    if (this.data.isRefresh == true) {
+      this.getRightData(this.data.activeIndex, this.data.navLeftId, '')
+    }   
+  },
   goassociationReport:function(e){
     let reportId = e.currentTarget.dataset.reportid
     let phone = e.currentTarget.dataset.phone
