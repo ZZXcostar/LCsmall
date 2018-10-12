@@ -108,6 +108,15 @@ Page({
     })
   },
   submit(){
+    for (let i in this.data.datalist){
+      if (this.data.datalist[i].remark==null){
+        wx.showToast({
+          title: '有节点未提交报告',
+          icon: 'none',
+        })
+        return
+      }
+    }
     var date=new Date()
     var year = date.getFullYear()
     var month = date.getMonth() + 1  

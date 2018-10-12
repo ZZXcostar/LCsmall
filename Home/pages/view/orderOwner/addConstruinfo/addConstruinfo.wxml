@@ -19,9 +19,9 @@
            <view class='half'>
               <picker style='position:relative;' bindchange="bindPickerChange" value="{{renovationIndex}}" range="{{countryCodes}}">
                   <view class="picker">
-                    装修方式：{{ huxing }}
+                    装修方式：
                   </view>
-                  <view class='borderstyle'></view>
+                  <view class='borderstyle'>{{ huxing }}</view>
                 </picker>
            </view>
         </view>
@@ -39,13 +39,12 @@
           </view>
         </view>
     </view> 
-    <view>
+    <view class='worker'>
         <view class='titles'><text class='flag'>工人信息(选填）</text> <text class='workerInfo' bindtap="addWorker">+添加工人信息</text></view>
 
-        <view class='content_detail' wx:for='{{workerArr}}' wx:key="index">
+        <view class='content_detail workeri' wx:for='{{workerArr}}' wx:key="index">
           <view style='margin-bottom:10rpx;overflow:hidden;border-bottom:1px solid #f5f5f5;'>
               <view class='half'>
-             
                   <view class='name'>姓名：</view>
                   <input  placeholder='填写姓名' value="{{ item.name }}" bindinput="nameInput" data-nameIndex="{{ index }}" placeholder-style='color:#cccccc;'  />
               </view>
@@ -62,21 +61,22 @@
               <view class='half'>
                   <picker style='position:relative;' bindchange="pricingChange" data-pricingIndex="{{ index }}" value="{{priceIndex}}" range="{{typelist_price}}">
                       <view class="picker">
-                        计价方式：{{ item.pricing }}
+                        计价方式：
                       </view>
-                      <view class='borderstyle'></view>
+                      <view class='borderstyle'>{{ item.pricing }}</view>
                     </picker>
               </view>
           </view>
           <view>
               <view class='half'>
                   <picker style='position:relative;' bindchange="professionChange" data-professionIndex="{{ index }}" value="{{workerIndex}}" range="{{typelist_worker}}">
-                      <view class="picker">
-                        工种：{{ item.profession }}
+                      <view class="picker" decode='{{true}}'>
+                        工种：
                       </view>
-                      <view class='borderstyle' style='width:78%'></view>
+                      <view class='borderstyle' style='width:78%'>{{ item.profession }}</view>
                     </picker>
               </view>
+              <text class='del'>删除</text>
           </view>
         </view>
     </view> 

@@ -27,7 +27,7 @@ Page({
     sliderLeft: 0,
     projectId:'',
     showcancle:true,
-    countryCodes:["清 包","半 包","全 包"],
+    countryCodes:["清 包","半 包","全 包","半包+主材"],
     huxing:'',
     cookie:'',
     inputVal:'',

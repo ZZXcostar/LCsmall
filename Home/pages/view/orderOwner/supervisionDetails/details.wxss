@@ -1,5 +1,5 @@
 .weui-flex__item{
-  font-size: 14px;
+  font-size: 28rpx;
 }
 .viewBox,.weui-cell{
 background: #fff;
@@ -15,7 +15,7 @@ page{
   background: #ddd;
 }
 .mtop .weui-cell__bd, .mtop .newTop, .mtop .weui-cell__ft {
-   font-size: 14px !important;
+   font-size: 28rpx !important;
 }
 .mtop{
   background: #f5f5f5;
@@ -26,39 +26,39 @@ page{
   margin-bottom:15rpx;
 }
 .lineGreen{
-  height: 14px;
-  width: 4px;
+  height: 28rpx;
+  width: 8rpx;
   margin-right:6px;
   float: left;
-  margin-top: 3px;
+  margin-top: 6rpx;
   background: green;
 }
 .newTop{
-  padding: 10px 15px;
+  padding: 20rpx 30rpx;
   border-bottom:1px solid #ddd; 
-  margin-top: 10px;
+  margin-top: 20rpx;
 }
 .newBox{
-  padding: 10px 15px;
+  padding: 20rpx 30rpx;
 }
 .newBox {
-  font-size: 14px;
+  font-size: 28rpx;
 }
 .newBox text{
-  font-size: 12px;
+  font-size: 24rpx;
 }
 .lineHeightLine{
-  line-height: 40px;
+  line-height: 80rpx;
 }
 .borderBottem{
  border-bottom: 1px solid #ddd;
 }
 .fwinfo .weui-flex__item,.sginfo .weui-flex__item{
-  line-height: 30px;
+  line-height: 60rpx;
   border-bottom: 1px solid #ddd;
 }
 .weui-flex__item{
-  line-height: 30px;
+  line-height: 60rpx;
 }
 .userInfo .weui-flex__item{
 border:none;
@@ -67,12 +67,12 @@ border:none;
   margin-top: 20rpx;
 }
 .buttonSytle{
-  font-size: 14px;
-  line-height: 30px;
-  margin: 5px 0;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  margin: 10rpx 0;
 }
 .placeholder{
-   line-height: 40px;
+   line-height: 80rpx;
 }
 /* 以下是按钮样式 */
 .btns{

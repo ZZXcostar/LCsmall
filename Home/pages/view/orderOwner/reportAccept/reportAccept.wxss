@@ -4,6 +4,9 @@
   background-color: #f5f5f5;
   /* padding-bottom:150rpx; */
 }
+modal{
+  font-size: 28rpx;
+}
 .reportaccept>view:not(.overback){
   padding-top: 10rpx;
   background-color: #fff;
