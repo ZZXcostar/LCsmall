@@ -14,7 +14,13 @@ view{
   position: absolute;
   right:0rpx;
   top: -5rpx;
-  color: #333
+  color: #333;
+  display: block;
+  width: 60rpx;
+  text-align: left;
+}
+.huxing{
+  padding-right: 0rpx !important; 
 }
 .msize{
   display: inline-block;
@@ -25,7 +31,10 @@ view{
 .weui-input{
   text-align: left;
   box-sizing: border-box;
-  padding-right: 50rpx;
+  padding-right: 70rpx;
+}
+.pr{
+  padding-right: 90rpx !important;
 }
 .weui-label{
   width: auto;
@@ -37,7 +46,7 @@ view{
   width: 200rpx !important;
 }
 .wid1{
-  width: 80rpx !important;
+  width: 55rpx !important;
   margin-left:40rpx; 
 }
 page{

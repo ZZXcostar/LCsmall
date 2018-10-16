@@ -1,11 +1,15 @@
 .weui-flex__item{
-  font-size: 14px;
+  font-size: 28rpx;
+  padding: 10rpx 0rpx;
 }
 page{
   background: #f5f5f5
 }
 .mtop{
   background: #f5f5f5
+}
+.cell{
+  padding: 0rpx 10rpx;
 }
 .viewBox,.weui-cell{
 background: #fff;
@@ -21,11 +25,11 @@ page{
   background: #ddd;
 }
 .mtop .weui-cell__bd, .mtop .newTop, .mtop .weui-cell__ft {
-   font-size: 14px !important;
+   font-size: 28rpx !important;
 }
 .mtop>view:not(.overback){
   padding: 10rpx 0rpx;
-  background-color: #fff;
+  background-color: #f5f5f5;
   overflow: hidden;
   margin-bottom:15rpx;
 }
@@ -43,60 +47,60 @@ page{
   width: 33.3%;
 }
 .lineGreen{
-  height: 14px;
-  width: 4px;
-  margin-right:6px;
+  height: 28rpx;
+  width: 8rpx;
+  margin-right:12rpx;
   float: left;
-  margin-top: 3px;
+  margin-top: 6rpx;
   background: green;
 }
 .newTop{
-  padding: 10px 15px;
+  padding: 20rpx 30rpx;
   border-bottom:1px solid #ddd; 
-  margin-top: 10px;
+  margin-top: 20rpx;
 }
 .newBox{
-  padding: 10px 15px;
+  padding: 20rpx 30rpx;
 }
 .newBox {
-  font-size: 14px;
+  font-size: 28rpx;
 }
 .newBox text{
-  font-size: 12px;
+  font-size: 24rpx;
 }
 .lineHeightLine{
-  line-height: 40px;
+  line-height: 80rpx;
 }
 .borderBottem{
  border-bottom: 1px solid #ddd;
 }
 .fwinfo .weui-flex__item,.sginfo .weui-flex__item{
-  line-height: 30px;
+  line-height: 60rpx;
   border-bottom: 1px solid #ddd;
 }
 .weui-flex__item{
-  line-height: 30px;
+  line-height: 60rpx;
 }
 .userInfo .weui-flex__item{
 border:none;
 }
 .buttonSytle{
-  font-size: 14px;
-  line-height: 30px;
-  margin: 5px 0;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  margin: 10rpx 0;
 }
 .placeholder{
-   line-height: 30px;
+   line-height: 60rpx;
 
 }
 .placeholder{
-   line-height: 30px;
+   line-height: 60rpx;
 }.textareBox{
   float: right;
  word-wrap:break-word;
- height: 100px;
+ height: 200rpx;
  overflow-y: scroll;
- margin-right: 10px;
+ margin-right: 20rpx;
 }
 .newTop text{
   width: 50%;
@@ -197,7 +201,7 @@ border:none;
 }
 .weui-label{
   width: 150rpx !important;
-  text-align:right;
+  /* text-align:right; */
 }
 .weui-input{
   text-align: left;
@@ -206,13 +210,13 @@ border:none;
 .inputsize .weui-input{
 border:1px solid #ddd;
 width:160rpx !important;
-min-height:18px;
+min-height:36rpx;
 float:left;
 padding-left:10rpx;
 position:relative;
-height:20px;
-line-height:20px;
-border-radius:5px;
+height:40rpx;
+line-height:40rpx;
+border-radius:10rpx;
 text-align:left;
 letter-spacing:8rpx;
 

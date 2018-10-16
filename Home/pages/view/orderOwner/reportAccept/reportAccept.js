@@ -138,7 +138,8 @@ Page({
     });
   },
   confirm: function () {    //无需验收 确定按钮
-    if (this.data.reason==""){
+    let reason = this.data.reason
+    if (reason==""){
       wx.showToast({
         icon: 'none',
         title: '无需验收原因不能为空',
@@ -154,7 +155,8 @@ Page({
         isService: 2,
         reportId: that.data.bgId,
         id: that.data.orderId,
-        remark: "无需验收"
+        remark: "无需验收",
+        instructions: reason
       },
       header: {
         'content-type': 'application/json', // 默认值

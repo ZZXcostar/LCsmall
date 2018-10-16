@@ -53,9 +53,6 @@ page{
   right: 20rpx;
   color: red;
 }
-.red{
-  color: red
-}
 .constructioninfo .content_detail>view{
   /* clear: both; */
   /* width:100%; */
@@ -71,6 +68,14 @@ page{
   height:53rpx;
   line-height: 2.2;
   float: left;
+  padding-left: 20rpx;
+  z-index: 100
+}
+.workerdate{
+   position: absolute;
+   right: 10rpx;
+   z-index: 999999;
+   line-height: 2.2;
 }
 .constructioninfo .content_detail input{
   width:65%;
@@ -91,7 +96,13 @@ page{
     margin-right:40rpx;
 }
 .constructioninfo .half:nth-child(2) input{
-    width:58%;
+    width:170rpx;
+}
+.red{
+  color: red;
+  left: 0px !important;
+  top: 5rpx !important;
+  width: 20rpx
 }
 
 .borderstyle{

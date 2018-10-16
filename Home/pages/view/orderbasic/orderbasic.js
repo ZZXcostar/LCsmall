@@ -9,9 +9,12 @@ Page({
     orderInfo:'',
     projectId:'',
     cookie: '',
-    isSee: false
+    isSee: false,
+    children:"无",
+    sex:["男孩","女孩"],
+    peoples:[1,2,3,4,5,6,7,8,9],
+    people:2
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -44,7 +47,9 @@ Page({
         if (list.length) {
           that.setData({
             isSee: false,
-            orderInfo: orderInfo1
+            orderInfo: orderInfo1,
+            children: orderInfo1.list.child,
+            people: orderInfo1.list.permanent,
           })
         } else {
           that.setData({
@@ -57,14 +62,29 @@ Page({
       }
     })
   },
+  sexChange(e){
+    let sex = e.detail.value
+    let childrenSex=this.data.sex
+    this.setData({
+      children: childrenSex[sex]
+    })
+    console.log(childrenSex[sex])
+  },
+  peopleChange(e){
+    let people = e.detail.value
+    let peoples = this.data.peoples
+    this.setData({
+      people: peoples[people]
+    })
+  },
   formSubmit(e){
     var list = e.detail.value
     var data={}
     data.projectId = this.data.projectId
     data.age = parseInt(list.age);
     data.profession=list.job;
-    data.permanent = parseInt(list.people);
-    data.child = list.children;
+    data.permanent = parseInt(this.data.people);
+    data.child = this.data.children;
     data.childAge = parseInt(list.childrenAge);
     let cookie = this.data.cookie;
     wx.request({

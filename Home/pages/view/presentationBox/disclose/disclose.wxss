@@ -7,7 +7,9 @@ view{
 }
 button::after{
   border-radius: 0px;
-  
+}
+.weui-cell{
+  padding: 20rpx 30rpx;
 }
 .cur{
   color: #d7434d;
@@ -19,6 +21,9 @@ button::after{
   display: inline-block;
   color: red;
   font-size: 36rpx;
+}
+.time{
+  padding: 20rpx 30rpx;
 }
 .btns{
    margin-top:100rpx;

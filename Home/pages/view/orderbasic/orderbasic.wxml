@@ -60,7 +60,10 @@
                     <view class="weui-label">常驻人数：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input inpt" placeholder="4人"  disabled='{{!isSee}}' name="people" value="{{orderInfo.list.permanent}}"/>
+                    <!-- <input class="weui-input inpt" placeholder="4人"  disabled='{{!isSee}}' name="people" value="{{orderInfo.list.permanent}}"/> -->
+                    <picker class='inputsize' bindchange="peopleChange" disabled='{{!isSee}}' value="0" name="ff" range="{{peoples}}">
+                      <view class="weui-input inpt">{{people}}</view>
+                    </picker>
                 </view>
             </view>
         </view>
@@ -72,7 +75,9 @@
                     <text class="weui-label" style='display: block' decode='{{true}}'>孩&emsp;&emsp;子：</text>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input inpt" placeholder="男孩 女孩"  disabled='{{!isSee}}' name="children" value="{{orderInfo.list.child}}"/>
+                    <picker class='inputsize' bindchange="sexChange" disabled='{{!isSee}}' value="0" name="ff" range="{{sex}}">
+                      <view class="weui-input inpt">{{children}}</view>
+                    </picker>
                 </view>
             </view>
         </view>

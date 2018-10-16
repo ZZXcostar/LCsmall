@@ -5,7 +5,8 @@ Page({
     datalist:[],
     bgId: "",
     cookie:'',
-    id:''//报告id
+    id:'',//报告id
+    dates: "2018-09-20",
   },
   onLoad: function (options) {
     let userInfo = wx.getStorageSync("userInfo");
@@ -59,6 +60,11 @@ Page({
     this.onLoad()//再次加载，实现返回上一页页面刷新
     //正确方法
     //只执行获取地址的方法，来进行局部刷新
+  },
+  bindDateChange: function (e) { //验收时间选折
+    this.setData({
+      dates: e.detail.value
+    })
   },
   quickLogon: () => {
     wx.navigateTo({
@@ -129,7 +135,7 @@ Page({
     let cookie = this.data.cookie
     wx.request({
       url: utilBox.urlheader + "public/entryreport/submitReport", //仅为示例，并非真实的接口地址
-      data: { isService:1, endTime:time ,id:that.data.id},
+      data: { isService: 1, endTime: time, id: that.data.id, receptionTime: that.data.dates},
       header: {
         'content-type': 'application/json', // 默认值
         cookie: cookie

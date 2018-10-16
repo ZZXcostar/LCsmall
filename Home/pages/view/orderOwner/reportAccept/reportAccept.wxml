@@ -19,14 +19,6 @@
                   <textarea placeholder='请输入验证方式' disabled='true' value='{{acceptance}}' placeholder-class='holder'></textarea>
               </view> 
            </view>
-           <view>
-              <!-- <view class='name'>验收时间：</view> -->
-              <picker mode="date" start="1978-01-01" bindchange="bindDateChange">  
-                <view class="picker">  
-                  验收时间： {{dates}}  
-                </view>  
-              </picker> 
-           </view>
         </view>
     </view> 
     <view>
@@ -52,7 +44,7 @@
                 <view bindtap='toDetail' wx:for="{{tabs[0].list}}" wx:key='this' class='switchlist'>
                     <view class='label' style='float:left;'>{{item}}：</view>
                     <view class='content'>
-                        <textarea auto-height='{{true}}' class='heig' name="aa{{index}}"></textarea>
+                        <textarea auto-height='{{true}}' class='heig' cursor-spacing="50"  show-confirm-bar="{{false}}" name="aa{{index}}" maxlength="1000"></textarea>
                     </view>
                 </view>
             </view>
@@ -60,7 +52,7 @@
                 <view bindtap='toDetail' wx:for="{{tabs[1].list}}" wx:key='this' class='switchlist'>
                     <view class='label' style='float:left;'>{{item}}：</view>
                     <view class='content'>
-                        <textarea auto-height='{{true}}' class='heig' name="bb{{index}}"></textarea>
+                        <textarea auto-height='{{true}}' class='heig' cursor-spacing="50" show-confirm-bar="{{false}}" name="bb{{index}}" maxlength="1000"></textarea>
                     </view>
                 </view>
             </view>
@@ -70,8 +62,8 @@
         <button class="weui-btn weui-flex__item" type="warn" bindtap='noNeed'>无需验收</button>
         <button class="weui-btn weui-flex__item" formType="submit">预览/保存</button>
     </view>
-    <modal hidden="{{hiddenmodalput}}" title="无需验收原因（必填）" confirm-text="提交" cancel-text="重置" bindcancel="cancel" bindconfirm="confirm">
-        <input type='text' placeholder="请输入理由" bindinput='reason' auto-focus value='{{reason}}'/>
+    <modal hidden="{{hiddenmodalput}}" title="无需验收原因（必填）" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+        <input type='text' placeholder="请输入理由" bindinput='reason' focus="{{!hiddenmodalput}}" cursor-spacing="100"  value='{{reason}}'/>
     </modal>
 </view>
 </form>

@@ -17,7 +17,8 @@ modal{
   float: left;
 }
 .heig{
-  height: 80rpx !important;
+  min-height: 120rpx !important;
+  cursor-spacing:120rpx;
 }
 .reportaccept .titles{
   padding:0rpx 20rpx 10rpx 20rpx;

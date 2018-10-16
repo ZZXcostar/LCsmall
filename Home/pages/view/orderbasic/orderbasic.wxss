@@ -49,16 +49,11 @@ background: #11b786;
 color: #fff;
 }
 .inputsize .weui-input{
-  border: 1px solid #ddd;
- width: 60px;
- min-height: 30px;
- float: left;
- position: relative;
- left: -24px;
- height: 60rpx;
- line-height: 60rpx;
- border-radius: 10rpx;
- text-align: center;
+  width: 60rpx;
+  min-height: 30px;
+  float: left;
+  height: 60rpx;
+  line-height: 70rpx;
 }
 .weui-input{
   width: auto;

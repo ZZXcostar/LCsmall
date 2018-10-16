@@ -48,13 +48,13 @@
         </view>
         <view class="weui-flex">
           <view class="weui-flex__item">
-           <view class="placeholder">服务时间：</view>
-            <view class="placeholder">
-              <text>{{appointTime}}</text>
-            </view>
+           <view class="placeholder">服务时间：<text>{{appointTime}}</text></view>
+            <!-- <view class="placeholder">
+              
+            </view> -->
           </view>
           <view class="weui-flex__item">
-            <view class="weui-cell weui-cell_input">
+            <view class="weui-cell weui-cell_input cell">
               <view class="weui-cell__hd setWidths">
                 <view class="weui-label">装修类型：</view>
               </view>

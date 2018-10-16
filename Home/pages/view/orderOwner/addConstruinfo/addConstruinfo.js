@@ -128,7 +128,7 @@ Page({
         "name": "",
         "phone": "",
         "manpower": 0,
-        "pricing": "按小时",
+        "pricing": "按小时算",
         "profession": "油漆工",
         "projectId": this.data.projectId
       }
@@ -138,6 +138,34 @@ Page({
         workerArr: newArr
       })
      // worker.push(obj)
+  },
+  delWorker(e){    //删除某个工人
+    var that = this
+    console.log(e.currentTarget.dataset.ind) 
+    let ind = e.currentTarget.dataset.ind   //下标
+    let workerList= this.data.workerArr
+    if (workerList[ind].name || workerList[ind].name){   //有工人信息 删除
+      wx.showModal({
+        title: '提示',
+        content: '是否删除此工人',
+        success: function (res) {
+          if (res.confirm) {
+            workerList.splice(ind, 1)
+            that.setData({
+              workerArr: workerList
+            })
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    } else { //没有工人信息 删除
+      workerList.splice(ind, 1)
+      this.setData({
+        workerArr: workerList
+      })
+    }
+    
   },
   nameInput: function (e) {
   //  console.log(e.currentTarget.dataset.nameindex)//下标
@@ -172,6 +200,18 @@ Page({
         success: function () { }, //接口调用成功的回调函数
         fail: function () { },  //接口调用失败的回调函数
         complete: function () { } //接口调用结束的回调函数
+      });
+    }
+  },
+  durationInputAuth(e){ //
+    if (utilBox.isNumber(e.detail.value)) {
+      this.data.duration = e.detail.value;
+    }else{
+      wx.showToast({
+        title: '工期必须为数字',
+        icon: 'none',  //自定义图标的本地路径，image 的优先级高于 icon
+        duration: 3000, //提示的延迟时间，单位毫秒，默认：1500
+        mask: false,  //是否显示透明蒙层，防止触摸穿透，默认：false
       });
     }
   },
@@ -214,7 +254,14 @@ Page({
       pmphone: this.data.pmphone
     }
     //需要保存的工人信息
-    var arrData = this.data.workerArr
+    var workerData = this.data.workerArr
+    var arrData=[]
+    for (let i in workerData){
+      if (workerData[i].name != "" && workerData[i].phone !=""){
+        arrData.push(workerData[i])
+      }
+    }
+    
 
     let cookie = this.data.cookie
 
