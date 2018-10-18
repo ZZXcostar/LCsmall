@@ -158,7 +158,7 @@ Page({
             obj.orderNum = data[i].projectEstablish.orderDetail.orderNumber;
             obj.add = data[i].projectEstablish.orderDetail.detailAddress;
             obj.types = that.data.tabs[that.data.activeIndex];
-            obj.typedata = data[i].projectEstablish.orderDetail.serviceStateName
+            obj.typedata = data[i].projectEstablish.orderDetail.serviceStateName    
             obj.reportId = data[i].projectEstablishId;
             obj.node = data[i].projectEstablish.entryReports
             var index = -1;

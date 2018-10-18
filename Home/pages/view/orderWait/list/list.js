@@ -28,9 +28,39 @@ Page({
       }
     ],
     showcancle:true,
-    search:''
+    search:'',
+    height:''
   },
-
+  onLoad: function (options) {
+    // 页面初始化 options为页面跳转所带来的参数
+    var that = this
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          height: res.windowHeight - (res.windowWidth / 750) * 94 *2+ "rpx"
+        })
+      }
+    })
+    console.log(this.data.height)
+    this.data.page = 1
+    that.getMusicInfo('正在加载数据...', '')
+  },
+  onPullDownRefresh: function () {
+    console.log(1)
+    this.data.page = 1
+    this.getMusicInfo('正在刷新数据', '')
+    wx.stopPullDownRefresh()
+  },
+  onReachBottom: function () {
+    console.log(1)
+    if (this.data.hasMoreData) {
+      this.getMusicInfo('加载更多数据', this.data.search)
+    } else {
+      wx.showToast({
+        title: '没有更多数据',
+      })
+    }
+  },
   changeshows:function(e){
     console.log(e)
     wx.setStorageSync('worklists', e.currentTarget.dataset.worklists)
@@ -105,29 +135,7 @@ Page({
    */
 
 
-  onLoad: function (options) {
-    // 页面初始化 options为页面跳转所带来的参数
-    console.log(options)
-    var that = this
-    this.data.page = 1
-    that.getMusicInfo('正在加载数据...','')
-  },
-  onPullDownRefresh: function () {
-    console.log(1)
-    this.data.page = 1
-    this.getMusicInfo('正在刷新数据','')
-    wx.stopPullDownRefresh()
-  },
-  onReachBottom: function () {
-    console.log(1)
-    if (this.data.hasMoreData) {
-       this.getMusicInfo('加载更多数据', this.data.search)
-     } else {
-        wx.showToast({
-           title: '没有更多数据',
-        })
-     }
-  },
+  
   // onShow: function (e) {
   //   console.log(e) 
   //   this.getMusicInfo()

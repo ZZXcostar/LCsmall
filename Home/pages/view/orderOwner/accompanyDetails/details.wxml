@@ -67,7 +67,7 @@
       </view>
     </view>
  
-    <view style='position:relative;margin-bottom:50rpx;' class='viewBox'>
+    <view style='position:relative;margin-bottom:70rpx;height:540rpx' class='viewBox'>
         <view class="weui-navbar">
             <block wx:for="{{tabs}}" wx:key="*this">
                 <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
@@ -78,7 +78,9 @@
         </view>
         <view class="weui-tab__panel" >
             <view wx:for="{{tabs}}" wx:key="*this" class="weui-tab__content" hidden="{{activeIndex != index}}">
-                <view wx:for="{{item.list}}" wx:key='this' class='switchlist' data-towantAdd='{{item}}'>{{item}} <text class='iconfont icon-jiantou flag_jt'></text></view>
+                <view wx:for="{{item.list}}" wx:key='this' class='switchlist' data-towantAdd='{{item}}'>{{item}} 
+                <!-- <text class='iconfont icon-jiantou flag_jt'></text> -->
+                </view>
             </view>
         </view>
     </view>

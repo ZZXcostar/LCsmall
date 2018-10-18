@@ -33,6 +33,7 @@ Page({
       method: 'post',
       success: function (res) {
         wx.setStorageSync('jlNodeInfo', res.data.info.list[0])
+        // console.log(res.data.info.list[0])
         let aa = res.data.info.list[0].entryReportStandards;
         for(var i=0;i<aa.length;i++){
           if (aa[i].isService==0){
@@ -89,7 +90,6 @@ Page({
     var standard = e.currentTarget.dataset.standard
     var acceptance = e.currentTarget.dataset.acceptance
     var datalist= this.data.datalist
-    
     for (let k in datalist){
       console.log(datalist[k].isService)
       if (datalist[k].isService == '') {
@@ -97,9 +97,22 @@ Page({
           url: '../../orderOwner/reportAccept/reportAccept?id=' + id + "&types=" + types + "&bgid=" + bgid + "&acceptance=" + acceptance + "&standard=" + standard+'&index='+index,
         })
       } else if (datalist[k].isService == '无需验收') {
-        wx.showToast({
-          icon:'none',
+        // wx.showToast({
+        //   icon:'none',
+        //   title: '此节点无需验收',
+        // })
+        // console.log(this.data.datalist[index])
+        let nodeInfo = this.data.datalist[index]
+        wx.showModal({
           title: '此节点无需验收',
+          content: nodeInfo.instructions,
+          success: function (res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
         })
       }else{
         wx.navigateTo({

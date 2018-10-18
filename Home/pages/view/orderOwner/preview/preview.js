@@ -44,7 +44,6 @@ Page({
       jlNodeInfo.entryReportStandards[index].items = xm
       jlNodeInfo.entryReportStandards[index].standard = bz
       jlNodeInfo.entryReportStandards[index].acceptance = fs
-      console.log(jlNodeInfo)
       this.setData({
         nodeInfo: jlNodeInfo,
         userInfos: userInfos

@@ -99,7 +99,7 @@ width: 50%;
 }
 .csize{
   line-height: 40rpx;
-  font-size: 24rpx;
+  font-size: 28rpx;
   background: #fff;
   margin: 0 !important;
   padding: 20rpx 30rpx;

@@ -63,7 +63,7 @@ color: #fff;
 }
 .csize{
   line-height: 40rpx;
-  font-size: 24rpx;
+  font-size: 28rpx;
 }
 .weui-textarea{
   border-radius: 5px;

@@ -23,13 +23,22 @@
 .zwxx{
   text-align: center;
   background: #fff;
-  height: 100vh;
-  padding-top: 200rpx
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  /* padding-top: 200rpx; */
 }
 .zwxx image{
   width: 290rpx;
   height: 330rpx;
   opacity: 0.3;
+}
+.zwxx>view{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-70%)
 }
 .zwxx text{
   display: block;

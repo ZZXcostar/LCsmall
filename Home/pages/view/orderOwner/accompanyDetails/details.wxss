@@ -78,6 +78,9 @@ page{
   line-height: 60rpx;
   border-bottom: 1px solid #ddd;
 }
+.fwinfo{
+  margin-bottom: 20rpx;
+}
 .weui-flex__item{
   line-height: 60rpx;
 }

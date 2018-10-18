@@ -15,7 +15,7 @@
       </view>
       <view class="weui-tab__panel">
         <view class="weui-tab__content" wx:if="{{activeIndex == 0}}">
-            <view class='zwxx' wx:if='{{orderdataeList.length==0}}'>
+            <view class='zwxxx' wx:if='{{orderdataeList.length==0}}'>
               <image src='../../../images/zwxx.png'></image>
               <text>暂无报告</text>
             </view>
@@ -31,9 +31,9 @@
                 </view>
               </view>
               <view class='listBoxmiddle' bindtap='gopresent' data-type="{{item.typedata}}" data-num='{{item.orderNum}}' data-reportId="{{item.reportId}}">
-                <view class='imgBox'>
+                <!-- <view class='imgBox'>
                   <image src="../../../images/logo.png"></image>
-                </view>
+                </view> -->
                 <view class='userInfoBox'>
                   <view class='textinfo'>{{item.name}}
                     <text>{{item.phone}}</text>
@@ -61,7 +61,7 @@
           </view>
         </view>
          <view class="weui-tab__content" wx:if="{{activeIndex == 1}}">
-            <view class='zwxx' wx:if='{{orderdataeList.length==0}}'>
+            <view class='zwxxx' wx:if='{{orderdataeList.length==0}}'>
               <image src='../../../images/zwxx.png'></image>
               <text>暂无报告</text>
             </view>
@@ -77,9 +77,9 @@
                 </view>
               </view>
               <view class='listBoxmiddle' bindtap='gopresent' data-type="{{item.typedata}}" data-num='{{item.orderNum}}' data-reportId="{{item.reportId}}">
-                <view class='imgBox'>
+                <!-- <view class='imgBox'>
                   <image src="../../../images/logo.png"></image>
-                </view>
+                </view> -->
                 <view class='userInfoBox'>
                   <view class='textinfo'>{{item.name}}
                     <text>{{item.phone}}</text>
@@ -107,7 +107,7 @@
           </view>
         </view>
          <view class="weui-tab__content" wx:if="{{activeIndex == 2}}">
-         <view class='zwxx' wx:if='{{orderdataeList.length==0}}'>
+         <view class='zwxxx' wx:if='{{orderdataeList.length==0}}'>
               <image src='../../../images/zwxx.png'></image>
               <text>暂无报告</text>
             </view>
@@ -123,9 +123,9 @@
                 </view>
               </view>
               <view class='listBoxmiddle' bindtap='gopresent' data-type="{{item.typedata}}" data-num='{{item.orderNum}}' data-reportId="{{item.reportId}}">
-                <view class='imgBox'>
+                <!-- <view class='imgBox'>
                   <image src="../../../images/logo.png"></image>
-                </view>
+                </view> -->
                 <view class='userInfoBox'>
                   <view class='textinfo'>{{item.name}}
                     <text>{{item.phone}}</text>
@@ -153,7 +153,7 @@
           </view>
         </view>
          <view class="weui-tab__content" wx:if="{{activeIndex == 3}}">
-         <view class='zwxx' wx:if='{{orderdataeList.length==0}}'>
+         <view class='zwxxx' wx:if='{{orderdataeList.length==0}}'>
               <image src='../../../images/zwxx.png'></image>
               <text>暂无报告</text>
             </view>
@@ -169,9 +169,9 @@
                 </view>
               </view>
               <view class='listBoxmiddle' bindtap='gopresent' data-type="{{item.typedata}}" data-num='{{item.orderNum}}' data-reportId="{{item.reportId}}">
-                <view class='imgBox'>
+                <!-- <view class='imgBox'>
                   <image src="../../../images/logo.png"></image>
-                </view>
+                </view> -->
                 <view class='userInfoBox'>
                   <view class='textinfo'>{{item.name}}
                     <text>{{item.phone}}</text>

@@ -76,6 +76,7 @@ box-sizing: border-box;
   /* padding-top: 80rpx; */
   background-color:rgba(red, green, blue, 0) !important;
   overflow: hidden;
+  position: relative;
 }
 .weui-tab__content::after{
   background-color:rgba(red, green, blue, 0) !important;
@@ -89,7 +90,7 @@ page,.page{
   height: 100%;
 }
 .weui-cell {
-  padding: 20rpx 10rpx !important;
+  padding: 12rpx 10rpx !important;
 }
 .listBox{
   border: 1px solid #ddd;
@@ -135,15 +136,17 @@ page,.page{
   padding:30rpx 0
 }
 .userInfoBox{
-  width: 70%;
+  /* width: 70%; */
    font-size: 24rpx;
+   width: 100%;
 }
 .imgBox image{
   width: 80rpx;
   height: 80rpx;
 }
 .textOver{
-  width: 360rpx;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
+  /* width: 360rpx; */
+  width: 100%;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
 }
 .linebox{
   width: 4rpx;
@@ -153,12 +156,10 @@ page,.page{
   margin: 0 8rpx;
 }
 .listBoxmiddle{
-  padding: 10rpx 0;
+  padding: 20rpx 40rpx;
   border-top:1px solid #ddd;
   border-bottom:1px solid #ddd;
-}
-.weui-cell{
-  padding: 10rpx 20rpx;
+  box-sizing: border-box;
 }
 .textinfo{
   font-size: 32rpx;
@@ -170,4 +171,20 @@ page,.page{
 .iconfont{
   display: inline-block;
   margin-right: 10rpx;
+}
+.zwxxx{
+  text-align: center;
+  background: #fff;
+  height: 100vh;
+  padding-top: 200rpx
+}
+.zwxxx image{
+  width: 290rpx;
+  height: 330rpx;
+  opacity: 0.3;
+}
+.zwxxx text{
+  display: block;
+  font-size: 28rpx;
+  opacity: 0.3;
 }

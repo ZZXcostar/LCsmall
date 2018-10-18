@@ -1,4 +1,5 @@
 {
   "navigationBarTitleText": "装修管家",
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }

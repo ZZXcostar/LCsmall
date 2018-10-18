@@ -1,13 +1,10 @@
-<view class='page__owner'>
+<view class='page__owner' >
   <view class='page_top'>
       <input class='searchbox' placeholder='姓名、电话' placeholder-style='text-align:center' value='{{search}}' bindconfirm='confirm' confirm-type='Search'>
       </input>
   </view>
   <scroll-view class='container_order' scroll-y='true'>
-    <view class='zwxx' wx:if='{{contentlist.length==0}}'>
-      <image src='../../../images/zwxx.png'></image>
-      <text>暂无订单</text>
-    </view>
+    
     <view class='order' wx:for='{{contentlist}}' wx:key="value" bindtap='toDetails' data-workLists="{{item.workLists}}" data-info="{{item}}" data-id='item.id'>
       <view class='order_top'>
         <text class='float_l'>订单编号：{{item.orderDetail.orderNumber}}</text>
@@ -20,7 +17,7 @@
         </text>
       </view>
       <view class='order_container'>
-        <view class='headeimg'><image src="../../../images/logo.png"></image></view>
+        <!-- <view class='headeimg'><image src="../../../images/logo.png"></image></view> -->
         <view class='content'>
           <view class='msg'>
             <text class='name'>{{item.orderDetail.name}}</text>
@@ -72,5 +69,11 @@
         </form>
     </view>
      
+  </view>
+</view>
+<view class='zwxx' wx:if='{{contentlist.length==0}}'>
+  <view>
+    <image src='../../../images/zwxx.png'></image>
+    <text>暂无订单</text>
   </view>
 </view>
