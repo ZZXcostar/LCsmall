@@ -78,7 +78,7 @@ page{
    line-height: 2.2;
 }
 .constructioninfo .content_detail input{
-  width:65%;
+  width:55%;
   display:block;
   float: left;
   border-radius: 10rpx;
@@ -96,7 +96,9 @@ page{
     margin-right:40rpx;
 }
 .constructioninfo .half:nth-child(2) input{
-    width:170rpx;
+    width:160rpx !important;
+    position: relative;
+    z-index: 1000000
 }
 .red{
   color: red;

@@ -36,6 +36,7 @@
           <view class='half'>
             <view class='name'>联系方式：</view>
             <input value='{{ pmphone }}' bindinput="pmphoneInput" bindblur="pmphoneInputAuth" placeholder='填写电话' placeholder-style='color:#cccccc;'  />
+            <!-- <text>aa</text> -->
           </view>
         </view>
     </view> 

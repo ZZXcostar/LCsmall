@@ -27,10 +27,10 @@
       <view class='newBox'>
       <view class="weui-flex">
             <view class="weui-flex__item">
-            <view class="placeholder">房屋类型：<text>{{orderInfo.categoryName}}</text></view>
+            <view class="placeholder">房屋类型：<text>{{orderInfo.categoryName==null?'未填写':orderInfo.categoryName}}</text></view>
             </view>
             <view class="weui-flex__item">
-            <view class="placeholder">房屋面积：<text>{{orderInfo.acreage==null?'':orderInfo.acreage}}㎡</text></view>
+            <view class="placeholder">房屋面积：<text>{{orderInfo.acreage==null?'0':orderInfo.acreage}}㎡</text></view>
             </view>
         </view>
         <!-- <view class="weui-flex">
@@ -43,7 +43,7 @@
         </view> -->
       </view>
     </view>
-     <view class='viewBox'>
+     <view class='viewBox node'>
       <view class='newTop'><view class="lineGreen"></view>验收节点</view>
       <view class='newBox'>
       <view  class='lineHeightLine borderBottem' wx:for="{{node}}"  wx:key='{{index}}'>

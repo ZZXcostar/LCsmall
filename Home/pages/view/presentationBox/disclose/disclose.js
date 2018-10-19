@@ -6,7 +6,7 @@ Page({
     bgId: "",
     cookie:'',
     id:'',//报告id
-    dates: "2018-09-20",
+    dates: "请选择上门验收时间（必填）",
   },
   onLoad: function (options) {
     let userInfo = wx.getStorageSync("userInfo");
@@ -90,22 +90,26 @@ Page({
     var standard = e.currentTarget.dataset.standard
     var acceptance = e.currentTarget.dataset.acceptance
     var datalist= this.data.datalist
-    for (let k in datalist){
-      console.log(datalist[k].isService)
-      if (datalist[k].isService == '') {
+    console.log(datalist)
+    // for (let k in datalist){
+      if (datalist[index].isService == '') {
         wx.navigateTo({
           url: '../../orderOwner/reportAccept/reportAccept?id=' + id + "&types=" + types + "&bgid=" + bgid + "&acceptance=" + acceptance + "&standard=" + standard+'&index='+index,
         })
-      } else if (datalist[k].isService == '无需验收') {
+      } else if (datalist[index].isService == '无需验收') {
         // wx.showToast({
         //   icon:'none',
         //   title: '此节点无需验收',
         // })
         // console.log(this.data.datalist[index])
         let nodeInfo = this.data.datalist[index]
+        let msg="暂无理由！"
+        if (nodeInfo.instructions){
+          msg = nodeInfo.instructions
+        }
         wx.showModal({
           title: '此节点无需验收',
-          content: nodeInfo.instructions,
+          content: msg,
           success: function (res) {
             if (res.confirm) {
               console.log('用户点击确定')
@@ -119,7 +123,7 @@ Page({
           url: '../../orderOwner/preview/preview?index=' + index
         })
       }
-    }
+    // }
   },
   preview(){
     wx.navigateTo({
@@ -135,6 +139,13 @@ Page({
         })
         return
       }
+    }
+    if (that.data.dates =="请选择上门验收时间（必填）"){
+      wx.showToast({
+        title: '上门验收时间未选择！',
+        icon: 'none',
+      })
+      return
     }
     var date=new Date()
     var year = date.getFullYear()

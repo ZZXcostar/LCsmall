@@ -27,10 +27,10 @@
       <view class='newBox'>
       <view class="weui-flex">
             <view class="weui-flex__item">
-            <view class="placeholder">房屋类型：<text>{{orderInfo.categoryName}}</text></view>
+            <view class="placeholder">房屋类型：<text>{{orderInfo.categoryName==null?'未填写':orderInfo.categoryName}}</text></view>
             </view>
             <view class="weui-flex__item">
-            <view class="placeholder">房屋面积：<text>{{orderInfo.acreage}}㎡</text></view>
+            <view class="placeholder">房屋面积：<text>{{orderInfo.acreage==null?'0':orderInfo.acreage}}㎡</text></view>
             </view>
         </view>
         <view class="weui-flex">
@@ -38,7 +38,7 @@
             <view class="placeholder">服务时间：<text>{{orderInfo.orderDetail.appointment==null?orderInfo.startTime:orderInfo.orderDetail.appointment.startTime}}</text></view>
             </view>
             <view class="weui-flex__item">
-            <view class="placeholder">装修类型：<text>{{orderInfo.decorate}}</text></view>
+            <view class="placeholder">装修类型：<text>{{orderInfo.decorate==null?'未填写':orderInfo.decorate}}</text></view>
             </view>
         </view>
       </view>
@@ -48,20 +48,20 @@
       <view class='newBox'>
         <view class="weui-flex">
             <view class="weui-flex__item">
-            <view class="placeholder">装修公司：<text>{{orderInfo.decoration}}</text></view>
+            <view class="placeholder">装修公司：<text>{{orderInfo.decoration==null?'未填写':orderInfo.decoration}}</text></view>
             </view>
         </view>
         <view class="weui-flex">
             <view class="weui-flex__item">
-            <view class="placeholder">工期：<text>{{orderInfo.duration}}个月</text></view>
+            <view class="placeholder">工期：<text>{{orderInfo.duration==null?'0':orderInfo.duration}}工作日</text></view>
             </view>
             <view class="weui-flex__item">
-            <view class="placeholder">装修类型：<text>{{orderInfo.decorate}}</text></view>
+            <view class="placeholder">装修类型：<text>{{orderInfo.decorate==null?'未填写':orderInfo.decorate}}</text></view>
             </view>
         </view>
         <view class="weui-flex">
             <view class="weui-flex__item">
-            <view class="placeholder">项目经理：<text>{{orderInfo.pmname}}（{{orderInfo.pmphone}}）</text></view>
+            <view class="placeholder">项目经理：<text>{{orderInfo.pmname==null?'未填写':orderInfo.pmname}}（{{orderInfo.pmphone==null?'未填写':orderInfo.pmphone}}）</text></view>
             </view>
         </view>
         <view class="weui-flex" wx:for='{{orderInfo.workerInfos}}' wx:key='{{index}}'>

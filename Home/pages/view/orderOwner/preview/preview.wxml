@@ -33,43 +33,43 @@
          </view>
     </view>
     <view>
-        <view class='titles' wx:if='{{nodeInfo.entryReportStandards[0].isService==0}}'><text class='flag flag_red'>验收不符合标准说明</text></view>
-        <view class='titles' wx:if='{{nodeInfo.entryReportStandards[0].isService==1}}'><text class='flag flag_gg'>验收符合标准说明</text></view>
+        <view class='titles' wx:if='{{nodeInfo.entryReportStandards[index].isService==0}}'><text class='flag flag_red'>验收不符合标准说明</text></view>
+        <view class='titles' wx:if='{{nodeInfo.entryReportStandards[index].isService==1}}'><text class='flag flag_gg'>验收符合标准说明</text></view>
         <view class='content_detail'>
             <view class='line-content'>
                 <view class='title'>验收项目：</view>
-                <view class='content'>{{nodeInfo.entryReportStandards[0].items}}</view>
+                <view class='content'>{{nodeInfo.entryReportStandards[index].items}}</view>
             </view>
             <view class='line-content'>
                 <view class='title'>验收方式：</view>
-                <view class='content'>{{nodeInfo.entryReportStandards[0].acceptance}}</view>
+                <view class='content'>{{nodeInfo.entryReportStandards[index].acceptance}}</view>
             </view>
             <view class='line-content'>
                 <view class='title'>验收标准：</view>
-                <view class='content'>{{nodeInfo.entryReportStandards[0].standard}}</view>
+                <view class='content'>{{nodeInfo.entryReportStandards[index].standard}}</view>
             </view>
             <view class='line-content'>
                 <view class='title'>检测说明：</view>
-                <view class='content'>{{nodeInfo.entryReportStandards[0].instructions==null? '' :nodeInfo.entryReportStandards[0].instructions}}</view>
+                <view class='content'>{{nodeInfo.entryReportStandards[index].instructions==null? '' :nodeInfo.entryReportStandards[index].instructions}}</view>
             </view>
-            <view class='line-content' wx:if='{{nodeInfo.entryReportStandards[0].isService==0}}'>
+            <view class='line-content' wx:if='{{nodeInfo.entryReportStandards[index].isService==0}}'>
                 <view class='title'>施工隐患：</view>
-                <view class='content'>{{nodeInfo.entryReportStandards[0].hdanger}}</view>
+                <view class='content'>{{nodeInfo.entryReportStandards[index].hdanger}}</view>
             </view>
-            <view class='line-content' wx:if='{{nodeInfo.entryReportStandards[0].isService==0}}'>
+            <view class='line-content' wx:if='{{nodeInfo.entryReportStandards[index].isService==0}}'>
                 <view class='title'>解决方案：</view>
-                <view class='content'>{{nodeInfo.entryReportStandards[0].solution}}</view>
+                <view class='content'>{{nodeInfo.entryReportStandards[index].solution}}</view>
             </view>
-            <view class='line-content' wx:if='{{nodeInfo.entryReportStandards[0].isService==0}}'>
+            <view class='line-content' wx:if='{{nodeInfo.entryReportStandards[index].isService==0}}'>
                 <view class='title'>解决方法：</view>
-                <view class='content'>{{nodeInfo.entryReportStandards[0].solutionf}}</view>
+                <view class='content'>{{nodeInfo.entryReportStandards[index].solutionf}}</view>
             </view>
             <!-- <view class='line-content'>
                 <view class='title'>管家提醒：</view>
                 <view class='content'>房屋平整度房屋平整度房屋平整度房屋</view>
             </view> -->
             <view  class='imglist'>
-                <image class='imgs' wx:for="{{nodeInfo.entryReportStandards[0].imgs}}" wx:key='{{index}}' data-src='{{item.src}}'  mode="scaleToFill" src="{{'http://101.89.175.155/api/'+item}}" bindtap='enlarge' data-ind='{{index}}'></image>
+                <image class='imgs' wx:for="{{nodeInfo.entryReportStandards[index].imgs}}" wx:key='{{index}}' data-src='{{item.src}}'  mode="scaleToFill" src="{{'http://101.89.175.155/api/'+item}}" bindtap='enlarge' data-ind='{{index}}'></image>
             </view>
         </view>
     </view> 

@@ -5,7 +5,8 @@ Page({
     src_bingimg:'',
     bigimghidden:true,
     nodeInfo:'',
-    userInfos:''
+    userInfos:'',
+    index:''
   },
   enlarge:function(e){
     var src=e.currentTarget.dataset.src;
@@ -28,7 +29,8 @@ Page({
   onLoad: function (options) {
     var index = options.index
     this.setData({
-      act: options.act
+      act: options.act,
+      index
     })
     var userInfos = wx.getStorageSync("userInfos");
     var jlNodeInfo = wx.getStorageSync("jlNodeInfo");
@@ -52,6 +54,7 @@ Page({
       var imgs = jlNodeInfo.entryReportStandards[index].imgs.split(',')
       imgs.pop()
       jlNodeInfo.entryReportStandards[index].imgs = imgs
+      console.log(jlNodeInfo)
       this.setData({
         nodeInfo: jlNodeInfo,
         userInfos: userInfos

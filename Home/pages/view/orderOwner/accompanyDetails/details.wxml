@@ -37,12 +37,12 @@
         <view class="weui-flex">
           <view class="weui-flex__item">
             <view class="placeholder">房屋类型：
-              <text>{{orderInfo.categoryName}}</text>
+              <text>{{orderInfo.categoryName==null?'未填写':orderInfo.categoryName}}</text>
             </view>
           </view>
           <view class="weui-flex__item">
             <view class="placeholder">房屋面积：
-              <text>{{orderInfo.acreage}}㎡</text>
+              <text>{{orderInfo.acreage==null?"0":orderInfo.acreage}}㎡</text>
             </view>
           </view>
         </view>

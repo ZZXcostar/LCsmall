@@ -24,6 +24,7 @@ button::after{
 }
 .time{
   padding: 20rpx 30rpx;
+  margin-bottom: 100rpx;
 }
 .btns{
    margin-top:100rpx;

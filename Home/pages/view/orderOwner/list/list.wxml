@@ -26,12 +26,12 @@
           <view class='tips'>
             <view class='cont'>
               <view class='iconfont icon-fangwuxinxi'>
-                <text class='words'>房屋类型：{{item.categoryName}}</text>
+                <text class='words'>房屋类型：{{item.categoryName==null?'未填写':item.categoryName}}</text>
               </view>
             </view>
             <view class='cont'>
               <view class='iconfont .icon-fangwumianji'>
-                <text class='words'>房屋面积：{{item.acreage}}㎡</text>
+                <text class='words'>房屋面积：{{item.acreage==null?'0':item.acreage}}㎡</text>
               </view>
             </view>
             <view class='cont' wx:for="{{item.node}}" wx:for-item="ite" wx:for-index="ind" wx:key="index">
