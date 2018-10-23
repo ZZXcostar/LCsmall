@@ -33,7 +33,6 @@ Page({
       method: 'post',
       success: function (res) {
         wx.setStorageSync('jlNodeInfo', res.data.info.list[0])
-        // console.log(res.data.info.list[0])
         let aa = res.data.info.list[0].entryReportStandards;
         for(var i=0;i<aa.length;i++){
           if (aa[i].isService==0){
@@ -46,9 +45,13 @@ Page({
             aa[i].isService = ""
           }
         }
+        if (res.data.info.list[0].receptionTime==null){
+          res.data.info.list[0].receptionTime ='请选择上门验收时间（必填）'
+        }
         that.setData({
           datalist:aa,
-          id: res.data.info.list[0].id
+          id: res.data.info.list[0].id,
+          dates: res.data.info.list[0].receptionTime
         })
       },
       fail: function (err) {
@@ -139,8 +142,10 @@ Page({
         })
         return
       }
+      console.log("aaaaaaaaaaaaa")
     }
-    if (that.data.dates =="请选择上门验收时间（必填）"){
+    
+    if (this.data.dates =="请选择上门验收时间（必填）"){
       wx.showToast({
         title: '上门验收时间未选择！',
         icon: 'none',

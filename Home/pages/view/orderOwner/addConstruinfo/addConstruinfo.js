@@ -77,16 +77,16 @@ Page({
       success: function (res) {
        // wx.setStorageSync('pqOrderInfo', res.data.info)
         let worker = res.data.info
-          console.log(res.data.info)
+        console.log(res.data.info)
         that.setData({
           workerArr: worker
         })
-        console.log(that.data.workerArr)
       },
       fail: function (err) {
         console.log(err)
       }
     })
+    console.log(this.data.workerArr)
   },
   decorationInput: function (e) {
     this.data.decoration = e.detail.value;

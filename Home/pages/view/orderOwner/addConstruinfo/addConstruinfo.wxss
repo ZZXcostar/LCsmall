@@ -132,7 +132,7 @@ page{
    width:100%;
    margin-bottom: 0rpx !important;
    padding-bottom: 0rpx !important;
-   z-index: 15;
+   z-index: 100000;
 }
 .btngroup .weui-btn{
   font-size:30rpx;

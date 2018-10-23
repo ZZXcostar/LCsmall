@@ -13,7 +13,6 @@ Page({
   },
   onLoad: function (options) {
     var that=this
-    
     var orderInfo = wx.getStorageSync("pqOrderInfo")
     let userInfo = wx.getStorageSync("userInfo");
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
@@ -36,16 +35,17 @@ Page({
       success: function (res) {
         var list = res.data.info.list;
         var orderInfo = that.data.orderInfo;
+        console.log(orderInfo, list)
         orderInfo.list = list[0]
-        orderInfo.list.overheadRate=parseFloat(orderInfo.list.overheadRate)
-        orderInfo.list.design = parseFloat(orderInfo.list.design)
-        orderInfo.list.contract = parseFloat(orderInfo.list.contract)
-        orderInfo.list.original = parseFloat(oorderInfo.list.original)
-        orderInfo.list.acreage = parseFloat(orderInfo.list.acreage)
-        orderInfo.list.salary = parseFloat(orderInfo.list.salary)
-        orderInfo.list.direct = parseFloat(orderInfo.list.direct)
-        orderInfo.list.documentaryRate = parseFloat(orderInfo.list.documentaryRate)
-        orderInfo.list.taxRate = parseFloat(orderInfo.list.taxRate)
+        // orderInfo.list.overheadRate=parseFloat(orderInfo.list.overheadRate)
+        // orderInfo.list.design = parseFloat(orderInfo.list.design)
+        // orderInfo.list.contract = parseFloat(orderInfo.list.contract)
+        // orderInfo.list.original = parseFloat(oorderInfo.list.original)
+        // orderInfo.list.acreage = parseFloat(orderInfo.list.acreage)
+        // orderInfo.list.salary = parseFloat(orderInfo.list.salary)
+        // orderInfo.list.direct = parseFloat(orderInfo.list.direct)
+        // orderInfo.list.documentaryRate = parseFloat(orderInfo.list.documentaryRate)
+        // orderInfo.list.taxRate = parseFloat(orderInfo.list.taxRate)
         if (list.length) {
           that.setData({
             isSee: false,

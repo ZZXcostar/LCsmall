@@ -11,7 +11,7 @@ Page({
     cookie: '',
     isSee: false,
     children:"无",
-    sex:["男孩","女孩"],
+    sex:["男孩","女孩","男孩+女孩"],
     peoples:[1,2,3,4,5,6,7,8,9],
     people:2
   },

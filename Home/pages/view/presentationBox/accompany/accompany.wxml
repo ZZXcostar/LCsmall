@@ -42,7 +42,7 @@
           </view>
           <view class="weui-flex__item">
             <view class="placeholder">房屋面积：
-              <text>{{orderInfo.acreage==null?'未填写':orderInfo.acreage}}㎡</text>
+              <text>{{orderInfo.acreage==null?'0':orderInfo.acreage}}㎡</text>
             </view>
           </view>
         </view>

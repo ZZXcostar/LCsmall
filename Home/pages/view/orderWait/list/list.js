@@ -84,7 +84,7 @@ Page({
   },
   //放弃接单
   formSubmit: function (options){
-    console.log(options)
+    // console.log(options)
     let that =this;
     this.setData({
       inputVal: '',
@@ -119,27 +119,13 @@ Page({
               title: res.msg,
             })
           }
-
-
         }, function (res) {
           wx.showToast({
             title: '加载数据失败',
           })
         }, 'application/json')
     }
-    
-
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-
-
-  
-  // onShow: function (e) {
-  //   console.log(e) 
-  //   this.getMusicInfo()
-  // },
   getMusicInfo: function (message,keyWord) {
   //  console.log(message)
   //  console.log(keyWord)
@@ -153,8 +139,6 @@ Page({
         let resMessage = res.info.list
         var contentlistTem = that.data.contentlist
         if (res.status == 200) {
-
-
           if (that.data.page == 1) {
             contentlistTem = []
           }
