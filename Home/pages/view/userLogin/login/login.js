@@ -7,7 +7,7 @@ Page({
     pwd:''
   },
   onLoad(){
-
+   
     var user = wx.getStorageSync('userPhonePwd')
     var time = wx.getStorageSync('time')
     var timestamp = Date.parse(new Date())

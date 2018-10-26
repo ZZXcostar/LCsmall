@@ -93,12 +93,14 @@ border:none;
   margin: 10rpx 0;
 }
 .placeholder{
-   line-height: 60rpx;
-
+  line-height: 60rpx;
+  
 }
-.placeholder{
-   line-height: 60rpx;
-}.textareBox{
+.pal{
+  width: 342rpx;
+  overflow: hidden;text-overflow: ellipsis; white-space: nowrap;
+}
+.textareBox{
   float: right;
  word-wrap:break-word;
  height: 200rpx;

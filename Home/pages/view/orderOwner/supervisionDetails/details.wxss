@@ -77,6 +77,10 @@ border:none;
 .placeholder{
    line-height: 80rpx;
 }
+.pal{
+  width: 342rpx;
+   overflow: hidden;text-overflow: ellipsis; white-space: nowrap;
+}
 /* 以下是按钮样式 */
 .btns{
   margin-top:100rpx;

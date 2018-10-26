@@ -13,7 +13,7 @@
           item.orderDetail?(item.orderDetail.serviceState==1?"未服务":item.orderDetail.serviceState==2?"服务中":item.orderDetail.serviceState==3?"已完成":""):""
           }}</text>
           <text class='space_order'>|</text>
-          <text class='service_order'>{{item.orderDetail?item.orderDetail.categoryName:""}}</text>
+          <text class='service_order'>{{item.orderDetail.categoryName==null?item.orderDetail.serviceType.serName:item.orderDetail.categoryName}}</text>
         </text>
       </view>
       <view class='order_container'>
@@ -42,7 +42,7 @@
             </view>
             <view class='cont'>
               <text class='iconfont icon-location2'>
-                <text class='words'>{{item.orderDetail.detailAddress}}</text>
+                <text class='words'>{{item.orderDetail.detailAddress==null?item.orderInfo.detailAddress:item.orderDetail.detailAddress }}</text>
               </text>
             </view>
           </view>

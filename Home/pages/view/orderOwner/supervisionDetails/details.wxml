@@ -2,14 +2,14 @@
 <view class="weui-cells weui-cells_after-title">
     <view  class="weui-cell" >
         <view class="weui-cell__bd"><view class="lineGreen"></view>订单编号：{{orderInfo.orderDetail.orderNumber}}</view>
-        <view class="weui-cell__ft">{{orderInfo.orderDetail.serviceStateName}}</view>
+        <view class="weui-cell__ft">{{orderInfo.orderDetail.serviceStateName==null?orderInfo.orderDetail.serviceType.serName:orderInfo.orderDetail.serviceStateName}}</view>
     </view>
     <view class='viewBox userInfo'>
       <view class='newTop'><view class="lineGreen"></view>业主信息</view>
       <view class='newBox'>
       <view class="weui-flex">
             <view class="weui-flex__item">
-            <view class="placeholder">业主姓名：<text>{{orderInfo.orderDetail.name}}</text></view>
+            <view class="placeholder pal">业主姓名：<text>{{orderInfo.orderDetail.name}}</text></view>
             </view>
             <view class="weui-flex__item">
             <view class="placeholder">联系方式：<text>{{orderInfo.orderDetail.phone}}</text></view>
@@ -17,7 +17,7 @@
         </view>
         <view class="weui-flex">
             <view class="weui-flex__item">
-            <view class="placeholder">业主地址：<text>{{orderInfo.orderDetail.detailAddress}}</text></view>
+            <view class="placeholder">业主地址：<text>{{orderInfo.orderDetail.detailAddress==null?orderInfo.orderInfo.detailAddress:orderInfo.orderDetail.detailAddress}}</text></view>
             </view>
         </view>
       </view>

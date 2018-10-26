@@ -13,7 +13,7 @@
         <view class='content_detail'>
            <view class='half'>
               <view class='name'>工期：</view>
-              <input value='{{ duration }}' bindinput="durationInput" bindblur="durationInputAuth" placeholder='**' style='width:50%;' placeholder-style='color:#cccccc;'  />
+              <input value='{{ duration }}' type='number' bindinput="durationInput" bindblur="durationInputAuth" placeholder='**' style='width:50%;' placeholder-style='color:#cccccc;'  />
               <view class='workerdate'>工作日</view>
            </view>
            <view class='half'>
@@ -35,7 +35,7 @@
           </view>
           <view class='half'>
             <view class='name'>联系方式：</view>
-            <input value='{{ pmphone }}' bindinput="pmphoneInput" bindblur="pmphoneInputAuth" placeholder='填写电话' placeholder-style='color:#cccccc;'  />
+            <input value='{{ pmphone }}' type='number' bindinput="pmphoneInput" bindblur="pmphoneInputAuth" placeholder='填写电话' placeholder-style='color:#cccccc;'  />
             <!-- <text>aa</text> -->
           </view>
         </view>
@@ -51,13 +51,13 @@
               </view>
               <view class='half'>
                 <view class='name'><text class='red'>*</text>联系方式：</view>
-                <input  placeholder='填写电话' value="{{ item.phone }}" bindinput="phoneInput" bindblur="phoneInputAuth" data-phoneIndex="{{ index }}" placeholder-style='color:#cccccc;'  />
+                <input  placeholder='填写电话' type='number' value="{{ item.phone }}" bindinput="phoneInput" bindblur="phoneInputAuth" data-phoneIndex="{{ index }}" placeholder-style='color:#cccccc;'  />
               </view>
           </view>
           <view style='margin-bottom:10rpx;overflow:hidden;border-bottom:1px solid #f5f5f5;'>
               <view class='half'>
                   <view class='name'>人工费：</view>
-                  <input  placeholder='0' value="{{ item.manpower }}" bindinput="manpowerInput" data-manpowerIndex="{{ index }}" placeholder-style='color:#cccccc;'  />
+                  <input  placeholder='请输入元' type='number' value="{{ item.manpower }}" bindinput="manpowerInput" data-manpowerIndex="{{ index }}" placeholder-style='color:#cccccc;'  />
               </view>
               <view class='half'>
                   <picker style='position:relative;' bindchange="pricingChange" data-pricingIndex="{{ index }}" value="{{priceIndex}}" range="{{typelist_price}}">

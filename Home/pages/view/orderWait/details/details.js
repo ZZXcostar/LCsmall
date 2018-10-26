@@ -67,9 +67,10 @@ Page({
     console.log(info)
     //订单详情
     if (info.orderDetail){
+      var address = info.orderDetail.detailAddress == null ? info.orderInfo.detailAddress: info.orderDetail.detailAddress
       this.setData({
         orderdetail: {
-          address: info.orderDetail.detailAddress,
+          address: address,
           number: info.orderDetail.orderNumber,
           phone: info.orderDetail.phone,
           servicename: info.orderDetail.serviceType.serName,
@@ -147,7 +148,8 @@ Page({
         }
       }, function (res) {
         wx.showToast({
-          title: '加载数据失败',
+          title: '接单失败',
+          image: '../../../images/fail.png',
         })
       }, 'application/json');
   },

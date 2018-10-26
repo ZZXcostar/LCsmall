@@ -46,10 +46,10 @@
     <view class="weui-cell__hd ">
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd setWidths">
-          <view class="weui-label">面 积：</view>
+          <text class="weui-label" decode='{{true}}'>面&emsp;&emsp;积：</text>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="请输入面积" name="acreage" disabled='{{!isSee}}' value="{{orderInfo.acreage+'㎡'}}" />
+          <input class="weui-input" placeholder="请输入面积" name="acreage" type='number' disabled='{{!isSee}}' value="{{orderInfo.acreage==null?'0㎡':orderInfo.acreage+'㎡'}}" />
         </view>
       </view>
     </view>
@@ -60,7 +60,8 @@
         <view class="weui-cell__hd setWidths">
           <view class="weui-label">合 同 价：</view>
         </view>
-        <input  placeholder='10万含设计费' name="contract" disabled='{{!isSee}}' value="{{data.contract}}" />
+        <input  placeholder='请输入合同价 含设计费' type='number' class='contract' name="contract" disabled='{{!isSee}}' value="{{data.contract}}" />
+        <text>万元</text>
       </view>
     </view>
   </view>
@@ -149,7 +150,7 @@
               <view class="picker">  
                 装修开始时间: {{dates}}  
               </view>  
-            </picker>  
+            </picker>       
           </view>
           <!-- <input class="weui-input" placeholder="装修时间" name="decorateTime" value="{{dectype}}" /> -->
         </view>
@@ -173,7 +174,7 @@
   <view class='listBox clearfloat'>
     <view class='boxSize' wx:for="{{roomRate}}" wx:key="{{index}}" wx:if="{{item.square!='' || isSee}}">
       <view class='leftfloat'>{{item.name}}:</view>
-      <input class='rightfloat' data-ind="{{index}}" bindinput='roomRate' disabled='{{!isSee}}' placeholder='**'  value='{{item.square}}'></input>
+      <input class='rightfloat' type='number' data-ind="{{index}}" bindinput='roomRate' disabled='{{!isSee}}' placeholder='**'  value='{{item.square}}'></input>
       <text>㎡</text>
     </view>
   </view>
@@ -190,7 +191,7 @@
           </view>
           <view class='half clearfloat'>
             <view class='name'>面积：</view>
-            <input  placeholder='填写面积' bindinput='measure' disabled='{{!isSee}}' value='{{measure}}' placeholder-style='color:#cccccc;'/>㎡
+            <input  placeholder='填写面积' type='number' bindinput='measure' disabled='{{!isSee}}' value='{{measure}}' placeholder-style='color:#cccccc;'/>㎡
           </view>
         </view>
     </view> 

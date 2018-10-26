@@ -18,6 +18,9 @@ view{
   color: #7e7e7e;
   padding-left: 12rpx;
 }
+.contract{
+  width: 260rpx;
+}
 .weui-input{
   text-align: left;
 }
@@ -222,9 +225,10 @@ checkbox-group{
 .half input{
   float: left;
    height:60rpx;
+   width: 60%;
    line-height: 100rpx;
    background: #f0f0f0;
    padding: 0 20rpx;
-   margin: 20rpx 20rpx;
+   margin: 20rpx 0rpx;
 }
 .clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}

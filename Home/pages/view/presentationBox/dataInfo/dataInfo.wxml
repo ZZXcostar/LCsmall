@@ -8,7 +8,7 @@
                     <view class="weui-label"><text class='red'>*</text>装修公司：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input huxing" disabled='{{!isSee}}' placeholder="圣都装饰城西分公司" value='{{orderInfo.list? orderInfo.list.decoration : orderInfo.decoration}}' name="decoration"/>
+                    <input class="weui-input huxing" disabled='{{!isSee}}' placeholder="请输入装修公司" value='{{orderInfo.list? orderInfo.list.decoration : orderInfo.decoration}}' name="decoration"/>
                 </view>
             </view>
         </view>
@@ -18,7 +18,10 @@
                     <view class="weui-label"><text class='red'>*</text>陪签日期：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input huxing" disabled='{{!isSee}}' placeholder="2018-01-01" value='{{orderInfo.list? orderInfo.list.signTime : orderInfo.startTime}}' name="signTime"/>
+                  <picker mode="date" start="1978-01-01" disabled='{{!isSee}}'  bindchange="bindDateChange">  
+                    <view class="picker">{{dates}}</view>  
+                  </picker> 
+                    <!-- <input class="weui-input huxing" disabled='{{!isSee}}' placeholder="请输入日期" value='{{orderInfo.list? orderInfo.list.signTime : orderInfo.startTime}}' name="signTime"/> -->
                 </view>
             </view>
         </view>
@@ -30,7 +33,7 @@
                     <view class="weui-label"><text class='red'>*</text>装修风格：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input huxing" disabled='{{!isSee}}' value='{{orderInfo.list.decor}}' placeholder="简欧" name="decor"/>
+                    <input class="weui-input huxing" disabled='{{!isSee}}' value='{{orderInfo.list.decor}}' placeholder="请输入风格" name="decor"/>
                 </view>
             </view>
         </view>
@@ -40,7 +43,7 @@
                     <text class="weui-label"><text class='red'>*</text>装修类型：</text>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input huxing" disabled='{{!isSee}}' placeholder="装修类型" value='{{orderInfo.list? orderInfo.list.adornType : orderInfo.decorate}}' name="adornType"/>
+                    <input class="weui-input huxing" disabled='{{!isSee}}' placeholder="请输入类型" value='{{orderInfo.list? orderInfo.list.adornType : orderInfo.decorate}}' name="adornType"/>
                 </view>
             </view>
         </view>
@@ -52,7 +55,7 @@
                     <text class="weui-label" decode="{{true}}"><text class='red'>*</text>户&emsp;&emsp;型：</text>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input huxing" disabled='{{!isSee}}' value='{{orderInfo.list.unit}}' placeholder="三室一厅一卫"  name="unit"/>
+                    <input class="weui-input huxing" disabled='{{!isSee}}' value='{{orderInfo.list.unit}}' placeholder="请输入户型"  name="unit"/>
                 </view>
             </view>
         </view>
@@ -62,7 +65,7 @@
                     <text class="weui-label" decode="{{true}}"><text class='red'>*</text>面&emsp;&emsp;积：</text>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" disabled='{{!isSee}}' placeholder="132" value='{{orderInfo.list? orderInfo.list.acreage : orderInfo.acreage}}' name="acreage"/>
+                    <input class="weui-input" type='number' disabled='{{!isSee}}' placeholder="请输入面积" value='{{orderInfo.list? orderInfo.list.acreage : orderInfo.acreage}}' name="acreage"/>
                     <text>㎡</text>
                 </view>
             </view>
@@ -75,7 +78,7 @@
                     <text class="weui-label" decode="{{true}}"><text class='red'>*</text>原&ensp;报&ensp;价：</text>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" disabled='{{!isSee}}' placeholder="**" value='{{orderInfo.list.original}}'  name="original"/>
+                    <input class="weui-input" disabled='{{!isSee}}' type='number' placeholder="**" value='{{orderInfo.list.original}}'  name="original"/>
                     <text>万元</text>
                 </view>
             </view>
@@ -86,7 +89,7 @@
                     <text class="weui-label" decode="{{true}}"><text class='red'>*</text>合&ensp;同&ensp;价：</text>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" disabled='{{!isSee}}' placeholder="**"value='{{orderInfo.list.contract}}'  name="contract"/>
+                    <input class="weui-input" disabled='{{!isSee}}' type='number' placeholder="**"value='{{orderInfo.list.contract}}'  name="contract"/>
                     <text>万元</text>
                 </view>
             </view>
@@ -99,7 +102,7 @@
                     <text class="weui-label" decode="{{true}}"><text class='red'>*</text>设&ensp;计&ensp;费：</text>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" disabled='{{!isSee}}' placeholder="**" value='{{orderInfo.list.design}}'  name="design"/>
+                    <input class="weui-input" disabled='{{!isSee}}' type='number' placeholder="**" value='{{orderInfo.list.design}}'  name="design"/>
                     <text>万元</text>
                 </view>
             </view>
@@ -110,7 +113,7 @@
                     <view class="weui-label"><text class='red'>*</text>管理费率：</view>
                 </view>
                 <view class="weui-cell__bd"> 
-                    <input class="weui-input" disabled='{{!isSee}}' placeholder="**" value='{{orderInfo.list.overheadRate}}'  name="overheadRate"/>
+                    <input class="weui-input" disabled='{{!isSee}}' type='number' placeholder="**" value='{{orderInfo.list.overheadRate}}'  name="overheadRate"/>
                     <text>%</text>
                 </view>
             </view>
@@ -123,7 +126,7 @@
                     <text class="weui-label" decode="{{true}}"><text class='red'>*</text>税&emsp;&emsp;率：</text>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" disabled='{{!isSee}}' placeholder="**" value='{{orderInfo.list.taxRate}}' name="taxRate"/>
+                    <input class="weui-input" disabled='{{!isSee}}' type='number' placeholder="**" value='{{orderInfo.list.taxRate}}' name="taxRate"/>
                     <text>%</text>
                 </view>
             </view>
@@ -134,7 +137,7 @@
                     <view class="weui-label"><text class='red'>*</text>跟单税率：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input"  disabled='{{!isSee}}' placeholder="**" value='{{orderInfo.list.documentaryRate}}' name="documentaryRate"/>
+                    <input class="weui-input"  disabled='{{!isSee}}' type='number' placeholder="**" value='{{orderInfo.list.documentaryRate}}' name="documentaryRate"/>
                     <text>%</text>
                 </view>
             </view>
@@ -147,7 +150,7 @@
                     <text class="weui-label" decode="{{true}}"><text class='red'>*</text>直&ensp;接&ensp;费：</text>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input"  disabled='{{!isSee}}' placeholder="**" value='{{orderInfo.list.direct}}'  name="direct"/>
+                    <input class="weui-input"  disabled='{{!isSee}}' type='number' placeholder="**" value='{{orderInfo.list.direct}}'  name="direct"/>
                     <text>万元</text>
                 </view>
             </view>
@@ -158,7 +161,7 @@
                   <view class="weui-label wid"><text class='red'>*</text>项目经理工资：</view>
               </view>
               <view class="weui-cell__bd">
-                  <input class="weui-input wid1"  disabled='{{!isSee}}' placeholder="**" value='{{orderInfo.list.salary}}'  name="salary"/>
+                  <input class="weui-input wid1"  disabled='{{!isSee}}' type='number' placeholder="**" value='{{orderInfo.list.salary}}'  name="salary"/>
                   <text>万元</text>
               </view>
           </view>

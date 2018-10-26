@@ -38,7 +38,7 @@
                 <view class="weui-cell__hd">
                     <view class="weui-label">业主年龄：</view>
                 </view>
-                    <input class="weui-input" placeholder="请输入年龄"  disabled='{{!isSee}}' name="age" value="{{orderInfo.list.age}}"/>
+                    <input class="weui-input" placeholder="请输入年龄" type='number'  disabled='{{!isSee}}' name="age" value="{{orderInfo.list.age}}"/>
             </view>
         </view>
         <view class="weui-cell__hd ">
@@ -89,7 +89,7 @@
                     <view class="weui-label">孩子年龄：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input inpt" placeholder="请输入孩子年龄" disabled='{{!isSee}}' name="childrenAge" value="{{orderInfo.list.childAge}}"/>
+                    <input class="weui-input inpt" placeholder="请输入孩子年龄" type='number' disabled='{{!isSee}}' name="childrenAge" value="{{orderInfo.list.childAge}}"/>
                 </view>
             </view>
         </view>

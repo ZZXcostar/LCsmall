@@ -27,7 +27,7 @@ view{
   position: absolute;
   right: 30rpx;
   z-index: 999;
-  top: 0rpx;
+  top: -5rpx;
 }
 .weui-input{
   text-align: left;
@@ -59,7 +59,7 @@ color: #fff;
 .inp{
   width: 120rpx;
   box-sizing: border-box;
-  padding-right: 120rpx !important;
+  /* padding-right: 120rpx !important; */
 }
 .inputsize .weui-input{
 border:1px solid #ddd;

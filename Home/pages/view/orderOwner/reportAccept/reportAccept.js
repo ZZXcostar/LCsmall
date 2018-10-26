@@ -63,12 +63,15 @@ Page({
           // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
           let tempFilePaths = res.tempFilePaths;
           let newImgList = imglist.concat(tempFilePaths)
+          // console.log(newImgList)
           that.setData({
             imglist: newImgList
           })
           var cookie = that.data.cookie
           var list = []
           for (let i = 0; i < newImgList.length;i++){
+            
+            // console.log("第"+i+"张图片上传")
             wx.uploadFile({
               url: utilBox.urlheader + 'zuul/sms/file/fileUpload?type=public',
               filePath: newImgList[i],
@@ -81,19 +84,19 @@ Page({
               success: function (res) {
                 var data = res.data;
                 data = data.replace(" ", "");
-                
                 if (typeof data != 'object') {
                   data = data.replace(/\ufeff/g, "");//重点
                   var jj = JSON.parse(data);
                   jj = jj.info
                   list.push(jj);
                 }
+                console.log(list)
                 that.setData({
                   imglists: list
                 })
               },
               fail: function (res) {
-                console.log('fail');
+                console.log(res);
               },
             })
           }
@@ -108,7 +111,7 @@ Page({
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
     let arr = reg.exec(userInfo.adminPassword);
     let cookie = RegExp.$1;
-    console.log(wx.getStorageSync('id'))
+    // console.log(wx.getStorageSync('id'))
     // 
     this.setData({
       orderId: options.id,
@@ -164,7 +167,7 @@ Page({
       },
       method: 'post',
       success: function (res) {
-        console.log(res)
+        // console.log(res)
         wx.showToast({
           icon: 'none',
           title: res.data.msg,
@@ -182,6 +185,7 @@ Page({
     })
   },
   formSub(e){ //数据提交
+    // console.log(this.data.imglists)
     var that = this;
     var cookie = this.data.cookie
     var id = that.data.bgId
@@ -233,7 +237,6 @@ Page({
     }
     var imgList = this.data.imglists;
     var data={}
-    data.imgs = imgList;
     data.solution=aa1;
     data.hdanger=aa2;
     data.solutionf=aa3;
@@ -244,12 +247,15 @@ Page({
     data.remark = "合格与不合格";
     var img=""
     for (var i = 0; i < imgList.length;i++){
+      // console.log(i)
       if (imgList.length == 0 && i == (imgList.length)){
         img += imgList[i]
       }else{
         img += imgList[i] + ","
       }
     }
+    data.imgs = img;
+    // console.log(img)
     wx.showModal({
       title: '是否提交报告',
       content: '预览是预览报告，确定是保存报告！！',

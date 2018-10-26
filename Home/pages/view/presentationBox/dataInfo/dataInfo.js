@@ -9,7 +9,8 @@ Page({
     projectId:'',
     orderInfo:'',
     cookie: '',
-    isSee: false
+    isSee: false,
+    dates: "请选择时间",
   },
   onLoad: function (options) {
     var that=this
@@ -62,6 +63,11 @@ Page({
       }
     })
   },
+  bindDateChange: function (e) {
+    this.setData({
+      dates: e.detail.value
+    })
+  },
   formSubmit(e){
     var data = e.detail.value
     data.direct = parseFloat(data.direct)
@@ -70,6 +76,16 @@ Page({
     data.acreage = parseFloat(data.acreage)
     data.original = parseFloat(data.original)
     data.projectId = this.data.projectId;
+    if (this.data.dates =='请选择时间'){
+      wx.showToast({
+        title: '请选择陪签时间',
+        icon: 'none',
+        duration: 1000,
+        mask: true
+      })
+      return
+    }
+    data.signTime = this.data.dates
     var isInfo=true
     for(let i in data){
       if(data[i]==""){
@@ -85,23 +101,24 @@ Page({
       })
     }else{
       let cookie = this.data.cookie
-      wx.request({
-        url: utilBox.urlheader + "public/entrysigncollection/insertOne",
-        data: data,
-        header: {
-          'content-type': 'application/json', // 默认值
-          cookie: cookie
-        },
-        method: 'post',
-        success: function (res) {
-          if (res.data.status == 200) {
-            wx.navigateBack({ changed: true });//返回上一页
-          }
-        },
-        fail: function (err) {
-          console.log(err)
-        }
-      })
+      console.log(data)
+      // wx.request({
+      //   url: utilBox.urlheader + "public/entrysigncollection/insertOne",
+      //   data: data,
+      //   header: {
+      //     'content-type': 'application/json', // 默认值
+      //     cookie: cookie
+      //   },
+      //   method: 'post',
+      //   success: function (res) {
+      //     if (res.data.status == 200) {
+      //       wx.navigateBack({ changed: true });//返回上一页
+      //     }
+      //   },
+      //   fail: function (err) {
+      //     console.log(err)
+      //   }
+      // })
     }
   }
 })

@@ -12,7 +12,7 @@
               <view class='half'>联系方式：{{orderdetail.phone}}</view>
            </view>
            <view>
-              <view>业主地址：{{orderdetail.address}}</view>
+              <view>业主地址：{{orderdetail.address}}</view>      
            </view>
         </view>
     </view> 

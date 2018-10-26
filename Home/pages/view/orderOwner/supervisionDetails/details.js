@@ -37,6 +37,7 @@ Page({
       success: function (res) {
         res.data.info[0].acreage = parseInt(res.data.info[0].acreage)
         wx.setStorageSync('userInfos', res.data.info[0] )
+        console.log(res.data.info[0])
         that.setData({
           orderInfo: res.data.info[0],
           node: res.data.info[0].entryReports      

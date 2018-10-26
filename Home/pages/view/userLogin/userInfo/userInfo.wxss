@@ -104,6 +104,11 @@ button::after{
 .fleBox text{
   display: block;
 }
+.ovf{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
 .iconfont{
   text-align: center;
   font-size: 32rpx;

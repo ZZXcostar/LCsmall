@@ -19,6 +19,9 @@ view{
   width: 60rpx;
   text-align: left;
 }
+.picker{
+  text-align: left;
+}
 .huxing{
   padding-right: 0rpx !important; 
 }
@@ -46,7 +49,6 @@ view{
   width: 200rpx !important;
 }
 .wid1{
-  width: 55rpx !important;
   margin-left:40rpx; 
 }
 page{

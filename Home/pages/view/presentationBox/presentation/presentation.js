@@ -5,7 +5,11 @@ var network = require("../../../../utils/network.js");
 
 Page({
   data: {
-    tabs: ["待服务", "服务中", "已放弃", "已完成"],
+    tabs: [
+      // "待服务", 
+      "服务中", 
+      "已放弃",
+      "已完成"],
     activeIndex: 0,
     sliderOffset: 0,
     sliderLeft: 0,
@@ -29,8 +33,9 @@ Page({
     var that = this;
     wx.getSystemInfo({
       success: function (res) {
+        console.log(sliderWidth)
         that.setData({
-          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 4,
+          sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 3,
           sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex,
           currentTab:0
         });
@@ -56,7 +61,8 @@ Page({
           listInfo: navLeftData,
           navLeftId: navLeftData[0].id
         })
-        that.getRightData(that.data.activeIndex, that.data.navLeftId,'')
+        let topId = parseInt(that.data.activeIndex)+1
+        that.getRightData(topId, that.data.navLeftId,'')
       },
       fail:function(err){
         console.log(err)
@@ -70,7 +76,8 @@ Page({
         title: '请输入搜索内容',
       })
     }else{
-      this.getRightData(this.data.activeIndex, this.data.navLeftId, e.detail.value)
+      let topId = parseInt(this.data.activeIndex) + 1
+      this.getRightData(topId, this.data.navLeftId, e.detail.value)
       this.setData({
         search: '',
       })
@@ -83,7 +90,8 @@ Page({
       currentTab: e.target.dataset.current,
       navLeftId: e.currentTarget.dataset.currenttabid
     })
-    this.getRightData(this.data.activeIndex, this.data.navLeftId,'')
+    let topId = parseInt(this.data.activeIndex) + 1
+    this.getRightData(topId, this.data.navLeftId,'')
   },
   tabClick: function (e) {
     this.setData({
@@ -91,12 +99,14 @@ Page({
       activeIndex: e.currentTarget.id,
       currentTab: 0,
     });
-    this.getRightData(this.data.activeIndex, this.data.currentTab,'')
+    let topId = parseInt(this.data.activeIndex)+1
+    this.getRightData(topId, this.data.currentTab,'')
   },
   onShow(){
     // 返回时刷新页面
     if (this.data.isRefresh == true) {
-      this.getRightData(this.data.activeIndex, this.data.navLeftId, '')
+      let topId = parseInt(this.data.activeIndex) + 1
+      this.getRightData(topId, this.data.navLeftId, '')
     }   
   },
   goassociationReport:function(e){
@@ -148,7 +158,7 @@ Page({
       method: 'post',
       success: function (res) {
         let data = res.data.info
-        // console.log(data)
+        console.log(res)
         var newData=[]
         if(data!=null){
           for (let i = 0; i < data.length; i++) {
@@ -158,7 +168,7 @@ Page({
             obj.orderNum = data[i].projectEstablish.orderDetail.orderNumber;
             obj.add = data[i].projectEstablish.orderDetail.detailAddress;
             obj.types = that.data.tabs[that.data.activeIndex];
-            obj.typedata = data[i].projectEstablish.orderDetail.serviceStateName    
+            obj.typedata = data[i].projectEstablish.orderDetail.categoryName    
             obj.reportId = data[i].projectEstablishId;
             obj.node = data[i].projectEstablish.entryReports
             var index = -1;

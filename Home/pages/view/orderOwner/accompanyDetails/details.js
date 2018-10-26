@@ -28,7 +28,7 @@ Page({
     projectId:'',
     showcancle:true,
     countryCodes:["清 包","半 包","全 包","半包+主材"],
-    huxing:'',
+    huxing:'请选择',
     cookie:'',
     inputVal:'',
     workId:''
@@ -58,6 +58,7 @@ Page({
       success: function (res) {
         res.data.info[0].acreage=parseInt(res.data.info[0].acreage)
         wx.setStorageSync('pqOrderInfo', res.data.info[0])
+        console.log(res.data.info[0])
         that.setData({
           orderInfo: res.data.info[0]
         })

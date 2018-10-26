@@ -44,6 +44,7 @@
 .orderdetail .half{
   width:50%;
   float: left;
+  overflow: hidden;text-overflow: ellipsis; white-space: nowrap;
 }
 .selectlist{
   width:40%;

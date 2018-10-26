@@ -19,9 +19,7 @@
         </view>
     </view>
 </view>
-
 <view class="weui-cells weui-cells_after-title">
-    
   <view class="weui-cell weui-cell_select">
         <view class="weui-cell__hd ">
             <view class="newBox"><view class='lineBox'></view>装修信息<view  class="msize">(必填)</view></view>
@@ -34,7 +32,7 @@
                     <view class="weui-label">工期：</view>
                 </view>
                 <view class="weui-cell__bd ipt">
-                    <input class="weui-input inp" value='{{ duration }}' bindinput="durationInput" placeholder="**"/>
+                    <input class="weui-input inp" type='number' value='{{ duration }}' bindinput="durationInput" placeholder="**"/>
                     <text class='ts'>工作日</text>
                 </view>
             </view>
@@ -76,7 +74,7 @@
                     <view class="weui-label">联系方式：</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" value='{{ stylistphone }}' bindinput="stylistphoneInput" bindblur="stylistphoneInputAuth" placeholder="请输入电话号码"/>
+                    <input class="weui-input" type='number' value='{{ stylistphone }}' bindinput="stylistphoneInput" bindblur="stylistphoneInputAuth" placeholder="请输入电话号码"/>
                 </view>
             </view>
         </view>
