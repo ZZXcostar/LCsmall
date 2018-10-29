@@ -54,6 +54,13 @@ Page({
     })
   },
   showTopTips(){
+    if (wx.getStorageSync('isEdit') == 1) {
+      wx.showToast({
+        title: '没有编辑权限',
+        icon: 'none',
+      })
+      return
+    }
     var data = {}
     data.projectId = this.data.projectId;
     data.remark = this.data.rest;

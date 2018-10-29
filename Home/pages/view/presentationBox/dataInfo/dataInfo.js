@@ -69,6 +69,13 @@ Page({
     })
   },
   formSubmit(e){
+    if (wx.getStorageSync('isEdit') == 1) {
+      wx.showToast({
+        title: '没有编辑权限',
+        icon: 'none',
+      })
+      return
+    }
     var data = e.detail.value
     data.direct = parseFloat(data.direct)
     data.salary = parseFloat(data.salary)
@@ -102,23 +109,23 @@ Page({
     }else{
       let cookie = this.data.cookie
       console.log(data)
-      // wx.request({
-      //   url: utilBox.urlheader + "public/entrysigncollection/insertOne",
-      //   data: data,
-      //   header: {
-      //     'content-type': 'application/json', // 默认值
-      //     cookie: cookie
-      //   },
-      //   method: 'post',
-      //   success: function (res) {
-      //     if (res.data.status == 200) {
-      //       wx.navigateBack({ changed: true });//返回上一页
-      //     }
-      //   },
-      //   fail: function (err) {
-      //     console.log(err)
-      //   }
-      // })
+      wx.request({
+        url: utilBox.urlheader + "public/entrysigncollection/insertOne",
+        data: data,
+        header: {
+          'content-type': 'application/json', // 默认值
+          cookie: cookie
+        },
+        method: 'post',
+        success: function (res) {
+          if (res.data.status == 200) {
+            wx.navigateBack({ changed: true });//返回上一页
+          }
+        },
+        fail: function (err) {
+          console.log(err)
+        }
+      })
     }
   }
 })

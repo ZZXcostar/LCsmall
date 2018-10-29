@@ -78,6 +78,13 @@ Page({
     })
   },
   formSubmit(e){
+    if (wx.getStorageSync('isEdit') == 1) {
+      wx.showToast({
+        title: '没有编辑权限',
+        icon: 'none',
+      })
+      return
+    }
     var list = e.detail.value
     var data={}
     data.projectId = this.data.projectId

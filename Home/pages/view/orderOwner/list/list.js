@@ -72,29 +72,24 @@ Page({
             title: res.showapi_res_error,
           })
         }
-
-
       }, function (res) {
         wx.showToast({
           title: '加载数据失败',
         })
       }, 'application/json')
-
-
-
-
   },
   /**
    * 生命周期函数--监听页面加载
    */
-
-
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     console.log(options)
     var that = this
     this.data.page = 1
     that.getMusicInfo('正在加载数据...','')
+  },
+  onShow(){
+    this.onLoad();
   },
   onPullDownRefresh: function () {
     console.log(1)

@@ -15,6 +15,7 @@ Page({
   },
 
   onLoad: function (options) {
+    console.log(wx.getStorageSync('isEdit'))
     var id = wx.getStorageSync('id');
     var that = this;
     let userInfo = wx.getStorageSync("userInfo");

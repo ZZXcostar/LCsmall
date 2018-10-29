@@ -53,7 +53,7 @@
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
                     <view class="weui-cell__bd"></view>
-                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.reportId}}" data-phone='{{item.phone}}' type="primary">关联报告</button>
+                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.reportId}}" data-phone='{{item.vipPhone}}' type="primary">关联报告</button>
                   </view>
                 </view>
               </view>
@@ -99,7 +99,7 @@
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
                     <view class="weui-cell__bd"></view>
-                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.reportId}}" data-phone='{{item.phone}}' type="primary">关联报告</button>
+                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.reportId}}" data-phone='{{item.vipPhone}}' type="primary">关联报告</button>
                   </view>
                 </view>
               </view>
@@ -145,7 +145,7 @@
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
                     <view class="weui-cell__bd"></view>
-                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.reportId}}" data-phone='{{item.phone}}' type="primary">关联报告</button>
+                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.reportId}}" data-phone='{{item.vipPhone}}' type="primary">关联报告</button>
                   </view>
                 </view>
               </view>
@@ -191,7 +191,7 @@
                 <view class=" weui-cells_after-title">
                   <view class="weui-cell">
                     <view class="weui-cell__bd"></view>
-                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.reportId}}" data-phone='{{item.phone}}' type="primary">关联报告</button>
+                    <button class="weui-btn buttonSize" bindtap='goassociationReport' data-reportId="{{item.reportId}}" data-phone='{{item.vipPhone}}' type="primary">关联报告</button>
                   </view>
                 </view>
               </view>

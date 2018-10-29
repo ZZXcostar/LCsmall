@@ -190,6 +190,13 @@ Page({
     });
   },
   formSubmit(e){ //数据提交
+    if (wx.getStorageSync('isEdit') == 1) {
+      wx.showToast({
+        title: '没有编辑权限',
+        icon: 'none',
+      })
+      return
+    }
     var data={}
     var list = e.detail.value
     data.projectId = this.data.projectId;

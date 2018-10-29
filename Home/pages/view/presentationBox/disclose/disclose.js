@@ -93,13 +93,21 @@ Page({
     var standard = e.currentTarget.dataset.standard
     var acceptance = e.currentTarget.dataset.acceptance
     var datalist= this.data.datalist
-    console.log(datalist)
+    console.log(datalist[index].isService)
     // for (let k in datalist){
       if (datalist[index].isService == '') {
-        wx.navigateTo({
-          url: '../../orderOwner/reportAccept/reportAccept?id=' + id + "&types=" + types + "&bgid=" + bgid + "&acceptance=" + acceptance + "&standard=" + standard+'&index='+index,
-        })
-      } else if (datalist[index].isService == '无需验收') {
+        if (wx.getStorageSync('isEdit') == 0){ //判断是否是关联报告进入
+          wx.navigateTo({
+            url: '../../orderOwner/reportAccept/reportAccept?id=' + id + "&types=" + types + "&bgid=" + bgid + "&acceptance=" + acceptance + "&standard=" + standard + '&index=' + index,
+          })
+        } else {
+          wx.showToast({
+            title: '没有编辑权限',
+            icon: 'none',
+          })
+        }
+        
+      } else if (datalist[index].isService == '无需验收' ) {
         // wx.showToast({
         //   icon:'none',
         //   title: '此节点无需验收',
@@ -134,6 +142,14 @@ Page({
     })
   },
   submit(){
+    //判断是否是   关联报告进入
+    if (wx.getStorageSync('isEdit')==1){
+      wx.showToast({
+        title: '没有编辑权限',
+        icon: 'none',
+      })
+      return
+    }
     for (let i in this.data.datalist){
       if (this.data.datalist[i].remark==null){
         wx.showToast({

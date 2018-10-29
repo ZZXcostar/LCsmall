@@ -110,6 +110,7 @@ Page({
     }   
   },
   goassociationReport:function(e){
+    wx.setStorageSync('isEdit', 1)
     let reportId = e.currentTarget.dataset.reportid
     let phone = e.currentTarget.dataset.phone
     wx.navigateTo({
@@ -117,6 +118,7 @@ Page({
     })
   },
   gopresent: function (val){
+    wx.setStorageSync('isEdit', 0)
     let orderId = val.currentTarget.dataset.reportid
     var types = val.currentTarget.dataset.type
     var typeName=this.data.listInfo[this.data.currentTab].serName
@@ -165,10 +167,19 @@ Page({
             let obj = {}
             obj.name = data[i].projectEstablish.orderDetail.name;
             obj.phone = data[i].projectEstablish.orderDetail.phone;
+            obj.vipPhone = data[i].projectEstablish.orderDetail.vipPhone;
             obj.orderNum = data[i].projectEstablish.orderDetail.orderNumber;
             obj.add = data[i].projectEstablish.orderDetail.detailAddress;
             obj.types = that.data.tabs[that.data.activeIndex];
-            obj.typedata = data[i].projectEstablish.orderDetail.categoryName    
+            obj.typedata = data[i].projectEstablish.orderDetail.categoryName
+            if (data[i].projectEstablish.orderDetail.categoryName==null){
+              if (data[i].projectEstablish.orderDetail.serviceType.serName=='全程监理'){
+                obj.typedata='监理'
+              } else if (data[i].projectEstablish.orderDetail.serviceType.serName=='陪签服务'){
+                obj.typedata='陪签'
+              }
+              // obj.typedata = data[i].projectEstablish.orderDetail.serviceType.serName
+            } 
             obj.reportId = data[i].projectEstablishId;
             obj.node = data[i].projectEstablish.entryReports
             var index = -1;

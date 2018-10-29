@@ -242,6 +242,13 @@ Page({
     })
   },
   formSubmit(e){
+    if (wx.getStorageSync('isEdit') == 1) {
+      wx.showToast({
+        title: '没有编辑权限',
+        icon: 'none',
+      })
+      return
+    }
     var checkboxItems = this.data.checkboxItems
     var list = e.detail.value
     var data={}

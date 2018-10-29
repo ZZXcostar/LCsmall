@@ -17,6 +17,10 @@ page{
 .mtop .weui-cell__bd, .mtop .newTop, .mtop .weui-cell__ft {
    font-size: 28rpx !important;
 }
+.pal{
+  width: 342rpx;
+   overflow: hidden;text-overflow: ellipsis; white-space: nowrap;
+}
 .lineGreen{
   height: 28rpx;
   width: 8rpx;

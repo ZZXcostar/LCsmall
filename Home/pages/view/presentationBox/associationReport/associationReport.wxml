@@ -5,10 +5,10 @@
     </view></view>
     <view class="weui-flex__item"><view class="placeholder">
     <view class='textGreen'>{{item.orderDetail.name}} {{item.orderDetail.phone}}</view>
-    <view><view class="iconfont icon-location2"></view>  <text class='textSize'>{{item.orderDetail.detailAddress}}</text></view>
+    <view><view class="iconfont icon-location2"></view>  <text class='textSize'>{{item.orderDetail.detailAddress==null?item.orderInfo.detailAddress:item.orderDetail.detailAddress}}</text></view>
     </view></view>
     <view><view class="placeholder">
-    <button class='buttonSize' bindtap='buttonSize' data-name='{{item.orderDetail.serviceStateName}}' data-num='{{item.orderDetail.orderNumber}}' data-ind='{{item.id}}'>{{item.orderDetail.serviceStateName}}</button>
+    <button class='buttonSize' bindtap='buttonSize' data-name='{{item.orderDetail.serviceStateName}}' data-num='{{item.orderDetail.orderNumber}}' data-ind='{{item.id}}'>{{item.orderDetail.serviceStateName==null?item.orderDetail.serviceType.serName:item.orderDetail.serviceStateName}}</button>
     </view></view>
 </view>
 </view>

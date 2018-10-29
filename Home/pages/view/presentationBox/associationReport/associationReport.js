@@ -30,9 +30,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getStorageSync('isEdit')
     var id = options.reportId;
     var phone=options.phone;
-    console.log(id)
+    // console.log(id)
     var that = this;
     let userInfo = wx.getStorageSync("userInfo");
     let reg = /[\W\w]*(JSESSIONID\=[\w\d\-]*)[\W\w]*/;
@@ -48,7 +49,6 @@ Page({
       },
       method: 'post',
       success: function (res) {
-        console.log(res.data.info)
         let obj=[]
         for (let i in res.data.info){
           if (id != res.data.info[i].id) {

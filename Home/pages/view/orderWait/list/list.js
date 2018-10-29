@@ -45,6 +45,9 @@ Page({
     this.data.page = 1
     that.getMusicInfo('正在加载数据...', '')
   },
+  onShow(){
+    this.onLoad();
+  },
   onPullDownRefresh: function () {
     console.log(1)
     this.data.page = 1
