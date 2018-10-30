@@ -49,7 +49,7 @@
         </view>
       </view>
     </view>
-    <text class='baseline' wx:if='{{contentlist.length>=3}}' decode="{{true}}">--------&ensp;&ensp;底&ensp;&ensp;线&ensp;&ensp;--------</text>
+    <text class='baseline' wx:if='{{contentlist.length>=4}}' decode="{{true}}">--------&ensp;&ensp;底&ensp;&ensp;线&ensp;&ensp;--------</text>
   </scroll-view>
 </view>
 <view class='zwxx' wx:if='{{contentlist.length==0}}'>

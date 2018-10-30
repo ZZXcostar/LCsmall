@@ -34,14 +34,14 @@ Page({
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     var that = this
-    wx.getSystemInfo({
-      success: function (res) {
-        that.setData({
-          height: res.windowHeight - (res.windowWidth / 750) * 94 *2+ "rpx"
-        })
-      }
-    })
-    console.log(this.data.height)
+    // wx.getSystemInfo({
+    //   success: function (res) {
+    //     that.setData({
+    //       height: res.windowHeight - (res.windowWidth / 750) * 94 *2+ "rpx"
+    //     })
+    //   }
+    // })
+    // console.log(this.data.height)
     this.data.page = 1
     that.getMusicInfo('正在加载数据...', '')
   },

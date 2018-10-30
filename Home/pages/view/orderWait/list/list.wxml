@@ -53,7 +53,7 @@
           <button class='warn' data-ids="{{item.id}}" data-workLists="{{item.workLists}}" catchtap='changeshows'>放弃接单</button>
       </view>
     </view>
-    <text class='baseline' wx:if='{{contentlist.length>=3}}' decode="{{true}}">--------&ensp;&ensp;底&ensp;&ensp;线&ensp;&ensp;--------</text>
+    <text class='baseline' wx:if='{{contentlist.length>=4}}' decode="{{true}}">--------&ensp;&ensp;底&ensp;&ensp;线&ensp;&ensp;--------</text>
   </scroll-view>
   <view class="overback" hidden='{{showcancle}}' catchtap='changeshow' id='overback'>
     <view class='dialog'>

@@ -81,9 +81,9 @@ border:none;
   line-height: 60rpx;
   margin: 10rpx 0;
 }
-.placeholder{
-   line-height: 60rpx;
-   width: 342rpx;
+
+.pal{
+  width: 342rpx;
   overflow: hidden;text-overflow: ellipsis; white-space: nowrap;
 }
 .weui-navbar__title{
@@ -91,7 +91,8 @@ border:none;
 }
 .placeholder{
    line-height: 60rpx;
-}.textareBox{
+}
+.textareBox{
   float: right;
  word-wrap:break-word;
  height: 200rpx;

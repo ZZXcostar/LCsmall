@@ -11,7 +11,7 @@
       <view class='newBox'>
         <view class="weui-flex">
           <view class="weui-flex__item">
-            <view class="placeholder">业主姓名：
+            <view class="placeholder pal">业主姓名：
               <text>{{orderInfo.orderDetail.name}}</text>
             </view>
           </view>
