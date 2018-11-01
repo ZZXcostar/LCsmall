@@ -27,10 +27,10 @@
       <view class="page__bd page__bd_spacing marginTop buttonStyle">
         <button formType="submit" class="weui-btn" bindtap='login' >登录</button>
       </view>
-      <view class='textIfo'>
+      <!-- <view class='textIfo'>
         <text>绿城服务集团旗下唯一第三方监理</text>
         <text>装修前找管家.全程无忧</text>
-      </view>
+      </view> -->
     </view>
   </form>
 </view>

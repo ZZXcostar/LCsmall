@@ -4,8 +4,11 @@
   background-color: #f5f5f5;
   /* padding-bottom:150rpx; */
 }
-modal{
+.yuany{
   font-size: 28rpx;
+  background: #ffffff;
+  z-index: 99999999999;
+  position: relative;
 }
 .reportaccept>view:not(.overback){
   padding-top: 10rpx;
@@ -18,7 +21,7 @@ modal{
 }
 .heig{
   min-height: 120rpx !important;
-  cursor-spacing:120rpx;
+  /* cursor-spacing:120rpx; */
 }
 .reportaccept .titles{
   padding:0rpx 20rpx 10rpx 20rpx;
@@ -133,7 +136,7 @@ button::after{
    width:100%;
    margin-bottom: 0rpx !important;
    padding-bottom: 0rpx !important;
-   z-index: 999;
+   z-index: 9;
    height: 88rpx;
    line-height: 88rpx !important;
 }

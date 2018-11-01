@@ -75,15 +75,11 @@ Page({
     var isshow=null;
     if (e.target.id =='overback'){
       isshow=true;
-      
     } 
     else if (e.target.id =='cancle'){
       isshow = this.data.showcancle ? false : true;
-     
     }
-    
     this.setData({ showcancle: isshow});
- 
   },
   //放弃接单
   formSubmit: function (options){

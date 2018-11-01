@@ -62,7 +62,7 @@
         <button class="weui-btn weui-flex__item" type="warn" bindtap='noNeed'>无需验收</button>
         <button class="weui-btn weui-flex__item" formType="submit">预览/保存</button>
     </view>
-    <modal hidden="{{hiddenmodalput}}" title="无需验收原因（必填）" confirm-text="确定" cancel-text="取消" style='' bindcancel="cancel" bindconfirm="confirm">
+    <modal hidden="{{hiddenmodalput}}" class="yuany" title="无需验收原因（必填）" confirm-text="确定" cancel-text="取消" style='' bindcancel="cancel" bindconfirm="confirm">
         <input type='text' placeholder="请输入理由" bindinput='reason' focus="{{!hiddenmodalput}}" cursor-spacing="100"  value='{{reason}}'/>
     </modal>
 </view>

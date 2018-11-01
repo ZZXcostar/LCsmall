@@ -4,7 +4,7 @@
         <view class='content_detail'>
            <view>
               <view class='name'>装修公司名称：</view>
-              <input value='{{ decoration }}' bindinput="decorationInput" placeholder="具体那个分公司" />
+              <input value='{{ decoration }}' bindinput="decorationInput" placeholder="请输入装修公司，具体哪个分公司" />
            </view>
         </view>
     </view> 
