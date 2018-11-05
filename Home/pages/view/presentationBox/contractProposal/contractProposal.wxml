@@ -22,7 +22,7 @@
 <view class="weui-panel weui-panel_access">
   <view class="weui-panel__hd">三、工期约定 </view>
   <view class="weui-panel__bd">
-    <input class='inp'  bindinput='timeLimit' type='number' disabled='{{!isSee}}' value='{{timeLimit}}' placeholder='请输入工期'></input>
+    <input class='inp'  bindinput='timeLimit' type='digit' disabled='{{!isSee}}' value='{{timeLimit}}' placeholder='请输入工期'></input>
     <text class='txt'>工作日</text>
   </view>
 </view>

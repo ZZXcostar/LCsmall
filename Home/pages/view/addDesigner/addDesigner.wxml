@@ -32,7 +32,7 @@
                     <view class="weui-label">工期：</view>
                 </view>
                 <view class="weui-cell__bd ipt">
-                    <input class="weui-input inp" type='number' value='{{ duration }}' bindinput="durationInput" placeholder="**"/>
+                    <input class="weui-input inp" type='digit' value='{{ duration }}' bindinput="durationInput" placeholder="**"/>
                     <text class='ts'>工作日</text>
                 </view>
             </view>
